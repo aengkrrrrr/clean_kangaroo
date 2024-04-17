@@ -5,14 +5,33 @@
 
 :root {
   --font-size: 16px;
+  --font-bold:700;
   --black: #000;
   --white: #fff;
+  --body-l:calc(var(--font-size) + 6px);
+  --body-sl:calc(var(--font-size) + 4px);
+  --body-m:calc(var(--font-size) + 2px);
+  --body-s:calc(var(--font-size) - 2px);
 }
 
-
-body {font-family: 'SUIT', sans-serif;}
-h1{
-  font-size: 50px;
-  font-weight: bold;
+body {
   font-family: 'SUIT', sans-serif;
+  font-size: var(--font-size);
+  line-height: 1.4;
+  font-weight: 400;
 }
+.h1, .h2, .h3, .h4 {line-height: 1.1; font-weight: var(--font-bold);}
+.h1{font-size: 56px;}
+.h2{font-size: 48px;}
+.h3{font-size: 40px;}
+.h4{font-size: 32px;}
+.body1b {font-size: var(--body-l); font-weight: var(--font-bold);}
+.body2b {font-size: var(--body-sl); font-weight: var(--font-bold);}
+.body3b {font-size: var(--body-m); font-weight: var(--font-bold);}
+.body4b {font-size: var(--font-size); font-weight: var(--font-bold);}
+.body5b {font-size: var(--body-s); font-weight: var(--font-bold);}
+.body1 {font-size: var(--body-l);}
+.body2 {font-size: var(--body-sl);}
+.body3 {font-size: var(--body-m);}
+.body4 {font-size: var(--font-size);}
+.body5 {font-size: var(--body-s);}
