@@ -15,6 +15,27 @@
 }
 
 body {
+
+
+  /* 컬러 */
+  --C-primary: #14C4BE;
+  --C-secondary: #FF861E;
+  --C-black: #000;
+  --C-white: #fff;
+  --C-hover: #0E8A85;
+  --C-active: #5AD6D1;
+  --C-disable: #BDBDBD;
+  --C-gray: #333;
+
+  /******* 컬러 */
+}
+
+
+body {font-family: 'SUIT', sans-serif;}
+
+h1{
+  font-size: 50px;
+  font-weight: bold;
   font-family: 'SUIT', sans-serif;
   font-size: var(--font-size);
   line-height: 1.4;
@@ -35,3 +56,72 @@ body {
 .body3 {font-size: var(--body-m);}
 .body4 {font-size: var(--font-size);}
 .body5 {font-size: var(--body-s);}
+
+/* 버튼 공통 */
+.primary_btn {
+  display: inline-block;
+  background: var(--C-primary);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+.secondary_btn {
+  display: inline-block;
+  background: var(--C-secondary);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+.basic_btn {
+  display: inline-block;
+  background: var(--C-black);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+.hover_btn {
+  display: inline-block;
+  background:var(--C-hover);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+.active_btn {
+  display: inline-block;
+  background:var(--C-active);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+.disable_btn {
+  display: inline-block;
+  background:var(--C-disable);
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+}
+/********버튼 공통 */
