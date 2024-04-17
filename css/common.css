@@ -1,0 +1,7 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css");
+@import url("normalize.css");
+@import url("reset.css");
+
+:root {
+  --h1 : 24px;
+}
