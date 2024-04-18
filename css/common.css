@@ -28,11 +28,11 @@ body {
   --C-gray: #333;
 
   /******* 컬러 */
+
+
+/* 타이포그라피 */
+font-family: 'SUIT', sans-serif;
 }
-
-
-body {font-family: 'SUIT', sans-serif;}
-
 h1{
   font-size: 50px;
   font-weight: bold;
@@ -41,21 +41,24 @@ h1{
   line-height: 1.4;
   font-weight: 400;
 }
-.h1, .h2, .h3, .h4 {line-height: 1.1; font-weight: var(--font-bold);}
+.h1, .h2, .h3, .h4 {line-height: 1.1;}
+.h1, .h2, .h3, .h4, .body1b, .body2b, .body3b, .body4b, .body5b { font-weight: var(--font-bold);}
 .h1{font-size: 56px;}
 .h2{font-size: 48px;}
 .h3{font-size: 40px;}
 .h4{font-size: 32px;}
-.body1b {font-size: var(--body-l); font-weight: var(--font-bold);}
-.body2b {font-size: var(--body-sl); font-weight: var(--font-bold);}
-.body3b {font-size: var(--body-m); font-weight: var(--font-bold);}
-.body4b {font-size: var(--font-size); font-weight: var(--font-bold);}
-.body5b {font-size: var(--body-s); font-weight: var(--font-bold);}
+.body1b {font-size: var(--body-l); }
+.body2b {font-size: var(--body-sl);}
+.body3b {font-size: var(--body-m);}
+.body4b {font-size: var(--font-size);}
+.body5b {font-size: var(--body-s);}
 .body1 {font-size: var(--body-l);}
 .body2 {font-size: var(--body-sl);}
 .body3 {font-size: var(--body-m);}
 .body4 {font-size: var(--font-size);}
 .body5 {font-size: var(--body-s);}
+/************ 타이포그라피 */
+
 
 /* 버튼 공통 */
 .primary_btn {
