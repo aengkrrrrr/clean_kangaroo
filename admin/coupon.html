@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>쿠폰 관리</title>
+</head>
+<body>
+  <p></p>
+  <table class="table">
+    <tr class="header">
+        <td class="couimg">쿠폰이미지</td>
+        <td class="couselect">종류</td>
+        <td class="title">쿠폰명</td>
+        <td class="title">할인금액(률)</td>
+        <td class="title">행사기간</td>
+        <td class="title">적용대상</td>
+        <td>작성자</td>
+        <td>작성날짜</td>
+    </tr>
+    <script>
+      var i, day = 20;
+      for (i = 10; i > 0; i--) {
+          document.write("<tr class='body'>");
+          document.write("<td>" + i +"</td>");
+          document.write("<td class='title'>제목입니다.</td>"); 
+          document.write("<td>작성자</td>"); 
+        document.write("<td>24-01-" + day-- + "</td>");
+          document.write("</tr>");
+      }
+    </script>
+</table>
+</body>
+</html>
