@@ -8,10 +8,10 @@
   --font-bold:700;
   --black: #000;
   --white: #fff;
-  --body-l:calc(var(--font-size) + 6px);
-  --body-sl:calc(var(--font-size) + 4px);
-  --body-m:calc(var(--font-size) + 2px);
-  --body-s:calc(var(--font-size) - 2px);
+  --body-l:calc(var(--font-size) + 6px); /*22px*/
+  --body-sl:calc(var(--font-size) + 4px);/*20px*/
+  --body-m:calc(var(--font-size) + 2px);/*18px*/
+  --body-s:calc(var(--font-size) - 2px);/*14px*/
 }
 
 body {
@@ -96,6 +96,7 @@ h1{
   color: #fff;
   padding: 10px 30px;
   text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
 }
 .secondary_btn {
   display: inline-block;
@@ -107,6 +108,7 @@ h1{
   color: #fff;
   padding: 10px 30px;
   text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
 }
 .basic_btn {
   display: inline-block;
@@ -118,6 +120,7 @@ h1{
   color: #fff;
   padding: 10px 30px;
   text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
 }
 .hover_btn {
   display: inline-block;
@@ -129,6 +132,7 @@ h1{
   color: #fff;
   padding: 10px 30px;
   text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
 }
 .active_btn {
   display: inline-block;
@@ -140,6 +144,7 @@ h1{
   color: #fff;
   padding: 10px 30px;
   text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
 }
 .disable_btn {
   display: inline-block;
@@ -151,6 +156,7 @@ h1{
   color: #fff;
   padding: 10px 30px;
   text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
 }
 /********버튼 공통 */
 
@@ -160,9 +166,20 @@ h1{
   width: 350px;
   height: 100vh;
   box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+  padding: 50px 60px;
 }
 .logo {
   background: url(/admin/images/admin_header_logo.png) no-repeat 50% 50%;
   height: 70px;
+}
+.gnb_wrap {
+  flex-direction: column;
+  gap: 50px;
+  padding-top: 117px;
+}
+.logout_btn {
+  padding: 10px 57px;
+  margin-top: 250px;
+  margin-left: 30px;
 }
 /******** 공통 헤더 */
