@@ -33,6 +33,13 @@ body {
 
 body {font-family: 'SUIT', sans-serif;}
 
+.hidden {
+  position: relative;
+  left: 0;
+  top: -9999px;
+  overflow: hidden;
+}
+
 h1{
   font-size: 50px;
   font-weight: bold;
@@ -125,3 +132,12 @@ h1{
   text-transform: capitalize;
 }
 /********버튼 공통 */
+
+
+/* 공통 헤더 */
+#header .container{
+  width: 350px;
+  height: 100vh;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
+}
+/******** 공통 헤더 */
