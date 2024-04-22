@@ -58,16 +58,21 @@
   <form action="" id="">
     <div class="board_category df">
       <div class="select_wrap">
-        <select class="form-select" aria-label="" id="" name="" required>
+        <select class="form-select" aria-label="" id="" name="">
           <option selected>대분류</option>
           <option>중분류</option>
           <option>소분류</option>
         </select>
       </div>
-      <input class="form-control search" type="text" id="" name="">
+      <div class="search_wrap df">
+        <input class="form-control search" type="text" id="search_keyword" name="keyword">
+        <button class="primary_btn">검색</button>
+      </div>
     </div>
   </form>
+
   <hr>  
+
   <form action="">
     <table class="table">
       <thead>
@@ -153,10 +158,46 @@
       </tbody>
     </table>
   </form>
-  <a href="" class="primary_btn board_btn">쿠폰 등록</a>
+  <!--공통 pagination-->
+ <div class="nav_wrap df aic">
+    <nav aria-label="">
+      <ul class="pagination">
+        <li class="page-item disabled">
+          <a class="page-link">&laquo;</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link" href="#">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link" href="#">&raquo;</a>
+        </li>
+      </ul>
+    </nav>
+  <!------------- 공통 pagination-->
+    <a href="" class="primary_btn board_btn">쿠폰 등록</a>
+ </div>
 </div>
 <!----------- 게시판 폼 -->
 
+<!--공통 pagination-->
+<nav aria-label="">
+  <ul class="pagination">
+    <li class="page-item disabled">
+      <a class="page-link">&laquo;</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item active" aria-current="page">
+      <a class="page-link" href="#">2</a>
+    </li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item">
+      <a class="page-link" href="#">&raquo;</a>
+    </li>
+  </ul>
+</nav>
+<!------------- 공통 pagination-->
 
 
 </body>
