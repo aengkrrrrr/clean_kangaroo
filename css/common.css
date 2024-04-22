@@ -253,6 +253,12 @@ h1{
 
 /******** 게시판 공통 폼 */
 
+
+
+.primary_btn:hover{
+  background: var(--C-hover);
+}
+
 /* 공통 pagination */
   .page-link, .page-link:hover{
     color:#828282;
