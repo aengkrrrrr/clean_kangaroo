@@ -258,13 +258,19 @@ h1{
 .active>.page-link, .page-link.active {
   background-color: var(--C-primary);
   border: none;
+  color:white;
   }
-  
-  .page-link{
-    color:#828282;
+
+/***공통 pagination***/
+
+
+
+/*공통 check & radio*/
+.form-check-input:checked{
+  background-color: var(--C-primary);
+  border-color: #B9EEEC;
   }
-  
-  .page-link:hover{
-    color:var(--C-hover);
-  }
-  /**********공통 pagination*/
+/***공통 check & radio***/
+
+
+
