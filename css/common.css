@@ -259,7 +259,7 @@ h1{
   }
   .active>.page-link, .page-link.active {
     background-color: var(--C-primary);
-    border: none;
+    border-color: var(--C-primary);
     color:white;
     }
 
