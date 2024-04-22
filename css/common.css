@@ -239,6 +239,30 @@ h1{
   padding: 0;
   padding: 30px 0;
 }
-.board_btn {
+.pagination {
+  padding-left: 630px;
 }
+.nav_wrap {
+  padding-top: 60px;
+  gap: 476px;
+}
+.search_wrap {
+  gap: 10px;
+}
+
 /******** 게시판 공통 폼 */
+
+/* 공통 pagination */
+.active>.page-link, .page-link.active {
+  background-color: var(--C-primary);
+  border: none;
+  }
+  
+  .page-link{
+    color:#828282;
+  }
+  
+  .page-link:hover{
+    color:var(--C-hover);
+  }
+  /**********공통 pagination*/
