@@ -158,3 +158,19 @@ h1{
   margin-left: 30px;
 }
 /******** 공통 헤더 */
+
+
+/***공통 pagination***/
+.active>.page-link, .page-link.active {
+background-color: var(--C-primary);
+border: none;
+}
+
+.page-link{
+  color:#828282;
+}
+
+.page-link:hover{
+  color:var(--C-hover);
+}
+/***공통 pagination***/
