@@ -159,18 +159,35 @@ h1{
 }
 /******** 공통 헤더 */
 
-
-/***공통 pagination***/
-.active>.page-link, .page-link.active {
-background-color: var(--C-primary);
-border: none;
+/* 공통 메인 타이틀 */
+.admin_wrap img {
+  width: 47px;
 }
+/********* 공통 메인 타이틀 */
 
-.page-link{
+
+/*공통 pagination*/
+
+.page-link, .page-link:hover{
   color:#828282;
 }
 
-.page-link:hover{
-  color:var(--C-hover);
-}
+.active>.page-link, .page-link.active {
+  background-color: var(--C-primary);
+  border: none;
+  color:white;
+  }
+
 /***공통 pagination***/
+
+
+
+/*공통 check & radio*/
+.form-check-input:checked{
+  background-color: var(--C-primary);
+  border-color: #B9EEEC;
+  }
+/***공통 check & radio***/
+
+
+
