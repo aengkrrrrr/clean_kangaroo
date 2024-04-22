@@ -164,3 +164,18 @@ h1{
   width: 47px;
 }
 /********* 공통 메인 타이틀 */
+
+/***공통 pagination***/
+.active>.page-link, .page-link.active {
+background-color: var(--C-primary);
+border: none;
+}
+
+.page-link{
+  color:#828282;
+}
+
+.page-link:hover{
+  color:var(--C-hover);
+}
+/***공통 pagination***/
