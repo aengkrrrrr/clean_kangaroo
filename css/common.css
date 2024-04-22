@@ -254,13 +254,16 @@ h1{
 /******** 게시판 공통 폼 */
 
 /* 공통 pagination */
-.active>.page-link, .page-link.active {
-  background-color: var(--C-primary);
-  border: none;
-  color:white;
+  .page-link, .page-link:hover{
+    color:#828282;
   }
+  .active>.page-link, .page-link.active {
+    background-color: var(--C-primary);
+    border: none;
+    color:white;
+    }
 
-/***공통 pagination***/
+  /***공통 pagination***/
 
 
 
