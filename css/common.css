@@ -203,8 +203,8 @@ h1{
   right: 0;
   box-shadow: 0 2px 2px rgba(0, 0, 0, .25);
 }
-.common_main_tit h4 {
-  padding: 48px 0 20px 0;
+.common_main_tit .body1b {
+  padding: 48px 0 40px 0;
 }
 .admin_wrap {
   gap:20px;
@@ -224,6 +224,7 @@ h1{
 /* 게시판 공통 폼 */
 .board_category {
   justify-content: space-between;
+  padding-bottom: 60px;
 }
 .form-select {
   width: 260px;
