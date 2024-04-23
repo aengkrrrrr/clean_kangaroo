@@ -191,7 +191,7 @@ h1{
 
 /* 공통 메인 타이틀 */
 .common_main_tit {
-  width: 1552px;
+  width: calc(100% - 350px);
   padding: 0 30px;
   position: absolute;
   top: 0;
