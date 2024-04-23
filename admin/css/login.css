@@ -1,0 +1,26 @@
+body {
+  padding: 0;
+}
+.login_wrap {
+  width: 500px;
+  margin: 0 auto;
+  padding-top: 217px;
+}
+.login_logo {
+  background: url(/admin/images/admin_login_logo.png) no-repeat 50% 50%;
+  width: 300px;
+  height: 150px;
+  margin: auto auto;
+  margin-bottom: 70px;
+}
+.login {
+  width: 500px;
+  height: 60px;
+}
+.login:nth-of-type(2){
+  margin-bottom: 20px;
+}
+.login_btn {
+  width: 500px;
+  padding: 14px 30px;
+}

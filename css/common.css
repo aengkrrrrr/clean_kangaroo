@@ -98,6 +98,7 @@ h1{
   padding: 10px 30px;
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
+  cursor: pointer;
 }
 .secondary_btn {
   display: inline-block;
@@ -110,6 +111,7 @@ h1{
   padding: 10px 30px;
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
+  cursor: pointer;
 }
 .basic_btn {
   display: inline-block;
@@ -122,6 +124,7 @@ h1{
   padding: 10px 30px;
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
+  cursor: pointer;
 }
 .hover_btn {
   display: inline-block;
@@ -134,6 +137,7 @@ h1{
   padding: 10px 30px;
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
+  cursor: pointer;
 }
 .active_btn {
   display: inline-block;
@@ -146,6 +150,7 @@ h1{
   padding: 10px 30px;
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
+  cursor: pointer;
 }
 .disable_btn {
   display: inline-block;
@@ -158,6 +163,7 @@ h1{
   padding: 10px 30px;
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
+  cursor: pointer;
 }
 /********버튼 공통 */
 
