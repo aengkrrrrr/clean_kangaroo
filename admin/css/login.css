@@ -30,32 +30,53 @@ body {
 /* 팝업창 */
 .popup {
   position: absolute;
-  left: 350px;
-  top: 68px;
+  left: 250px;
+  top: 60px;
   width: 520px;
-  height: 825px;
   border: 8px solid var(--C-primary);
   box-sizing: border-box;
   background: var(--C-white);
   z-index: 100;
-  padding: 30px 50px;
+  padding: 30px 40px;
+}
+.popup hr {
+  border: 1px solid var(--C-primary);
+  opacity: 1;
 }
 .pop_up_img {
   display: block;
   margin: 0 auto;
   width: 416px;
+  padding-bottom: 10px;
 }
 .pophd strong{
+  padding: 10px 0;
   display: block;
 }
-.pophd {
-  
+.popct01 p{
+  padding-bottom: 5px;
 }
-
-
-
+.link{
+  gap: 20px;
+}
+.popct02 p,
+.popct02 strong {
+  padding-bottom: 5px;
+}
+.workset_area02 {
+  padding-top: 15px;
+}
+.popft {
+  padding-bottom: 40px;
+}
+.popft p {
+  padding-bottom: 5px;
+}
 .popup_btn {
-  width: 59px;
-  display: block;
+  position: absolute;
+  right: 40px;
+  bottom: 20px;
+  width: 50px;
 }
+
 /********* 팝업창 */
