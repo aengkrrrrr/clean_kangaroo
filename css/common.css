@@ -222,9 +222,6 @@ h1{
 /********* 공통 메인 타이틀 */
 
 /* 게시판 공통 폼 */
-.board_container {
-  padding: 60px 80px;
-}
 .board_category {
   justify-content: space-between;
 }
@@ -238,7 +235,10 @@ h1{
   width: 260px;
 }
 .table>thead th{
+  height: 70px;
   background: #dadada;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 .table>tbody tr td{
   border-bottom: 1px solid var(--C-gray);
