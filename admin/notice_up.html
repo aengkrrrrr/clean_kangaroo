@@ -8,19 +8,29 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   <link rel="stylesheet" href="/css/common.css">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> 
-  <title>공지사항 등록</title>
+  <title>공지사항 관리</title>
   <style>
+    h3{
+      text-align: center;
+      font-size:40px;
+      margin:60px auto;
+    }
+    p{
+      font-size: 20px;
+    }
     .notice_add{
-
+      margin: 0 15%;
+    }
+    .category{
+      display: flex;
+      justify-content: start;
+      gap:50px;
+      margin-bottom:16px;
     }
 
-    ul{
-      display: flex;
-      gap:50px;
-      list-style: none;
-      justify-content: center;
-      align-items: center;
-      overflow-y: auto;
+    #editordata{
+      width: calc(100% + 24px);
+      height:500px;
     }
   </style>
 </head>
@@ -36,14 +46,13 @@
     <h4 class="h4">공지사항 관리</h4>
   </div>
   <!------------ 메인 타이틀 -->
-<div class="notice_add">
-  <h2>공지사항 등록</h2>
-<ul>
-  <li><ul>
-    <p>카테고리 :</p> 
-    <li>
 
-    <select class="form-select" aria-label="Default select example">
+<div class="notice_add">
+  <h3>공지사항 등록</h3>
+    <ul>
+    <p>카테고리</p> 
+    <li class="category">
+    <select class="form-select" aria-label="대분류">
       <option selected>대분류</option>
       <option value="1">강좌관리</option>
       <option value="2">게시판 관리</option>
@@ -51,43 +60,46 @@
       <option value="3">쿠폰관리</option>
       <option value="3">매출관리</option>
     </select>  
-  </li>
-  <li>
-    <select class="form-select" aria-label="Default select example">
+
+    <select class="form-select" aria-label="중분류">
       <option selected>중분류</option>
       <option value="1">One</option>
       <option value="2">Two</option>
       <option value="3">Three</option>
-    </select>  
-  </li></ul>
+    </select>
+  </li>
+</ul>
 <ul>
   <li>
     <div class="form-floating mb-3">
-      <input type="text" class="form-control" id="floatingInput" placeholder="강좌명">
-      <label for="floatingInput">강좌명</label>
+      <input type="text" class="form-control" id="floatingInput_title" placeholder="제목">
+      <label for="floatingInput_title">제목</label>
+    </div>
+  </li>
+  <li>
+    <div class="container">
+      <textarea class="summernote" name="editordata"></textarea>    
     </div>
   </li>
 </ul>
-</li>
-<li>dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-  dummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytextdummytext
-</li>
+<ul>
+  <li><div class="mb-3">
+    <label for="formFile" class="form-label">이미지 업로드</label>
+    <input class="form-control" type="file" id="formFile">
+  </div></li>
 </ul>
-</div>
+<ul>
+  <li>
+    <div class="primary_btn">공지사항 등록</div>
+    <div class="basic_btn">닫기</div>
+  </li>
+</ul>
+<ul>
+  <li>
+    aaa
+  </li>
+</ul>
+
 </div>
 
 </body>

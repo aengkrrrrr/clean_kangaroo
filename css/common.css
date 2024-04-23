@@ -115,7 +115,7 @@ h1{
 }
 .basic_btn {
   display: inline-block;
-  background: var(--C-black);
+  background: var(--C-gray);
   border-radius: 6px;
   text-align: center;
   line-height: 22.4px;
@@ -285,6 +285,3 @@ h1{
   border-color: #B9EEEC;
   }
 /***공통 check & radio***/
-
-
-
