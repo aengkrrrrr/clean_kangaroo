@@ -28,6 +28,10 @@ body {
 
 
 /* 팝업창 */
+.hide {
+  display: none;
+  opacity: 0;
+}
 .popup {
   position: absolute;
   left: 250px;
