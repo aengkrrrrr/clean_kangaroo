@@ -192,6 +192,22 @@ h1{
   margin-top: 250px;
   margin-left: 20px;
 }
+
+.gnb_wrap .active{
+  color: var(--C-white);
+  position: relative;
+}
+.gnb_wrap .active:after {
+  content: '';
+  background: var(--C-primary);
+  position: absolute;
+  left: -34px;
+  top: -14px;
+  width: 200px; 
+  height: 60px;
+  border-radius: 10px;
+  z-index: -1;
+}
 /******** 공통 헤더 */
 
 /* 공통 메인 타이틀 */
