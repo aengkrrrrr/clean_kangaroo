@@ -286,3 +286,37 @@ h1{
   border-color: #B9EEEC;
   }
 /***공통 check & radio***/
+
+
+/* 송림/다영 답변등록 폼 */
+.answer_wrap {
+  margin: 0 auto;
+  width: 1200px;
+  border: 1px solid #bdbdbd;
+  border-radius: 10px;
+}
+.user_write {
+  padding: 30px 100px 100px;
+}
+.user_profile_img {
+  width: 48px;
+}
+.user_write h5 {
+  margin-left: 20px;
+}
+.user_write .title {
+  justify-content: space-between;
+}
+
+
+.admin_answer {
+  width: 878px;
+  margin: 0 auto;
+}
+.admin_answer h4 {
+  
+}
+.admin_answer .content {
+  border: 1px solid #bdbdbd;
+}
+/********** 송림/다영 답변등록 폼 */
