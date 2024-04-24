@@ -312,11 +312,13 @@ h1{
 .admin_answer {
   width: 878px;
   margin: 0 auto;
-}
-.admin_answer h4 {
-  
+  padding-bottom: 30px;
 }
 .admin_answer .content {
   border: 1px solid #bdbdbd;
+}
+.answer_btn_wrap {
+  justify-content: right;
+  gap: 30px;
 }
 /********** 송림/다영 답변등록 폼 */
