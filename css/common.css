@@ -30,7 +30,7 @@ body {
 }
 
 
-body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 159px;}
+body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 179px;}
 
 .hidden {
   position: relative;
@@ -169,7 +169,7 @@ h1{
 
 
 /* 공통 헤더 */
-#header{
+.hd_container{
   width: 300px;
   height: 100vh;
   box-shadow: 0 4px 4px rgba(0, 0, 0, .25);
@@ -218,6 +218,7 @@ h1{
 .admin_wrap .kang img {
   width: 35px;
 }
+
 
 /********* 공통 메인 타이틀 */
 
