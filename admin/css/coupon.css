@@ -1,3 +1,39 @@
-.totalcp {
-  
-}
+input[type=text]{}
+/*
+<html>
+<head>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/themes/base/jquery-ui.css" type="text/css" media="all" />
+	<style>
+ 		input[type=text].datetype{
+ 			padding:4px 2px 5px 25px; width:95px; border:1px solid #CACACA;
+      font-size:11px; color:#666; 
+      background:url('http://cfile23.uf.tistory.com/image/26100D4F5864C76827F535') no-repeat 2px 2px; background-size:15px
+    } 
+	</style>
+		<script>
+		$(document).ready(function(){
+		 	//데이트피커 초기화
+			 dateTypeIns();
+		}); // document ready function
+		
+		
+		//datepicker 날짜 입력함수
+		function dateTypeIns(){
+		 	$(".datetype").datepicker({
+		  	dateFormat : "yy-mm-dd",
+		  	changeYear: true, 
+		  	changeMonth: true,
+		  	yearRange : 'c-80:c+10',
+		    dayNamesMin: ['일', '월', '화', '수', '목', '금', '토'],
+		  	monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월']
+		 });  
+		}
+		</script>
+</head>
+<body>
+  날짜 선택 : <input class="datetype" type="text" name="search_1" />
+</body>
+</html>
+*/
