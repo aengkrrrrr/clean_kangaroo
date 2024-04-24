@@ -331,7 +331,10 @@ h1{
   padding-bottom: 30px;
 }
 .admin_answer .content {
-  border: 1px solid #bdbdbd;
+  border: none;
+}
+.admin_answer .content textarea {
+  height: 125px;
 }
 .answer_btn_wrap {
   justify-content: right;
