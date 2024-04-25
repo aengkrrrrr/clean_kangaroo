@@ -7,6 +7,11 @@ input[type=text].couponC {
 	background-position: 280px;
 	border: var(--bs-border-width) solid var(--bs-border-color);
 }
+.couponSvg img {
+	width: 20px;
+	height: 20px;
+	margin-right: 30px;
+}
 .coupon_1 {
 	height:355px;
 	justify-content: center;
