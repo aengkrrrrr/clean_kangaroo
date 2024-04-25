@@ -41,7 +41,7 @@ body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 179px;
 /* 레이아웃 */
 .grid {
   /*컨텐츠가 그리드 안에 위치한다면 추가*/
-  padding: 60px 60px 0;
+  padding: 60px 60px;
   box-sizing: border-box;
 }
 .df {
@@ -99,6 +99,7 @@ h1{
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
+  transition: 0.2s;
 }
 .secondary_btn {
   display: inline-block;
@@ -112,6 +113,7 @@ h1{
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
+  transition: 0.2s;
 }
 .basic_btn {
   display: inline-block;
@@ -125,6 +127,7 @@ h1{
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
+  transition: 0.2s;
 }
 .hover_btn {
   display: inline-block;
@@ -138,6 +141,7 @@ h1{
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
+  transition: 0.2s;
 }
 .active_btn {
   display: inline-block;
@@ -151,6 +155,7 @@ h1{
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
+  transition: 0.2s;
 }
 .disable_btn {
   display: inline-block;
@@ -165,6 +170,29 @@ h1{
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
 }
+
+
+/* 호버 효과 */
+.primary_btn:hover{
+  background: var(--C-hover);
+}
+.secondary_btn:hover {
+  background: #f3790f;
+}
+.basic_btn:hover {
+  background: #525252;
+}
+
+/* 공통 pagination 호버 효과 */
+  .page-link, .page-link:hover{
+    color:#828282;
+  }
+  .active>.page-link, .page-link.active {
+    background-color: var(--C-primary);
+    border-color: var(--C-primary);
+    color:white;
+    }
+
 /********버튼 공통 */
 
 
@@ -278,19 +306,7 @@ h1{
 
 
 
-.primary_btn:hover{
-  background: var(--C-hover);
-}
 
-/* 공통 pagination */
-  .page-link, .page-link:hover{
-    color:#828282;
-  }
-  .active>.page-link, .page-link.active {
-    background-color: var(--C-primary);
-    border-color: var(--C-primary);
-    color:white;
-    }
 
   /***공통 pagination***/
 

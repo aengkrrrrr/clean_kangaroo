@@ -5,14 +5,17 @@ input[type=text].couponC {
 	background:url('/admin/images/date.png') no-repeat 6px 6px;
 	background-size:26px;
 	background-position: 280px;
+	border: var(--bs-border-width) solid var(--bs-border-color);
 }
 .coupon_1 {
+	height:355px;
 	justify-content: center;
 	align-items: center;
+	margin-bottom: 168px;
 }
 .couponimg {
-	margin: 0 auto;
 	width: 40%;
+	text-align: center;
 }
 .coupon_area {
 	width: 60%;
@@ -20,8 +23,6 @@ input[type=text].couponC {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 30px;
-	box-sizing: border-box;
 }
 .cDates {
 	gap: 68px;
@@ -32,4 +33,18 @@ input[type=text].couponC {
 }
 .coupon_2 {
 	justify-content: space-between;
+	gap: 88px;
+}
+.c2form {
+	width: 482px;
+}
+.couponbtn:first-of-type {
+	position: absolute;
+	right: 308px;
+	margin: 20px;
+}
+.couponbtn:last-of-type {
+	position: absolute;
+	right: 190px;
+	margin: 20px;
 }
