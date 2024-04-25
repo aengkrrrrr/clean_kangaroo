@@ -9,6 +9,17 @@
   <link rel="stylesheet" href="/css/common.css">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> 
   <title>딥러닝 캥거루 / 강좌관리</title>
+  <style>
+    .th_no{
+      width: 10%;
+    }
+
+
+    .lecdesc{
+      margin-left:15px;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
   <header id="header"></header>
@@ -22,7 +33,133 @@
     <h4 class="h4">강좌관리</h4>
   </div>
   <!------------ 메인 타이틀 -->
+  <div class="board_container">
+    <form action="" id="">
+      <div class="board_category df">
+        <div class="select_wrap">
+          <select class="form-select" aria-label="" id="" name="">
+            <option selected>대분류</option>
+            <option>중분류</option>
+            <option>소분류</option>
+          </select>
+        </div>
+        <div class="search_wrap df">
+          <input class="form-control search" type="text" id="search_keyword" name="keyword">
+          <button class="primary_btn">검색</button>
+        </div>
+      </div>
+    </form>
   
+    <hr>  
+  
+    <form action="">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col" class ="th_no">번호</th>
+            <th colspan="2">제 목</th>
+            <th scope="col">카테고리</th>
+            <th scope="col">일자</th>
+            <th scope="col">조회수</th>
+            <th scope="col">수정/삭제</th>
+          </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>1</td>
+          <td><img src="/admin/images/test_coupon.png" alt=""></td>
+          <td><div class="lecdesc">
+            강의 제목 1<br>
+            강의설명<br>
+            개강일 :  24/04/15<br>
+            수강생 수  105
+          </div>
+          </td>
+          <td>웹디자인</td>
+          <td>2024.04.24</td>
+          <td>105</td>
+          <td>수정/삭제</td>
+        </tr>
+          <td>2</td>
+          <td><img src="/admin/images/test_coupon.png" alt=""></td>
+          <td><div class="lecdesc">
+            강의 제목 1<br>
+            강의설명<br>
+            개강일 :  24/04/15<br>
+            수강생 수  105
+          </div>
+          </td>
+          <td>웹디자인</td>
+          <td>2024.04.24</td>
+          <td>105</td>
+          <td>수정/삭제</td>
+        </tr>
+          <td>3</td>
+          <td><img src="/admin/images/test_coupon.png" alt=""></td>
+          <td><div class="lecdesc">
+            강의 제목 1<br>
+            강의설명<br>
+            개강일 :  24/04/15<br>
+            수강생 수  105
+          </div>
+          </td>
+          <td>웹디자인</td>
+          <td>2024.04.24</td>
+          <td>105</td>
+          <td>수정/삭제</td>
+        </tr>
+          <td>4</td>
+          <td><img src="/admin/images/test_coupon.png" alt=""></td>
+          <td><div class="lecdesc">
+            강의 제목 1<br>
+            강의설명<br>
+            개강일 :  24/04/15<br>
+            수강생 수  105
+          </div>
+          </td>
+          <td>웹디자인</td>
+          <td>2024.04.24</td>
+          <td>105</td>
+          <td>수정/삭제</td>
+        </tr>
+        <td>5</td>
+        <td><img src="/admin/images/test_coupon.png" alt=""></td>
+        <td><div class="lecdesc">
+          강의 제목 1<br>
+          강의설명<br>
+          개강일 :  24/04/15<br>
+          수강생 수  105
+        </div>
+        </td>
+        <td>웹디자인</td>
+        <td>2024.04.24</td>
+        <td>105</td>
+        <td>수정/삭제</td>
+      </tr>
+               </tbody>
+      </table>
+    </form>
+    <!--공통 pagination-->
+    <div class="nav_wrap df aic">
+        <nav aria-label="">
+          <ul class="pagination">
+            <li class="page-item disabled">
+              <a class="page-link">&laquo;</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item active" aria-current="page">
+              <a class="page-link" href="#">2</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#">&raquo;</a>
+            </li>
+          </ul>
+        </nav>
+      <!------------- 공통 pagination-->
+        <a href="" class="primary_btn board_btn">쿠폰 등록</a>
+    </div>
+  </div>
 
 
 </body>

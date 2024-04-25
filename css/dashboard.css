@@ -1,0 +1,15 @@
+.board_container.dash {
+  width: 800px;
+  border: 1px solid var(--C-gray);
+  border-radius: 10px;
+
+  .table {
+    /* margin-bottom:0; */
+  }
+
+}
+
+.h5 {
+  padding: 15px;
+  border-bottom: 1px solid var(--C-gray);
+}
