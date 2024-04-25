@@ -82,3 +82,12 @@
 .member_wrap .dash_title {
   justify-content: space-around;
 }
+.sale_wrap,
+.board_wrap {
+  position: relative;
+}
+.more_btn {
+  position: absolute;
+  right: 25px;
+  top:15px;
+}
