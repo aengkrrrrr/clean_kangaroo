@@ -8,12 +8,6 @@ const todayData = {
   borderWidth: 2   
 }
 
-const todayAllData = {
-  label: '2023',
-  data: [4, 12, 8, 7, 10, 5],
-  borderWidth: 1,
-}
-
 const memberData = {
   label: '회원수 비교',
   data: [60, 45, 8],
@@ -65,7 +59,7 @@ new Chart(barChart, {
   type: 'bar',
   data: {
     labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-    datasets: [todayData,todayAllData]
+    datasets: [todayData]
   },
   options: {
     indexAxis:'x', //방향 변경
