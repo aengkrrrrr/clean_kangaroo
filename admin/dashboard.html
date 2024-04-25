@@ -51,16 +51,19 @@
             <a href=""><span class="material-symbols-outlined">add</span></a>
           </div>
           <div class="sale_ct">
+            <div class="chart">
+              <canvas id="line-chart"></canvas>
+            </div>
           </div>
         </div>
         <div class="today_wrap">
           <div class="dash_title df aic">
-            <h5 class="h5">누적 접속자</h5>
-            <h5 class="h5">금일 접속자</h5>
+            <h5 class="h5">접속자 수 비교</h5>
           </div>
           <div class="today_ct">
-            <span>100명</span>
-            <span>20명</span>
+            <div class="chart">
+              <canvas id="bar-chart"></canvas>
+            </div>
           </div>
         </div>
   </div>
@@ -107,12 +110,12 @@
     </div>
     <div class="member_wrap">
       <div class="dash_title df aic">
-        <h5 class="h5">총 회원수</h5>
-        <h5 class="h5">전체 회원수</h5>
+        <h5 class="h5">회원수 비교</h5>
       </div>
       <div class="member_ct">
-        <span>100명</span>
-        <span>20명</span>
+        <div class="chart">
+          <canvas id="pie-chart"></canvas>
+        </div>
       </div>
     </div>
   </div>
@@ -131,6 +134,7 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> 
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <script src=" https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/lang/summernote-ko-KR.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="/js/common.js"></script>
 <script src="/js/dashboard.js"></script>
 
