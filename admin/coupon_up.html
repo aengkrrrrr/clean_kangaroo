@@ -63,10 +63,12 @@
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
             <label for="floatingTextarea">쿠폰명</label>
           </div>
-          <div class="form-floating gap-3">
-            쿠폰 적용 기간
-            <input type="text" id="datepicker1">
-            <input type="text" id="datepicker2">
+          <div class="form-floating">
+            <p>쿠폰 적용 기간</p>
+            <div class="d-flex cDates">
+              <input type="text" id="datepicker1" class="couponC">
+              <input type="text" id="datepicker2" class="couponC">
+            </div>
           </div>
         </div>
       </div>
@@ -117,13 +119,7 @@
     
 // 날짜 등록
 $( function() {
-    $( "#datepicker1, #datepicker2" ).datepicker({
-      dateFormat:'yy/mm/dd', // 만약 2011년 4월 29일 선택하면  inputbox 에 '2011/04/29' 로표시
-      showOn: "button",
-      buttonImage: "/admin/images/date.png",
-      buttonImageOnly: true,
-      buttonText: "Select date"
-    });
+    $( "#datepicker1, #datepicker2" ).datepicker();
   } );
 </script>
 </html>

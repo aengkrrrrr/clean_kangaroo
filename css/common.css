@@ -341,3 +341,18 @@ h1{
   gap: 30px;
 }
 /********** 송림/다영 답변등록 폼 */
+
+/* 달력 */
+input[type=text].couponC {
+	width: 330px;
+	background:url('/admin/images/date.png') no-repeat 6px 6px;
+	background-size:26px;
+	background-position: 280px;
+}
+.cDates {
+	gap: 68px;
+}
+.couponC {
+	height:40px;
+	border-radius: 6px;
+}
