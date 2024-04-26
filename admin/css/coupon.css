@@ -17,10 +17,19 @@ input[type=text].couponC {
 	justify-content: center;
 	align-items: center;
 	margin-bottom: 168px;
+	gap: 80px;
 }
 .couponimg {
 	width: 40%;
+	height: 100%;
 	text-align: center;
+	border: 1px solid #bdbdbd;
+  border-radius: 10px;
+	padding: 20px;
+	box-sizing: border-box;
+}
+.couponimg button {
+	margin-top:250px;
 }
 .coupon_area {
 	width: 60%;
