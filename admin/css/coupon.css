@@ -33,7 +33,7 @@ input[type=text].couponC {
 }
 .coupon_area {
 	width: 60%;
-	gap: 30px;
+	gap: 120px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;

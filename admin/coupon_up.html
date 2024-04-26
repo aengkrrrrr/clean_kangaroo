@@ -69,16 +69,25 @@
       </div>
     </div>
     <div class="coupon_2 d-flex">
-      <select class="form-select c2form" aria-label="Default select example">
-        <option value="1">사용중</option>
-        <option value="2">보류중</option>
-      </select>
+      <div class="form-floating">
+        <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
+          <option selected>사용중</option>
+          <option value="1">보류중</option>
+        </select>
+        <label for="floatingSelect">종류</label>
+      </div>
       <div class="input-group c2form">
-        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" placeholder="쿠폰혜택">
+        <div class="form-floating">
+          <input type="text" class="form-control" id="floatingInputGroup1" aria-label="coupon service" placeholder="쿠폰 혜택">
+          <label for="floatingInputGroup1">쿠폰 혜택</label>
+        </div>
         <span class="input-group-text">%</span>
       </div>
       <div class="input-group c2form">
-        <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" placeholder="쿠폰 사용조건">
+        <div class="form-floating">
+          <input type="text" class="form-control" aria-label="coupon sale" placeholder="쿠폰 사용조건">
+          <label for="floatingInputGroup1">쿠폰 사용조건</label>
+        </div>
         <span class="input-group-text">원</span>
       </div>
     </div>
