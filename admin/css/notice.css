@@ -55,13 +55,16 @@ margin-right: 30px;
 }
 
 .form-label {
-  margin-top: 20px;
+  margin: 20px auto;
+  display: block;
 }
 
 .form-floating.mb-3 {
   position: relative;
 }
-
+.content{
+  margin-top: 30px;
+}
 .svg_wrap {
   display: flex;
   gap: 20px;

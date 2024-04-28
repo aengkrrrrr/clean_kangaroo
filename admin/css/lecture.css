@@ -40,6 +40,11 @@ p {
   background-color: aqua;
   position: relative;
 }
+
+.info li{
+object-fit: cover;
+}
+
 .preview.primary_btn {
   position: absolute;
   right: 10%;
@@ -69,7 +74,14 @@ p {
 }
 
 .form-label {
-  margin-top: 20px;
+  margin: 1.5rem 0 0.5rem;
+}
+
+.form-label.ca{
+  margin: 10px  0 60px !important;
+}
+.form-label.price{
+  padding: 10px 0 !important;
 }
 
 .form-floating.mb-3 {
@@ -135,15 +147,20 @@ p {
   color: brown;
   font-weight: bold;
 }
-
+.partview{
+  font-weight: bold;
+}
 .nottoshow {
+  font-weight: bold;
   color: grey;
 }
 .w{
   margin-top: 20px;
   margin-bottom: 60px;
 }
-
+.pb-5 {
+padding-bottom: 0 !important;
+}
 .btn_collect {
   display: flex;
   justify-content: right;
@@ -156,7 +173,7 @@ p {
   padding-top: 60px;
   gap: 50px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
 }
