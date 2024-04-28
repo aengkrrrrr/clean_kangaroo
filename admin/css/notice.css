@@ -7,7 +7,7 @@ h3{
 p{
   font-size: 16px;
 }
-.notice_add{
+.notice_container{
   margin: 0 15%;
 }
 .category{
@@ -17,13 +17,52 @@ p{
   margin-bottom:16px;
 }
 
-#editordata{
-  width: calc(100% + 24px);
-  height:500px;
+#floatingTextarea{
+height: 300px;
 }
 .btn_collect{
   display: flex;
   justify-content: right;
   gap:50px;
   margin-bottom:60px;
+}
+
+.board_container{
+  margin: 60px 5%;
+}
+.lectureSvg img {
+width: 20px;
+height: 20px;
+margin-right: 30px;
+}
+
+
+.answer_wrap {
+  margin: 60px auto;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.view_status {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+  gap: 10px;
+}
+
+.form-label {
+  margin-top: 20px;
+}
+
+.form-floating.mb-3 {
+  position: relative;
+}
+
+.svg_wrap {
+  display: flex;
+  gap: 20px;
 }
