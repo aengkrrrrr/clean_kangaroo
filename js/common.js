@@ -1,10 +1,5 @@
 $(document).ready(function(){
   $( function() {
-    $( "#datepicker" ).datepicker();
+    $( "#datepicker1, #datepicker2" ).datepicker();
   } );
-
-  $('.summernote').summernote({
-    height: 150,
-    lang: "ko-KR"
-	});
 });

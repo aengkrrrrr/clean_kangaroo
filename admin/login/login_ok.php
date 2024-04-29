@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/php/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $userid = trim($_POST['userid']);
 $passwd = trim($_POST['passwd']);
@@ -19,13 +19,13 @@ if ($rs) {
   $_SESSION['AUNAME'] = $rs->username;
   echo "<script>
     alert('관리자님 반갑습니다');
-    location.href = '../dashboard.html';
+    location.href = '../dashboard/dashboard.php';
   </script>";
   exit();
 } else {
   echo "<script>
     alert('아이디 또는 비번을 다시 확인해주세요');
-    // history.back();    
+    history.back();    
   </script>";
   exit();
 }
