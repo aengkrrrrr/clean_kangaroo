@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/php/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/php/dbcon.php';
 
 $userid = trim($_POST['userid']);
 $passwd = trim($_POST['passwd']);
