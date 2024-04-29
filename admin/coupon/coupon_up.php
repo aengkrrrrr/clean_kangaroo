@@ -65,7 +65,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       <button class="basic_btn couponbtn">취소</button>
     </form>          
   </div>
-</body>
+
 
 
 <script>

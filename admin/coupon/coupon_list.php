@@ -3,6 +3,18 @@ session_start();
 $title = "쿠폰 관리";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+
+$cate1 = $_GET['cate1'] ?? '';
+$cate2 = $_GET['cate2'] ?? '';
+$cate3 = $_GET['cate3'] ?? '';
+
+$cates = $cate1.$cate2.$cate3;
+
+$search_where = "";
+
+if($cates){
+$search_where .= " and cate LIKE '%{$cates}%'";
+}
 ?>
 
 
@@ -15,7 +27,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <div class="board_category df">
             <div class="select_wrap">
               <select class="form-select" aria-label="" id="" name="">
-                <option selected>사용중</option>
+                <option selected disabled>전체보기</option>
+                <option>사용중</option>
                 <option>보류중</option>
               </select>
             </div>
@@ -77,7 +90,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
     <!------------- 공통 pagination-->
       <a href="coupon_up.php" class="primary_btn">쿠폰 등록</a>
   </div>
-  </body>
+
 
 
 <?php
