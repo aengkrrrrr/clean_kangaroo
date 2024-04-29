@@ -1,19 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="icon" href="../../images/favicon.png" type="image/x-icon">
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <link rel="stylesheet" href="../../css/common.css">
-  <link rel="stylesheet" href="../../css/lecture.css">
-  <title>강좌관리 | 딥러닝 캥거루</title>
-</head>
+<?php
+$title = "강좌관리";
+$css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+?>
 
 <body>
   <!-- 헤더 -->
@@ -22,11 +11,11 @@
       <h1 class="logo"><a href="#" class="hidden">메인로고</a></h1>
       <nav>
         <ul class="gnb_wrap df">
-          <li class="active"><a href="lecture_list.html" class="body1b">강좌 관리</a></li>
-          <li><a href="notice_list.html" class="body1b">게시판 관리</a></li>
+          <li class="active"><a href="lecture_list.php" class="body1b">강좌 관리</a></li>
+          <li><a href="notice_list.php" class="body1b">게시판 관리</a></li>
           <li><a href="" class="body1b">회원 관리</a></li>
           <li><a href="" class="body1b">쿠폰 관리</a></li>
-          <li><a href="sales_manage.html" class="body1b">매출 관리</a></li>
+          <li><a href="sales_manage.php" class="body1b">매출 관리</a></li>
         </ul>
       </nav>
       <button class="logout_btn primary_btn">로그아웃</button>
@@ -160,7 +149,7 @@
     <ul>
       <li class="w btn_collect">
         <a href="" class="primary_btn">수정 완료</a>
-        <a href="lecture_list.html" class="basic_btn">목록</a>
+        <a href="lecture_list.php" class="basic_btn">목록</a>
       </li>
     </ul>
   </div>
@@ -170,13 +159,9 @@
 
 
 </body>
-<!-- 스크립트 -->
-<script src="/js/common.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+?>
 <script>
   $( function() {
     $( "#datepicker1, #datepicker2" ).datepicker();
