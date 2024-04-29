@@ -1,6 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/clean_kangaroo/css/common.css">
+
+    <!-- datepicker -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="../../css/dashboard.css">
+
+  <title>대시보드 | Deep Learning Kangaroo</title>
+</head>
+
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/php/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
+
 <div class="dashboard_wrap grid">
   <div class="dash_top_ct df">
         <div class="sale_wrap">
@@ -85,5 +105,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/php/header.php';
 
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/php/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
+<script src="../../js/dashboard.js"></script>
+
+<!-------------------- 스크립트 -->
+</html>
