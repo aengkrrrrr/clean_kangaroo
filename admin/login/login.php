@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/php/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 //관리자 검사
 if (isset($_SESSION['AUID'])) {
@@ -10,7 +10,24 @@ if (isset($_SESSION['AUID'])) {
   </script>";
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="icon" href="images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/clean_kangaroo/css/common.css">
 
+    <!-- datepicker -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <link rel="stylesheet" href="../../css/login.css">
+
+  <title>관리자 로그인 | Deep Learning Kangaroo</title>
+</head>
 <body>
   <div class="popup">
     <div class="pophd">
@@ -63,16 +80,24 @@ if (isset($_SESSION['AUID'])) {
     <button class="popup_btn"><img src="./images/popup_kang_btn.png" alt="">close</button>
   </div>
 
-<form action="login_ok.php" class="login_wrap" method="POST">
-  <h1 class="login_logo"><a href="" class="hidden">로그인 로고</a></h1>
-    <div class="form-floating mb-3 login">
-      <input type="text" class="form-control" name="userid" id="userid"  placeholder="ID">
-      <label for="userid">ID</label>
-    </div>
-    <div class="form-floating login">
-      <input type="password" class="form-control" name="passwd" id="passwd" placeholder="Password">
-      <label for="passwd">PASSWORD</label>
-    </div>
-    <button class="primary_btn login_btn">로그인</button>
-</form>
+  <form action="login_ok.php" class="login_wrap" method="POST">
+    <h1 class="login_logo"><a href="" class="hidden">로그인 로고</a></h1>
+      <div class="form-floating mb-3 login">
+        <input type="text" class="form-control" name="userid" id="userid"  placeholder="ID">
+        <label for="userid">ID</label>
+      </div>
+      <div class="form-floating login">
+        <input type="password" class="form-control" name="passwd" id="passwd" placeholder="Password">
+        <label for="passwd">PASSWORD</label>
+      </div>
+      <button class="primary_btn login_btn">로그인</button>
+  </form>
 </body>
+
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+?>
+<script src="../../js/cookie.js"></script>
+
+<!-------------------- 스크립트 -->
+</html>
