@@ -2,12 +2,9 @@
 $title = "대시보드";
 $css1 = '<link rel="stylesheet" href="../../css/dashboard.css">';
 
-?>
-
-
-<?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
+
 <body>
 <div class="dashboard_wrap grid">
   <div class="dash_top_ct df">
@@ -89,13 +86,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 </div>
   
 
-</body>
 
-
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <?php
+$script1 = "<script src='../../js/dashboard.js'></script>";
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-?>
-<script src="../../js/dashboard.js"></script>
 
-<!-------------------- 스크립트 -->
-</html>
+?>
