@@ -1,10 +1,10 @@
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 $title = "강좌관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
 
-
+<body>
   <div class="board_container">
     <form action="" id="">
       <div class="board_category df">
