@@ -6,7 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 if (isset($_SESSION['AUID'])) {
   echo "<script>
     alert('이미 로그인되어 있습니다.');
-    location.href='../../dashboard.html';
+    location.href='../dashboard/dashboard.php';
   </script>";
 }
 ?>
