@@ -7,4 +7,5 @@
 <script src="../js/common.js"></script>
 <?= $script1 ?? ''?>
 <!-------------------- 스크립트 -->
+</body>
 </html>
