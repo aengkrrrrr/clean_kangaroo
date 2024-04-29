@@ -19,13 +19,13 @@ if ($rs) {
   $_SESSION['AUNAME'] = $rs->username;
   echo "<script>
     alert('관리자님 반갑습니다');
-    location.href = '/clean_kangaroo/admin/dashboard.html';
+    location.href = '../dashboard.html';
   </script>";
   exit();
 } else {
   echo "<script>
     alert('아이디 또는 비번을 다시 확인해주세요');
-    history.back();    
+    // history.back();    
   </script>";
   exit();
 }
