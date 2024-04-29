@@ -5,15 +5,11 @@ $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $cate1 = $_GET['cate1'] ?? '';
-$cate2 = $_GET['cate2'] ?? '';
-$cate3 = $_GET['cate3'] ?? '';
-
-$cates = $cate1.$cate2.$cate3;
 
 $search_where = "";
 
-if($cates){
-$search_where .= " and cate LIKE '%{$cates}%'";
+if($cate1){
+$search_where .= " and cate LIKE '%{$cate1}%'";
 }
 ?>
 
@@ -21,15 +17,21 @@ $search_where .= " and cate LIKE '%{$cates}%'";
   <body>
     <div class="grid">
       <div class="totalcp">
-        <p>전체 등록 쿠폰리스트  총 n개의 쿠폰이 등록되어 있습니다.</p>
+        <p>전체 등록 쿠폰리스트 총 n개의 쿠폰이 등록되어 있습니다.</p>
       </div>
       <div class="board_container">
           <div class="board_category df">
             <div class="select_wrap">
-              <select class="form-select" aria-label="" id="" name="">
+              <select class="form-select" aria-label="전체보기" id="cate1" name="cate1" required>
                 <option selected disabled>전체보기</option>
-                <option>사용중</option>
-                <option>보류중</option>
+                <?php
+                  foreach ($cate1 as $c1) {
+                ?>
+                <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+                <!-- <option>보류중</option> -->
+                <?php
+                  }
+                ?>
               </select>
             </div>
             <div class="search_wrap df">
