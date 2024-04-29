@@ -1,5 +1,5 @@
 <?php
-// include_once $_SERVER['DOCUMENT_ROOT'] . '/pinkping/inc/header.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . './admin/header.php';
 
 $sql = "SELECT * FROM product_category where step = 1";
 $result = $mysqli->query($sql);
