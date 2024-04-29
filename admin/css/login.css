@@ -7,7 +7,7 @@ body {
   padding-top: 217px;
 }
 .login_logo {
-  background: url(/admin/images/admin_login_logo.png) no-repeat 50% 50%;
+  background: url(../images/admin_login_logo.png) no-repeat 50% 50%;
   width: 300px;
   height: 150px;
   margin: auto auto;
