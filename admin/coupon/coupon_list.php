@@ -1,8 +1,8 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-$title = "쿠폰관리";
+$title = "쿠폰 관리";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
 
 
