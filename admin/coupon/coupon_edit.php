@@ -83,8 +83,5 @@ $( function() {
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-?>
-<script src="../../js/dashboard.js"></script>
 
-<!-------------------- 스크립트 -->
-</html>
+?>
