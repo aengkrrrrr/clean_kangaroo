@@ -23,12 +23,13 @@ $search_where .= " and cate LIKE '%{$cate1}%'";
           <div class="board_category df">
             <div class="select_wrap">
               <select class="form-select" aria-label="전체보기" id="cate1" name="cate1" required>
-                <option selected disabled>전체보기</option>
+                <option selected>전체보기</option>
+                <option>사용중</option>
+                <option>보류중</option>
                 <?php
                   foreach ($cate1 as $c1) {
                 ?>
                 <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
-                <!-- <option>보류중</option> -->
                 <?php
                   }
                 ?>

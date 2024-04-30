@@ -2,10 +2,9 @@
 session_start();
 $title = "쿠폰 등록";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
-
-
 
 
 <body>
@@ -32,8 +31,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <div class="form-floating">
             <p>쿠폰 적용 기간</p>
             <div class="d-flex cDates">
-              <input type="text" id="datepicker1" class="couponC">
-              <input type="text" id="datepicker2" class="couponC">
+              <input type="text" name="cdatepicker1" id="cdatepicker1" class="couponC">
+              <input type="text" name="cdatepicker2" id="cdatepicker2" class="couponC">
             </div>
           </div>
         </div>
@@ -65,69 +64,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       <button class="basic_btn couponbtn">취소</button>
     </form>          
   </div>
-
-
-
-<script>
-  $(document).ready(function() {
-      //추가 이미지 등록
-      $('#addImage').click(function() {
-          $('#upfile').trigger('click');
-        });
-        $('#upfile').change(function() {
-          let files = $(this).prop('files');
-          console.log(files);
-          for (let i = 0; i < files.length; i++) {
-            attachFile(files[i]);
-          }
-          $('#upfile').val('');
-        });
-
-      $('#addedimages').on('click', 'button', function() {
-          let imgid = $(this).parent().attr('id');
-          file_delete(imgid);
-        });
-      
-        function file_delete(imgid) {
-      if (!confirm('정말 삭제할까요?')) {
-        return false;
-      }
-      let data = {
-        imgid: imgid
-      }
-      $.ajax({
-        async: false, //결과가 있으면 반영해줘
-        type: 'POST',
-        url: 'image_delete.php',
-        data: data,
-        dataType: 'json',
-        error: function(error) {
-          console.log('error:', error);
-        },
-        success: function(return_data) {
-          if (return_data.result === 'member') {
-            alert('권한이 없습니다.');
-            return;
-          } else if (return_data.result === 'mine') {
-            alert('본인이 등록한 이미지만 삭제할 수 있습니다.');
-            return;
-          } else if (return_data.result === 'fail') {
-            alert('삭제 실패!');
-            return;
-          } else {
-            $('#' + imgid).remove();
-          }
-        }
-      });
-    }
-    // 날짜 등록
-    $( function() {
-        $( "#datepicker1, #datepicker2" ).datepicker();
-      } );
-
-  });
-</script>
+  <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://code.jquery.com/ui/1.13.3/jquery-ui.js"></script>
 <?php
+$script1 = '<script src="../../js/coupon.js"></script>';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-
 ?>
