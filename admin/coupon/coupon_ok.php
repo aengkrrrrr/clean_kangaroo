@@ -8,8 +8,8 @@ $coupon_type = $_POST['coupon_type'];
 $coupon_price = $_POST['coupon_price'] ?? 0;
 $coupon_ratio = $_POST['coupon_ratio'] ?? 0;
 $status = $_POST['status'];
-$max_value = $_POST['max_value'];
-$use_min_price = $_POST['use_min_price'];
+$max_date = $_POST['max_date'];
+$userid = $_POST['userid'];
 
 //파일 사이즈 검사
 if ($_FILES['coupon_image']['size'] > 10240000) {
