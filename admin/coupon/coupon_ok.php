@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/pinkping/admin/inc/admin_check.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/pinkping/inc/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $coupon_name = $_POST['coupon_name'];
 $coupon_type = $_POST['coupon_type'];
@@ -28,14 +28,14 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     exit;
   }
   //파일 업로드
-  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/pinkping/admin/upload/';
+  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
   $fiename = $_FILES["coupon_image"]["name"]; //insta.jpg
   $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
   $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
   $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
   
   if (move_uploaded_file($_FILES["coupon_image"]["tmp_name"], $save_dir . $savefile)) {
-    $coupon_image = "/pinkping/admin/upload/" . $savefile;
+    $coupon_image = "/clean_kangaroo/admin/upload/" . $savefile;
   } else {
     echo "<script>
     alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
@@ -61,7 +61,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     if($result ){
         echo "<script>
         alert('쿠폰등록 완료');
-        location.href = '/pinkping/admin/coupon/coupon_list.php';
+        location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
         </script>";
     } else{
         echo "<script>
