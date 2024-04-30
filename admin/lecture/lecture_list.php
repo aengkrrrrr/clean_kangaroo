@@ -12,7 +12,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <select class="form-select" aria-label="" id="" name="">
             <option selected>대분류</option>
             <option>중분류</option>
-            <option>소분류</option>
           </select>
         </div>
         <div class="search_wrap df">
@@ -161,7 +160,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       </nav>
     <!------------- 공통 pagination-->
 <div class="btn_collect">
-        <a href="../category.html" class="primary_btn board_btn">카테고리 등록</a>
+        <a href="../lecture/category.php" class="primary_btn board_btn">카테고리 등록</a>
         <a href="lecture_up.html" class="primary_btn board_btn">강좌 등록</a>
 </div>   
   </div>
