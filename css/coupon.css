@@ -2,11 +2,12 @@
 
 input[type=text].couponC {
 	width: 414px;
-	background:url('/admin/images/date.png') no-repeat 6px 6px;
+	background:url('/clean_kangaroo/images/date.png') no-repeat 6px 6px;
 	background-size:26px;
 	background-position: 280px;
 	border: var(--bs-border-width) solid var(--bs-border-color);
 }
+form, .nav_wrap { position: relative; }
 .couponSvg img {
 	width: 20px;
 	height: 20px;
@@ -60,11 +61,11 @@ input#profile {
 }
 .couponbtn:first-of-type {
 	position: absolute;
-	right: 308px;
-	margin: 20px;
+	right: 140px;
+	margin: 20px 0;
 }
 .couponbtn:last-of-type {
 	position: absolute;
-	right: 190px;
-	margin: 20px;
+	right: 0;
+	margin: 20px 0;
 }

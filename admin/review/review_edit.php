@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "수강평 수정";
+$title = "수강평 등록";
 $css1 = '<link rel="stylesheet" href="../../css/review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
   <div class="user_write">
     <div class="profile df aic pb-5">
       <div class="username d-flex">
-        <img src="images/favicon.png" alt="프로필 이미지" class="user_profile_img">
+        <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
         <h5 class="body3b">사용자이름</h5>
       </div>
       <div class="rating" data-rate="3">
@@ -37,12 +37,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       </div>
     </div>
     <div class="answer_btn_wrap df pt-5">
-      <a href="" class="primary_btn">수정</a>
+      <a href="" class="primary_btn">등록</a>
       <a href="" class="basic_btn">취소</a>
     </div>
   </div>
 </div>
-
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/php/footer.php';

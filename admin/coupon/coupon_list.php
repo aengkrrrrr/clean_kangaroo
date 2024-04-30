@@ -51,10 +51,10 @@ while ($rs = $result->fetch_object()) {
                 ?>
               </select>
             </div>
-            <div class="search_wrap df">
+            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
               <button class="primary_btn">검색</button>
-            </div>
+            </form>
           </div>
         <hr>  
         <form action="">
@@ -72,9 +72,9 @@ while ($rs = $result->fetch_object()) {
             </thead>
             <tbody>
             <?php
-            if (isset($rsArr)) {
-            foreach ($rsArr as $item) {
-          ?>
+              if (isset($rsArr)) {
+              foreach ($rsArr as $item) {
+            ?>
             <tr>
               <td><img src="<?= $item->coupon_image; ?>" alt=""></td>
               <td><?= $item->coupon_name; ?></td>
@@ -89,7 +89,6 @@ while ($rs = $result->fetch_object()) {
               <td class="couponSvg">
                 <a href="coupon_edit.php"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
                 <a href="coupon_delete.php"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
-              
               </td>
             </tr>
             <?php
@@ -99,7 +98,6 @@ while ($rs = $result->fetch_object()) {
             </tbody>
           </table>
         </form>
-        
     </div>
     </div>
     <!--공통 pagination-->
