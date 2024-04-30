@@ -31,7 +31,7 @@ while ($rs = $result->fetch_object()) {
 <body>
   <div class="board_container grid">
     <form action="" id="">
-      <div class="board_category df">
+      <div class="board_category df aic">
         <div class="select_wrap">
           <select class="form-select" aria-label="" id="" name="">
             <option selected>전체회원</option>

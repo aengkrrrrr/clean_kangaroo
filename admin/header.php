@@ -19,7 +19,9 @@
 
   <header id="header">
     <div class="hd_container">
-      <h1 class="logo"><img src="/clean_kangaroo/images/admin_header_logo.png" alt=""></h1>
+      <h1 class="logo">
+        <a href="/clean_kangaroo/admin/dashboard/dashboard.php"><img src="/clean_kangaroo/images/admin_header_logo.png" alt=""></a>
+      </h1>
         <ul class="gnb_wrap df">
           <li><a href="/clean_kangaroo/admin/lecture/lecture_list.php" class="body1b">강좌 관리</a></li>
           <li><a href="/clean_kangaroo/admin/notice/notice_list.php" class="body1b">게시판 관리</a></li>
