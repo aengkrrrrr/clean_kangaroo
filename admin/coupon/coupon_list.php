@@ -5,11 +5,11 @@ $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
+$search_keyword = $_GET['search_keyword'] ?? '';
 
 if($search_keyword){
-  $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
+  $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
 }
 
 $paginationTarget = 'coupons';
@@ -17,7 +17,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sql = "SELECT * FROM coupons where 1=1";
 $sql .= $search_where;
-$order = " order by regdate desc";
+$order = " order by coupon_name desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -71,18 +71,31 @@ while ($rs = $result->fetch_object()) {
               </tr>
             </thead>
             <tbody>
+            <?php
+            if (isset($rsArr)) {
+            foreach ($rsArr as $item) {
+          ?>
             <tr>
-              <td><img src="/admin/images/test_coupon.png" alt=""></td>
-              <td>회원가입 쿠폰</td>
-              <td>2024.04.22 <br>- 2024.05.22</td>
-              <td>사용중</td>
-              <td>10%</td>
-              <td>10,000원</td>
+              <td><img src="<?= $item->coupon_image; ?>" alt=""></td>
+              <td><?= $item->coupon_name; ?></td>
+              <td><?= $item->max_date; ?></td>
+              <td><?php
+                if($item->status == '1'){echo '전체보기';} 
+                else if($item->status == '2'){echo '사용중';} 
+                else{echo '보류중';}
+              ?></td>
+              <td><?= $item->coupon_ratio; ?></td>
+              <td><?= $item->coupon_price; ?></td>
               <td class="couponSvg">
-                <a href="coupon_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-                <a href=""><img src="/admin/images/delete.svg" alt=""></a>
+                <a href="coupon_edit.php"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+                <a href="coupon_delete.php"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+              
               </td>
             </tr>
+            <?php
+              }
+            }
+            ?>
             </tbody>
           </table>
         </form>

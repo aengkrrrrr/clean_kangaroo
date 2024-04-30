@@ -1,18 +1,21 @@
 <?php
 session_start();
-$title = "쿠폰 수정";
+$title = "쿠폰 등록";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
+
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
 
+
 <body>
   <div class="container grid">
-    <form class="coupon_wrap">
+    <form action="" class="coupon_wrap" enctype="multipart/form-data">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
-          <div id="addedimages" class="gap-3 p-3"></div>
-          <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
-          <button type="button" class="btn btn-secondary btn-sm" id="addImage">이미지 첨부하기</button>
+          <div class="field">
+            <input type="file" id="profile" name="profile" accept="image/*" required>
+            <div class="preview"></div>
+          </div>
         </div>
         <div class="coupon_area">
           <div class="form-floating">
@@ -22,23 +25,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <div class="form-floating">
             <p>쿠폰 적용 기간</p>
             <div class="d-flex cDates">
-              <input type="text" id="datepicker1" class="couponC">
-              <input type="text" id="datepicker2" class="couponC">
+              <input type="text" name="cdatepicker1" id="cdatepicker1" class="couponC">
+              <input type="text" name="cdatepicker2" id="cdatepicker2" class="couponC">
             </div>
           </div>
         </div>
       </div>
       <div class="coupon_2 d-flex">
         <div class="form-floating">
-          <select class="form-select" id="floatingSelect" aria-label="Floating label select example">
-            <option selected>사용중</option>
-            <option value="1">보류중</option>
+          <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
+            <option value="1" selected>사용중</option>
+            <option value="2">보류중</option>
           </select>
-          <label for="floatingSelect">종류</label>
+          <label for="coupon_type">종류</label>
         </div>
         <div class="input-group c2form">
           <div class="form-floating">
-            <input type="text" class="form-control" id="floatingInputGroup1" aria-label="coupon service" placeholder="쿠폰 혜택">
+            <input type="text" name="max_value" class="form-control" aria-label="coupon service" placeholder="쿠폰 혜택" id="max_value" required>
             <label for="floatingInputGroup1">쿠폰 혜택</label>
           </div>
           <span class="input-group-text">%</span>
@@ -56,32 +59,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
     </form>          
   </div>
 
-<script>
-  //추가 이미지 등록
-  $('#addImage').click(function() {
-      $('#upfile').trigger('click');
-    });
-    $('#upfile').change(function() {
-      let files = $(this).prop('files');
-      console.log(files);
-      for (let i = 0; i < files.length; i++) {
-        attachFile(files[i]);
-      }
-      $('#upfile').val('');
-    });
-
-  $('#addedimages').on('click', 'button', function() {
-      let imgid = $(this).parent().attr('id');
-      file_delete(imgid);
-    });
-    
-// 날짜 등록
-$( function() {
-    $( "#datepicker1, #datepicker2" ).datepicker();
-  } );
-</script>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+$script1 = '<script src="../../js/coupon.js"></script>';
+$script2 = '<script src="https://code.jquery.com/jquery-3.6.0.js"></script>';
+$script3 = '<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>';
 
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>

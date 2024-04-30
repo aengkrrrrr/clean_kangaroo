@@ -29,7 +29,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
   }
   //파일 업로드
   $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
-  $fiename = $_FILES["coupon_image"]["name"]; //insta.jpg
+  $fiename = $_FILES["coupon_image"]["coupon_name"]; //insta.jpg
   $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
   $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
   $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
@@ -44,7 +44,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     exit;
   }
 
-  $sql = "INSERT INTO coupons (coupon_name,coupon_image,coupon_type,coupon_price,coupon_ratio,status,regdate,userid,max_value,use_min_price) VALUES (
+  $sql = "INSERT INTO coupons (coupon_name,coupon_image,coupon_type,coupon_price,coupon_ratio,status,regdate,userid,max_date) VALUES (
     '{$coupon_name}', 
     '{$coupon_image}', 
     '{$coupon_type}', 
@@ -53,8 +53,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     '{$status}', 
     now(), 
     '{$_SESSION['AUID']}', 
-    '{$max_value}', 
-    '{$use_min_price}'
+    '{$max_date}'
     )";
 
     $result = $mysqli -> query($sql);
