@@ -21,11 +21,11 @@
     <div class="hd_container">
       <h1 class="logo"><img src="/clean_kangaroo/images/admin_header_logo.png" alt=""></h1>
         <ul class="gnb_wrap df">
-          <li><a href="lecture/lecture_list" class="body1b">강좌 관리</a></li>
-          <li><a href="" class="body1b">게시판 관리</a></li>
-          <li class="active"><a href="" class="body1b">회원 관리</a></li>
-          <li><a href="" class="body1b">쿠폰 관리</a></li>
-          <li><a href="" class="body1b">매출 관리</a></li>
+          <li><a href="/clean_kangaroo/admin/lecture/lecture_list.php" class="body1b">강좌 관리</a></li>
+          <li><a href="/clean_kangaroo/admin/notice/notice_list.php" class="body1b">게시판 관리</a></li>
+          <li class="active"><a href="/clean_kangaroo/admin/member/member_list.php" class="body1b">회원 관리</a></li>
+          <li><a href="/clean_kangaroo/admin/coupon/coupon_list.php" class="body1b">쿠폰 관리</a></li>
+          <li><a href="/clean_kangaroo/admin/sales/sales_manage.php" class="body1b">매출 관리</a></li>
         </ul>
       </nav>
       <a href="/clean_kangaroo/admin/login/logout.php"><button class="logout_btn primary_btn">로그아웃</button></a>
