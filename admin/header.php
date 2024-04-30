@@ -21,14 +21,14 @@
     <div class="hd_container">
       <h1 class="logo"><img src="/clean_kangaroo/images/admin_header_logo.png" alt=""></h1>
         <ul class="gnb_wrap df">
-          <li><a href="" class="body1b">강좌 관리</a></li>
+          <li><a href="lecture/lecture_list" class="body1b">강좌 관리</a></li>
           <li><a href="" class="body1b">게시판 관리</a></li>
           <li class="active"><a href="" class="body1b">회원 관리</a></li>
           <li><a href="" class="body1b">쿠폰 관리</a></li>
           <li><a href="" class="body1b">매출 관리</a></li>
         </ul>
       </nav>
-      <button class="logout_btn primary_btn">로그아웃</button>
+      <a href="login/logout.php"><button class="logout_btn primary_btn">로그아웃</button></a>
     </div>
     <!-- 메인 타이틀 -->
     <div class="common_main_tit">
