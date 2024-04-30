@@ -10,26 +10,34 @@ while ($row = $result->fetch_object()) {
 }
 ?>
 
-<body>
 <div class="container">
+
   <div class="category row">
+
     <div class="col-md-4">
+
       <select class="form-select" aria-label="대분류" id="cate1">
         <option selected>대분류</option>
         <?php
         foreach ($cate1 as $c1) {
         ?>
+
           <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+
         <?php
         }
         ?>
+
       </select>
     </div>
     <div class="col-md-4">
+
       <select class="form-select" aria-label="중분류" id="cate2">
+
       </select>
     </div>
-    
+
+  </div>
 
   <div class="buttons mt-3">
     <!-- 대분류 등록 버튼 -->
@@ -54,12 +62,11 @@ while ($row = $result->fetch_object()) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn basic_btn" data-bs-dismiss="modal">닫기</button>
             <button type="submit" class="btn primary_btn" data-step="1">등록</button>
           </div>
         </div>
       </div>
-    </div>
     </div>
 
     <!-- 중분류 등록 버튼 -->
@@ -98,15 +105,14 @@ while ($row = $result->fetch_object()) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn basic_btn" data-bs-dismiss="modal">닫기</button>
             <button type="submit" class="btn primary_btn" data-step="2">등록</button>
           </div>
         </div>
       </div>
     </div>
-    <a href="lecture_list.php" class="basic_btn">목록</a>
   </div>
- </div>
+
 </div><!-- //container -->
 
 <script src="/clean_kangaroo/js/makeoption.js"></script>
@@ -159,9 +165,6 @@ while ($row = $result->fetch_object()) {
         } else if (data.result === '-1') {
           alert('코드가 중복됩니다.');
           location.reload(); //강제 새로고침
-        } else if (data.result === 'member') {
-          alert('관리자가 아닙니다.');
-          location.href = '/clean_kangaroo/admin/login/login.php';
         } else {
           alert('등록 실패');
           location.reload(); // 새로고침
@@ -197,5 +200,5 @@ while ($row = $result->fetch_object()) {
   */
 </script>
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/pinkping/inc/footer.php';
 ?>
