@@ -65,7 +65,7 @@ while ($rs = $result->fetch_object()) {
           ?>
         <tr>
           <td><?php if($ra->status == 0){echo '답변대기';}?></td>
-          <td><?=$ra->title;?></td>
+          <td><a href="/clean_kangaroo/admin/q&a/q&a_answer.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
           <td><?=$ra->name;?></td>

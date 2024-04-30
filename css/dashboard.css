@@ -68,6 +68,10 @@
 .table>tbody tr td {
   padding: 18px 0;
   border: none;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 155px;
+  text-overflow: ellipsis;
 }
 /* 회원 */
 .member_wrap {

@@ -2,7 +2,15 @@
 $title = "대시보드";
 $css1 = '<link rel="stylesheet" href="../../css/dashboard.css">';
 
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+
+$sql = "SELECT * FROM qna_board LIMIT 4";
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
+
 ?>
 
 <body>
@@ -18,7 +26,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
               <canvas id="line-chart"></canvas>
             </div>
           </div>
-          <a href=""><span class="material-symbols-outlined more_btn" >add</span></a>
+          <a href="../sales/sales_manage.php"><span class="material-symbols-outlined more_btn" >add</span></a>
         </div>
         <div class="today_wrap">
           <div class="dash_title df aic">
@@ -39,38 +47,25 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       <div class="board_ct">
         <table class="table">
           <tbody>
-            <tr>
-              <td>답변대기</td>
-              <td>쿠폰 사용 문의드립니다.</td>
-              <td>2024-04-23</td>
-              <td>10</td>
-              <td>츄츄림</td>
-            </tr>
-            <tr>
-              <td>답변대기</td>
-              <td>쿠폰 사용 문의드립니다.</td>
-              <td>2024-04-23</td>
-              <td>10</td>
-              <td>츄츄림</td>
-            </tr>
-            <tr>
-              <td>답변대기</td>
-              <td>쿠폰 사용 문의드립니다.</td>
-              <td>2024-04-23</td>
-              <td>10</td>
-              <td>츄츄림</td>
-            </tr>
-            <tr>
-              <td>답변대기</td>
-              <td>쿠폰 사용 문의드립니다.</td>
-              <td>2024-04-23</td>
-              <td>10</td>
-              <td>츄츄림</td>
-            </tr>
+          <?php
+          if(isset($rsArr)){
+            foreach($rsArr as $ra){
+          ?>
+          <tr>
+            <td><?php if($ra->status == 0){echo '답변대기';}?></td>
+            <td><?=$ra->title;?></td>
+            <td><?=$ra->date;?></td>
+            <td><?=$ra->hit;?></td>
+            <td><?=$ra->name;?></td>
+          </tr>
+        <?php
+            }
+          }
+        ?>
           </tbody>
         </table>
       </div>
-      <a href=""><span class="material-symbols-outlined more_btn">add</span></a>
+      <a href="../notice/notice_list.php"><span class="material-symbols-outlined more_btn">add</span></a>
     </div>
     <div class="member_wrap">
       <div class="dash_title df aic">
