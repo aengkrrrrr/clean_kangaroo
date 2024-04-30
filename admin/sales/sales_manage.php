@@ -1,9 +1,33 @@
 <?php
+session_start();
 $title = "매출관리";
 $css1 = '<link rel="stylesheet" href="../../css/sales_manage.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+
+// $search_keyword = $_GET['search_keyword'] ?? '';
+// $paginationTarget = 'sales_manage';
+// include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
+
+$sql = "SELECT * FROM sales_manage where 1=1";
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
+
+// $sql = "SELECT * FROM members where 1=1";
+$sql .= $search_where;
+ $order = " order by pid desc";
+$sql .= $order;
+// $limit = " LIMIT $startLimit, $endLimit";
+// $sql .= $limit;
+
+// $result = $mysqli->query($sql);
+// while ($rs = $result->fetch_object()) {
+//   $memArr[] = $ms;
+// }
 ?>
-  <!----------- 헤더 -->
 
 <!-- 게시판 폼 -->
 <div class="board_container">
@@ -48,16 +72,24 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
         </tr>
       </thead>
       <tbody>
+      <?php
+      if(isset($rsArr)){
+            foreach($rsArr as $ra){
+          ?>
       <tr>
-        <td>3</td>
-        <td>홍길동</td>
-        <td>hgd001</td>
-        <td>웹디자인기초</td>
-        <td class="category">웹디자인/편집</td>
-        <td>2024.04.01</td>
-        <td>카드결제</td>
-        <td class="price">100,000</td>
+        <td><?= $ra -> pid;?></td>
+        <td><?= $ms -> username;?>홍길동</td>
+        <td><?= $ms -> userid;?>hgd001</td>
+        <td><?= $ra -> title;?></td>
+        <td class="category"><?= $ra -> cate;?></td>
+        <td><?= $ra -> sales_date;?></td>
+        <td><?= $ra -> payment;?>카드결제</td>
+        <td class="price"><?= $ra -> price;?></td>
       </tr>
+      <?php
+            }
+          }
+        ?>
       <tr>
         <td>2</td>
         <td>이도령</td>

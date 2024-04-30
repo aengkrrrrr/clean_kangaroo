@@ -1,15 +1,6 @@
 <?php
 session_start();
-//$_SESSION["AUID"] = "admin"; //임시로 관리자 정보 저장.
-//unset($_SESSION["AUID"]);
-
-include_once $_SERVER['DOCUMENT_ROOT'] . '../dbcon.php';
-
-// if (!$_SESSION["AUID"]) {
-//   $return_data = array("result" => "member");
-//   echo json_encode($return_data);
-//   exit; //프로세스 멈추기
-// }
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $name = $_POST['name'];
 $code = $_POST['code'];
