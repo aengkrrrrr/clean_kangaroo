@@ -4,7 +4,12 @@ $css1 = '<link rel="stylesheet" href="../../css/qna.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
+$search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
+
+if($search_keyword){
+  $search_where .= " and (name LIKE '%{$search_keyword}%' or title LIKE '%{$search_keyword}%')";
+}
 
 $paginationTarget = 'qna_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
@@ -36,7 +41,7 @@ while ($rs = $result->fetch_object()) {
           </select>
         </div>
         <div class="search_wrap df">
-          <input class="form-control search" type="text" id="search_keyword" name="keyword">
+          <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
           <button class="primary_btn">검색</button>
         </div>
       </div>
