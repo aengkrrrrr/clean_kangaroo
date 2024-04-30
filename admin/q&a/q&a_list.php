@@ -34,10 +34,10 @@ while ($rs = $result->fetch_object()) {
     <form action="" id="">
       <div class="board_category df">
         <div class="select_wrap">
-          <select class="form-select" aria-label="" id="" name="">
-            <option>공지사항 관리</option>
-            <option selected>Q&A 관리</option>
-            <option>수강평 관리</option>
+          <select class="form-select" onchange="window.open(value,'_self');" aria-label="" id="" name="">
+            <option value="/clean_kangaroo/admin/notice/notice_list.php">공지사항 관리</option>
+            <option value="/clean_kangaroo/admin/q&a/q&a_list.php" selected>Q&A 관리</option>
+            <option value="/clean_kangaroo/admin/review/review_list.php">수강평 관리</option>
           </select>
         </div>
         <div class="search_wrap df">
