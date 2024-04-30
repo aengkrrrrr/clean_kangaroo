@@ -7,7 +7,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
 if($search_keyword){
-  $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
+  $search_where .= " and (title LIKE '%{$search_keyword}%' or title LIKE '%{$search_keyword}%')";
 }
 $paginationTarget = 'notice_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
@@ -31,13 +31,14 @@ while ($rs = $result->fetch_object()) {
     <form action="" id="">
       <div class="board_category df">
         <div class="select_wrap">
-          <select class="form-select" aria-label="" id="" name="">
-            <option selected>대분류</option>
-            <option>중분류</option>
+        <select class="form-select" aria-label="" id="" name="">
+            <option selected>공지사항 관리</option>
+            <option>Q&A 관리</option>
+            <option>수강평 관리</option>
           </select>
         </div>
         <div class="search_wrap df">
-          <input class="form-control search" type="text" id="search_keyword" name="keyword">
+          <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
           <button class="primary_btn">검색</button>
         </div>
       </div>
@@ -62,12 +63,12 @@ while ($rs = $result->fetch_object()) {
             foreach($rsArr as $ra){
           ?>
         <tr>
-          <td colspan="5"><?=$ra->title;?></td>
+          <td colspan="5"><a href=""><?=$ra->title;?></a></td>
           <td><?=$ra->cate;?></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
           <td class="lectureSvg">
-            <a href="notice_edit.php"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+            <a href="notice_list.php?pageNumber=<?=$ra->pid;?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
             <a href=""><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
           </td>
         </tr>
