@@ -2,8 +2,30 @@
 session_start();
 $title = "쿠폰 관리";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
+$search_keyword = $_GET['search_keyword'] ?? '';
+$search_where = "";
+
+if($search_keyword){
+  $search_where .= " and (name LIKE '%{$search_keyword}%' or content LIKE '%{$search_keyword}%')";
+}
+
+$paginationTarget = 'coupons';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
+
+$sql = "SELECT * FROM coupons where 1=1";
+$sql .= $search_where;
+$order = " order by regdate desc";
+$sql .= $order;
+$limit = " LIMIT $startLimit, $endLimit";
+$sql .= $limit;
+
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
 
 ?>
 
@@ -30,7 +52,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
               </select>
             </div>
             <div class="search_wrap df">
-              <input class="form-control search" type="text" id="search_keyword" name="keyword">
+              <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
               <button class="primary_btn">검색</button>
             </div>
           </div>
@@ -70,19 +92,34 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
     <!--공통 pagination-->
     <div class="nav_wrap df aic">
       <nav aria-label="">
-        <ul class="pagination">
-          <li class="page-item disabled">
-            <a class="page-link">&laquo;</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">1</a></li>
-          <li class="page-item active" aria-current="page">
-            <a class="page-link" href="#">2</a>
-          </li>
-          <li class="page-item"><a class="page-link" href="#">3</a></li>
-          <li class="page-item">
-            <a class="page-link" href="#">&raquo;</a>
-          </li>
-        </ul>
+      <ul class="pagination">
+        <?php
+        if($pageNumber > 1){
+          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
+          //이전
+          if($block_num > 1){
+            $prev = 1 + ($block_num - 2) * $block_ct;
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
+          }
+        }
+
+          for($i=$block_start;$i<=$block_end;$i++){
+            if($i == $pageNumber){
+              echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            }else{
+              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            }            
+          }  
+
+          if($pageNumber < $total_page){
+            if($total_block > $block_num){
+              $next = $block_num * $block_ct + 1;
+              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+            }
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
+          }        
+        ?>
+      </ul>
       </nav>
     <!------------- 공통 pagination-->
       <a href="coupon_up.php" class="primary_btn">쿠폰 등록</a>
