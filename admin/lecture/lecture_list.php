@@ -9,8 +9,6 @@ $search_where = "";
 if($search_keyword){
   $search_where .= " and (title LIKE '%{$search_keyword}%' or title LIKE '%{$search_keyword}%')";
 }
-
-
 $paginationTarget = 'products';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
@@ -61,384 +59,37 @@ while ($rs = $result->fetch_object()) {
           </tr>
         </thead>
         <tbody>
+        <?php
+          if(isset($rsArr)){
+            foreach($rsArr as $ra){
+          ?>
           <tr>
             <td>
               <a href="lecture_view.html">
-                <img src="../../images/test_coupon.png" alt=""></a></td>
+                <img src="../../images/<?=$ra->product_image;?>" alt=""></a></td>
               <td colspan="2">
                 <div class="lecdesc">
                   <a href="lecture_view.html">
-                  강의 제목 1<br>
-                  강의설명<br>
-                  개강일 : <span class="rel_date">24/04/15</span> <br>
+                  <?=$ra->title;?><br>
+                  <?=$ra->brief;?><br>
+                  개강일 : <span class="rel_date"><?=$ra->reg_date;?></span> <br>
                   수강생 수 : <span class="sub_p">105</span>
             </a>
     </td>
-  <td>웹디자인</td>
-  <td>2024.04.24</td>
-  <td>105</td>
-  <td>전체 공개</td>
+  <td><?=$ra->cate;?></td>
+  <td><?=$ra->reg_date;?></td>
+  <td><?=$ra->hit;?></td>
+  <td><?=$ra->status;?></td>
   <td class="lectureSvg">
     <a href="lecture_edit.html"><img src="../../images/edit.svg" alt=""></a>
     <a href=""><img src="../../images/delete.svg" alt=""></a>
   </td>
   </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-    <tr>
-    <td>
-      <a href="lecture_view.html">
-        <img src="../../images/test_coupon.png" alt=""></a></td>
-        <td colspan="2">
-          
-      <div class="lecdesc">
-        <a href="lecture_view.html">
-          강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span></a>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td><img src="/admin/images/test_coupon.png" alt=""></td>
-    <td colspan="2">
-      <div class="lecdesc">
-        강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td><span class="partview">일부 공개</span></td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td><img src="/admin/images/test_coupon.png" alt=""></td>
-    <td colspan="2">
-      <div class="lecdesc">
-        강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td>전체 공개</td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
-  <tr>
-    <td><img src="/admin/images/test_coupon.png" alt=""></td>
-    <td colspan="2">
-      <div class="lecdesc">
-        강의 제목 1<br>
-        강의설명<br>
-        개강일 : <span class="rel_date">24/04/15</span> <br>
-        수강생 수 : <span class="sub_p">105</span>
-      </div>
-    </td>
-    <td>웹디자인</td>
-    <td>2024.04.24</td>
-    <td>105</td>
-    <td><span class="nottoshow">비공개</span></td>
-    <td class="lectureSvg">
-      <a href="lecture_edit.html"><img src="/admin/images/edit.svg" alt=""></a>
-      <a href=""><img src="/admin/images/delete.svg" alt=""></a>
-    </td>
-  </tr>
+  <?php
+            }
+          }
+        ?>
+
   </tbody>
   </table>
   </form>
@@ -481,15 +132,9 @@ while ($rs = $result->fetch_object()) {
 </div>   
   </div>
     <!------------- 공통 pagination-->
-
-  
   </div>
-
 </body>
-
-
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
-
 </html>

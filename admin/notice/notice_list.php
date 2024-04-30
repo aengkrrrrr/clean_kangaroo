@@ -27,7 +27,7 @@ while ($rs = $result->fetch_object()) {
 ?>
   <!----------- 헤더 -->
   <body>
-  <div class="board_container">
+  <div class="board_container grid">
     <form action="" id="">
       <div class="board_category df">
         <div class="select_wrap">
