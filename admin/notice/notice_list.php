@@ -12,7 +12,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <select class="form-select" aria-label="" id="" name="">
             <option selected>대분류</option>
             <option>중분류</option>
-            <option>소분류</option>
           </select>
         </div>
         <div class="search_wrap df">
