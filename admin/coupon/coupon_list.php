@@ -4,13 +4,7 @@ $title = "쿠폰 관리";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$cate1 = $_GET['cate1'] ?? '';
 
-$search_where = "";
-
-if($cate1){
-$search_where .= " and cate LIKE '%{$cate1}%'";
-}
 ?>
 
 
