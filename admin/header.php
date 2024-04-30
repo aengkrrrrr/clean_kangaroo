@@ -28,7 +28,7 @@
           <li><a href="" class="body1b">매출 관리</a></li>
         </ul>
       </nav>
-      <a href="login/logout.php"><button class="logout_btn primary_btn">로그아웃</button></a>
+      <a href="/clean_kangaroo/admin/login/logout.php"><button class="logout_btn primary_btn">로그아웃</button></a>
     </div>
     <!-- 메인 타이틀 -->
     <div class="common_main_tit">
