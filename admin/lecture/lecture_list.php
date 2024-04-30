@@ -1,8 +1,11 @@
 <?php
+session_start();
 $title = "강좌관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+
 
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
@@ -23,8 +26,6 @@ $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
-
-
 ?>
 
 <body>
@@ -63,13 +64,13 @@ while ($rs = $result->fetch_object()) {
           if(isset($rsArr)){
             foreach($rsArr as $ra){
           ?>
-          <tr>
+          <tr class="qty-text" data-id="<?= $ra -> pid;?>">
             <td>
-              <a href="lecture_view.html">
-                <img src="../../images/<?=$ra->product_image;?>" alt=""></a></td>
+              <a href="lecture_view.php?pid=<?=$ra->pid;?>">
+                <img src="../../images/<?=$ra->thumbnail;?>" alt=""></a></td>
               <td colspan="2">
                 <div class="lecdesc">
-                  <a href="lecture_view.html">
+                  <a href="lecture_view.php?pid=<?=$ra->pid;?>">
                   <?=$ra->title;?><br>
                   <?=$ra->brief;?><br>
                   개강일 : <span class="rel_date"><?=$ra->reg_date;?></span> <br>
@@ -81,8 +82,8 @@ while ($rs = $result->fetch_object()) {
   <td><?=$ra->hit;?></td>
   <td><?=$ra->status;?></td>
   <td class="lectureSvg">
-    <a href="lecture_edit.html"><img src="../../images/edit.svg" alt=""></a>
-    <a href=""><img src="../../images/delete.svg" alt=""></a>
+  <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
+    <a href="" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
   </td>
   </tr>
   <?php
@@ -137,4 +138,34 @@ while ($rs = $result->fetch_object()) {
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
+<script>
+document.addEventListener('DOMContentLoaded', ()=>{
+    $('.cart_item_del').click(function(){
+
+        $(this).closest('tr').remove();
+        let cartid =  $(this).find('.qty-text').attr('data-id');
+        let data = {
+            cartid :cartid
+        }
+        $.ajax({
+            url:'lecture_del.php',
+            async:false,
+            type: 'POST',
+            data:data,
+            dataType:'json',
+            error:function(){},
+            success:function(data){
+            console.log(data);
+            if(data.result=='ok'){
+                alert('선택한 강의가 삭제되었습니다.');  
+                location.reload();                      
+            }else{
+                alert('오류, 다시 시도하세요');                        
+                }
+            }
+        });
+    });
+      });
+   
+</script>
 </html>
