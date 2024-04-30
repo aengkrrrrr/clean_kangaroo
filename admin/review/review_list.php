@@ -1,6 +1,8 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/php/header.php';
+$title = "수강평 목록";
+$css1 = '<link rel="stylesheet" href="../../css/review.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
 
   <div class="board_container grid review_board">
