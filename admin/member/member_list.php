@@ -44,7 +44,6 @@ while ($rs = $result->fetch_object()) {
           </select>
         </div>
         <div class="search_wrap df">
-          <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
           <button class="primary_btn">검색</button>
         </div>
       </div>
@@ -69,7 +68,7 @@ while ($rs = $result->fetch_object()) {
           <td><?=$ra->userid?></td>
           <td><?=$ra->email?></td>
           <td><?=$ra->regdate?></td>
-          <td><?php if($ra->status == 0){echo '전체회원';}?></td>
+          <td><?php if($ra->status == 0){echo '신규회원';}else{echo '탈퇴회원';}?></td>
 
         </tr>
       <?php

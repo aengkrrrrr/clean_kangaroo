@@ -41,7 +41,7 @@ $row = $result->fetch_object();
     <!-- 메인 타이틀 -->
     <div class="common_main_tit">
       <div class="admin_wrap df aic">
-        <a href="#" class="bell">
+        <a href="/clean_kangaroo/admin/q&a/q&a_list.php" class="bell">
           <img src="/clean_kangaroo/images/bell_Vector.png" alt="">
           <span class="qna_quantity"><?=$row->cnt?></span>
         </a>
