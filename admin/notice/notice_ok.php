@@ -1,7 +1,7 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/inc/admin_check.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/inc/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $mysqli->autocommit(FALSE);//커밋이 안되도록 지정
 try{
@@ -42,14 +42,14 @@ try{
     exit;
   }
   //파일 업로드
-  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/pinkping/admin/upload/';
+  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
   $fiename = $_FILES["thumbnail"]["name"]; //insta.jpg
   $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
   $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
   $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
 
   if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $save_dir . $savefile)) {
-    $thumbnail = "/pinkping/admin/upload/" . $savefile;
+    $thumbnail = "/clean_kangaroo/admin/upload/" . $savefile;
   } else {
     echo "<script>
     alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
@@ -107,14 +107,14 @@ try{
             exit;
           }
           //파일 업로드
-          $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/pinkping/admin/upload/optiondata/';
+          $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
           $fiename = $_FILES["optionImage1"]["name"][$i]; //insta.jpg
           $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
           $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
           $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
     
           if (move_uploaded_file($_FILES["optionImage1"]["tmp_name"][$i], $save_dir . $savefile)) {
-            $upload_option_image[] = "/pinkping/admin/upload/optiondata/" . $savefile;
+            $upload_option_image[] = "/clean_kangaroo/admin/upload/" . $savefile;
           } else {
             echo "<script>
             alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');

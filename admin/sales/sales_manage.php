@@ -10,26 +10,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 // $paginationTarget = 'sales_manage';
 // include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
-$sql = "SELECT * FROM sales_manage where 1=1";
+$sql = "SELECT * FROM sales_manage s join members m on s.pid=m.mid";
+ $order = " order by pid desc";
+$sql .= $order;
+
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
-
-// $sql = "SELECT * FROM members where 1=1";
-$sql .= $search_where;
- $order = " order by pid desc";
-$sql .= $order;
-// $limit = " LIMIT $startLimit, $endLimit";
-// $sql .= $limit;
-
-// $result = $mysqli->query($sql);
-// while ($rs = $result->fetch_object()) {
-//   $memArr[] = $ms;
-// }
 ?>
-
 <!-- 게시판 폼 -->
+<body>
 <div class="board_container">
 <table class="chart_table">
   <tr>
@@ -78,8 +69,8 @@ $sql .= $order;
           ?>
       <tr>
         <td><?= $ra -> pid;?></td>
-        <td><?= $ms -> username;?>홍길동</td>
-        <td><?= $ms -> userid;?>hgd001</td>
+        <td><?= $ra -> username;?></td>
+        <td><?= $ra -> userid;?></td>
         <td><?= $ra -> title;?></td>
         <td class="category"><?= $ra -> cate;?></td>
         <td><?= $ra -> sales_date;?></td>
@@ -90,26 +81,6 @@ $sql .= $order;
             }
           }
         ?>
-      <tr>
-        <td>2</td>
-        <td>이도령</td>
-        <td>ldr001</td>
-        <td>피그마 기초</td>
-        <td class="category">웹 개발</td>
-        <td>2024.04.01</td>
-        <td>카드결제</td>
-        <td>100,000</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>황진이</td>
-        <td>hwang01</td>
-        <td>유니티 기초</td>
-        <td class="category">웹디자인/편집</td>
-        <td>2024.04.01</td>
-        <td>카드결제</td>
-        <td>100,000</td>
-      </tr>
       </tbody>
     </table>
   <!--공통 pagination-->
@@ -135,28 +106,35 @@ $sql .= $order;
 <!----------- 게시판 폼 -->
 </body>
 <!-- 스크립트 -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script>
-  const ctx1 = document.getElementById('myChart1');
+<div>
+        <canvas id="myChart"></canvas>
+    </div>
 
-  new Chart(ctx1, {
-    type: 'pie',
-    data: {
-      labels: ['웹 개발', '웹디자인/편집', '게임/웹툰', 'CG/모션그래픽'],
-      datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+    const ctx = document.getElementById('myChart1');
+    const cateLabels = <?= json_encode($label) ?>;
+    const cateData = <?= json_encode($data) ?>;
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+        labels:  
+        datasets: [{
+            label: '웹 개발, 웹디자인/편집, 게임/웹툰, CG/모션그래픽',
+            data: [12, 19, 3, 5],
+            borderWidth: 1
+        }]
+        },
+        options: {
+        scales: {
+            y: {
+            beginAtZero: true
+            }
         }
-      }
-    }
-  });
+        }
+    });
 
   const ctx2 = document.getElementById('myChart2');
 

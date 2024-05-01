@@ -6,7 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-// $pid = $_GET['pid']; 
+$pid = $_GET['pid']; 
 $sql = "SELECT * FROM products WHERE pid = {$pid}";
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
@@ -24,41 +24,46 @@ while ($rs = $result->fetch_object()) {
             <span class="body3b"><?= $rs->reg_date; ?></span>
             <div class="lectureSvg">
             <td class="lectureSvg">
-  <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
-    <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
+  <a href="lecture_edit.php?pid=<?= $rs->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
+    <a href="lecture_del.php?pid=<?= $rs->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
   </td>
             </div>
           </div>
         </div>
-        <p class="form-label ca">카테고리 > 소분류</p>
+        <p class="form-label ca"><?=$rs->cate;?>카테고리 > 소분류</p>
       </ul>
       <ul>
         <div class="container">
           <div class="inner_container">
             <ul class="info">
-              <li><img src="/pinkping/admin/upload/<?= $rs->product_image; ?>" alt=""></li>
+              <li><img src="/clean_kangaroo/admin/upload/<?=$rs->thumbnail;?>" alt=""></li>
               <li>
                 <p class="form-label price">가격 : <?= $rs->price; ?>원</p>
               </li>
               <li class="view_status">
                 <p class="status">상태&nbsp;&nbsp;</p>
-                <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
+               <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="공개" name="status[<?= $rs->pid ?>]" id="status[<?= $rs->pid ?>]<?php if($rs->status == 0){ echo "checked";} ?>">
+                   <label class="form-check-label" for="status[<?= $rs->pid ?>]">
                     공개
-                  </label>
+                  </label>   
                 </div>
+
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="일부공개(예약)" name="status[<?= $rs->status ?>]" id="status[<?= $rs->status ?>]<?php if($rs->status == 1){ echo "checked";} ?>">
+                   <label class="form-check-label" for="status[<?= $rs->pid ?>]">
                     일부공개(예약)
-                  </label>
+                  </label>   
                 </div>
+                
                 <div class="form-check">
-                  <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
-                  <label class="form-check-label" for="flexRadioDefault2">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="비공개" name="status[<?= $rs->pid ?>]" id="status[<?= $rs->pid ?>]<?php if($rs->status == 2){ echo "checked";} ?>">
+                   <label class="form-check-label" for="status[<?= $rs->pid ?>]">
                     비공개
-                  </label>
+                  </label>   
                 </div>
               </li>
             </ul>

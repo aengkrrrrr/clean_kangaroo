@@ -7,9 +7,8 @@ $pid = $_POST['pid'];
 
 $cate1 = $_POST['cate1'] ?? '';
 $cate2 = $_POST['cate2'] ?? '';
-$cate3 = $_POST['cate3'] ?? '';
-$orgcate = $_POST['orgcate'] ?? '';
-$cate = $cate1 . $cate2 . $cate3 ;
+//$orgcate = $_POST['orgcate'] ?? '';
+$cate = $cate1 . $cate2 ;
 
 if(strlen($cate) == 0){
   $cate = $orgcate;
@@ -20,12 +19,12 @@ $content  = rawurldecode($_POST['contents']);
 // $thumbnail  = $_POST['thumbnail'];
 $price = $_POST['price'];
 
-$ismain = $_POST['ismain'] ?? 0;
-$isnew = $_POST['isnew'] ?? 0;
-$isbest = $_POST['isbest'] ?? 0;
-$isrecom = $_POST['isrecom'] ?? 0;
+//$ismain = $_POST['ismain'] ?? 0;
+//$isnew = $_POST['isnew'] ?? 0;
+//$isbest = $_POST['isbest'] ?? 0;
+//$isrecom = $_POST['isrecom'] ?? 0;
 
-$locate = $_POST['locate'] ?? 0;
+//$locate = $_POST['locate'] ?? 0;
 $userid = $_SESSION['AUID'];
 
 $status = $_POST['status'] ?? 0;

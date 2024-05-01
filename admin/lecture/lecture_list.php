@@ -135,9 +135,6 @@ while ($rs = $result->fetch_object()) {
     <!------------- 공통 pagination-->
   </div>
 </body>
-<?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-?>
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
     $('.cart_item_del').click(function(){
@@ -168,4 +165,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
       });
    
 </script>
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+?>
 </html>
