@@ -1,14 +1,14 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 $pid = $_POST['pid'];
-$sql = "DELETE FROM products WHERE pid = {$pid}";
+$sql = "DELETE FROM notice_board WHERE pid = {$pid}";
 $result = $mysqli -> query($sql);
 
 
 if($mysqli->query($sql) === true){
     echo "<script>
     alert('삭제성공');
-    location.href='../../index.php';
+    location.href='/clean_kangaroo/admin/notice/notice_del.php';
     </script>";
   };
 // if($result){

@@ -83,7 +83,7 @@ while ($rs = $result->fetch_object()) {
   <td><?=$ra->status;?></td>
   <td class="lectureSvg">
   <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
-    <a href="" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
+    <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
   </td>
   </tr>
   <?php
