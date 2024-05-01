@@ -52,3 +52,5 @@ $row = $result->fetch_object();
     </div>
     <!------------ 메인 타이틀 -->
   </header>
+
+  <script src="/clean_kangaroo/js/common.js"></script>
