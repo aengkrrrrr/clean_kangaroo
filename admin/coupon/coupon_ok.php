@@ -68,3 +68,5 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
         history.back();
         </script>";
     }
+
+    $script1 = '<script src="../../js/coupon.js"></script>';

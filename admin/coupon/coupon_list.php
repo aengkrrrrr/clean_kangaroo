@@ -81,7 +81,7 @@ while ($rs = $result->fetch_object()) {
               <td><?= $item->coupon_price; ?></td>
               <td class="couponSvg">
                 <a href="coupon_edit.php?pid=<?= $item->pid; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
-                <a href="coupon_delete.php?pid=<?= $item->pid;?>" class="coupon_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+                <a href="coupon_delete.php?" class="coupon_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
               </td>
             </tr>
             <?php
@@ -129,9 +129,36 @@ while ($rs = $result->fetch_object()) {
       <a href="coupon_up.php" class="primary_btn">쿠폰 등록</a>
   </div>
 
-
-
-<?php
+  
+  <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+$script1 = '<script src="../../js/coupon.js"></script>';
 
 ?>
+<script>
+  $('.coupon_del').click(function(){
+
+$(this).closest('tr').remove();
+let cpid =  $(this).find('.coupon_post').attr('data-id');
+let data = {
+  cpid :cpid
+}
+$.ajax({
+    url:'coupon_delete.php',
+    async:false,
+    type: 'POST',
+    data:data,
+    dataType:'json',
+    error:function(){},
+    success:function(data){
+    console.log(data);
+    if(data.result=='ok'){
+        alert('선택한 글이 삭제되었습니다.');  
+        location.reload();                      
+    }else{
+        alert('오류, 다시 시도하세요');                        
+        }
+    }
+});
+  });
+</script>

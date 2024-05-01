@@ -2,8 +2,8 @@
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-  $pid = $_GET['idx'];
-  $sql = "DELETE FROM board WHERE idx = {$pid}";
+  $pid = $_POST['pid'];
+  $sql = "DELETE FROM coupons WHERE idx = {$pid}";
   $result = $mysqli -> query($sql);
 
   if($mysqli->query($sql) === true){
@@ -12,5 +12,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
     location.href='/clean_kangaroo/admin/coupon_list.php';
     </script>";
   };
-
+  
+  $script1 = '<script src="../../js/coupon.js"></script>';
 ?>
