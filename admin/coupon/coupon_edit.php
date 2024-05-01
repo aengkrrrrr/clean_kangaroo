@@ -7,18 +7,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 
-$cid = $_GET['cid']; 
+$cid = $_GET['cid'];
 $sql = "SELECT * FROM coupons WHERE cid = {$cid}";
 $result = $mysqli -> query($sql);
 $rs = $result->fetch_object();
-
-
-$optSql = "SELECT * FROM coupon_category WHERE cid = {$cid}";
-$optrs = $mysqli -> query($optSql);
-
-while ($ors = $optrs->fetch_object()) {
-    $optArr[] = $ors;
-}
 
 
 ?>
