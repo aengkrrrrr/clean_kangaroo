@@ -33,7 +33,7 @@ while ($rs = $result->fetch_object()) {
   <body>
     <div class="grid">
       <div class="totalcp">
-        <p>전체 등록 쿠폰리스트 총 n개의 쿠폰이 등록되어 있습니다.</p>
+        <p>전체 등록 쿠폰리스트 총 <?= $count;  ?>개의 쿠폰이 등록되어 있습니다.</p>
       </div>
       <div class="board_container">
           <div class="board_category df">
@@ -68,7 +68,7 @@ while ($rs = $result->fetch_object()) {
               if (isset($rsArr)) {
               foreach ($rsArr as $item) {
             ?>
-            <tr>
+            <tr class="coupon_post">
               <td><img src="<?= $item->coupon_image; ?>" alt=""></td>
               <td><?= $item->coupon_name; ?></td>
               <td><?= $item->max_date; ?></td>
@@ -80,8 +80,8 @@ while ($rs = $result->fetch_object()) {
               <td><?= $item->coupon_ratio; ?></td>
               <td><?= $item->coupon_price; ?></td>
               <td class="couponSvg">
-                <a href="coupon_edit.php"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
-                <a href="coupon_delete.php"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+                <a href="coupon_edit.php?pid=<?= $item->pid; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+                <a href="coupon_delete.php?pid=<?= $item->pid;?>" class="coupon_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
               </td>
             </tr>
             <?php

@@ -54,8 +54,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <span class="input-group-text">원</span>
         </div>
       </div>
-      <button class="primary_btn couponbtn">등록</button>
-      <button class="basic_btn couponbtn">취소</button>
+      <a href="coupon_up.php?pid=<?= $item->pid; ?>" class="primary_btn couponbtn">등록</a>
+      <a href="coupon_delete.php?pid=<?= $item->pid; ?>" class="basic_btn couponbtn">취소</a>
     </form>          
   </div>
 

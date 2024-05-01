@@ -29,7 +29,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
   }
   //파일 업로드
   $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
-  $fiename = $_FILES["coupon_image"]["coupon_name"]; //insta.jpg
+  $fiename = $_FILES["coupon_image"]["name"]; //insta.jpg
   $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
   $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
   $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
@@ -57,7 +57,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     )";
 
     $result = $mysqli -> query($sql);
-    if($result ){
+    if($result){
         echo "<script>
         alert('쿠폰등록 완료');
         location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
