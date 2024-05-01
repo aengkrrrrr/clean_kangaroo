@@ -1,9 +1,10 @@
-let headerMenu = document.querySelector('#header .gnb_wrap li');
+document.addEventListener('DOMContentLoaded',function(){
 
-
-
-$(document).ready(function(){
-  $( function() {
-    $( "#datepicker1, #datepicker2" ).datepicker();
-  } );
+  const headerMenu = document.querySelector('#header .gnb_wrap li');
+  // headerMenu.forEach(function(item){
+  //   item.classList.remove('active');
+  // })
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+  }
 });
