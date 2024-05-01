@@ -65,7 +65,7 @@ while ($ors = $optrs->fetch_object()) {
     </div>
     <div class="answer_btn_wrap df pt-5">
       <a href="" class="primary_btn">수정</a>
-      <a href="" class="basic_btn">취소</a>
+      <a href="../review/review_list.php" class="basic_btn">취소</a>
     </div>
   </div>
   <?php

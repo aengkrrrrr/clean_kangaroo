@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 <body>
   <div class="container grid">
-    <form action="" class="coupon_wrap" enctype="multipart/form-data">
+    <form action="coupon_up.php" class="coupon_wrap" enctype="multipart/form-data">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
           <div class="field">
