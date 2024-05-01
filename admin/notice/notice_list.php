@@ -27,7 +27,7 @@ while ($rs = $result->fetch_object()) {
 ?>
   <!----------- 헤더 -->
   <body>
-  <div class="board_container">
+  <div class="board_container grid">
     <form action="" id="">
       <div class="board_category df">
         <div class="select_wrap">
@@ -68,8 +68,8 @@ while ($rs = $result->fetch_object()) {
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
           <td class="lectureSvg">
-            <a href="notice_list.php?pageNumber=<?=$ra->pid;?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
-            <a href=""><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+            <a href="notice_edit.php?pid=<?= $ra->idx; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+            <a href="notice_del.php?pid=<?= $ra->idx; ?>"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
           </td>
         </tr>
         <?php

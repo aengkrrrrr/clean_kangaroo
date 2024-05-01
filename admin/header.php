@@ -1,3 +1,9 @@
+<?php
+$sql = "SELECT COUNT(*) AS cnt FROM qna_board WHERE status = 0";
+$result = $mysqli->query($sql);
+$row = $result->fetch_object();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,9 +41,9 @@
     <!-- 메인 타이틀 -->
     <div class="common_main_tit">
       <div class="admin_wrap df aic">
-        <a href="#" class="bell">
+        <a href="/clean_kangaroo/admin/q&a/q&a_list.php" class="bell">
           <img src="/clean_kangaroo/images/bell_Vector.png" alt="">
-          <span class="qna_quantity">5</span>
+          <span class="qna_quantity"><?=$row->cnt?></span>
         </a>
         <span class="kang"><img src="/clean_kangaroo/images/popup_kang_btn.png" alt=""></span>
         <span>깨끗한 아기 캥거루</span>
@@ -46,3 +52,5 @@
     </div>
     <!------------ 메인 타이틀 -->
   </header>
+
+  <script src="/clean_kangaroo/js/common.js"></script>

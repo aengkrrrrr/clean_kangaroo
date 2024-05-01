@@ -9,7 +9,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
   <div class="user_write">
     <div class="profile df aic pb-5">
       <div class="username d-flex">
-        <img src="images/favicon.png" alt="프로필 이미지" class="user_profile_img">
+        <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
         <h5 class="body3b">사용자이름</h5>
       </div>
       <div class="rating" data-rate="3">
@@ -44,5 +44,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 </div>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/php/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>

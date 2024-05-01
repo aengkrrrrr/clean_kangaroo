@@ -8,9 +8,12 @@
   border: 1px solid #bdbdbd;
   border-radius: 10px;
   margin-bottom: 30px;
+  padding: 80px 50px;
+  box-sizing: border-box;
 }
+.review_wraps { position: relative; }
 .user_write {
-  padding: 30px 100px;
+  padding: 30px 60px;
 }
 .review_wrap .content .body2 {
   font-size: var(--body-sl);
@@ -44,4 +47,12 @@
 .review_answer {
   margin-top: 60px;
   margin-bottom: 60px;
+}
+a.reviewbtn {
+  position: absolute;
+  right: 50px;
+}
+a.reviewbtn:first-of-type {
+  position: absolute;
+  right: 160px;
 }

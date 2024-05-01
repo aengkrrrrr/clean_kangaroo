@@ -8,8 +8,8 @@ $coupon_type = $_POST['coupon_type'];
 $coupon_price = $_POST['coupon_price'] ?? 0;
 $coupon_ratio = $_POST['coupon_ratio'] ?? 0;
 $status = $_POST['status'];
-$max_value = $_POST['max_value'];
-$use_min_price = $_POST['use_min_price'];
+$max_date = $_POST['max_date'];
+$userid = $_POST['userid'];
 
 //파일 사이즈 검사
 if ($_FILES['coupon_image']['size'] > 10240000) {
@@ -44,7 +44,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     exit;
   }
 
-  $sql = "INSERT INTO coupons (coupon_name,coupon_image,coupon_type,coupon_price,coupon_ratio,status,regdate,userid,max_value,use_min_price) VALUES (
+  $sql = "INSERT INTO coupons (coupon_name,coupon_image,coupon_type,coupon_price,coupon_ratio,status,regdate,userid,max_date) VALUES (
     '{$coupon_name}', 
     '{$coupon_image}', 
     '{$coupon_type}', 
@@ -53,12 +53,11 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     '{$status}', 
     now(), 
     '{$_SESSION['AUID']}', 
-    '{$max_value}', 
-    '{$use_min_price}'
+    '{$max_date}'
     )";
 
     $result = $mysqli -> query($sql);
-    if($result ){
+    if($result){
         echo "<script>
         alert('쿠폰등록 완료');
         location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';

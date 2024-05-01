@@ -4,16 +4,18 @@ $css1 = '<link rel="stylesheet" href="../../css/qna.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
+//검색창 키워드
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
 
 if($search_keyword){
   $search_where .= " and (name LIKE '%{$search_keyword}%' or title LIKE '%{$search_keyword}%')";
 }
-
+//페이지네이션
 $paginationTarget = 'qna_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
+//큐앤에이 조회
 $sql = "SELECT * FROM qna_board where 1=1";
 $sql .= $search_where;
 $order = " order by date desc";
@@ -25,7 +27,6 @@ $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
-
 
 ?>
 
@@ -64,7 +65,7 @@ while ($rs = $result->fetch_object()) {
             foreach($rsArr as $ra){
           ?>
         <tr>
-          <td><?php if($ra->status == 0){echo '답변대기';}?></td>
+          <td><?php if($ra->status == 0){echo '답변대기';}else{echo '답변완료';}?></td>
           <td><a href="/clean_kangaroo/admin/q&a/q&a_answer.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>

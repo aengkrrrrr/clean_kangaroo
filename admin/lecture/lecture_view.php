@@ -1,20 +1,32 @@
 <?php
+session_start();
 $title = "강좌관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+
+// $pid = $_GET['pid']; 
+$sql = "SELECT * FROM products WHERE pid = {$pid}";
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
 ?>
   <!----------- 헤더 -->
   <div class="answer_wrap">
     <div class="user_write">
       <ul>
         <div class="title df aic pb-5">
-          <h4 class="h4">강좌명</h4>
+          <h4 class="h4">강좌명 : <?= $rs->title; ?></h4>
           <div class="svg_wrap">
-            <span class="body3b">조회수 : 160</span>
-            <span class="body3b">YYYY-MM-DD</span>
+            <span class="body3b">조회수 : <?= $rs->hit; ?></span>
+            <span class="body3b"><?= $rs->reg_date; ?></span>
             <div class="lectureSvg">
-              <a href="lecture_edit.html"><img src="../../images/edit.svg" alt=""></a>
-              <a href=""><img src="../../../images/delete.svg" alt=""></a>
+            <td class="lectureSvg">
+  <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
+    <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
+  </td>
             </div>
           </div>
         </div>
@@ -24,9 +36,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
         <div class="container">
           <div class="inner_container">
             <ul class="info">
-              <li><img src="../../images/test_coupon.png" alt=""></li>
+              <li><img src="/pinkping/admin/upload/<?= $rs->product_image; ?>" alt=""></li>
               <li>
-                <p class="form-label price">가격 : 100,000 원</p>
+                <p class="form-label price">가격 : <?= $rs->price; ?>원</p>
               </li>
               <li class="view_status">
                 <p class="status">상태&nbsp;&nbsp;</p>
@@ -51,7 +63,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
               </li>
             </ul>
             <ul class="content">
-              <p class="body2">사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가
+              <p class="body2"><?= $rs->content; ?>사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가
                 작성한
                 내용사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한
                 내용사용자가
