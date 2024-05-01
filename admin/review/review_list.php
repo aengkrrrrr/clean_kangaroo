@@ -55,7 +55,7 @@ while ($rs = $result->fetch_object()) {
           <div class="profile df aic pb-5">
             <div class="username d-flex">
               <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
-              <h5 class="body3b">사용자이름</h5>
+              <h5 class="body3b"><?= $item->name; ?></h5>
             </div>
             <div class="rating" data-rate="3">
               <i class="fas fa-star"></i>
@@ -66,16 +66,16 @@ while ($rs = $result->fetch_object()) {
             </div>
           </div>
           <div class="title df aic pb-5">
-            <h4 class="h4">제목입니다.</h4>
-            <span class="body3b">YYYY-MM-DD</span>
+            <h4 class="h4"><?= $item->title; ?></h4>
+            <span class="body3b"><?= $item->date; ?></span>
           </div>
           <div class="content">
-            <p class="body2">사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용</p>
+            <p class="body2"><?= $item->content; ?></p>
           </div>
         </div>
         
         <a href="review_up.php" class="primary_btn reviewbtn">댓글 달기</a>
-        <a href="review_delete.php" class="basic_btn reviewbtn">삭제</a>
+        <a href="review_delete.php" class="basic_btn reviewbtn review_del">삭제</a>
         
       </div>
       
@@ -118,4 +118,5 @@ while ($rs = $result->fetch_object()) {
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+$script1 = '<script src="../../js/coupon.js"></script>';
 ?>
