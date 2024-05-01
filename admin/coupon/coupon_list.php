@@ -130,8 +130,38 @@ while ($rs = $result->fetch_object()) {
   </div>
 
 
+  <script>
+document.addEventListener('DOMContentLoaded', ()=>{
+    $('.coupon_del').click(function(){
 
+        $(this).closest('tr').remove();
+        let cartid =  $(this).find('.qty-text').attr('data-id');
+        let data = {
+            cartid :cartid
+        }
+        $.ajax({
+            url:'lecture_del.php',
+            async:false,
+            type: 'POST',
+            data:data,
+            dataType:'json',
+            error:function(){},
+            success:function(data){
+            console.log(data);
+            if(data.result=='ok'){
+                alert('선택한 강의가 삭제되었습니다.');  
+                location.reload();                      
+            }else{
+                alert('오류, 다시 시도하세요');                        
+                }
+            }
+        });
+    });
+      });
+   
+</script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 
 ?>
+  
