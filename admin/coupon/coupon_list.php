@@ -2,6 +2,7 @@
 session_start();
 $title = "쿠폰 관리";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 

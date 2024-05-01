@@ -2,8 +2,8 @@
 session_start();
 $title = "수강평 보기";
 $css1 = '<link rel="stylesheet" href="../../css/review.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 // 수강평 조회
 $idx = $_GET['idx']; 
@@ -62,7 +62,7 @@ $rp = $reply->fetch_object();
   
       </div>
       <div class="answer_btn_wrap df pt-5">
-        <a href="" class="primary_btn">저장</a>
+        <button class="primary_btn">저장</button>
         <a href="../review/review_list.php" class="basic_btn">취소</a>
       </div>
     </div>

@@ -2,6 +2,7 @@
 session_start();
 $title = "수강평 보기";
 $css1 = '<link rel="stylesheet" href="../../css/review.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
@@ -43,26 +44,16 @@ $rp = $reply->fetch_object();
 
   
   <form action="review_ok.php" method="POST">
+    <input type="hidden" name="idx" value="<?= $rs->idx; ?>">
     <div class="admin_answer">
       <h4 class="body2b mb-3">관리자</h4>
       <div class="content">
-      
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-          <?php
-      if (isset($rp)) {
-      foreach ($rp as $item) {
-    ?>
-          <label for="floatingTextarea"><?= $item->content; ?></label>
-          <?php
-      }
-    }
-    ?>
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"></textarea>
         </div>
-  
       </div>
       <div class="answer_btn_wrap df pt-5">
-        <a href="" class="primary_btn">저장</a>
+        <button href="" class="primary_btn">저장</button>
         <a href="../review/review_list.php" class="basic_btn">취소</a>
       </div>
     </div>

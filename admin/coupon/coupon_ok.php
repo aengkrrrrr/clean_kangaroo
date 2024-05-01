@@ -56,8 +56,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     '{$max_date}'
     )";
 
-    $result = $mysqli -> query($sql);
-    if($result){
+    if($mysqli->query($sql) === TRUE){
         echo "<script>
         alert('쿠폰등록 완료');
         location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
@@ -68,5 +67,3 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
         history.back();
         </script>";
     }
-
-    $script1 = '<script src="../../js/coupon.js"></script>';
