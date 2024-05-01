@@ -34,8 +34,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       <div class="coupon_2 d-flex">
         <div class="form-floating">
           <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
-            <option value="1" selected>사용중</option>
-            <option value="2">보류중</option>
+            <option value="0" selected name="cate1">사용중</option>
+            <option value="1" name="cate2">보류중</option>
           </select>
           <label for="coupon_type">종류</label>
         </div>
@@ -54,8 +54,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <span class="input-group-text">원</span>
         </div>
       </div>
-      <a href="coupon_up.php?pid=<?= $item->pid; ?>" class="primary_btn couponbtn">등록</a>
-      <a href="coupon_delete.php?pid=<?= $item->pid; ?>" class="basic_btn couponbtn">취소</a>
+      <button class="primary_btn couponbtn">등록</button>
+      <a href="coupon_list.php" class="basic_btn couponbtn">취소</a>
     </form>          
   </div>
 

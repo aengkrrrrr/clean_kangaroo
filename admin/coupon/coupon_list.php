@@ -5,11 +5,15 @@ $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$search_where = "";
 $search_keyword = $_GET['search_keyword'] ?? '';
+$status = $_GET['status'] ?? '';
+$search_where = "";
 
 if($search_keyword){
   $search_where .= " and (coupon_name LIKE '%{$search_keyword}%')";
+}
+if(isset($status) && $status !== ''){
+  $search_where .= " and status = {$status}";
 }
 
 $paginationTarget = 'coupons';
@@ -33,22 +37,22 @@ while ($rs = $result->fetch_object()) {
   <body>
     <div class="grid">
       <div class="totalcp">
-        <p>전체 등록 쿠폰리스트 총 <?= $count;  ?>개의 쿠폰이 등록되어 있습니다.</p>
+        <p>전체 등록 쿠폰리스트 중 총 <?= $count;  ?>개의 쿠폰이 등록되어 있습니다.</p>
       </div>
       <div class="board_container">
-          <div class="board_category df">
+        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df">
+          <div class="board_category df aic">
+            
             <div class="select_wrap">
-              <select class="form-select" id="coupon_status" class="form-select">
-                <option value="1" selected>전체보기</option>
-                <option value="2">사용중</option>
-                <option value="3">보류중</option>
+              <select class="form-select" id="coupon_status" class="form-select" name="status">
+                <option value="" selected>전체보기</option>
+                <option value="0">사용중</option>
+                <option value="1">보류중</option>
               </select>
             </div>
-            <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df">
-              <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
               <button class="primary_btn">검색</button>
-            </form>
           </div>
+        </form>
         <hr>  
         <form action="">
           <table class="table">
@@ -73,15 +77,15 @@ while ($rs = $result->fetch_object()) {
               <td><?= $item->coupon_name; ?></td>
               <td><?= $item->max_date; ?></td>
               <td><?php
-                if($item->status == '1'){echo '전체보기';} 
-                else if($item->status == '2'){echo '사용중';} 
-                else{echo '보류중';}
+                if($item->status == '2'){echo '전체보기';} 
+                else if($item->status == '0'){echo '사용중';} 
+                else if($item->status == '1'){echo '보류중';}
               ?></td>
               <td><?= $item->coupon_ratio; ?></td>
               <td><?= $item->coupon_price; ?></td>
               <td class="couponSvg">
-                <a href="coupon_edit.php?pid=<?= $item->pid; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
-                <a href="coupon_delete.php?" class="coupon_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+                <a href="coupon_edit.php?cid=<?= $item->cid; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+                <a href="coupon_delete.php?cid=<?= $item->cid; ?>" class="coupon_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
               </td>
             </tr>
             <?php
@@ -129,36 +133,8 @@ while ($rs = $result->fetch_object()) {
       <a href="coupon_up.php" class="primary_btn">쿠폰 등록</a>
   </div>
 
-  
   <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-$script1 = '<script src="../../js/coupon.js"></script>';
+  include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+  $script1 = '<script src="../../js/coupon.js"></script>';
 
-?>
-<script>
-  $('.coupon_del').click(function(){
-
-$(this).closest('tr').remove();
-let cpid =  $(this).find('.coupon_post').attr('data-id');
-let data = {
-  cpid :cpid
-}
-$.ajax({
-    url:'coupon_delete.php',
-    async:false,
-    type: 'POST',
-    data:data,
-    dataType:'json',
-    error:function(){},
-    success:function(data){
-    console.log(data);
-    if(data.result=='ok'){
-        alert('선택한 글이 삭제되었습니다.');  
-        location.reload();                      
-    }else{
-        alert('오류, 다시 시도하세요');                        
-        }
-    }
-});
-  });
-</script>
+  ?>
