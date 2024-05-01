@@ -6,10 +6,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $search_keyword = $_GET['search_keyword'] ?? '';
+$status = $_GET['status'] ?? '';
 $search_where = "";
 
 if($search_keyword){
   $search_where .= " and (userid LIKE '%{$search_keyword}%' or userid LIKE '%{$search_keyword}%')";
+}
+if($status){
+  $search_where .= " and status = {$status}";
 }
 
 $paginationTarget = 'members';
@@ -33,10 +37,10 @@ while ($rs = $result->fetch_object()) {
     <form action="" id="">
       <div class="board_category df aic">
         <div class="select_wrap">
-          <select class="form-select" aria-label="" id="" name="">
-            <option selected>전체회원</option>
-            <option>신규회원</option>
-            <option>탈퇴회원</option>
+          <select class="form-select" aria-label="" id="" name="status">
+            <option value="" selected>전체회원</option>
+            <option value="0">신규회원</option>
+            <option value="-1">탈퇴회원</option>
           </select>
         </div>
         <div class="search_wrap df">

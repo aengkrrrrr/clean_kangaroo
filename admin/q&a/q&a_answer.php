@@ -17,8 +17,10 @@ $mysqli->query($sqlUpdate);
 
 //답변 테이블 조회
 $replySql = "SELECT * FROM qna_reply WHERE idx = {$idx}";
-$replyresult = $mysqli->query($replySql);
-$replyrow = $replyresult->fetch_object();
+$reply_result = $mysqli->query($replySql);
+while($reply_row = mysqli_fetch_object($reply_result)){
+  $replyArr[]=$reply_row;
+}
 ?>
 
 <body>
@@ -37,25 +39,38 @@ $replyrow = $replyresult->fetch_object();
           </div>
       </div>
       <div class="admin_answer">
+        <?php
+        if(isset($replyArr)){
+          foreach($replyArr as $ra){
+        ?>
         <div class="content">
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content"></textarea>
-            <label for="content"> <?= $replyrow->content?></label>
+            <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content" readonly><?= $ra->content?></textarea>
           </div>
+             <!-- 댓글 삭제 폼 -->
+             <form action="q&a_answer_del.php" method="POST">
+             <input type="hidden" name="idx" value="<?= $ra->idx;?>">
+              <button class="primary_btn">삭제</button>
+            </form>  
         </div>
-      </div>
-  
+        <?php
+            }
+          }
+        ?>
+       
+     </div>
     <form action="q&a_answer_ok.php" method="POST">
+      <input type="hidden" name="idx" value="<?=$idx;?>">
       <div class="admin_answer">
         <h4 class="body2b mb-3">관리자</h4>
         <div class="content">
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" name="content" id="content"></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" name="content"></textarea>
             <label for="content">Comments</label>
           </div>
         </div>
         <div class="answer_btn_wrap df pt-5">
-          <a href="q&a_answer_ok.php" class="primary_btn">등록</a>
+          <button class="primary_btn">등록</button>
           <a href="q&a_list.php" class="basic_btn">취소</a>
         </div>
       </div>
