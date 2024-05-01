@@ -52,7 +52,7 @@ $rr = $reply_result->fetch_object();
         </div>
       </div>
       <div class="answer_btn_wrap df pt-5">
-        <button href="" class="primary_btn">저장</button>
+        <button class="primary_btn">저장</button>
         <a href="../review/review_list.php" class="basic_btn">취소</a>
       </div>
     </div>

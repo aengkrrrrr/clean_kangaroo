@@ -4,12 +4,13 @@ $title = "쿠폰 등록";
 $css1 = '<link rel="stylesheet" href="../../css/coupon.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-?>
 
+?>
 
 <body>
   <div class="container grid">
-    <form action="coupon_up.php" class="coupon_wrap" enctype="multipart/form-data">
+    <form action="coupon_up.php" class="coupon_wrap" enctype="multipart/form-data" method="POST">
+      <input type="hidden" name="cid">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
           <div class="field">

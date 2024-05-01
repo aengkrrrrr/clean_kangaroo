@@ -5,8 +5,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $coupon_name = $_POST['coupon_name'];
 $coupon_type = $_POST['coupon_type'];
-$coupon_price = $_POST['coupon_price'] ?? 0;
-$coupon_ratio = $_POST['coupon_ratio'] ?? 0;
+$coupon_price = $_POST['coupon_price'];
+$coupon_ratio = $_POST['coupon_ratio'];
 $status = $_POST['status'];
 $max_date = $_POST['max_date'];
 $userid = $_POST['userid'];
