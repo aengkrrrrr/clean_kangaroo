@@ -38,7 +38,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     $coupon_image = "/clean_kangaroo/admin/upload/" . $savefile;
   } else {
     echo "<script>
-    alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
+    alert('이미지 등록에 실패했습니다. 관리자에게 문의해주세요');
     history.back();
     </script>";
     exit;
@@ -56,8 +56,7 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     '{$max_date}'
     )";
 
-    $result = $mysqli -> query($sql);
-    if($result){
+    if($mysqli->query($sql) === TRUE){
         echo "<script>
         alert('쿠폰등록 완료');
         location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
@@ -68,5 +67,3 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
         history.back();
         </script>";
     }
-
-    $script1 = '<script src="../../js/coupon.js"></script>';
