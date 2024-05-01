@@ -1,32 +1,36 @@
 <?php
+session_start();
 $title = "공지사항 관리";
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 ?>
-  <!----------- 헤더 -->
 
+<body>
 <div class="notice_container">
   <h3>공지사항 수정</h3>
-    <ul>
-    <p>카테고리</p> 
-    <li class="category">
-    <select class="form-select" aria-label="대분류">
-      <option selected>대분류</option>
-      <option value="1">강좌관리</option>
-      <option value="2">게시판 관리</option>
-      <option value="3">회원관리</option>
-      <option value="3">쿠폰관리</option>
-      <option value="3">매출관리</option>
-    </select>  
+  <ul>
+      <p class="form-label">카테고리</p>
+      <li class="category">
+      <select class="form-select" aria-label="대분류" id="cate1">
+        <option selected>대분류</option>
+        <?php
+        foreach ($cate1 as $c1) {
+        ?>
 
-    <select class="form-select" aria-label="중분류">
-      <option selected>중분류</option>
-      <option value="1">One</option>
-      <option value="2">Two</option>
-      <option value="3">Three</option>
-    </select>
-  </li>
-</ul>
+          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+
+        <?php
+        }
+        ?>
+
+      </select>
+      <select class="form-select" aria-label="중분류" id="cate2">
+
+      </select>
+      </li>
+    </ul>
 <ul>
   <li>
     <div class="form-floating mb-3">

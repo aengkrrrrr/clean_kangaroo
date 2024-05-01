@@ -2,6 +2,7 @@
 session_start();
 $title = "강좌관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
@@ -10,12 +11,14 @@ $sql = "SELECT * FROM products WHERE pid = {$pid}";
 $result = $mysqli -> query($sql);
 $rs = $result->fetch_object();
 
-//대분류 조회
+
+
 $sql = "SELECT * FROM product_category where step = 1";
 $result = $mysqli->query($sql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
+
 
 //카테고리 확인
 $cates = $rs->cate; //A0001B0001C0001  str_split(문자열, 개수);
@@ -74,10 +77,11 @@ foreach($cateArray as $cate){
         </select>
       </li>
     </ul>
+
     <ul>
       <li>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" name="title" id="title" placeholder="강좌명" value="<?= $rs -> title?>" required>
+          <input type="text" class="form-control" name="title" id="title" placeholder="강좌명" value="<?= $rs -> title?>" required disabled>
           <label for="title" disabled>강좌명</label>
         </div>
       </li>
@@ -131,6 +135,7 @@ foreach($cateArray as $cate){
         </div>
       </li>
     </ul>
+    
     <ul>
       <li>
         <p class="period">수강기간 yyyy-mm-dd ~ yyyy-mm-dd </p>
@@ -183,13 +188,10 @@ foreach($cateArray as $cate){
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
 <script>
+  $(document).ready(function() {
   $( function() {
     $( "#datepicker1" ).datepicker();
   } );
-  </script>
-<script>
-  $(document).ready(function() {
-
     $('.optAddBtn').click(function(){
       let addHtml = $('#optionTr1').html();
           addHtml =  `<tr>${addHtml}</tr>`;
