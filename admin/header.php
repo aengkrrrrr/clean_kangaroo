@@ -15,7 +15,7 @@ $row = $result->fetch_object();
     <link rel="icon" href="/clean_kangaroo/images/favicon.png" type="image/x-icon">
       <!-- datepicker -->
     <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
+    <!-- <link rel="stylesheet" href="/resources/demos/style.css"> -->
     <link rel="stylesheet" href="/clean_kangaroo/css/common.css">
     <?= $css1 ?? ''?>
     <?= $css2 ?? ''?>
@@ -53,4 +53,4 @@ $row = $result->fetch_object();
     <!------------ 메인 타이틀 -->
   </header>
 
-  <script src="/clean_kangaroo/js/common.js"></script>
+  <!-- <script src="/clean_kangaroo/js/common.js"></script> -->
