@@ -65,7 +65,7 @@ while ($rs = $result->fetch_object()) {
             foreach($rsArr as $ra){
           ?>
         <tr>
-          <td><?php if($ra->status == 0){echo '답변대기';}else{echo '답변완료';}?></td>
+          <td><?php if($ra->status == 0){echo '답변대기';}else{echo '답변완료'; color:'blue';}?></td>
           <td><a href="/clean_kangaroo/admin/q&a/q&a_answer.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
@@ -114,6 +114,14 @@ while ($rs = $result->fetch_object()) {
     </div>
   </div>
 
+<script>
+  const status = document.querySelector('.table>tbody tr td');
+  for(let st of status){
+    if(st.text() == '답변완료'){
+      st.css({color:'red'})
+    }
+  }
+</script>
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';

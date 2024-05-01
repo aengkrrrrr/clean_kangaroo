@@ -5,7 +5,6 @@ document.addEventListener('DOMContentLoaded',function(){
   //   item.classList.remove('active');
   // })
   for(let menu of headerMenu){
-    console.log(menu);
     menu.classList.remove('active');
   }
 });

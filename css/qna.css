@@ -1,3 +1,6 @@
 .answer_wrap {
     margin-top: 60px;
 }
+.table>tbody tr td {
+    color: var(--C--primary);
+}
