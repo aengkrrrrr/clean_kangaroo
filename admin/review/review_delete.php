@@ -9,9 +9,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
   if($mysqli->query($sql) === true){
     echo "<script>
     alert('삭제성공');
-    location.href='/clean_kangaroo/admin/coupon/coupon_list.php';
+    location.href='/clean_kangaroo/admin/review/review_list.php';
     </script>";
   };
   
-  $script1 = '<script src="../../js/coupon.js"></script>';
+  $script1 = '<script src="../../js/review.js"></script>';
 ?>

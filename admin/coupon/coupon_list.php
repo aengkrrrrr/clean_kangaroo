@@ -42,7 +42,6 @@ while ($rs = $result->fetch_object()) {
       <div class="board_container">
         <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df">
           <div class="board_category df aic">
-            
             <div class="select_wrap">
               <select class="form-select" id="coupon_status" class="form-select" name="status">
                 <option value="" selected>전체보기</option>

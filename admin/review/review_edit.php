@@ -2,6 +2,7 @@
 session_start();
 $title = "수강평 보기";
 $css1 = '<link rel="stylesheet" href="../../css/review.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $idx = $_GET['idx']; 
@@ -75,5 +76,5 @@ while ($ors = $optrs->fetch_object()) {
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-$script1 = '<script src="../../js/coupon.js"></script>';
+$script1 = '<script src="../../js/review.js"></script>';
 ?>

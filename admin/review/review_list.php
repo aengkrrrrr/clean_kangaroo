@@ -74,8 +74,8 @@ while ($rs = $result->fetch_object()) {
           </div>
         </div>
         
-        <a href="review_up.php" class="primary_btn reviewbtn">댓글 달기</a>
-        <a href="review_delete.php" class="basic_btn reviewbtn review_del">삭제</a>
+        <a href="review_up.php?idx=<?= $item->idx; ?>" class="primary_btn reviewbtn">댓글 달기</a>
+        <a href="review_delete.php?idx=<?= $item->idx; ?>" class="basic_btn reviewbtn review_del">삭제</a>
         
       </div>
       
@@ -118,5 +118,5 @@ while ($rs = $result->fetch_object()) {
 
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-$script1 = '<script src="../../js/coupon.js"></script>';
+$script1 = '<script src="../../js/review.js"></script>';
 ?>
