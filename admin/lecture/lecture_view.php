@@ -23,8 +23,10 @@ while ($rs = $result->fetch_object()) {
             <span class="body3b">조회수 : <?= $rs->hit; ?></span>
             <span class="body3b"><?= $rs->reg_date; ?></span>
             <div class="lectureSvg">
-            <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
-              <a href=""><img src="../../../images/delete.svg" alt=""></a>
+            <td class="lectureSvg">
+  <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
+    <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
+  </td>
             </div>
           </div>
         </div>

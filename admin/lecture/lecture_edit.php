@@ -198,16 +198,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 
     $('#product_save').on('submit', save);
 
-    function save() {
-      let markupStr = $('#summernote').summernote('code');
-      let contents = encodeURIComponent(markupStr);
-      $('#contents').val(contents);
-    }
-
-    $('#summernote').summernote({
-      height: 300
-    });
-
     $("#sale_end_date").datepicker({
       dateFormat: "yy-mm-dd"
     });

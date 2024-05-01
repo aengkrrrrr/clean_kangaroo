@@ -68,8 +68,8 @@ while ($rs = $result->fetch_object()) {
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
           <td class="lectureSvg">
-            <a href="notice_list.php?pageNumber=<?=$ra->pid;?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
-            <a href=""><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+            <a href="notice_edit.php?pid=<?= $ra->idx; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+            <a href="notice_del.php?pid=<?= $ra->idx; ?>"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
           </td>
         </tr>
         <?php
