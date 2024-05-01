@@ -37,12 +37,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
       </div>
     </div>
     <div class="answer_btn_wrap df pt-5">
-      <a href="" class="primary_btn">등록</a>
+      <a href="" class="primary_btn">수정</a>
       <a href="" class="basic_btn">취소</a>
     </div>
   </div>
 </div>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/php/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>

@@ -31,26 +31,25 @@ while ($rs = $result->fetch_object()) {
 ?>
 
   <div class="board_container grid review_board">
-    <form action="" id="">
-      <div class="board_category df">
-        <div class="select_wrap">
+    <div class="board_category df">
+      <div class="select_wrap">
         <select class="form-select" onchange="window.open(value,'_self');" aria-label="" id="" name="">
-            <option value="/clean_kangaroo/admin/notice/notice_list.php">공지사항 관리</option>
-            <option value="/clean_kangaroo/admin/q&a/q&a_list.php">Q&A 관리</option>
-            <option value="/clean_kangaroo/admin/review/review_list.php" selected>수강평 관리</option>
-          </select>
-        </div>
-        <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df">
-          <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
-          <button class="primary_btn">검색</button>
-        </form>
+          <option value="/clean_kangaroo/admin/notice/notice_list.php">공지사항 관리</option>
+          <option value="/clean_kangaroo/admin/q&a/q&a_list.php">Q&A 관리</option>
+          <option value="/clean_kangaroo/admin/review/review_list.php" selected>수강평 관리</option>
+        </select>
       </div>
-    </form>
-    <form class="review_wrap">
+      <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df">
+        <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
+        <button class="primary_btn">검색</button>
+      </form>
+    </div>
     <?php
         if (isset($rsArr)) {
         foreach ($rsArr as $item) {
       ?>
+    <form class="review_wrap">
+
       <div class="review_wraps">
         <div class="user_write">
           <div class="profile df aic pb-5">
@@ -79,11 +78,12 @@ while ($rs = $result->fetch_object()) {
         <a href="review_delete.php" class="basic_btn reviewbtn">삭제</a>
         
       </div>
-      <?php
+      
+    </form>
+    <?php
           }
         }
         ?>
-    </form>
   </div>
   <nav aria-label="">
       <ul class="pagination">

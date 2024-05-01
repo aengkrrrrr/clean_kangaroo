@@ -44,5 +44,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 </div>
 
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/php/footer.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
