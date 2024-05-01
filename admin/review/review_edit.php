@@ -13,10 +13,9 @@ $result = $mysqli -> query($sql);
 $rs = $result->fetch_object();
 
 // 수강평 답글 조회
-$reply_sql = "SELECT * FROM review_reply WHERE b_idx = {$b_idx} ORDER BY idx DESC";
-$reply_result = $mysqli -> query($sqlr);
-while($replay_row = $reply_result->fetch_assoc()){
-
+$reply_sql = "SELECT * FROM review_reply WHERE b_idx = {$idx}";
+$reply_result = $mysqli -> query($reply_sql);
+$rr = $reply_result->fetch_object();
 ?>
 
 <div class="review_wrap grid review_answer">
@@ -49,24 +48,7 @@ while($replay_row = $reply_result->fetch_assoc()){
       <h4 class="body2b mb-3">관리자</h4>
       <div class="content">
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"></textarea>
-        </div>
-      </div>
-      <div class="answer_btn_wrap df pt-5">
-        <button href="" class="primary_btn">저장</button>
-        <a href="../review/review_list.php" class="basic_btn">취소</a>
-      </div>
-    </div>
-  </form>
-
-
-  <form action="review_ok.php?idx=<?php echo $b_idx; ?>" method="POST">
-    <input type="hidden" name="idx" value="<?= $rs->idx; ?>">
-    <div class="admin_answer">
-      <h4 class="body2b mb-3">관리자</h4>
-      <div class="content">
-        <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"><?= $rr->content; ?></textarea>
         </div>
       </div>
       <div class="answer_btn_wrap df pt-5">
@@ -77,9 +59,6 @@ while($replay_row = $reply_result->fetch_assoc()){
   </form>
 
 </div>
-<?php
-}
-?>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 $script1 = '<script src="../../js/review.js"></script>';

@@ -13,9 +13,9 @@ $result = $mysqli -> query($sql);
 $rs = $result->fetch_object();
 
 // 수강평 답글 조회
-$sqlr = "SELECT * FROM review_reply WHERE idx = {$idx}";
-$reply = $mysqli -> query($sqlr);
-$rp = $reply->fetch_object();
+$reply_sql = "SELECT * FROM review_reply WHERE b_idx = {$idx}";
+$reply_result = $mysqli -> query($reply_sql);
+$rr = $reply_result->fetch_object();
 ?>
 
 <div class="review_wrap grid review_answer">
@@ -42,14 +42,13 @@ $rp = $reply->fetch_object();
       </div>
   </div>
 
-  
   <form action="review_ok.php" method="POST">
     <input type="hidden" name="idx" value="<?= $rs->idx; ?>">
     <div class="admin_answer">
       <h4 class="body2b mb-3">관리자</h4>
       <div class="content">
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"><?= $rr->content; ?></textarea>
         </div>
       </div>
       <div class="answer_btn_wrap df pt-5">
@@ -60,7 +59,6 @@ $rp = $reply->fetch_object();
   </form>
 
 </div>
-
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 $script1 = '<script src="../../js/review.js"></script>';
