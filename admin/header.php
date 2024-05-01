@@ -14,7 +14,7 @@
     <?= $css1 ?? ''?>
     <?= $css2 ?? ''?>
 
-    <title><?= $title ?? ''; ?> | Deep Learning Kangaroo</title>
+    <title><?php $title ?? ''; ?> | Deep Learning Kangaroo</title>
   </head>
 
   <header id="header">
