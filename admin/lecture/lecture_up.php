@@ -17,7 +17,7 @@ while ($row = $result->fetch_object()) {
     <h3>강좌 등록</h3>
     <form action="lecture_ok.php" method="POST" enctype="multipart/form-data" id="product_save">
     <input type="hidden" name="product_image" id="product_image_id">
-    <input type="hidden" name="contents" id="contents">
+    <input type="hidden" name="content" id="content">
     <ul>
       <p class="form-label">카테고리</p>
       <li class="category">
@@ -42,7 +42,7 @@ while ($row = $result->fetch_object()) {
     <ul>
       <li>
         <div class="form-floating mb-3">
-          <input type="text" class="form-control" id="floatingInput_title" placeholder="강좌명">
+          <input type="text" name="title" class="form-control" id="floatingInput_title" placeholder="강좌명">
           <label for="floatingInput_title">강좌명</label>
         </div>
       </li>
@@ -51,7 +51,7 @@ while ($row = $result->fetch_object()) {
       <li>
         <div class="input-group c2form price">
           <div class="form-floating">
-            <input type="text" class="form-control" aria-label="lecture_price" id= "lecture_price" placeholder="가격">
+            <input type="text" name="price" class="form-control" aria-label="lecture_price" id= "lecture_price" placeholder="가격">
             <label for="floatingInputGroup1">가격</label>
           </div>
           <span class="input-group-text">원</span>
@@ -62,7 +62,7 @@ while ($row = $result->fetch_object()) {
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
-          <input type="text" id="datepicker1" class="couponC">
+          <input type="text" id="datepicker1" class="couponC" name="sale_end_date">
         </div>
         </div>
       </li>
@@ -102,13 +102,13 @@ while ($row = $result->fetch_object()) {
       </li>
       <li>
         <div class="form-floating textarea">
-          <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea"></textarea>
+          <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea" name="content"></textarea>
           <label for="floatingTextarea" hidden>강좌설명</label>
         </div>
       </li>
       <li>
         <div class="mb-3">
-        <input type="file" multiple name="upfile[]" id="thumbnail" class="d-none">
+        <input type="file" multiple name="thumbnail" id="thumbnail" class="d-none">
             <div>
               <button type="button" class="btn primary_btn btn-sm" id="addImage">이미지 업로드</button>
             </div>
@@ -135,7 +135,7 @@ while ($row = $result->fetch_object()) {
       </li> 
       <li>
         <div class="mb-3">
-        <input type="file" multiple name="upfile[]" id="upfile" class="d-none">
+        <input type="file" multiple name="thumbnail" id="upfile" class="d-none">
             <div>
               <button type="button" class="btn primary_btn btn-sm" id="addImage">강의 영상 업로드</button>
             </div>
@@ -215,7 +215,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
       for (let i = 0; i < files.length; i++) {
         attachFile(files[i]);
       }
-      $('#upfile').val('');
+   //   $('#upfile').val('');
     });
 
    //추가 영상 등록
@@ -231,84 +231,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
       $('#upfile').val('');
     });
 
-
-    function attachFile(file) {
-      var formData = new FormData();
-      formData.append('savefile', file); //<input name="savefile" value="파일명">
-
-      $.ajax({
-        url: 'lecture_save_image.php',
-        data: formData,
-        cache: false,
-        contentType: false,
-        processData: false,
-        dataType: 'json',
-        type: 'POST',
-        success: function(return_data) {
-          console.log(return_data);
-          if (return_data.result == 'size') {
-            alert('10메가 이하만 첨부할수 있습니다.');
-            return; //함수 종료(빈값을 리턴);
-          } else if (return_data.result == 'image') {
-            alert('이미지만 첨부할 수 있습니다.');
-            return;
-          } else if (return_data.result == 'error') {
-            alert('파일 첨부 실패, 관리자에게 문의하세요');
-            return;
-          } else {
-            let imgid = $('#product_image_id').val() + return_data.imgid + ',';
-            $('#product_image_id').val(imgid);
-            let html = `
-                <div class="card" style="width: 200px height: 120px;" id="${return_data.imgid}">
-<div class="image_preview">
-<img src="/clean_kangaroo/admin/upload/${return_data.savefile}" class="img-fluid" alt="...">
-                  <button type="button" class="primary_btn del">이미지 삭제</div></button>
-                </div>
-              `;
-
-            $('#addedimages').append(html);
-          }
-        }
-      });
-    }
-
-    $('#addedimages').on('click', 'button', function() {
-      let imgid = $(this).parent().attr('id');
-      file_delete(imgid);
-    });
-
-    function file_delete(imgid) {
-      if (!confirm('정말 삭제할까요?')) {
-        return false;
-      }
-      let data = {
-        imgid: imgid
-      }
-      $.ajax({
-        async: false, //결과가 있으면 반영해줘
-        type: 'POST',
-        url: 'image_delete.php',
-        data: data,
-        dataType: 'json',
-        error: function(error) {
-          console.log('error:', error);
-        },
-        success: function(return_data) {
-          if (return_data.result === 'member') {
-            alert('권한이 없습니다.');
-            return;
-          } else if (return_data.result === 'mine') {
-            alert('본인이 등록한 이미지만 삭제할 수 있습니다.');
-            return;
-          } else if (return_data.result === 'fail') {
-            alert('삭제 실패!');
-            return;
-          } else {
-            $('#' + imgid).remove();
-          }
-        }
-      });
-    };
   </script>
 
 <!-------------------- 스크립트 -->
