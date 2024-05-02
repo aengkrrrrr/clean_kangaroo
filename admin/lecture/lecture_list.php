@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "강좌관리";
+$title = "강좌 관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
@@ -64,17 +64,16 @@ while ($rs = $result->fetch_object()) {
           if(isset($rsArr)){
             foreach($rsArr as $ra){
           ?>
-          <tr class="qty-text" data-id="<?= $ra -> pid;?>">
+          <tr class="qty-text" data-id="<?=$ra -> pid;?>">
             <td>
               <a href="lecture_view.php?pid=<?=$ra->pid;?>">
-                <img src="../../images/<?=$ra->thumbnail;?>" alt=""></a></td>
+                <img src="<?=$ra->thumbnail;?>" alt=""></a></td>
               <td colspan="2">
                 <div class="lecdesc">
                   <a href="lecture_view.php?pid=<?=$ra->pid;?>">
                   <?=$ra->title;?><br>
-                  <?=$ra->brief;?><br>
                   개강일 : <span class="rel_date"><?=$ra->reg_date;?></span> <br>
-                  수강생 수 : <span class="sub_p">105</span>
+                  <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
   <td><?=$ra->cate;?></td>
@@ -137,6 +136,17 @@ while ($rs = $result->fetch_object()) {
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
+    //header 메뉴 액티브
+    const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+    console.log(title);
+    const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+    for(let menu of headerMenu){
+      menu.classList.remove('active');
+      if(menu.innerText === title){
+        menu.classList.add('active');
+      }
+    }
     $('.cart_item_del').click(function(){
 
         $(this).closest('tr').remove();
@@ -162,7 +172,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         });
     });
-      });
+});
    
 </script>
 <?php

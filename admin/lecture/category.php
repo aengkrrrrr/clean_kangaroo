@@ -117,6 +117,21 @@ while ($row = $result->fetch_object()) {
 
 <script src="/clean_kangaroo/js/makeoption.js"></script>
 <script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+});
+
   let categorySubmitBtn = $(".modal button[type='submit']");
 
   categorySubmitBtn.click(function() {

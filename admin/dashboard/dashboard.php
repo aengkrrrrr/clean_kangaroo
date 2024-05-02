@@ -31,18 +31,19 @@ foreach($arr as $item){
   array_push($data, $item);
 }
 
-//매출 데이터
-$saleSql = "SELECT COUNT(*) FROM sales_manage";
-$saleResult = $mysqli->query($saleSql);
-$saleRow = $saleResult->fetch_object();
+// //매출 데이터
+// $saleSql = "SELECT COUNT(price) FROM sales_manage WHERE price=10000";
+// $saleResult = $mysqli->query($saleSql);
+// $saleRow = $saleResult->fetch_object();
 
-$saleArr = array();
-$saleArr[0] = $saleRow->price;
+// $saleArr = array();
+// $saleArr[0] = $saleRow->price;
 
-$data2 = [];
-foreach($saleArr as $price){
-    array_push($data2, $price);
-}
+// $data2 = [];
+// foreach($saleArr as $price){
+//     array_push($data2, $price);
+// }
+
 ?>
 
 <body>
@@ -155,40 +156,40 @@ foreach($saleArr as $price){
 
 //매출 라인차트
 new Chart(lineChart, {
-type: 'line',
-data: {
-  labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-  datasets: [
-            {
-      label: '2023',
-      data: [saleData],
-      borderWidth: 1
-      },
-      {
-        label: '2024',
+  type: 'line',
+  data: {
+    labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+    datasets: [
+              {
+        label: '2023',
         data: [saleData],
-        borderWidth: 2,
-        // hoverBorderWidth:5,
-        // borderColor: 'rgba(0,0,0,0.5)',
-        // backgroundColor:'yellow',
-        // radius:4,
-        // hoverRadius:10,
-        // pointBorderColor:'black',
-        // pointStyle:sun,
-        // showLine:true,
-        spanGaps:true,
-        // stepped:true
-      }
-  ]
-},
-options: {
-  scales: {
-    y: {
-      stacked:true
-    }
+        borderWidth: 1
+        },
+        {
+          label: '2024',
+          data: [saleData],
+          borderWidth: 2,
+          // hoverBorderWidth:5,
+          // borderColor: 'rgba(0,0,0,0.5)',
+          // backgroundColor:'yellow',
+          // radius:4,
+          // hoverRadius:10,
+          // pointBorderColor:'black',
+          // pointStyle:sun,
+          // showLine:true,
+          spanGaps:true,
+          // stepped:true
+        }
+    ]
   },
-  maintainAspectRatio:false
-}
+  options: {
+    scales: {
+      y: {
+        stacked:true
+      }
+    },
+    maintainAspectRatio:false
+  }
 });
 
 
@@ -215,7 +216,7 @@ new Chart(barChart, {
 });
 
 </script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 

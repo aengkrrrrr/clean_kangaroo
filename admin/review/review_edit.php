@@ -1,6 +1,7 @@
 <?php
 session_start();
-$title = "수강평 보기";
+$title = "수강평 등록";
+$menutitle = '게시판 관리'; 
 $css1 = '<link rel="stylesheet" href="../../css/review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
@@ -59,6 +60,24 @@ $rr = $reply_result->fetch_object();
   </form>
 
 </div>
+
+<script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+});
+
+</script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 $script1 = '<script src="../../js/review.js"></script>';

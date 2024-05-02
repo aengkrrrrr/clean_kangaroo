@@ -1,10 +1,11 @@
-document.addEventListener('DOMContentLoaded',function(){
-
-  const headerMenu = document.querySelector('#header .gnb_wrap li');
-  // headerMenu.forEach(function(item){
-  //   item.classList.remove('active');
-  // })
-  for(let menu of headerMenu){
-    menu.classList.remove('active');
-  }
-});
+// document.addEventListener('DOMContentLoaded',function(){
+//   const title = "<?php echo json_encode($title); ?>"; 
+//   console.log(title);
+//   const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+//   for(let menu of headerMenu){
+//     menu.classList.remove('active');
+//     if(menu.innerText === title){
+//       menu.classList.add('active');
+//     }
+//   }
+// });

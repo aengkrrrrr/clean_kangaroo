@@ -1,6 +1,7 @@
 <?php
 session_start();
-$title = "수강평 보기";
+$title = "수강평 등록";
+$menutitle = '게시판 관리'; 
 $css1 = '<link rel="stylesheet" href="../../css/review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
@@ -86,6 +87,7 @@ $reply_content = $reply_row->content ?? "";
 
 
 </div>
+
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 $script1 = '<script src="../../js/review.js"></script>';

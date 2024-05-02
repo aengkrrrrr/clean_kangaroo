@@ -1,5 +1,6 @@
 <?php
 $title = "공지사항 관리";
+$menutitle = '게시판 관리'; 
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
@@ -18,6 +19,7 @@ $order = " order by date desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
+
 
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
@@ -116,10 +118,23 @@ while ($rs = $result->fetch_object()) {
     </div>
   </div>
 
+  <script>
+    //header 메뉴 액티브
+    document.addEventListener('DOMContentLoaded',function(){
+    const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
 
 
+    console.log(title);
+    const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+    for(let menu of headerMenu){
+      menu.classList.remove('active');
+      if(menu.innerText === title){
+        menu.classList.add('active');
+      }
+    }
+  });
 
-</body>
+  </script>
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
     $('.cart_item_del').click(function(){

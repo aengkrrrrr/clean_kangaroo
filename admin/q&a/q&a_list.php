@@ -1,5 +1,6 @@
 <?php
 $title = 'Q&A 관리';
+$menutitle = '게시판 관리'; 
 $css1 = '<link rel="stylesheet" href="../../css/qna.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
@@ -65,7 +66,7 @@ while ($rs = $result->fetch_object()) {
             foreach($rsArr as $ra){
           ?>
         <tr>
-          <td><?php if($ra->status == 0){echo '답변대기';}else{echo '답변완료'; color:'blue';}?></td>
+          <td><?php if($ra->status == 0){echo '답변대기';}else{echo '답변완료';}?></td>
           <td><a href="/clean_kangaroo/admin/q&a/q&a_answer.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
@@ -113,16 +114,23 @@ while ($rs = $result->fetch_object()) {
       <!------------- 공통 pagination-->
     </div>
   </div>
-
 <script>
-  const status = document.querySelector('.table>tbody tr td');
-  for(let st of status){
-    if(st.text() == '답변완료'){
-      st.css({color:'red'})
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
     }
   }
-</script>
+});
 
+</script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
