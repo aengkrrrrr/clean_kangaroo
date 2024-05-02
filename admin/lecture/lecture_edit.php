@@ -11,9 +11,9 @@ while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
 $pid = $_GET['pid'];
-$sql = "SELECT * FROM products where pid={$pid}";
-  $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
-  $result = $mysqli->query($sql);
+//$sql = "SELECT * FROM products where pid={$pid}";
+$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
+$result = $mysqli->query($sql);
 $rowp = $result->fetch_object();
 
 
@@ -45,7 +45,7 @@ $rowp = $result->fetch_object();
     <ul>
       <li>
         <div class="form-floating mb-3">
-          <input type="text" name="title" class="form-control" id="floatingInput_title" placeholder="<?=$rowp->title;?>" value="<?=$rowp->title;?>" readonly>
+          <input type="text" name="title" class="form-control" id="floatingInput_title" placeholder="<?=$rowp->title;?>" readonly>
           <label for="floatingInput_title">강좌명</label>
         </div>
       </li>
@@ -54,7 +54,7 @@ $rowp = $result->fetch_object();
       <li>
         <div class="input-group c2form price">
           <div class="form-floating">
-            <input type="text" name="price" class="form-control" aria-label="lecture_price" id="lecture_price" placeholder="<?=$rowp->price;?>" value="<?=$rowp->price;?>">
+            <input type="text" name="price" class="form-control" aria-label="lecture_price" id="lecture_price" placeholder="<?=$rowp->price;?>">
             <label for="floatingInputGroup1">가격</label>
           </div>
           <span class="input-group-text">원</span>
