@@ -67,7 +67,22 @@ $rs = $result->fetch_object();
       <a href="../coupon/coupon_list.php" class="basic_btn couponbtn">취소</a>
     </form>          
   </div>
+  
+  <script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
 
+
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+});
 
 <?php
 $script1 = '<script src="../../js/coupon.js"></script>';

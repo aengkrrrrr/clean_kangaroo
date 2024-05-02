@@ -198,7 +198,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
 <script src="/clean_kangaroo/js/makeoption.js"></script>
 <script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+
     $(document).ready(function() {
+    $('#product_save').on('submit', save);
+    $( "#datepicker1" ).datepicker();
      $('#product_save').on('submit', save);
     $( "#datepicker1" ).datepicker({
       dateFormat: "yy-mm-dd"

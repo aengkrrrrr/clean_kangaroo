@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "강좌관리";
+$title = "강좌 관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
@@ -136,6 +136,17 @@ while ($rs = $result->fetch_object()) {
 </body>
 <script>
 document.addEventListener('DOMContentLoaded', ()=>{
+    //header 메뉴 액티브
+    const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+    console.log(title);
+    const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+    for(let menu of headerMenu){
+      menu.classList.remove('active');
+      if(menu.innerText === title){
+        menu.classList.add('active');
+      }
+    }
     $('.cart_item_del').click(function(){
 
         $(this).closest('tr').remove();
@@ -161,7 +172,7 @@ document.addEventListener('DOMContentLoaded', ()=>{
             }
         });
     });
-      });
+});
    
 </script>
 <?php

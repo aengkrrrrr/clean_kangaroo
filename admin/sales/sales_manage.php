@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "매출관리";
+$title = "매출 관리";
 $css1 = '<link rel="stylesheet" href="../../css/sales_manage.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
@@ -106,16 +106,24 @@ while ($rs = $result->fetch_object()) {
 <!----------- 게시판 폼 -->
 </body>
 <!-- 스크립트 -->
-<div>
-        <canvas id="myChart"></canvas>
-    </div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <script>
-    const ctx = document.getElementById('myChart1');
-    const cateLabels = <?= json_encode($label) ?>;
-    const cateData = <?= json_encode($data) ?>;
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+});
+
+  const ctx1 = document.getElementById('myChart1');
 
     new Chart(ctx, {
         type: 'pie',
@@ -157,6 +165,8 @@ while ($rs = $result->fetch_object()) {
     }
   });
 </script>
+
+
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
