@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "매출관리";
+$title = "매출 관리";
 $css1 = '<link rel="stylesheet" href="../../css/sales_manage.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
@@ -137,6 +137,21 @@ $sql .= $order;
 <!-- 스크립트 -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+});
+
   const ctx1 = document.getElementById('myChart1');
 
   new Chart(ctx1, {
@@ -179,6 +194,8 @@ $sql .= $order;
     }
   });
 </script>
+
+
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
