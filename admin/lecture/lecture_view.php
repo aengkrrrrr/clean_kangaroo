@@ -37,6 +37,8 @@ $row = mysqli_fetch_object($result);
               <li><img src="<?=$row->thumbnail;?>" alt=""></li>
               <li>
                 <p class="form-label price">가격 : <?= $row->price; ?>원</p>
+                <p class="form-label price">수강기간 : <?= $row->sale_start_date; ?>~<?= $row->sale_end_date; ?>
+              </p>               
               </li>
               <li class="view_status">
                 <p class="status">상태&nbsp;&nbsp;</p>

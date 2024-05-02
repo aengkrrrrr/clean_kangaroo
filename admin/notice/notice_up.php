@@ -5,16 +5,11 @@ $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-$sql = "SELECT * FROM notice_board where 1 = 1";
-$result = $mysqli->query($sql);
-while ($row = $result->fetch_object()) {
-  $cate1[] = $row;
-}
+// $sql = "SELECT * FROM notice_board where 1 = 1";
+// $result = $mysqli->query($sql);
+// $row = $result->fetch_object();
 
-//조회수 업데이트
-$hit = $row->hit + 1;
-$sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$idx}";
-$mysqli->query($sqlUpdate);
+
 
 ?>
 
