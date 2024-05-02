@@ -5,11 +5,7 @@ $css1 = '<link rel="stylesheet" href="../../css/dashboard.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$sql = "SELECT * FROM notice_board LIMIT 4";
-$result = $mysqli->query($sql);
-while ($rs = $result->fetch_object()) {
-  $rsArr[] = $rs;
-}
+
 
 //회원수 출력
 $sql = "
@@ -29,6 +25,13 @@ $arr[2] = $row->cnt3;
 $data = [];
 foreach($arr as $item){
   array_push($data, $item);
+}
+
+//공지사항 출력
+$sql = "SELECT * FROM notice_board LIMIT 4";
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
 }
 
 // //매출 데이터
@@ -86,7 +89,7 @@ foreach($arr as $item){
           ?>
         <tr>
           <td colspan="5"><a href=""><?=$ra->title;?></a></td>
-          <td><?=$ra->cate;?></td>
+          <!-- <td><?=$ra->cate;?></td> -->
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
         </tr>
@@ -112,7 +115,7 @@ foreach($arr as $item){
   </div>
 </div>
   
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
 <script>
   const lineChart = document.getElementById('line-chart');
   const barChart = document.getElementById('bar-chart');
@@ -120,31 +123,38 @@ foreach($arr as $item){
 
 
   
-
+/*
   const mData = <?= json_encode($data) ?>;
-  const sData = <?= json_encode($data2) ?>;
+  const sData = <?= json_encode($data2) ?>;*/
   
-  const memberData = {
-    label: '회원수 비교',
-    data: mData,
-    borderWidth: 2   
-  }
-  const saleData = {
-    label: '매출액 비교',
-    data: sData,
-    borderWidth: 2   
-  }
-  const todayData = {
-  label: '2023',
-  data: [4, 12, 8, 7, 10, 5],
-  borderWidth: 2   
-}
+//   const memberData = {
+//     label: '회원수 비교',
+//     data: mData,
+//     borderWidth: 2   
+//   }
+//   const saleData = {
+//     label: '매출액 비교',
+//     data: sData,
+//     borderWidth: 2   
+//   }
+//   const todayData = {
+//     label: '2023',
+//     data: [4, 12, 8, 7, 10, 5],
+//     borderWidth: 2   
+//   }
 //회원 도넛차트
   new Chart(pieChart, {
     type: 'pie',
     data: {
       labels: ['일반회원', '신규회원', '탈퇴회원'],
-    datasets: [memberData]
+      datasets: [
+        {
+          label:"2024",
+          data:[80,20,9],
+          backgroundColor:['skyblue','pink','yellow']
+        },
+        
+    ]
   },
   options: {
     cutout: '50%',
@@ -156,41 +166,63 @@ foreach($arr as $item){
 
 //매출 라인차트
 new Chart(lineChart, {
-  type: 'line',
-  data: {
-    labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-    datasets: [
-              {
-        label: '2023',
-        data: [saleData],
-        borderWidth: 1
-        },
-        {
-          label: '2024',
-          data: [saleData],
-          borderWidth: 2,
-          // hoverBorderWidth:5,
-          // borderColor: 'rgba(0,0,0,0.5)',
-          // backgroundColor:'yellow',
-          // radius:4,
-          // hoverRadius:10,
-          // pointBorderColor:'black',
-          // pointStyle:sun,
-          // showLine:true,
-          spanGaps:true,
-          // stepped:true
-        }
+  type:'line',
+  data:{
+    labels:  ['1월', '2월', '3월', '4월', '5월', '6월'],
+    datasets:[
+      {
+        label:"2023",
+        data:[10,8,6,5,12,8,16,17,6,7,6,10],
+        borderColor: 'rgba(0,0,0,0.5)',
+        backgroundColor:'skyblue'
+        // borderWidth: 1
+      },
+      {
+        label:"2024",
+        data:[5,12,8,10,5,8,10,12,8,12,8,16],
+        borderColor: 'rgba(0,0,0,0.5)',
+        backgroundColor:'pink'
+        // borderWidth: 2,
+      }       
     ]
-  },
-  options: {
-    scales: {
-      y: {
-        stacked:true
-      }
-    },
-    maintainAspectRatio:false
   }
 });
+// new Chart(lineChart, {
+//   type: 'line',
+//   data: {
+//     labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+//     datasets: [
+//               {
+//         label: '2023',
+//         data: [saleData],
+//         borderWidth: 1
+//         },
+//         {
+//           label: '2024',
+//           data: [saleData],
+//           borderWidth: 2,
+//           // hoverBorderWidth:5,
+//           // borderColor: 'rgba(0,0,0,0.5)',
+//           // backgroundColor:'yellow',
+//           // radius:4,
+//           // hoverRadius:10,
+//           // pointBorderColor:'black',
+//           // pointStyle:sun,
+//           // showLine:true,
+//           spanGaps:true,
+//           // stepped:true
+//         }
+//     ]
+//   },
+//   options: {
+//     scales: {
+//       y: {
+//         stacked:true
+//       }
+//     },
+//     maintainAspectRatio:false
+//   }
+// });
 
 
 //접속자수 바차트
@@ -198,7 +230,12 @@ new Chart(barChart, {
   type: 'bar',
   data: {
     labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-    datasets: [todayData]
+    datasets: [{
+      label:"2024",
+      data:[20,30,18,50,90,76],
+      borderColor: 'rgba(0,0,0,0.5)',
+      backgroundColor:'pink'
+    }]
   },
   options: {
     indexAxis:'x', //방향 변경
@@ -216,7 +253,7 @@ new Chart(barChart, {
 });
 
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js" integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.min.js"></script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 

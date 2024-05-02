@@ -59,23 +59,23 @@ while ($rs = $result->fetch_object()) {
           </tr>
         </thead>
         <tbody>
-        <?php
-          if(isset($rsArr)){
-            foreach($rsArr as $ra){
-          ?>
-        <tr>
-          <td colspan="5"><a href="notice_view.php?pid=<?=$ra->idx;?>"><?=$ra->title;?></a></td>
-          <td><?=$ra->date;?></td>
-          <td><?=$ra->hit;?></td>
-          <td class="lectureSvg">
-            <a href="notice_edit.php?idx=<?= $ra->idx; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
-            <a href="notice_del.php?idx=<?= $ra->idx; ?>" class="cart_item_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
-          </td>
-        </tr>
-        <?php
+          <?php
+            if(isset($rsArr)){
+              foreach($rsArr as $ra){
+            ?>
+          <tr>
+            <td colspan="5"><a href="notice_view.php?idx=<?=$ra->idx;?>"><?=$ra->title;?></a></td>
+            <td><?=$ra->date;?></td>
+            <td><?=$ra->hit;?></td>
+            <td class="lectureSvg">
+              <a href="notice_edit.php?idx=<?= $ra->idx; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+              <a href="notice_del.php?idx=<?= $ra->idx; ?>" class="cart_item_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
+            </td>
+          </tr>
+          <?php
+              }
             }
-          }
-        ?>
+          ?>
         </tbody>
       </table>
     </form>
