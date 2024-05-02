@@ -47,7 +47,7 @@ $reply_content = $reply_row->content ?? "";
   <?php
   if(isset($reply_content) && $reply_content !== ""){
   ?>
-    <form action="review_edit_ok.php" method="POST">
+    <form action="review_ok.php" method="POST">
     <input type="hidden" name="idx" value="<?= $reply_row->idx; ?>">
     <div class="admin_answer">
       <h4 class="body2b mb-3">관리자</h4>

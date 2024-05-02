@@ -11,6 +11,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 <body>
   <div class="container grid">
     <form action="coupon_ok.php" class="coupon_wrap" enctype="multipart/form-data" method="POST">
+      <input type="hidden" name="cid">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
           <div class="field">
@@ -26,19 +27,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
           <div class="form-floating">
             <p>쿠폰 적용 기간</p>
             <div class="d-flex cDates">
-              <input type="text" name="max_date" id="cdatepicker1" class="couponC">
+              <input type="text" name="max_date" id="max_date" class="couponC">
+              <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
+                <option value="0" selected name="cate1">사용중</option>
+                <option value="1" name="cate2">보류중</option>
+              </select>
             </div>
           </div>
         </div>
       </div>
       <div class="coupon_2 d-flex">
-        <div class="form-floating">
-          <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
-            <option value="0" selected name="cate1">사용중</option>
-            <option value="1" name="cate2">보류중</option>
-          </select>
-          <label for="coupon_type">종류</label>
-        </div>
         <div class="input-group c2form">
           <div class="form-floating">
             <input type="text" name="coupon_ratio" class="form-control" aria-label="coupon service" placeholder="쿠폰 혜택" id="coupon_ratio" required>
@@ -59,21 +57,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
     </form>          
   </div>
 
-  <script>
-  //header 메뉴 액티브
-  document.addEventListener('DOMContentLoaded',function(){
-  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
 
-
-  console.log(title);
-  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
-  for(let menu of headerMenu){
-    menu.classList.remove('active');
-    if(menu.innerText === title){
-      menu.classList.add('active');
-    }
-  }
-});
 <?php
 $script1 = '<script src="../../js/coupon.js"></script>';
 $script2 = '<script src="https://code.jquery.com/jquery-3.6.0.js"></script>';

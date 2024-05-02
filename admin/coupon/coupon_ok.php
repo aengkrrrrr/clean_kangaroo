@@ -7,8 +7,12 @@ $coupon_name = $_POST['coupon_name'];
 $coupon_type = $_POST['coupon_type'];
 $coupon_price = $_POST['coupon_price'];
 $coupon_ratio = $_POST['coupon_ratio'];
-$status = $_POST['status'] ;
+$status = $_POST['status'] ?? 1;
+
 $max_date = $_POST['max_date'];
+$dateTime = date('Y-m-d H:i:s', strtotime(str_replace('/', '-', $max_date)));
+
+
 $userid = $_SESSION['AUID'];
 
 //파일 사이즈 검사
@@ -53,9 +57,8 @@ if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
     '{$status}', 
     now(), 
     '{$_SESSION['AUID']}', 
-    '{$max_date}'
+    '{$dateTime}'
     )";
-
 
     if($mysqli->query($sql) === TRUE){
         echo "<script>
