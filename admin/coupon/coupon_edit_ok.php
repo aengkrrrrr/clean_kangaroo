@@ -1,76 +1,70 @@
 <?php
 session_start();
-$title = "수강평 보기";
-$css1 = '<link rel="stylesheet" href="../../css/review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-// 수강평 조회
-$idx = $_GET['idx']; 
-$sql = "SELECT * FROM review_board WHERE idx = {$idx}";
-$result = $mysqli -> query($sql);
-$rs = $result->fetch_object();
 
-// 수강평 답글 조회
-$sqlr = "SELECT * FROM review_reply WHERE idx = {$idx}";
-$reply = $mysqli -> query($sqlr);
-$rp = $reply->fetch_object();
-?>
 
-<div class="review_wrap grid review_answer">
-  <div class="user_write">
-    <div class="profile df aic pb-5">
-      <div class="username d-flex">
-        <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
-        <h5 class="body3b"><?= $rs->name; ?></h5>
-      </div>
-      <div class="rating" data-rate="3">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
-    </div>
-      <div class="title df aic pb-5">
-        <h4 class="h4"><?= $rs->title; ?></h4>
-        <span class="body3b"><?= $rs->date; ?></span>
-      </div>
-      <div class="content">
-        <p class="body2"><?= $rs->content; ?></p>
-      </div>
-  </div>
+$coupon_name = $_POST['coupon_name'] ?? '';
+$coupon_type = $_POST['coupon_type'] ?? '';
+$coupon_price = $_POST['coupon_price'] ?? '';
+$coupon_ratio = $_POST['coupon_ratio'] ?? '';
+$status = $_POST['status'] ?? 1;
+$max_date = $_POST['max_date'] ?? '';
+$userid = $_SESSION['AUID'];
 
+//파일 사이즈 검사
+if ($_FILES['coupon_image']['size'] > 10240000) {
+    echo "<script>
+      alert('10MB 이하만 업로드해주세요');
+      history.back();
+    </script>";
+    exit;
+  }
+  //이미지 여부 검사
+if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
+  echo "<script>
+    alert('이미지만 업로드해주세요');
+    history.back();
+  </script>";
+  exit;
+}
+  //파일 업로드
+  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
+  $fiename = $_FILES["coupon_image"]["name"]; //insta.jpg
+  $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
+  $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
+  $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
   
-  <form action="review_ok.php" method="POST">
-    <div class="admin_answer">
-      <h4 class="body2b mb-3">관리자</h4>
-      <div class="content">
-      
-        <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-          <?php
-      if (isset($rp)) {
-      foreach ($rp as $item) {
-    ?>
-          <label for="floatingTextarea"><?= $item->content; ?></label>
-          <?php
-      }
+  if (move_uploaded_file($_FILES["coupon_image"]["tmp_name"], $save_dir . $savefile)) {
+    $coupon_image = "/clean_kangaroo/admin/upload/" . $savefile;
+  } else {
+    echo "<script>
+    alert('이미지 등록에 실패했습니다. 관리자에게 문의해주세요');
+    history.back();
+    </script>";
+    exit;
+  }
+
+  $sql = "UPDATE coupons SET
+    coupon_name='{$coupon_name}',
+    coupon_image='{$coupon_image}',
+    coupon_type='{$coupon_type}',
+    coupon_price='{$coupon_price}',
+    coupon_ratio='{$coupon_ratio}',
+    status='{$status}',
+    regdate=now(),
+    userid={$_SESSION['AUID']},
+    max_date={$max_date}";
+
+    if($mysqli->query($sql) === TRUE){
+        echo "<script>
+        alert('쿠폰수정 완료');
+        location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
+        </script>";
+    } else{
+        echo "<script>
+        alert('쿠폰수정 실패');
+        history.back();
+        </script>";
     }
-    ?>
-        </div>
-  
-      </div>
-      <div class="answer_btn_wrap df pt-5">
-        <button class="primary_btn">저장</button>
-        <a href="../review/review_list.php" class="basic_btn">취소</a>
-      </div>
-    </div>
-  </form>
-
-</div>
-
-<?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-$script1 = '<script src="../../js/review.js"></script>';
-?>

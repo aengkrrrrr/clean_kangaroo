@@ -34,7 +34,7 @@ form, .nav_wrap { position: relative; }
 	padding: 20px;
 	box-sizing: border-box;
 }
-input#profile {
+input#coupon_image {
 	position: absolute;
 	top: 300px;
 	left: 25%;

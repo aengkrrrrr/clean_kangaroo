@@ -18,17 +18,17 @@ $rs = $result->fetch_object();
 
 <body>
   <div class="container grid">
-    <form action="" class="coupon_wrap" enctype="multipart/form-data">
+    <form action="coupon_edit_ok.php" class="coupon_wrap" enctype="multipart/form-data" method="POST">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
           <div class="field">
-            <input type="file" id="profile" name="profile" accept="image/*" required>
+            <input type="file" id="coupon_image" name="coupon_image" accept="image/*" required>
             <div class="preview"><img src="<?= $rs -> coupon_image?>" alt=""><?= $rs -> coupon_image?></div>
           </div>
         </div>
         <div class="coupon_area">
           <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"><?= $rs -> coupon_name?></textarea>
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="coupon_name"><?= $rs -> coupon_name?></textarea>
             <label for="floatingTextarea">쿠폰명</label>
           </div>
           <div class="form-floating">
@@ -50,14 +50,14 @@ $rs = $result->fetch_object();
         </div>
         <div class="input-group c2form">
           <div class="form-floating">
-            <input type="text" name="max_value" class="form-control" aria-label="coupon service" placeholder="쿠폰 혜택" id="max_value" value="<?= $rs -> coupon_ratio?>" required>
+            <input type="text" name="coupon_ratio" class="form-control" aria-label="coupon service" placeholder="쿠폰 혜택" id="coupon_ratio" value="<?= $rs -> coupon_ratio?>" required>
             <label for="floatingInputGroup1">쿠폰 혜택</label>
           </div>
           <span class="input-group-text">%</span>
         </div>
         <div class="input-group c2form">
           <div class="form-floating">
-            <input type="text" class="form-control" aria-label="coupon sale" placeholder="쿠폰 사용조건" value="<?= $rs -> coupon_price?>">
+            <input type="text" class="form-control" aria-label="coupon sale" placeholder="쿠폰 사용조건" name="coupon_price" id="coupon_price" value="<?= $rs -> coupon_price?>">
             <label for="floatingInputGroup1">쿠폰 사용조건</label>
           </div>
           <span class="input-group-text">원</span>

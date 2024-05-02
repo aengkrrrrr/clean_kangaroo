@@ -7,9 +7,9 @@ $coupon_name = $_POST['coupon_name'];
 $coupon_type = $_POST['coupon_type'];
 $coupon_price = $_POST['coupon_price'];
 $coupon_ratio = $_POST['coupon_ratio'];
-$status = $_POST['status'];
+$status = $_POST['status'] ?? 1;
 $max_date = $_POST['max_date'];
-$userid = $_POST['userid'];
+$userid = $_SESSION['AUID'];
 
 //파일 사이즈 검사
 if ($_FILES['coupon_image']['size'] > 10240000) {
@@ -20,13 +20,13 @@ if ($_FILES['coupon_image']['size'] > 10240000) {
     exit;
   }
   //이미지 여부 검사
-  if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
-    echo "<script>
-      alert('이미지만 업로드해주세요');
-      history.back();
-    </script>";
-    exit;
-  }
+if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
+  echo "<script>
+    alert('이미지만 업로드해주세요');
+    history.back();
+  </script>";
+  exit;
+}
   //파일 업로드
   $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
   $fiename = $_FILES["coupon_image"]["name"]; //insta.jpg

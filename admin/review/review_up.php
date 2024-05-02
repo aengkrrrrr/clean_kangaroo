@@ -15,7 +15,9 @@ $rs = $result->fetch_object();
 // 수강평 답글 조회
 $reply_sql = "SELECT * FROM review_reply WHERE b_idx = {$idx}";
 $reply_result = $mysqli -> query($reply_sql);
-$rr = $reply_result->fetch_object();
+$reply_row = mysqli_fetch_object($reply_result);
+$reply_content = $reply_row->content ?? "";
+
 ?>
 
 <div class="review_wrap grid review_answer">
@@ -41,14 +43,34 @@ $rr = $reply_result->fetch_object();
         <p class="body2"><?= $rs->content; ?></p>
       </div>
   </div>
-
-  <form action="review_ok.php" method="POST">
+  <?php
+  if(isset($reply_content) && $reply_content !== ""){
+  ?>
+    <form action="review_edit_ok.php" method="POST">
+    <input type="hidden" name="idx" value="<?= $reply_row->idx; ?>">
+    <div class="admin_answer">
+      <h4 class="body2b mb-3">관리자</h4>
+      <div class="content">
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"><?= $reply_content; ?></textarea>
+        </div>
+      </div>
+      <div class="answer_btn_wrap df pt-5">
+        <button class="primary_btn">수정</button>
+        <a href="../review/review_list.php" class="basic_btn">취소</a>
+      </div>
+    </div>
+  </form>
+  <?php  
+  }else {
+    ?>
+      <form action="review_ok.php" method="POST">
     <input type="hidden" name="idx" value="<?= $rs->idx; ?>">
     <div class="admin_answer">
       <h4 class="body2b mb-3">관리자</h4>
       <div class="content">
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"><?= $rr->content; ?></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="content"></textarea>
         </div>
       </div>
       <div class="answer_btn_wrap df pt-5">
@@ -57,6 +79,11 @@ $rr = $reply_result->fetch_object();
       </div>
     </div>
   </form>
+    <?php
+  }
+  ?>
+
+
 
 </div>
 <?php
