@@ -27,7 +27,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
             <p>쿠폰 적용 기간</p>
             <div class="d-flex cDates">
               <input type="text" name="max_date" id="cdatepicker1" class="couponC">
-              <input type="text" name="max_date" id="cdatepicker2" class="couponC">
             </div>
           </div>
         </div>

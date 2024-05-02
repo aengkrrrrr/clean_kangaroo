@@ -7,7 +7,7 @@ $coupon_name = $_POST['coupon_name'];
 $coupon_type = $_POST['coupon_type'];
 $coupon_price = $_POST['coupon_price'];
 $coupon_ratio = $_POST['coupon_ratio'];
-$status = $_POST['status'] ?? 1;
+$status = $_POST['status'] ;
 $max_date = $_POST['max_date'];
 $userid = $_SESSION['AUID'];
 
@@ -55,6 +55,7 @@ if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
     '{$_SESSION['AUID']}', 
     '{$max_date}'
     )";
+
 
     if($mysqli->query($sql) === TRUE){
         echo "<script>
