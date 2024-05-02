@@ -109,19 +109,19 @@ while ($rs = $result->fetch_object()) {
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
   //header 메뉴 액티브
-  document.addEventListener('DOMContentLoaded',function(){
-  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+    document.addEventListener('DOMContentLoaded',function(){
+    const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
 
 
-  console.log(title);
-  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
-  for(let menu of headerMenu){
-    menu.classList.remove('active');
-    if(menu.innerText === title){
-      menu.classList.add('active');
+    console.log(title);
+    const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+    for(let menu of headerMenu){
+      menu.classList.remove('active');
+      if(menu.innerText === title){
+        menu.classList.add('active');
+      }
     }
-  }
-});
+  });
 
   const ctx1 = document.getElementById('myChart1');
 
