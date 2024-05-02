@@ -72,8 +72,8 @@ while ($row = $result->fetch_object()) {
     <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate2Modal">
       중분류 등록
     </button>
-
-    <!-- 중분류 등록 Modal -->
+<!--
+    // 중분류 등록 Modal -->
     <div class="modal fade" id="cate2Modal" tabindex="-1" aria-labelledby="cate2ModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -109,7 +109,7 @@ while ($row = $result->fetch_object()) {
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 
 </div><!-- //container -->
