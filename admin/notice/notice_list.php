@@ -19,6 +19,9 @@ $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
 
+$date = now();
+
+
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;

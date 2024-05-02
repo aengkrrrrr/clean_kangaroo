@@ -64,17 +64,16 @@ while ($rs = $result->fetch_object()) {
           if(isset($rsArr)){
             foreach($rsArr as $ra){
           ?>
-          <tr class="qty-text" data-id="<?= $ra -> pid;?>">
+          <tr class="qty-text" data-id="<?=$ra -> pid;?>">
             <td>
               <a href="lecture_view.php?pid=<?=$ra->pid;?>">
-                <img src="../../images/<?=$ra->thumbnail;?>" alt=""></a></td>
+                <img src="<?=$ra->thumbnail;?>" alt=""></a></td>
               <td colspan="2">
                 <div class="lecdesc">
                   <a href="lecture_view.php?pid=<?=$ra->pid;?>">
                   <?=$ra->title;?><br>
-                  <?=$ra->brief;?><br>
                   개강일 : <span class="rel_date"><?=$ra->reg_date;?></span> <br>
-                  수강생 수 : <span class="sub_p">105</span>
+                  <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
   <td><?=$ra->cate;?></td>
