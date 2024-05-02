@@ -12,8 +12,9 @@ try{
 
   $title  = $_POST['title'];
   $content  = rawurldecode($_POST['content']);
- $thumbnail  = $_FILES['thumbnail'];
-$status = $_POST['status'] ?? '';
+  $thumbnail  = $_FILES['thumbnail'];
+  $url  = $_POST['url'] ?? '';
+  $status = $_POST['status'] ?? '';
 
   $userid = $_SESSION['AUID'];
 
@@ -22,7 +23,13 @@ $status = $_POST['status'] ?? '';
   $converTedDate = date('Y-m-d', strtotime($dateString));
   $converTedDate2 = date('Y-m-d', strtotime($dateString2));
 
-
+  $sql = "INSERT INTO TB2 (코드, 년도)
+  (
+    SELECT A.코드, A.년도 -- 추가할 필드
+    FROM TB1 A LEFT JOIN TB2 B 
+    ON A.코드 = B.코드
+    WHERE B.코드 IS NULL -- join한 TB2테이블의 필드가 NULL이라는 말은 TB2에는 없는 값을 의미한다.
+  )";
 
 
  //$status = $_POST['status'] ?? 1;
@@ -65,7 +72,7 @@ $status = $_POST['status'] ?? '';
     </script>";
     exit;
   }
-  $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail) VALUES (
+  $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail,url) VALUES (
     '{$cate}',
     '{$title}',
     '{$content}',
@@ -74,7 +81,8 @@ $status = $_POST['status'] ?? '';
     '{$converTedDate2}',
     now(),
     '{$status}',
-    '{$thumbnail}'
+    '{$thumbnail}',
+    '{$url}'
   )";
   $result = $mysqli->query($sql);
   $pid = $mysqli->insert_id;
@@ -87,7 +95,7 @@ $status = $_POST['status'] ?? '';
     $mysqli->commit();//디비에 커밋한다
 
     echo "<script>
-    alert('상품 등록 완료');
+    alert('강의 등록 완료');
    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
     </script>";
     }
@@ -96,7 +104,7 @@ $status = $_POST['status'] ?? '';
   $mysqli->rollback();
 
   echo "<script>
-  alert('상품 등록 실패');
+  alert('강의 등록 실패');
   //history.back();
   </script>";
 }

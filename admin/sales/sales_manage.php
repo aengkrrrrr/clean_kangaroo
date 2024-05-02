@@ -28,9 +28,9 @@ while ($rs = $result->fetch_object()) {
     <h4>월별 집계현황</h4>
     <div class="select_wrap">
       <select class="form-select" aria-label="" id="" name="">
-        <option selected>2024.03</option>
-        <option>2024.02</option>
-        <option>2024.01</option>
+        <option selected>2024.05</option>
+        <option>2024.04</option>
+        <option>2024.03</option>
       </select>
       </div></div>
   </tr>
@@ -74,7 +74,10 @@ while ($rs = $result->fetch_object()) {
         <td><?= $ra -> title;?></td>
         <td class="category"><?= $ra -> cate;?></td>
         <td><?= $ra -> sales_date;?></td>
-        <td><?= $ra -> payment;?>카드결제</td>
+        <td><?php 
+        if($ra -> payment == 1){
+          echo "카드결제";
+        }?></td>
         <td class="price"><?= $ra -> price;?></td>
       </tr>
       <?php

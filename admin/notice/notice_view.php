@@ -32,8 +32,8 @@ $row = $result->fetch_object();
                 <span class="body3b">조회수 : <?=$row ->hit;?></span>
                 <span class="body3b"><?=$row ->date;?></span>
                 <div class="lectureSvg">
-                  <a href="notice_edit.php?idx=<?= $row->idx;?>"><img src="../../images/edit.svg" alt=""></a>
-                  <a href="notice_del.php?pid=<?= $row->idx;?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
+                <a href="notice_edit.php?idx=<?= $row->idx; ?>"><img src="/clean_kangaroo/images/edit.svg" alt=""></a>
+              <a href="notice_del.php?idx=<?= $row->idx; ?>" class="cart_item_del"><img src="/clean_kangaroo/images/delete.svg" alt=""></a>
                 </div>
               </div> 
             </div>  
@@ -43,7 +43,7 @@ $row = $result->fetch_object();
         <div class="container">
           <div class="inner_container">
             <ul class="info">
-              <li><img src="<?=$row ->thumbnail;?>" alt="" class="image_preview"></li>
+              <li><img src="<?=$row ->image;?>" alt="" class="image_preview"></li>
             <li class="content">
               <p class="body2">
               <input type="hidden" name="idx" value="<?= $row->idx;?>">

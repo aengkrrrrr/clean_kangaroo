@@ -38,7 +38,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 <ul>
   <li><div class="mb-3">
     <label for="formFile" class="form-label">이미지 업로드</label>
-    <input class="form-control" type="file" id="formFile" name="file">
+    <input class="form-control" type="file" id="formFile" name="image">
   </div></li>
 </ul>
 <ul>

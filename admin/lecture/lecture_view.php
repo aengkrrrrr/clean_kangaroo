@@ -7,6 +7,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_chec
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $pid = $_GET['pid']; 
+// $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products WHERE pid = {$pid}";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_object($result);
@@ -30,16 +31,16 @@ $row = mysqli_fetch_object($result);
             </div>
           </div>
         </div>
-        <p class="form-label ca"><?=$row->cate;?>카테고리 > 소분류</p>
+        <p class="form-label ca"><?=$row->cate;?></p>
       </ul>
       <ul>
         <div class="container">
           <div class="inner_container">
             <ul class="info">
-              <li><img src="<?=$row->thumbnail;?>" alt=""></li>
+              <li><a href="<?=$row->url;?>"><img src="<?=$row->thumbnail;?>" alt=""></a></li>
               <li>
                 <p class="form-label price">가격 : <?= $row->price; ?>원</p>
-                <p class="form-label price">수강기간 :<?=$row->sale_start_date?> ~ <?=$row->sale_end_date?>
+                <p class="form-label period">수강기간 :<?=$row->sale_start_date?> ~ <?=$row->sale_end_date?>
               </p>               
               </li>
               <li class="view_status">
@@ -49,7 +50,7 @@ $row = mysqli_fetch_object($result);
                   aria-label="공개" name="status" id="status1" 
                   <?php if($row->status == 0){ 
                     echo "checked";} ?>
-                  >
+                   disabled>
                    <label class="form-check-label" for="status1">
                     공개
                   </label>   
@@ -59,7 +60,7 @@ $row = mysqli_fetch_object($result);
                   <input class="form-check-input" type="radio" 
                   aria-label="일부공개(예약)" name="status" id="status2"
                   <?php if($row->status == 1){
-                     echo "checked";} ?>>
+                     echo "checked";} ?> disabled>
                    <label class="form-check-label" for="status2">
                     일부공개
                   </label>   
@@ -69,7 +70,7 @@ $row = mysqli_fetch_object($result);
                   <input class="form-check-input" type="radio" 
                   aria-label="비공개" name="status" id="status3"
                   <?php if($row->status == 2){ 
-                    echo "checked";} ?>>
+                    echo "checked";} ?> disabled>
                    <label class="form-check-label" for="status3">
                     비공개
                   </label>   

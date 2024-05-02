@@ -33,7 +33,10 @@ height: 20px;
 margin-right: 30px;
 }
 
-
+.file_route{
+  color:red;
+  font-weight: bold;
+}
 .answer_wrap {
   margin: 60px auto;
 }

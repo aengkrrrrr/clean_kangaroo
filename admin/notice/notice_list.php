@@ -15,7 +15,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sql = "SELECT * FROM notice_board where 1=1";
 $sql .= $search_where;
-$order = " order by date desc";
+$order = " order by idx desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -26,6 +26,14 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
+// //조회수 업데이트
+// $hit = $rs->hit + 1;
+// $sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$idx}";
+// $mysqli->query($sqlUpdate);
+// $result2 = $mysqli->query($sqlUpdate);
+// while ($rs = $result2->fetch_object()) {
+//   $rsArr[] = $rs;
+// }
 ?>
   <!----------- 헤더 -->
   <body>
