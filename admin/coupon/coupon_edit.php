@@ -19,7 +19,7 @@ $rs = $result->fetch_object();
 <body>
   <div class="container grid">
     <form action="coupon_edit_ok.php" class="coupon_wrap" enctype="multipart/form-data" method="POST">
-    <input type="hidden" name="cid">
+    <input type="hidden" name="cid" value="<?= $cid ?>">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
           <div class="field">
@@ -35,7 +35,7 @@ $rs = $result->fetch_object();
           <div class="form-floating">
             <p>쿠폰 적용 기간</p>
             <div class="d-flex cDates">
-              <input type="text" name="max_date" id="max_date" class="couponC">
+              <input type="text" name="max_date" id="max_date" class="couponC" value="<?= $rs -> max_date?>">
               <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
                 <option value="0" selected name="cate1">사용중</option>
                 <option value="1" name="cate2">보류중</option>

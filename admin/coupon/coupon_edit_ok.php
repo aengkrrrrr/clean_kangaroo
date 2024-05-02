@@ -3,13 +3,17 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
+$cid = $_POST['cid'];
 
 $coupon_name = $_POST['coupon_name'] ?? '';
 $coupon_type = $_POST['coupon_type'] ?? '';
 $coupon_price = $_POST['coupon_price'] ?? '';
 $coupon_ratio = $_POST['coupon_ratio'] ?? '';
 $status = $_POST['status'] ?? 1;
-$max_date = $_POST['max_date'] ?? '';
+
+$max_date = $_POST['max_date'];
+$dateTime = date('Y-m-d H:i:s', strtotime(str_replace('/', '-', $max_date)));
+
 $userid = $_SESSION['AUID'];
 
 //파일 사이즈 검사
@@ -53,17 +57,20 @@ if (strpos($_FILES['coupon_image']['type'], 'image') === false) {
     coupon_ratio='{$coupon_ratio}',
     status='{$status}',
     regdate=now(),
-    userid={$_SESSION['AUID']},
-    max_date={$max_date}";
+    userid='{$_SESSION['AUID']}',
+    max_date='{$dateTime}'
+    WHERE cid = {$cid}";
 
-    if($mysqli->query($sql) === TRUE){
-        echo "<script>
-        alert('쿠폰수정 완료');
-        location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
-        </script>";
-    } else{
-        echo "<script>
-        alert('쿠폰수정 실패');
-        history.back();
-        </script>";
-    }
+  $mysqli->query($sql);
+
+  if($mysqli->query($sql) === TRUE){
+    echo "<script>
+    alert('쿠폰수정 완료');
+    location.href = '/clean_kangaroo/admin/coupon/coupon_list.php';
+    </script>";
+} else{
+    echo "<script>
+    alert('쿠폰수정 실패');
+    // history.back();
+    </script>";
+}
