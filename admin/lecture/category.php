@@ -11,7 +11,6 @@ while ($row = $result->fetch_object()) {
 ?>
 
 <div class="container">
-
   <div class="category row">
 
     <div class="col-md-4">
