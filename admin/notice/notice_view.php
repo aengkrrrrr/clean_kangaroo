@@ -6,51 +6,49 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$pid = $_GET['idx']; 
-
-$sql = "SELECT * FROM notice_board WHERE 1 = 1";
+//테이블조회
+$idx = $_GET['idx'];
+$sql = "SELECT * FROM notice_board WHERE idx={$idx}";
 $result = $mysqli->query($sql);
-$row = mysqli_fetch_object($result);
+$row = $result->fetch_object();
 
 
 //조회수 업데이트
-$hit = $row->hit + 1;
-$sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$pid}";
-$mysqli->query($sqlUpdate);
+// $hit = $row->hit + 1;
+// $sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$pid}";
+// $mysqli->query($sqlUpdate);
 
 ?>
   <!----------- 헤더 -->
   <div class="answer_wrap">
+     
     <div class="user_write">
       <ul>
         <li>
-          <p class="form-label"></p>          
-          <div class="title df aic pb-5">
-
-          <h4 class="h4"><?= $row->title; ?></h4>
-          <div class="svg_wrap">
-            <span class="body3b">조회수 : <?=$row->hit;?></span>
-            <span class="body3b"><?=$row->date;?></span>
-            <div class="lectureSvg">
-              <a href="lecture_edit.php?pid=<?= $row->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
-              <a href="notice_del.php?pid=<?= $row->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
-            </div>
-          </div> 
-          </div>  
-           </li>
-          </ul>
+            <p class="form-label"></p>          
+            <div class="title df aic pb-5">
+              <h4 class="h4"><?= $row->title; ?></h4>
+              <div class="svg_wrap">
+                <span class="body3b">조회수 : <?=$row ->hit;?></span>
+                <span class="body3b"><?=$row ->date;?></span>
+                <div class="lectureSvg">
+                  <a href="notice_edit.php?idx=<?= $row->idx;?>"><img src="../../images/edit.svg" alt=""></a>
+                  <a href="notice_del.php?pid=<?= $row->idx;?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
+                </div>
+              </div> 
+            </div>  
+        </li>
+      </ul>
       <ul>
         <div class="container">
           <div class="inner_container">
             <ul class="info">
-              <li><img src="<?=$row->thumbnail;?>" alt="" class="image_preview"></li>
-<li class="content">
+              <li><img src="<?=$row ->thumbnail;?>" alt="" class="image_preview"></li>
+            <li class="content">
               <p class="body2">
-              <?=$row->contents;?>사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가
-                작성한
-                내용사용자가 작성한 내용 사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한
-                내용사용자가
-                작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용사용자가 작성한 내용</p>
+              <input type="hidden" name="idx" value="<?= $row->idx;?>">
+              <?=$row ->contents;?>
+              </p>
             </li>
               </ul>
           </div>
@@ -60,6 +58,7 @@ $mysqli->query($sqlUpdate);
       <a href ="javascript:history.back();" class="basic_btn">목록</a>
       </div>
     </div>
+
   </div>
   </div>
 

@@ -5,11 +5,7 @@ $css1 = '<link rel="stylesheet" href="../../css/dashboard.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$sql = "SELECT * FROM notice_board LIMIT 4";
-$result = $mysqli->query($sql);
-while ($rs = $result->fetch_object()) {
-  $rsArr[] = $rs;
-}
+
 
 //회원수 출력
 $sql = "
@@ -29,6 +25,13 @@ $arr[2] = $row->cnt3;
 $data = [];
 foreach($arr as $item){
   array_push($data, $item);
+}
+
+//공지사항 출력
+$sql = "SELECT * FROM notice_board LIMIT 4";
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
 }
 
 // //매출 데이터
@@ -86,7 +89,7 @@ foreach($arr as $item){
           ?>
         <tr>
           <td colspan="5"><a href=""><?=$ra->title;?></a></td>
-          <td><?=$ra->cate;?></td>
+          <!-- <td><?=$ra->cate;?></td> -->
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
         </tr>
