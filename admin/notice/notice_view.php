@@ -6,10 +6,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-$pid = $_GET['pid']; 
+$pid = $_GET['idx']; 
+
 $sql = "SELECT * FROM notice_board WHERE 1 = 1";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_object($result);
+
+
+//조회수 업데이트
+$hit = $row->hit + 1;
+$sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$pid}";
+$mysqli->query($sqlUpdate);
+
 ?>
   <!----------- 헤더 -->
   <div class="answer_wrap">
