@@ -19,8 +19,6 @@ $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
 
-$date = now();
-
 
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
@@ -54,7 +52,6 @@ while ($rs = $result->fetch_object()) {
         <thead>
           <tr>
             <th scope="col" colspan="5">제  목</th>
-            <th scope="col">카테고리</th>
             <th scope="col">일자</th>
             <th scope="col">조회수</th>
             <th scope="col"></th>
@@ -66,8 +63,7 @@ while ($rs = $result->fetch_object()) {
             foreach($rsArr as $ra){
           ?>
         <tr>
-          <td colspan="5"><a href=""><?=$ra->title;?></a></td>
-          <td><?=$ra->cate;?></td>
+          <td colspan="5"><a href="notice_view.php?pid=<?=$ra->idx;?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
           <td class="lectureSvg">

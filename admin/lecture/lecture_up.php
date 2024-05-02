@@ -74,6 +74,7 @@ while ($row = $result->fetch_object()) {
           <option value="3">1년</option>
         </select>
       </li>
+
       <li class="view_status">
         <p class="status">상태&nbsp;&nbsp;</p>
         <div class="form-check">
@@ -95,6 +96,7 @@ while ($row = $result->fetch_object()) {
           </label>
         </div>
       </li>
+      
     </ul>
     <ul>
       <li>

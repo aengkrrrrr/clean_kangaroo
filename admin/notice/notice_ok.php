@@ -6,8 +6,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 $idx = $_POST['idx'];
 $title = $_POST['title'];
 $content = $_POST['contents'];
-$date = $_POST['date'];
+$date = date("Y-m-d");
 $hit = $_POST['hit'];
+
 
 $sql = "INSERT INTO notice_board (idx, title, contents, date, hit) VALUES ('{$idx}','{$title}','{$content}','{$date}','{$hit}')";
 

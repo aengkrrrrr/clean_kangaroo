@@ -50,7 +50,7 @@ $row = mysqli_fetch_object($result);
 
                 <div class="form-check">
                   <input class="form-check-input" type="radio" 
-                  aria-label="일부공개(예약)" name="status[<?= $rowrs->status ?>]" id="status[<?= $rs->status ?>]<?php if($row->status == 1){ echo "checked";} ?>">
+                  aria-label="일부공개(예약)" name="status[<?= $row->status ?>]" id="status[<?= $rs->status ?>]<?php if($row->status == 1){ echo "checked";} ?>">
                    <label class="form-check-label" for="status[<?= $row->pid ?>]">
                     일부공개(예약)
                   </label>   
