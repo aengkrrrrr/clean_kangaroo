@@ -377,13 +377,11 @@ input[type=text].couponC {
 	background:url('/admin/images/date.png') no-repeat 6px 6px;
 	background-size:26px;
 	background-position: 280px;
+  height:40px;
+	border-radius: 6px;
 }
 .cDates {
 	gap: 68px;
-}
-.couponC {
-	height:40px;
-	border-radius: 6px;
 }
 /* 달력 기본 디자인 설정 안가져가도됨 */
 .ui-widget.ui-widget-content{

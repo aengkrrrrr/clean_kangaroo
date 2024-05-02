@@ -19,6 +19,7 @@ $rs = $result->fetch_object();
 <body>
   <div class="container grid">
     <form action="coupon_edit_ok.php" class="coupon_wrap" enctype="multipart/form-data" method="POST">
+    <input type="hidden" name="cid">
       <div class="coupon_1 d-flex">
         <div class="couponimg">
           <div class="field">
@@ -34,20 +35,16 @@ $rs = $result->fetch_object();
           <div class="form-floating">
             <p>쿠폰 적용 기간</p>
             <div class="d-flex cDates">
-              <input type="text" name="cdatepicker1" id="cdatepicker1" class="couponC" value="<?= $rs -> regdate?>">
-              <input type="text" name="cdatepicker2" id="cdatepicker2" class="couponC" value="<?= $rs -> regdate?>">
+              <input type="text" name="max_date" id="max_date" class="couponC">
+              <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
+                <option value="0" selected name="cate1">사용중</option>
+                <option value="1" name="cate2">보류중</option>
+              </select>
             </div>
           </div>
         </div>
       </div>
       <div class="coupon_2 d-flex">
-        <div class="form-floating">
-          <select class="form-select" name="coupon_type" id="coupon_type" aria-label="쿠폰타입">
-            <option value="0" selected>사용중</option>
-            <option value="-1">보류중</option>
-          </select>
-          <label for="coupon_type">종류</label>
-        </div>
         <div class="input-group c2form">
           <div class="form-floating">
             <input type="text" name="coupon_ratio" class="form-control" aria-label="coupon service" placeholder="쿠폰 혜택" id="coupon_ratio" value="<?= $rs -> coupon_ratio?>" required>

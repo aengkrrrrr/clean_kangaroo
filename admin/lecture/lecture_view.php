@@ -37,6 +37,8 @@ $row = mysqli_fetch_object($result);
               <li><img src="<?=$row->thumbnail;?>" alt=""></li>
               <li>
                 <p class="form-label price">가격 : <?= $row->price; ?>원</p>
+                <p class="form-label price">수강기간 : <?= $row->sale_start_date; ?>~<?= $row->sale_end_date; ?>
+              </p>               
               </li>
               <li class="view_status">
                 <p class="status">상태&nbsp;&nbsp;</p>
@@ -50,7 +52,7 @@ $row = mysqli_fetch_object($result);
 
                 <div class="form-check">
                   <input class="form-check-input" type="radio" 
-                  aria-label="일부공개(예약)" name="status[<?= $rowrs->status ?>]" id="status[<?= $rs->status ?>]<?php if($row->status == 1){ echo "checked";} ?>">
+                  aria-label="일부공개(예약)" name="status[<?= $row->status ?>]" id="status[<?= $rs->status ?>]<?php if($row->status == 1){ echo "checked";} ?>">
                    <label class="form-check-label" for="status[<?= $row->pid ?>]">
                     일부공개(예약)
                   </label>   

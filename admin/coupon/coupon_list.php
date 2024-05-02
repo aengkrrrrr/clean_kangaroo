@@ -77,7 +77,7 @@ while ($rs = $result->fetch_object()) {
               <td><?= $item->coupon_name; ?></td>
               <td><?= $item->max_date; ?></td>
               <td><?php
-                if($item->status == '2'){echo '전체보기';} 
+                if($item->status == ''){echo '전체보기';} 
                 else if($item->status == '0'){echo '사용중';} 
                 else if($item->status == '1'){echo '보류중';}
               ?></td>

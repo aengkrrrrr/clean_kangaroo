@@ -10,6 +10,11 @@ $result = $mysqli->query($sql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
+
+
 ?>
   <!----------- 헤더 -->
   <body>
@@ -62,18 +67,12 @@ while ($row = $result->fetch_object()) {
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
-          <input type="text" id="datepicker1" class="couponC" name="sale_end_date">
+          <input type="text" id="datepicker1" class="couponC" name="sale_start_date">
+          <input type="text" id="datepicker2" class="couponC" name="sale_end_date">
         </div>
         </div>
       </li>
-      <li>
-        <select class="form-select" aria-label="대분류">
-          <option selected>1개월</option>
-          <option value="1">3개월</option>
-          <option value="2">6개월</option>
-          <option value="3">1년</option>
-        </select>
-      </li>
+<!-- 
       <li class="view_status">
         <p class="status">상태&nbsp;&nbsp;</p>
         <div class="form-check">
@@ -94,11 +93,12 @@ while ($row = $result->fetch_object()) {
             비공개
           </label>
         </div>
-      </li>
+      </li> -->
+      
     </ul>
     <ul>
       <li>
-        <p class="period">수강기간 yyyy-mm-dd ~ yyyy-mm-dd </p>
+        <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString1)?>  </p>
       </li>
       <li>
         <div class="form-floating textarea">
@@ -112,52 +112,6 @@ while ($row = $result->fetch_object()) {
             <div>
               <button type="button" class="btn primary_btn btn-sm" id="addImage">이미지 업로드</button>
             </div>
-            <div id="addedimages" class="d-flex gap-3 p-3">
-
-              <!--    
-              <div class="card" style="width: 10rem;" id="f_01">
-                <img src="..." class="img-fluid" alt="...">
-                <button type="button" class="btn btn-danger btn-sm">삭제</button>
-              </div>
-              -->
-
-
-
-          <!-- <label for="formFile" class="form-label">썸네일 이미지 업로드</label>
-          <input class="form-control" type="file" id="formFile">
-        </div>
-      </li> -->
-      <!-- <li class="image_preview">
-        <div type="button" class="preview primary_btn">이미지 삭제</div>
-      </li> -->
-             </div>
-            </div>
-      </li> 
-      <li>
-        <div class="mb-3">
-        <input type="file" multiple name="thumbnail" id="upfile" class="d-none">
-            <div>
-              <button type="button" class="btn primary_btn btn-sm" id="addImage">강의 영상 업로드</button>
-            </div>
-            <div id="addedimages" class="d-flex gap-3 p-3">
-
-              <!--    
-              <div class="card" style="width: 10rem;" id="f_01">
-                <img src="..." class="img-fluid" alt="...">
-                <button type="button" class="btn btn-danger btn-sm">삭제</button>
-              </div>
-              -->
-
-
-
-          <!-- <label for="formFile" class="form-label">썸네일 이미지 업로드</label>
-          <input class="form-control" type="file" id="formFile">
-        </div>
-      </li> -->
-      <!-- <li class="image_preview">
-        <div type="button" class="preview primary_btn">이미지 삭제</div>
-      </li> -->
-             </div>
             </div>
       </li> 
       <li>
@@ -171,9 +125,6 @@ while ($row = $result->fetch_object()) {
           <input type="url" class="form-control" id="floatingInput_url" placeholder="https://">
           <label for="floatingInput_url">URL</label>
         </div>
-      </li>
-      <li class="image_preview">
-        <div class="preview primary_btn">영상 삭제</div>
       </li>
     </ul>
     <ul>
@@ -215,6 +166,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
     $( "#datepicker1" ).datepicker();
      $('#product_save').on('submit', save);
     $( "#datepicker1" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+    $( "#datepicker2" ).datepicker({
       dateFormat: "yy-mm-dd"
     });
   } );

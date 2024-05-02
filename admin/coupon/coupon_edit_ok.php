@@ -4,7 +4,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_chec
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 
-
 $coupon_name = $_POST['coupon_name'] ?? '';
 $coupon_type = $_POST['coupon_type'] ?? '';
 $coupon_price = $_POST['coupon_price'] ?? '';

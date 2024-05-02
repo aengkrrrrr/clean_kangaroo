@@ -1,5 +1,5 @@
   // 첨부파일 이미지
-  let profile = document.querySelector("#profile");
+  let profile = document.querySelector("#coupon_image");
   profile.addEventListener('change',(e)=>{
       let file = e.target.files[0];
       console.log(file);            
@@ -16,7 +16,9 @@
 
 
   $( function() {
-    $( "#cdatepicker1, #cdatepicker2" ).datepicker();
+    $( "#max_date" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
   } );
 
 

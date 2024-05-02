@@ -2,8 +2,8 @@
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-  $pid = $_POST['cid'];
-  $sql = "DELETE FROM coupons WHERE cid = {$pid}";
+  $cid = $_GET['cid'];
+  $sql = "DELETE FROM coupons WHERE cid = {$cid}";
   $result = $mysqli -> query($sql);
 
   if($mysqli->query($sql) === true){

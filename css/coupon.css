@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 input[type=text].couponC {
-	width: 414px;
+	width: 50%;
 	background:url('/clean_kangaroo/images/date.png') no-repeat 6px 6px;
 	background-size:26px;
 	background-position: 280px;
@@ -21,9 +21,10 @@ form, .nav_wrap { position: relative; }
 	height:355px;
 	justify-content: center;
 	align-items: center;
-	margin-bottom: 168px;
+	margin-bottom: 60px;
 	gap: 80px;
 }
+
 .couponimg {
 	position: relative;
 	width: 40%;
@@ -47,13 +48,20 @@ input#coupon_image {
 	gap: 120px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: end;
 }
-.cDates {
+.coupon_s {
+	justify-content: space-between;
+  align-items: end;
+}
+.coupon_s .cDates {
+	width: 340px;
 	gap: 68px;
 }
-.couponC {
-	height:40px;
+input#max_date {
+	height: 60px;
+	padding-top: 1.625rem;
+	padding-bottom: .625rem;
 	border-radius: 6px;
 }
 .coupon_2 {
