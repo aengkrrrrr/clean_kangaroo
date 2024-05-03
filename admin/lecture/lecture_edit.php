@@ -15,9 +15,8 @@ $pid = $_GET['pid'];
 $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
 $result = $mysqli->query($sql);
 $rowp = $result->fetch_object();
-
-
 ?>
+
   <!----------- 헤더 -->
   <body>
   <div class="lecture_up">

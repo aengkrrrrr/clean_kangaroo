@@ -23,13 +23,6 @@ try{
   $converTedDate = date('Y-m-d', strtotime($dateString));
   $converTedDate2 = date('Y-m-d', strtotime($dateString2));
 
-  $sql = "INSERT INTO TB2 (코드, 년도)
-  (
-    SELECT A.코드, A.년도 -- 추가할 필드
-    FROM TB1 A LEFT JOIN TB2 B 
-    ON A.코드 = B.코드
-    WHERE B.코드 IS NULL -- join한 TB2테이블의 필드가 NULL이라는 말은 TB2에는 없는 값을 의미한다.
-  )";
 
 
  //$status = $_POST['status'] ?? 1;
@@ -84,6 +77,7 @@ try{
     '{$thumbnail}',
     '{$url}'
   )";
+
   $result = $mysqli->query($sql);
   $pid = $mysqli->insert_id;
 
@@ -105,6 +99,6 @@ try{
 
   echo "<script>
   alert('강의 등록 실패');
-  //history.back();
+ history.back();
   </script>";
 }
