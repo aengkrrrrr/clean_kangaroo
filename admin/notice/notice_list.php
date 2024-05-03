@@ -54,8 +54,6 @@ while ($rs = $result->fetch_object()) {
       </div>
     </form>
   
-    <hr>  
-  
     <form action="">
       <table class="table">
         <thead>
@@ -141,36 +139,6 @@ while ($rs = $result->fetch_object()) {
   });
 
   </script>
-<script>
-document.addEventListener('DOMContentLoaded', ()=>{
-    $('.cart_item_del').click(function(){
-
-        $(this).closest('tr').remove();
-        let cartid =  $(this).find('.qty-text').attr('data-id');
-        let data = {
-            cartid :cartid
-        }
-        $.ajax({
-            url:'notice_del.php',
-            async:false,
-            type: 'POST',
-            data:data,
-            dataType:'json',
-            error:function(){},
-            success:function(data){
-            console.log(data);
-            if(data.result=='ok'){
-                alert('업데이트가 삭제되었습니다.');  
-                location.reload();                      
-            }else{
-                alert('오류, 다시 시도하세요');                        
-                }
-            }
-        });
-    });
-      });
-   
-</script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
