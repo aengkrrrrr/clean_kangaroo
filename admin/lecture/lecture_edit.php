@@ -5,6 +5,24 @@ $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
+<<<<<<< HEAD
+<<<<<<< HEAD
+$catesql = "SELECT * FROM product_category where step = 1";
+$result = $mysqli->query($catesql);
+while ($row = $result->fetch_object()) {
+  $cate1[] = $row;
+}
+$pid = $_GET['pid'];
+//$sql = "SELECT * FROM products where pid={$pid}";
+$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
+$result = $mysqli->query($sql);
+$rowp = $result->fetch_object();
+<<<<<<< HEAD
+
+
+=======
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
 
 $pid = $_GET['pid']; 
 $sql = "SELECT * FROM products WHERE pid = {$pid}";
@@ -46,16 +64,53 @@ foreach($cateArray as $cate){
 //     $optArr[] = $ors;
 // }
 
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
 ?>
 
 <!----------- 헤더 -->
 <body>
+=======
+?>
+
+  <!----------- 헤더 -->
+  <body>
+>>>>>>> main-park
   <div class="lecture_up">
     <h3>강좌 수정</h3>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <form action="lecture_edit_ok.php" method="POST" enctype="multipart/form-data" id="product_save">
+    <input type="hidden" name="pid" value="<?=$pid?>">
+    <ul>
+      <p class="form-label">카테고리</p>
+      <li class="category">
+      <select class="form-select" aria-label="대분류" id="cate1">
+        <option selected>대분류</option>
+        <?php
+        foreach ($cate1 as $c1) {
+        ?>
+          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+        <?php
+        }
+        ?>
+
+      </select>
+      <select class="form-select" aria-label="중분류" id="cate2">
+      </select>
+=======
     <form action="product_edit_ok.php" method="POST" enctype="multipart/form-data" id="product_save">
     <ul>
       <p class="form-label">카테고리</p>
       <li class="category">
+=======
+    <form action="product_edit_ok.php" method="POST" enctype="multipart/form-data" id="product_save">
+    <ul>
+      <p class="form-label">카테고리</p>
+      <li class="category">
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       <?php
                 foreach($cateArr as $cate){
                   echo $cate-> name. '-';
@@ -75,14 +130,28 @@ foreach($cateArray as $cate){
         <select class="form-select" aria-label="중분류" id="cate2" name="cate2">
 
         </select>
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       </li>
     </ul>
 
     <ul>
       <li>
         <div class="form-floating mb-3">
+<<<<<<< HEAD
+<<<<<<< HEAD
+          <input type="text" name="title" class="form-control" id="floatingInput_title" placeholder="<?=$rowp->title;?>" value="<?=$rowp->title;?>" readonly>
+          <label for="floatingInput_title">강좌명</label>
+=======
           <input type="text" class="form-control" name="title" id="title" placeholder="강좌명" value="<?= $rs -> title?>" required disabled>
           <label for="title" disabled>강좌명</label>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+          <input type="text" class="form-control" name="title" id="title" placeholder="강좌명" value="<?= $rs -> title?>" required disabled>
+          <label for="title" disabled>강좌명</label>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
         </div>
       </li>
     </ul>
@@ -90,7 +159,7 @@ foreach($cateArray as $cate){
       <li>
         <div class="input-group c2form price">
           <div class="form-floating">
-            <input type="text" class="form-control" aria-label="lecture_price" id= "lecture_price" placeholder="가격"  value="<?= $rs -> price?>" required>
+            <input type="text" name="price" class="form-control" aria-label="lecture_price" id="lecture_price" placeholder="<?=$rowp->price;?>" value="<?=$rowp->price;?>">
             <label for="floatingInputGroup1">가격</label>
           </div>
           <span class="input-group-text">원</span>
@@ -101,9 +170,19 @@ foreach($cateArray as $cate){
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
+<<<<<<< HEAD
+<<<<<<< HEAD
+          <input type="text" id="datepicker1" class="couponC" name="datepicker1" value="<?=$rowp->sale_start_date?>">
+          <input type="text" id="datepicker2" class="couponC" name="datepicker2" value="<?=$rowp->sale_end_date?>">
+=======
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
           <input type="text" id="datepicker1" class="couponC">
         </div>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
         </div>
+        <br>수강기간 : <span class="rel_date"><?=$rowp->sale_start_date?> ~ <?=$rowp->sale_end_date?></span>
+      </div>
       </li>
       <li>
         <select class="form-select" aria-label="대분류">
@@ -113,7 +192,52 @@ foreach($cateArray as $cate){
           <option value="3">1년</option>
         </select>
       </li>
+<<<<<<< HEAD
+=======
+      <li>
+        <select class="form-select" aria-label="대분류">
+          <option selected>1개월</option>
+          <option value="1">3개월</option>
+          <option value="2">6개월</option>
+          <option value="3">1년</option>
+        </select>
+      </li>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       <li class="view_status">
+<<<<<<< HEAD
+                <p class="status">상태&nbsp;&nbsp;</p>
+               <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="공개" name="status" id="status1" 
+                  <?php if($rowp->status == 0){ 
+                    echo "checked";} ?>
+                   value=0>
+                   <label class="form-check-label" for="status1">
+                    공개
+                  </label>   
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="일부공개(예약)" name="status" id="status2"
+                  <?php if($rowp->status == 1){
+                     echo "checked";} ?> value=1>
+                   <label class="form-check-label" for="status2">
+                    일부공개
+                  </label>   
+                </div>
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="비공개" name="status" id="status3"
+                  <?php if($rowp->status == 2){ 
+                    echo "checked";} ?> value=2>
+                   <label class="form-check-label" for="status3">
+                    비공개
+                  </label>   
+                </div>
+              </li>    </ul>
+=======
         <p class="status">상태&nbsp;&nbsp;</p>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
@@ -136,17 +260,36 @@ foreach($cateArray as $cate){
       </li>
     </ul>
     
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
     <ul>
       <li>
         <p class="period">수강기간 yyyy-mm-dd ~ yyyy-mm-dd </p>
       </li>
       <li>
         <div class="form-floating textarea">
+<<<<<<< HEAD
+<<<<<<< HEAD
+          <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea" name="content"><?=$rowp->content;?></textarea>
+=======
           <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea"></textarea>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+          <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea"></textarea>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
           <label for="floatingTextarea" hidden>강좌설명</label>
         </div>
       </li>
       <li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <div class="mb-3">
+          <label for="formFile" class="form-label">이미지 업로드</label>
+          <input class="form-control" type="file" multiple name="thumbnail" id="thumbnail" class="d-none" value="<?=$rowp->thumbnail;?>">
+=======
+=======
         <div class="mb-3">
           <label for="formFile" class="form-label">썸네일 이미지 업로드</label>
           <input class="form-control" type="file" id="formFile">
@@ -156,15 +299,20 @@ foreach($cateArray as $cate){
         <div class="preview primary_btn">이미지 삭제</div>
       </li>
       <li>
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
         <div class="mb-3">
-          <label for="formFile" class="form-label">강의 영상 업로드</label>
+          <label for="formFile" class="form-label">썸네일 이미지 업로드</label>
           <input class="form-control" type="file" id="formFile">
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
         </div>
+      </li>
+      <li class="image_preview">
+        <div class="preview primary_btn">이미지 삭제</div>
       </li>
       <li>
         <div class="form-floating mb-3">
-          <input type="url" class="form-control" id="floatingInput_url" placeholder="https://">
-          <label for="floatingInput_url">URL</label>
+          <input type="url" class="form-control" multiple name="url"  id="url" value="<?=$rowp->url;?>">
+          <label for="floatingInput_url">강의 영상 URL</label>
         </div>
       </li>
       <li class="image_preview">

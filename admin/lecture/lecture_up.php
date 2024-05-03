@@ -26,7 +26,7 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
     <ul>
       <p class="form-label">카테고리</p>
       <li class="category">
-      <select class="form-select" aria-label="대분류" id="cate1">
+      <select class="form-select" aria-label="대분류" id="cate1" name="cate1">
         <option selected>대분류</option>
         <?php
         foreach ($cate1 as $c1) {
@@ -39,7 +39,7 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
         ?>
 
       </select>
-      <select class="form-select" aria-label="중분류" id="cate2">
+      <select class="form-select" aria-label="중분류" id="cate2" name="cate2">
 
       </select>
       </li>
@@ -72,8 +72,45 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
         </div>
         </div>
       </li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
 <!-- 
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+<!-- 
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       <li class="view_status">
+                <p class="status">상태&nbsp;&nbsp;</p>
+               <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="공개" name="status" id="0" 
+                  checked value=0>
+                   
+                   <label class="form-check-label" for="status1">
+                    공개
+                  </label>   
+                </div>
+
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="일부공개(예약)" name="status" id="1"
+                  value=1>
+                   <label class="form-check-label" for="status2">
+                    일부공개
+                  </label>   
+                </div>
+                
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" 
+                  aria-label="비공개" name="status" id="2"
+                  value=2>
+                   <label class="form-check-label" for="status3">
+                    비공개
+                  </label>   
+                </div>
+              </li>
+      <!-- <li class="view_status">
         <p class="status">상태&nbsp;&nbsp;</p>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
@@ -94,11 +131,25 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
           </label>
         </div>
       </li> -->
+<<<<<<< HEAD
+<<<<<<< HEAD
+  </ul>
+    <ul>
+      <li>
+
+        <!-- <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> -->
+=======
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       
     </ul>
     <ul>
       <li>
         <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString1)?>  </p>
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       </li>
       <li>
         <div class="form-floating textarea">
@@ -115,15 +166,9 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
             </div>
       </li> 
       <li>
-        <div class="mb-3">
-          <label for="formFile" class="form-label">강의 영상 업로드</label>
-          <input class="form-control" type="file" id="formFile">
-        </div>
-      </li>
-      <li>
         <div class="form-floating mb-3">
-          <input type="url" class="form-control" id="floatingInput_url" placeholder="https://">
-          <label for="floatingInput_url">URL</label>
+          <input type="url" class="form-control" multiple name="url"  id="url" placeholder="https://">
+          <label for="floatingInput_url">강의 영상 URL</label>
         </div>
       </li>
     </ul>

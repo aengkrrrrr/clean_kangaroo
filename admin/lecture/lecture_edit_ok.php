@@ -1,175 +1,173 @@
 <?php
 session_start();
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/inc/admin_check.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/inc/dbcon.php';
+$title = "공지사항 관리";
+$menutitle = '게시판 관리'; 
+$css1 = '<link rel="stylesheet" href="../../css/notice.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
+//처리현황 업데이트
+// $UpdateSql = "UPDATE notice_board SET title='{$title}', contents='{$contents}', image='{$image}' WHERE idx={$idx}";
+// $mysqli->query($UpdateSql);
+
+
+//테이블조회
 $pid = $_POST['pid'];
-
-$cate1 = $_POST['cate1'] ?? '';
-$cate2 = $_POST['cate2'] ?? '';
-$cate3 = $_POST['cate3'] ?? '';
-$orgcate = $_POST['orgcate'] ?? '';
-$cate = $cate1 . $cate2 . $cate3 ;
-
-if(strlen($cate) == 0){
-  $cate = $orgcate;
-}
-
-$name  = $_POST['name'];
-$content  = rawurldecode($_POST['contents']);
-// $thumbnail  = $_POST['thumbnail'];
-$price = $_POST['price'];
-
-$ismain = $_POST['ismain'] ?? 0;
-$isnew = $_POST['isnew'] ?? 0;
-$isbest = $_POST['isbest'] ?? 0;
-$isrecom = $_POST['isrecom'] ?? 0;
-
-$locate = $_POST['locate'] ?? 0;
-$userid = $_SESSION['AUID'];
-
-$status = $_POST['status'] ?? 0;
-$addedImg_id = rtrim($_POST['product_image'], ',');
-
-$optionCate1 = $_POST['optionCate1'] ?? '';//옵션 분류
-
-
-
-//파일 사이즈 검사
-if ($_FILES['thumbnail']['size'] > 10240000) {
-  echo "<script>
-    alert('10MB 이하만 업로드해주세요');
-    history.back();
-  </script>";
-  exit;
-}
-//이미지 여부 검사
-if (strpos($_FILES['thumbnail']['type'], 'image') === false) {
-  echo "<script>
-    alert('이미지만 업로드해주세요');
-    history.back();
-  </script>";
-  exit;
-}
-//파일 업로드
-$save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
-$fiename = $_FILES["thumbnail"]["name"]; //insta.jpg
-$ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
-$newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
-$savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
-
-if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $save_dir . $savefile)) {
-  $thumbnail = "/clean_kangaroo/admin/upload/" . $savefile;
-} else {
-  echo "<script>
-  alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
-  history.back();
-  </script>";
-  exit;
-}
-$sql = "UPDATE products SET 
-  name= '{$name}',
-  cate= '{$cate}',
-  content = '{$content}',
-  thumbnail = '{$thumbnail}',
-  price =   '{$price}',
-  ismain = '{$ismain}',
-  isnew = '{$isnew}',
-  isbest = '{$isbest}',
-  isrecom = '{$isrecom}',
-  locate = '{$locate}',
-  userid = '{$userid}',
-  reg_date = now(),
-  status = '{$status}'
-  WHERE pid = {$pid}";
-
+$sql = "SELECT * FROM products WHERE pid={$pid}";
 $result = $mysqli->query($sql);
-//$pid = $mysqli->insert_id;
+$row = $result->fetch_object();
 
-if ($result) { //상품 등록 하면
+//처리현황 업데이트
+// $UpdateSql = "UPDATE products SET title='{$title}', content='{$content}', url='{$url}', thumbnail='{$thumbnail}', status='{$status}', WHERE idx={$idx}";
+// $mysqli->query($UpdateSql);
 
-  if(strlen($addedImg_id) > 0){ //추가 이미지가 있다면 12,13
-    $sql = "UPDATE product_image_table SET pid = {$pid} where imgid in ({$addedImg_id})";
-    $result = $mysqli->query($sql);
+$mysqli->autocommit(FALSE);//커밋이 안되도록 지정
+try{
+  $cate1 = $_POST['cate1'] ?? '';
+  $cate2 = $_POST['cate2'] ?? '';
+  $cate = $cate1 . $cate2 ;
+  $price = $_POST['price']?? '';
+
+  $title  = $_POST['title'];
+  $content  = rawurldecode($_POST['content'])?? '';
+ $thumbnail  = $_FILES['thumbnail'] ?? '';
+ $url  = $_POST['url'] ?? '';
+$status = $_POST['status'] ?? '';
+
+  $userid = $_SESSION['AUID'];
+
+  $dateString = $_POST['datepicker1'];
+  $dateString2 = $_POST['datepicker2']; //2024-5-2
+  $converTedDate = date('Y-m-d', strtotime($dateString));
+  $converTedDate2 = date('Y-m-d', strtotime($dateString2));
+
+
+  //파일 사이즈 검사
+  if ($_FILES['thumbnail']['size'] > 10240000) {
+    echo "<script>
+      alert('10MB 이하만 업로드해주세요');
+     history.back();
+    </script>";
+    exit;
   }
+  //이미지 여부 검사
+  // if (strpos($_FILES['thumbnail']['type'], 'image') === false) {
+  //   echo "<script>
+  //     alert('이미지만 업로드해주세요');
 
-  //추가 옵션이 있다면
-  
-  $optionName1 = $_REQUEST['optionName1'] ?? ''; //옵션명
+  //   </script>";
+  //   exit;
+  // }
+  //파일 업로드
+  $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
+  $fiename = $_FILES["thumbnail"]["name"]; //insta.jpg
+  $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
+  $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
+  $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
 
-  if(isset($optionName1)){
-    $optionCnt1 = $_REQUEST['optionCnt1'] ?? ''; //옵션 재고
-    $optionPrice1 = $_REQUEST['optionPrice1'] ?? ''; //옵션 가격
+  // if (move_uploaded_file($_FILES["thumbnail"]["tmp_name"], $save_dir . $savefile)) {
+  //   $thumbnail = "/clean_kangaroo/admin/upload/" . $savefile;
+  // } else {
+  //   echo "<script>
+  //   alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
+  //   history.back();
+  //   </script>";
+  //   exit;
+  // }
+  $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail,url) VALUES (
+    '{$cate}',
+    '{$title}',
+    '{$content}',
+    '{$price}',
+    '{$converTedDate}',
+    '{$converTedDate2}',
+    now(),
+    '{$status}',
+    '{$thumbnail}',
+    '{$url}'
+  )";
+  $result = $mysqli->query($sql);
+  $pid = $mysqli->insert_id;
 
-    if($_FILES['optionImage1']['name'][0]){ //옵션에 이미지 있다면
-      for($i=0; $i<count($_FILES['optionImage1']['name']); $i++){
-        //파일 사이즈 검사
-        if ($_FILES['optionImage1']['size'][$i] > 10240000) {
-          echo "<script>
-            alert('10MB 이하만 업로드해주세요');
-            history.back();
-          </script>";
-          exit;
-        }
-        //이미지 여부 검사
-        if (strpos($_FILES['optionImage1']['type'][$i], 'image') === false) {
-          echo "<script>
-            alert('이미지만 업로드해주세요');
-            history.back();
-          </script>";
-          exit;
-        }
-        //파일 업로드
-        $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/optiondata/';
-        $fiename = $_FILES["optionImage1"]["name"][$i]; //insta.jpg
-        $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
-        $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
-        $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
+ 
 
-        if (move_uploaded_file($_FILES["optionImage1"]["tmp_name"][$i], $save_dir . $savefile)) {
-          $upload_option_image[] = "/clean_kangaroo/admin/upload/optiondata/" . $savefile;
-        } else {
-          echo "<script>
-          alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
-          history.back();
-          </script>";
-          exit;
-        }
-      } //for 반복문
+
+  if ($result) { 
+
+    $mysqli->commit();//디비에 커밋한다
+
+    echo "<script>
+    alert('강의 수정 완료');
+   location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
+    </script>";
     }
+} catch (Exception $e) {
 
-    // $pid에 대한 $poid 값을 조회하는 쿼리
-    $pid_query = "SELECT poid FROM product_options WHERE pid = {$pid}";
-    $pid_result = $mysqli->query($pid_query);
-
-    // 조회 결과를 배열에 저장
-    while ($row = $pid_result->fetch_assoc()) {
-        $poid_array[] = $row['poid'];
-    }
-
-    $x = 0;
-    foreach($optionName1 as $opt){
-        $optsql = "UPDATE product_options SET 
-                    cate='{$optionCate1}',
-                    option_name='{$opt}', 
-                    option_cnt='{$optionCnt1[$x]}', 
-                    option_price='{$optionPrice1[$x]}', 
-                    image_url='{$upload_option_image[$x]}'        
-                    WHERE pid={$pid} AND poid = {$poid_array[$x]}";
-    
-        $optresult = $mysqli->query($optsql); // 쿼리 실행
-        $x++;
-    }    
-  }
-
+  $mysqli->rollback();
 
   echo "<script>
-  alert('상품 등록 완료');
-//location.href = '/clean_kangaroo/admin/product/product_list.php';
-  </script>";
-} else {
-  echo "<script>
-  alert('상품 등록 실패');
-history.back();
+  alert('강의 수정 실패');
+  //history.back();
   </script>";
 }
+?>
+
+<body>
+<div class="notice_container">
+  <h3>공지사항 수정</h3>
+<form action="notice_edit_ok.php" method="POST">
+  <input type="hidden" name="idx" value="<?=$idx?>">
+  <ul>
+    <li>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" name="title" id="floatingInput_title" placeholder="<?=$row->title?>" value="<?=$row->title?>">
+        <label for="floatingInput_title">제목</label>
+      </div>
+    </li>
+    <li>
+        <div class="form-floating textarea">
+          <textarea class="form-control" name="contents" id="floatingTextarea"><?=$row ->contents;?></textarea>
+          <label for="floatingInput_title">공지 설명</label>
+        </div>   
+    </li>
+  </ul>
+  <ul>
+  <li><div class="mb-3">
+    <label for="formFile" class="form-label">이미지 업로드</label>
+    <input class="form-control" type="file" id="formFile" name="image" value="<?=$row->image;?>">
+  </div><span class="file_route"><?=$row->image?></span></li>
+</ul>
+  <ul>
+    <li class="btn_collect">
+      <button class="primary_btn">수정 완료</button>
+      <a href="notice_list.php" class="basic_btn">닫기</a>
+    </li>
+  </ul>
+</form>
+</div>
+
+
+<!-- 스크립트 -->
+<script>
+  //header 메뉴 액티브
+  document.addEventListener('DOMContentLoaded',function(){
+  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
+
+
+  console.log(title);
+  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
+  for(let menu of headerMenu){
+    menu.classList.remove('active');
+    if(menu.innerText === title){
+      menu.classList.add('active');
+    }
+  }
+});
+
+</script>
+<?php
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
+?>
+<!-------------------- 스크립트 -->
+</html>

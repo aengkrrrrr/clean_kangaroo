@@ -6,6 +6,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
+$catesql = "SELECT * FROM product_category where step = 1";
+
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
+
+
 
 $dateString = $_POST['sale_start_date'];
 $dateString2 = $_POST['sale_end_date']; //2024-5-2
@@ -21,6 +28,12 @@ if($search_keyword){
 $paginationTarget = 'products';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
+//$sql = "SELECT * FROM products where 1=1";
+$result = $mysqli->query($catesql);
+while ($row = $result->fetch_object()) {
+  $cate1[] = $row;
+}
+$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
 $order = " order by reg_date desc";
@@ -35,20 +48,29 @@ while ($rs = $result->fetch_object()) {
 ?>
 <body>
   <div class="board_container">
-    <form action="" id="">
+    <form action="search.php" id="search">
       <div class="board_category df">
         <div class="select_wrap">
-          <select class="form-select" aria-label="" id="" name="">
-            <option selected>대분류</option>
-            <option>중분류</option>
-          </select>
+        <select class="form-select" aria-label="대분류" id="cate1">
+        <option selected>대분류</option>
+        <?php
+        foreach ($cate1 as $c1) {
+        ?>
+
+          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+
+        <?php
+        }
+        ?>
+
+      </select></form>
         </div>
         <div class="search_wrap df">
           <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
           <button class="primary_btn">검색</button>
         </div>
       </div>
-    </form>
+    
 
     <hr>
 
@@ -81,7 +103,7 @@ while ($rs = $result->fetch_object()) {
                   <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
-  <td><?=$ra->cate;?></td>
+  <td><?= $ra->cate;?></td>
   <td><?=$ra->reg_date;?></td>
   <td><?=$ra->hit;?></td>
   <td><?=$ra->status;?></td>
