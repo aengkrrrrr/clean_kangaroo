@@ -9,7 +9,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 //테이블조회
 $idx = $_GET['idx'];
 $sql = "SELECT * FROM notice_board WHERE idx={$idx}";
-echo $sql;
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 ?>

@@ -13,10 +13,10 @@ $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
 
-//조회수 업데이트
-// $hit = $row->hit + 1;
-// $sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$pid}";
-// $mysqli->query($sqlUpdate);
+// 조회수 업데이트
+$hit = $row->hit + 1;
+$sqlUpdate = "UPDATE notice_board SET hit={$hit} WHERE idx = {$idx}";
+$mysqli->query($sqlUpdate);
 
 ?>
   <!----------- 헤더 -->
@@ -43,13 +43,12 @@ $row = $result->fetch_object();
         <div class="container">
           <div class="inner_container">
             <ul class="info">
-              <li><img src="<?=$row ->image;?>" alt="" class="image_preview"></li>
-            <li class="content">
-              <p class="body2">
-              <input type="hidden" name="idx" value="<?= $row->idx;?>">
-              <?=$row ->contents;?>
-              </p>
-            </li>
+                <li class="content">
+                  <p class="body2">
+                  <input type="hidden" name="idx" value="<?= $row->idx;?>">
+                  <?=$row ->contents;?>
+                  </p>
+                </li>
               </ul>
           </div>
         </div>
