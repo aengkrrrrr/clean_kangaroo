@@ -1,21 +1,18 @@
 <?php
 session_start();
 $title = "공지사항 관리";
-$menutitle = '게시판 관리'; 
+$menutitle = '게시판 관리';
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-
 //테이블조회
 $idx = $_GET['idx'];
 $sql = "SELECT * FROM notice_board WHERE idx={$idx}";
 echo $sql;
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
-
 ?>
-
 <body>
 <div class="notice_container">
   <h3>공지사항 수정</h3>
@@ -32,7 +29,7 @@ $row = $result->fetch_object();
         <div class="form-floating textarea">
           <textarea class="form-control" name="contents" id="floatingTextarea"><?=$row ->contents;?></textarea>
           <label for="floatingInput_title">내용</label>
-        </div>   
+        </div>
     </li>
   </ul>
   <ul>
@@ -43,15 +40,11 @@ $row = $result->fetch_object();
   </ul>
 </form>
 </div>
-
-
 <!-- 스크립트 -->
 <script>
   //header 메뉴 액티브
   document.addEventListener('DOMContentLoaded',function(){
   const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
-
-
   console.log(title);
   const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
   for(let menu of headerMenu){
@@ -61,10 +54,7 @@ $row = $result->fetch_object();
     }
   }
 });
-
 </script>
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>
-<!-------------------- 스크립트 -->
-</html>

@@ -117,14 +117,11 @@ object-fit: cover;
   display: flex;
   justify-content: space-between;
   gap: 50px;
+  width: 100%;
 }
 
 .info {
-  width: 80%;
-}
-
-.content {
-  width: 120%;
+  width: 700px;
 }
 
 .svg_wrap {

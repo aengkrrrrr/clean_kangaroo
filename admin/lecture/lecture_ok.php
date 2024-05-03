@@ -12,23 +12,31 @@ try{
 
   $title  = $_POST['title'];
   $content  = rawurldecode($_POST['content']);
- $thumbnail  = $_FILES['thumbnail'];
-
+  $thumbnail  = $_FILES['thumbnail'];
+  $url  = $_POST['url'] ?? '';
+  $status = $_POST['status'] ?? '';
 
   $userid = $_SESSION['AUID'];
-   $dateString = $_POST['sale_start_date'];
-  $dateString2 = $_POST['sale_end_date']; //2024-5-2
-  $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
-  
+
+  $dateString = $_POST['datepicker1'];
+  $dateString2 = $_POST['datepicker2']; //2024-5-2
+  $converTedDate = date('Y-m-d', strtotime($dateString));
+  $converTedDate2 = date('Y-m-d', strtotime($dateString2));
+
+  $sql = "INSERT INTO TB2 (코드, 년도)
+  (
+    SELECT A.코드, A.년도 -- 추가할 필드
+    FROM TB1 A LEFT JOIN TB2 B 
+    ON A.코드 = B.코드
+    WHERE B.코드 IS NULL -- join한 TB2테이블의 필드가 NULL이라는 말은 TB2에는 없는 값을 의미한다.
+  )";
 
 
+ //$status = $_POST['status'] ?? 1;
+ //$delivery_fee = $_POST['delivery_fee'] ?? 0;
+//$addedImg_id = rtrim($_POST['product_image'], ',');
 
-
- $status = $_POST['status'] ?? 1;
- $delivery_fee = $_POST['delivery_fee'] ?? 0;
-$addedImg_id = rtrim($_POST['product_image'], ',');
-
- $optionCate1 = $_POST['optionCate1'] ?? '';//옵션 분류
+ //$optionCate1 = $_POST['optionCate1'] ?? '';//옵션 분류
 
 
 
@@ -64,15 +72,17 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
     </script>";
     exit;
   }
-  $sql = "INSERT INTO products (cate,title,content,price,sale_end_date,reg_date,status,thumbnail) VALUES (
+  $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail,url) VALUES (
     '{$cate}',
     '{$title}',
     '{$content}',
     '{$price}',
-    '{$sale_end_date}',
+    '{$converTedDate}',
+    '{$converTedDate2}',
     now(),
     '{$status}',
-    '{$thumbnail}'
+    '{$thumbnail}',
+    '{$url}'
   )";
   $result = $mysqli->query($sql);
   $pid = $mysqli->insert_id;
@@ -80,78 +90,13 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
 
 
 
-  if ($result) { //상품 등록 하면
-
-    if(strlen($addedImg_id) > 0){ //추가 이미지가 있다면 12,13
-      $sql = "UPDATE product_image_table SET pid = {$pid} where imgid in ({$addedImg_id})";
-      $result = $mysqli->query($sql);
-    }
-
-    추가 옵션이 있다면
-    $optionName1 = $_REQUEST['optionName1'] ?? ''; //옵션명
-    
-    if( strlen($optionName1[0]) > 1){
-
-      $optionCnt1 = $_REQUEST['optionCnt1'] ?? ''; //옵션 재고
-      $optionPrice1 = $_REQUEST['optionPrice1'] ?? ''; //옵션 가격
-    
-
-        for($i=0; $i<count($_FILES['optionImage1']['name']); $i++){
-          //파일 사이즈 검사
-          if ($_FILES['optionImage1']['size'][$i] > 10240000) {
-            echo "<script>
-              alert('10MB 이하만 업로드해주세요');
-              history.back();
-            </script>";
-            exit;
-          }
-          //이미지 여부 검사
-          if (strpos($_FILES['optionImage1']['type'][$i], 'image') === false) {
-            echo "<script>
-              alert('이미지만 업로드해주세요');
-              history.back();
-            </script>";
-            exit;
-          }
-          //파일 업로드
-          $save_dir = $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/upload/';
-          $fiename = $_FILES["optionImage1"]["name"][$i]; //insta.jpg
-          $ext = pathinfo($fiename, PATHINFO_EXTENSION); //jpg
-          $newfilename = date("YmdHis") . substr(rand(), 0, 6); //202404111137.123123 -> 202404111137123123 
-          $savefile = $newfilename . '.' . $ext;  //202404111137123123.jpg
-    
-          if (move_uploaded_file($_FILES["optionImage1"]["tmp_name"][$i], $save_dir . $savefile)) {
-            $upload_option_image[] = "/clean_kangaroo/admin/upload/" . $savefile;
-          } else {
-            echo "<script>
-            alert('썸네일 등록에 실패했습니다. 관리자에게 문의해주세요');
-            history.back();
-            </script>";
-            exit;
-          }
-        } //for 반복문
-
-    
-    
-
-        $x = 0;
-        foreach($optionName1 as $opt){
-          $optsql = "INSERT INTO product_options 
-          (pid, cate, option_name, option_cnt, option_price, image_url) 
-          VALUES (
-            {$pid}, '{$optionCate1}', '{$opt}', '{$optionCnt1[$x]}', '{$optionPrice1[$x]}', '{$upload_option_image[$x]}'
-          )";
-          $optresult = $mysqli -> query($optsql);
-          $x++;
-        }    
-  
-    }
+  if ($result) { 
 
     $mysqli->commit();//디비에 커밋한다
 
     echo "<script>
-    alert('상품 등록 완료');
-    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
+    alert('강의 등록 완료');
+   location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
     </script>";
     }
 } catch (Exception $e) {
@@ -159,7 +104,7 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
   $mysqli->rollback();
 
   echo "<script>
-  alert('상품 등록 실패');
+  alert('강의 등록 실패');
   //history.back();
   </script>";
 }

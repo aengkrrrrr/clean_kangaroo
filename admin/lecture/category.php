@@ -1,4 +1,5 @@
 <?php
+session_start();
 $title = "카테고리 관리";
 $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
@@ -11,6 +12,7 @@ while ($row = $result->fetch_object()) {
 ?>
 
 <div class="container">
+
   <div class="category row">
 
     <div class="col-md-4">
@@ -35,7 +37,6 @@ while ($row = $result->fetch_object()) {
 
       </select>
     </div>
-
   </div>
 
   <div class="buttons mt-3">
@@ -50,8 +51,7 @@ while ($row = $result->fetch_object()) {
         <div class="modal-content">
           <div class="modal-header">
             <h1 class="modal-title fs-5" id="cate1ModalLabel">대분류 등록</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
+         </div>
           <div class="modal-body row">
             <div class="col">
               <input type="text" class="form-control" id="code1" name="code1" placeholder="코드명 입력">
@@ -72,8 +72,8 @@ while ($row = $result->fetch_object()) {
     <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate2Modal">
       중분류 등록
     </button>
-<!--
-    // 중분류 등록 Modal -->
+
+    <!-- 중분류 등록 Modal -->
     <div class="modal fade" id="cate2Modal" tabindex="-1" aria-labelledby="cate2ModalLabel" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -109,28 +109,13 @@ while ($row = $result->fetch_object()) {
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </div>
 
 </div><!-- //container -->
 
-<script src="/clean_kangaroo/js/makeoption.js"></script>
+<script src="/clean_kangaroo/admin/js/makeoption.js"></script>
 <script>
-  //header 메뉴 액티브
-  document.addEventListener('DOMContentLoaded',function(){
-  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
-
-
-  console.log(title);
-  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
-  for(let menu of headerMenu){
-    menu.classList.remove('active');
-    if(menu.innerText === title){
-      menu.classList.add('active');
-    }
-  }
-});
-
   let categorySubmitBtn = $(".modal button[type='submit']");
 
   categorySubmitBtn.click(function() {

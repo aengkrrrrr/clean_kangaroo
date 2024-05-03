@@ -6,12 +6,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-
-$dateString = $_POST['sale_start_date'];
-$dateString2 = $_POST['sale_end_date']; //2024-5-2
-$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
-
-
+$catesql = "SELECT * FROM product_category where step = 1";
 
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
@@ -21,9 +16,15 @@ if($search_keyword){
 $paginationTarget = 'products';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
+//$sql = "SELECT * FROM products where 1=1";
+$result = $mysqli->query($catesql);
+while ($row = $result->fetch_object()) {
+  $cate1[] = $row;
+}
+$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
-$order = " order by reg_date desc";
+$order = " order by pid desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -35,20 +36,29 @@ while ($rs = $result->fetch_object()) {
 ?>
 <body>
   <div class="board_container">
-    <form action="" id="">
+    <form action="search.php" id="search">
       <div class="board_category df">
         <div class="select_wrap">
-          <select class="form-select" aria-label="" id="" name="">
-            <option selected>대분류</option>
-            <option>중분류</option>
-          </select>
+        <select class="form-select" aria-label="대분류" id="cate1">
+        <option selected>대분류</option>
+        <?php
+        foreach ($cate1 as $c1) {
+        ?>
+
+          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+
+        <?php
+        }
+        ?>
+
+      </select></form>
         </div>
         <div class="search_wrap df">
           <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
           <button class="primary_btn">검색</button>
         </div>
       </div>
-    </form>
+    
 
     <hr>
 
@@ -77,14 +87,24 @@ while ($rs = $result->fetch_object()) {
                 <div class="lecdesc">
                   <a href="lecture_view.php?pid=<?=$ra->pid;?>">
                   <?=$ra->title;?><br>
-                  수강기간 : <span class="rel_date"><?=($dateString)?> ~ <?=($dateString1)?></span> <br>
+                  수강기간 : <span class="rel_date"><?=$ra->sale_start_date?> ~ <?=$ra->sale_end_date?></span> <br>
                   <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
-  <td><?=$ra->cate;?></td>
+  <td><?= $ra->cate;?></td>
   <td><?=$ra->reg_date;?></td>
   <td><?=$ra->hit;?></td>
-  <td><?=$ra->status;?></td>
+  <td>
+  <?php
+if($ra->status == 0){
+  echo "공개";
+}else if($ra->status == 1){
+  echo "일부공개";
+}else if($ra->status == 2){
+  echo "비공개";
+}
+?>
+ </td>
   <td class="lectureSvg">
   <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
     <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
