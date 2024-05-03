@@ -10,6 +10,11 @@ $result = $mysqli->query($sql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
+
+
 ?>
   <!----------- 헤더 -->
   <body>
@@ -62,11 +67,19 @@ while ($row = $result->fetch_object()) {
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
-          <input type="text" id="datepicker1" class="couponC" name="datepicker1">
-          <input type="text" id="datepicker2" class="couponC" name="datepicker2">
+          <input type="text" id="datepicker1" class="couponC" name="sale_start_date">
+          <input type="text" id="datepicker2" class="couponC" name="sale_end_date">
         </div>
         </div>
       </li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<!-- 
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+<!-- 
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       <li class="view_status">
                 <p class="status">상태&nbsp;&nbsp;</p>
                <div class="form-check">
@@ -100,29 +113,43 @@ while ($row = $result->fetch_object()) {
       <!-- <li class="view_status">
         <p class="status">상태&nbsp;&nbsp;</p>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="0" checked>
-          <label class="form-check-label" for="status">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
             공개
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="1" >
-          <label class="form-check-label" for="status">
-            일부공개
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
+            일부공개(예약)
           </label>
         </div>
         <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="2" >
-          <label class="form-check-label" for="status">
+          <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+          <label class="form-check-label" for="flexRadioDefault2">
             비공개
           </label>
         </div>
       </li> -->
+<<<<<<< HEAD
+<<<<<<< HEAD
   </ul>
     <ul>
       <li>
 
         <!-- <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> -->
+=======
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+      
+    </ul>
+    <ul>
+      <li>
+        <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString1)?>  </p>
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       </li>
       <li>
         <div class="form-floating textarea">
@@ -131,10 +158,12 @@ while ($row = $result->fetch_object()) {
         </div>
       </li>
       <li>
-      <div class="mb-3">
-          <label for="formFile" class="form-label">이미지 업로드</label>
-          <input class="form-control" type="file" multiple name="thumbnail" id="thumbnail" class="d-none">
-        </div>
+        <div class="mb-3">
+        <input type="file" multiple name="thumbnail" id="thumbnail" class="d-none">
+            <div>
+              <button type="button" class="btn primary_btn btn-sm" id="addImage">이미지 업로드</button>
+            </div>
+            </div>
       </li> 
       <li>
         <div class="form-floating mb-3">
@@ -177,12 +206,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
     }
   }
 
-    // $('#product_save').on('submit', save);
-
-    $( ".couponC" ).datepicker({
+    $(document).ready(function() {
+    $('#product_save').on('submit', save);
+    $( "#datepicker1" ).datepicker();
+     $('#product_save').on('submit', save);
+    $( "#datepicker1" ).datepicker({
       dateFormat: "yy-mm-dd"
     });
-
+    $( "#datepicker2" ).datepicker({
+      dateFormat: "yy-mm-dd"
+    });
+  } );
 
     //추가 이미지 등록
     $('#addImage').click(function() {
@@ -209,8 +243,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
       }
       $('#upfile').val('');
     });
-  })
-
 
   </script>
 

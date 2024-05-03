@@ -8,6 +8,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $catesql = "SELECT * FROM product_category where step = 1";
 
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
+
+
+
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
+
+
+
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
 if($search_keyword){
@@ -24,7 +36,7 @@ while ($row = $result->fetch_object()) {
 $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
-$order = " order by pid desc";
+$order = " order by reg_date desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -87,24 +99,14 @@ while ($rs = $result->fetch_object()) {
                 <div class="lecdesc">
                   <a href="lecture_view.php?pid=<?=$ra->pid;?>">
                   <?=$ra->title;?><br>
-                  수강기간 : <span class="rel_date"><?=$ra->sale_start_date?> ~ <?=$ra->sale_end_date?></span> <br>
+                  수강기간 : <span class="rel_date"><?=($dateString)?> ~ <?=($dateString1)?></span> <br>
                   <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
   <td><?= $ra->cate;?></td>
   <td><?=$ra->reg_date;?></td>
   <td><?=$ra->hit;?></td>
-  <td>
-  <?php
-if($ra->status == 0){
-  echo "공개";
-}else if($ra->status == 1){
-  echo "일부공개";
-}else if($ra->status == 2){
-  echo "비공개";
-}
-?>
- </td>
+  <td><?=$ra->status;?></td>
   <td class="lectureSvg">
   <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
     <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>

@@ -54,7 +54,7 @@ while ($rs = $result->fetch_object()) {
   <div class="dash_top_ct df">
         <div class="sale_wrap">
           <div class="dash_title df aic">
-            <h5 class="h5">매출현황</h5>
+            <h5 class="h5">매출현황(만원)</h5>
             
           </div>
           <div class="sale_ct">
