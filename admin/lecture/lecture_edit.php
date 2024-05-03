@@ -17,6 +17,7 @@ $pid = $_GET['pid'];
 $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
 $result = $mysqli->query($sql);
 $rowp = $result->fetch_object();
+<<<<<<< HEAD
 
 
 =======
@@ -71,6 +72,12 @@ foreach($cateArray as $cate){
 
 <!----------- 헤더 -->
 <body>
+=======
+?>
+
+  <!----------- 헤더 -->
+  <body>
+>>>>>>> main-park
   <div class="lecture_up">
     <h3>강좌 수정</h3>
 <<<<<<< HEAD

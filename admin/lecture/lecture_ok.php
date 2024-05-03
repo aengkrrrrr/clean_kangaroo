@@ -31,6 +31,7 @@ try{
   
 <<<<<<< HEAD
 
+<<<<<<< HEAD
   $sql = "INSERT INTO TB2 (코드, 년도)
   (
     SELECT A.코드, A.년도 -- 추가할 필드
@@ -40,6 +41,8 @@ try{
   )";
 =======
 >>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
+>>>>>>> main-park
 
 
  $status = $_POST['status'] ?? 1;
@@ -109,6 +112,7 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
     '{$thumbnail}',
     '{$url}'
   )";
+
   $result = $mysqli->query($sql);
   $pid = $mysqli->insert_id;
 
@@ -205,6 +209,6 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
 
   echo "<script>
   alert('강의 등록 실패');
-  //history.back();
+ history.back();
   </script>";
 }
