@@ -8,20 +8,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $catesql = "SELECT * FROM product_category where step = 1";
 
-$dateString = $_POST['sale_start_date'];
-$dateString2 = $_POST['sale_end_date']; //2024-5-2
-$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
 
-
-
-$dateString = $_POST['sale_start_date'];
-$dateString2 = $_POST['sale_end_date']; //2024-5-2
-$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
-
-
-
-$search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
+$search_keyword = $_GET['search_keyword'] ?? '';
 if($search_keyword){
   $search_where .= " and (title LIKE '%{$search_keyword}%' or title LIKE '%{$search_keyword}%')";
 }
@@ -99,7 +88,7 @@ while ($rs = $result->fetch_object()) {
                 <div class="lecdesc">
                   <a href="lecture_view.php?pid=<?=$ra->pid;?>">
                   <?=$ra->title;?><br>
-                  수강기간 : <span class="rel_date"><?=($dateString)?> ~ <?=($dateString1)?></span> <br>
+                  수강기간 : <span class="rel_date"><?=$ra->sale_start_date;?> ~ <?=$ra->sale_end_date;?></span> <br>
                   <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
