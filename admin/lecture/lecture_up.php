@@ -73,6 +73,10 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
         </div>
       </li>
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<!-- 
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
 =======
 <!-- 
 >>>>>>> parent of 5f298ea (Merge branch 'main-park')
@@ -128,17 +132,23 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
         </div>
       </li> -->
 <<<<<<< HEAD
+<<<<<<< HEAD
   </ul>
     <ul>
       <li>
 
         <!-- <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> -->
 =======
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
       
     </ul>
     <ul>
       <li>
         <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString1)?>  </p>
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
 >>>>>>> parent of 5f298ea (Merge branch 'main-park')
       </li>
       <li>

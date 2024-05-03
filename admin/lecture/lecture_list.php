@@ -14,6 +14,12 @@ $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
 
 
 
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+$converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
+
+
+
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
 if($search_keyword){

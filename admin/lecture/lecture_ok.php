@@ -19,6 +19,9 @@ try{
 =======
  $thumbnail  = $_FILES['thumbnail'];
 
+<<<<<<< HEAD
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
+=======
 >>>>>>> parent of 5f298ea (Merge branch 'main-park')
 
   $userid = $_SESSION['AUID'];
@@ -26,6 +29,7 @@ try{
   $dateString2 = $_POST['sale_end_date']; //2024-5-2
   $converTedDate = date('Y-m-d', strtotime($dateString, $dateString2))
   
+<<<<<<< HEAD
 
   $sql = "INSERT INTO TB2 (코드, 년도)
   (
@@ -34,12 +38,22 @@ try{
     ON A.코드 = B.코드
     WHERE B.코드 IS NULL -- join한 TB2테이블의 필드가 NULL이라는 말은 TB2에는 없는 값을 의미한다.
   )";
+=======
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
 
 
  $status = $_POST['status'] ?? 1;
  $delivery_fee = $_POST['delivery_fee'] ?? 0;
 $addedImg_id = rtrim($_POST['product_image'], ',');
 
+<<<<<<< HEAD
+=======
+
+ $status = $_POST['status'] ?? 1;
+ $delivery_fee = $_POST['delivery_fee'] ?? 0;
+$addedImg_id = rtrim($_POST['product_image'], ',');
+
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
  $optionCate1 = $_POST['optionCate1'] ?? '';//옵션 분류
 
 
@@ -77,7 +91,11 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
     exit;
   }
 <<<<<<< HEAD
+<<<<<<< HEAD
   $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail,url) VALUES (
+=======
+  $sql = "INSERT INTO products (cate,title,content,price,sale_end_date,reg_date,status,thumbnail) VALUES (
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
 =======
   $sql = "INSERT INTO products (cate,title,content,price,sale_end_date,reg_date,status,thumbnail) VALUES (
 >>>>>>> parent of 5f298ea (Merge branch 'main-park')
@@ -168,8 +186,13 @@ $addedImg_id = rtrim($_POST['product_image'], ',');
 
     echo "<script>
 <<<<<<< HEAD
+<<<<<<< HEAD
     alert('강의 등록 완료');
    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
+=======
+    alert('상품 등록 완료');
+    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
+>>>>>>> parent of 5f298ea (Merge branch 'main-park')
 =======
     alert('상품 등록 완료');
     location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
