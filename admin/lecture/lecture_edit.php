@@ -13,9 +13,9 @@ while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
 $pid = $_GET['pid'];
-$sql = "SELECT * FROM products where pid={$pid}";
-  $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
-  $result = $mysqli->query($sql);
+//$sql = "SELECT * FROM products where pid={$pid}";
+$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
+$result = $mysqli->query($sql);
 $rowp = $result->fetch_object();
 
 
@@ -152,15 +152,7 @@ foreach($cateArray as $cate){
       <li>
         <div class="input-group c2form price">
           <div class="form-floating">
-<<<<<<< HEAD
-<<<<<<< HEAD
             <input type="text" name="price" class="form-control" aria-label="lecture_price" id="lecture_price" placeholder="<?=$rowp->price;?>" value="<?=$rowp->price;?>">
-=======
-            <input type="text" class="form-control" aria-label="lecture_price" id= "lecture_price" placeholder="가격"  value="<?= $rs -> price?>" required>
->>>>>>> parent of 5f298ea (Merge branch 'main-park')
-=======
-            <input type="text" class="form-control" aria-label="lecture_price" id= "lecture_price" placeholder="가격"  value="<?= $rs -> price?>" required>
->>>>>>> parent of 5f298ea (Merge branch 'main-park')
             <label for="floatingInputGroup1">가격</label>
           </div>
           <span class="input-group-text">원</span>
