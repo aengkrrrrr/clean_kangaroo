@@ -36,7 +36,7 @@ while ($rs = $result->fetch_object()) {
 }
 ?>
 <body>
-  <div class="board_container">
+  <div class="board_container grid">
     <form action="search.php" id="search">
       <div class="board_category df">
         <div class="select_wrap">
@@ -59,10 +59,6 @@ while ($rs = $result->fetch_object()) {
           <button class="primary_btn">검색</button>
         </div>
       </div>
-    
-
-    <hr>
-
     <form action="">
       <table class="table">
         <thead>
