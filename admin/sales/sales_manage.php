@@ -112,7 +112,6 @@ while ($rs = $result->fetch_object()) {
     document.addEventListener('DOMContentLoaded',function(){
     const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
 
-
     console.log(title);
     const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
     for(let menu of headerMenu){
@@ -123,47 +122,47 @@ while ($rs = $result->fetch_object()) {
     }
   });
 
-  const ctx1 = document.getElementById('myChart1');
+  // const ctx1 = document.getElementById('myChart1');
 
-    new Chart(ctx, {
-        type: 'pie',
-        data: {
-        labels:  
-        datasets: [{
-            label: '웹 개발, 웹디자인/편집, 게임/웹툰, CG/모션그래픽',
-            data: [12, 19, 3, 5],
-            borderWidth: 1
-        }]
-        },
-        options: {
-        scales: {
-            y: {
-            beginAtZero: true
-            }
-        }
-        }
-    });
+  //   new Chart(ctx, {
+  //       type: 'pie',
+  //       data: {
+  //       labels: ['3.1', '3.5', '3.10', '3.15', '3.20', '3.25', '3.31'],
+  //       datasets: [{
+  //           label: '웹 개발, 웹디자인/편집, 게임/웹툰, CG/모션그래픽',
+  //           data: [12, 19, 3, 5],
+  //           borderWidth: 1
+  //       }]
+  //       },
+  //       options: {
+  //       scales: {
+  //           y: {
+  //           beginAtZero: true
+  //           }
+  //       }
+  //       }
+  //   });
 
-  const ctx2 = document.getElementById('myChart2');
+  // const ctx2 = document.getElementById('myChart2');
 
-  new Chart(ctx2, {
-    type: 'line',
-    data: {
-      labels: ['3.1', '3.5', '3.10', '3.15', '3.20', '3.25', '3.31'],
-      datasets: [{
-        label: '# of Votes',
-        data: [120, 190, 30, 50, 20, 30, 20],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        y: {
-          beginAtZero: true
-        }
-      }
-    }
-  });
+  // new Chart(ctx2, {
+  //   type: 'line',
+  //   data: {
+  //     labels: ['3.1', '3.5', '3.10', '3.15', '3.20', '3.25', '3.31'],
+  //     datasets: [{
+  //       label: '# of Votes',
+  //       data: [120, 190, 30, 50, 20, 30, 20],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     scales: {
+  //       y: {
+  //         beginAtZero: true
+  //       }
+  //     }
+  //   }
+  // });
 </script>
 
 
