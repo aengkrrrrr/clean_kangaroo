@@ -33,7 +33,7 @@ body {
   opacity: 0;
 }
 .popup {
-  display: none;
+  /* display: none; */
   position: absolute;
   left: 250px;
   top: 60px;

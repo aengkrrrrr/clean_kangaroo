@@ -7,7 +7,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_chec
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $pid = $_GET['pid']; 
-// $sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products WHERE pid = {$pid}";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_object($result);

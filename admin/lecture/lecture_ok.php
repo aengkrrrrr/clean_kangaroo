@@ -15,29 +15,14 @@ try{
   $thumbnail  = $_FILES['thumbnail'];
   $url  = $_POST['url'] ?? '';
   $status = $_POST['status'] ?? '';
+ $thumbnail  = $_FILES['thumbnail'];
 
   $userid = $_SESSION['AUID'];
+  $dateString = $_POST['sale_start_date'];
+  $dateString2 = $_POST['sale_end_date']; //2024-5-2
 
-  $dateString = $_POST['datepicker1'];
-  $dateString2 = $_POST['datepicker2']; //2024-5-2
-  $converTedDate = date('Y-m-d', strtotime($dateString));
-  $converTedDate2 = date('Y-m-d', strtotime($dateString2));
-
-  $sql = "INSERT INTO TB2 (코드, 년도)
-  (
-    SELECT A.코드, A.년도 -- 추가할 필드
-    FROM TB1 A LEFT JOIN TB2 B 
-    ON A.코드 = B.코드
-    WHERE B.코드 IS NULL -- join한 TB2테이블의 필드가 NULL이라는 말은 TB2에는 없는 값을 의미한다.
-  )";
-
-
- //$status = $_POST['status'] ?? 1;
- //$delivery_fee = $_POST['delivery_fee'] ?? 0;
-//$addedImg_id = rtrim($_POST['product_image'], ',');
-
- //$optionCate1 = $_POST['optionCate1'] ?? '';//옵션 분류
-
+  $sale_start_date = date('Y-m-d', strtotime($dateString));
+  $sale_end_date = date('Y-m-d', strtotime($dateString2));
 
 
   //파일 사이즈 검사
@@ -77,27 +62,26 @@ try{
     '{$title}',
     '{$content}',
     '{$price}',
-    '{$converTedDate}',
-    '{$converTedDate2}',
+    '{$sale_start_date}',
+    '{$sale_end_date}',
     now(),
     '{$status}',
     '{$thumbnail}',
     '{$url}'
   )";
+  echo $sql;
   $result = $mysqli->query($sql);
-  $pid = $mysqli->insert_id;
 
 
+  if ($result) { //상품 등록 하면
 
-
-  if ($result) { 
 
     $mysqli->commit();//디비에 커밋한다
 
     echo "<script>
     alert('강의 등록 완료');
    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
-    </script>";
+     </script>";
     }
 } catch (Exception $e) {
 
@@ -105,6 +89,6 @@ try{
 
   echo "<script>
   alert('강의 등록 실패');
-  //history.back();
+ history.back();
   </script>";
 }
