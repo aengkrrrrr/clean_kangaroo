@@ -4,7 +4,7 @@ $css1 = '<link rel="stylesheet" href="../../css/dashboard.css">';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-// include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dashboard/counter.php';
+
 
 
 //회원수 출력
@@ -34,19 +34,19 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
-// $price = $_POST['price'];
-// 매출 데이터
-$saleSql = "SELECT COUNT(price) FROM sales_manage";
+//매출 데이터
+$saleSql = "SELECT COUNT(price) FROM sales_manage WHERE price=10000";
 $saleResult = $mysqli->query($saleSql);
 $saleRow = $saleResult->fetch_object();
 
-// $saleArr = array();
-// $saleArr[0] = $saleRow->price;
+$saleArr = array();
+$saleArr[0] = $saleRow->price;
 
-// $data2 = [];
-// foreach($saleArr as $price){
-//     array_push($data2, $price);
-// }
+$data2 = [];
+foreach($saleArr as $price){
+    array_push($data2, $price);
+}
+
 ?>
 
 <body>
@@ -54,7 +54,7 @@ $saleRow = $saleResult->fetch_object();
   <div class="dash_top_ct df">
         <div class="sale_wrap">
           <div class="dash_title df aic">
-            <h5 class="h5">매출현황</h5>
+            <h5 class="h5">매출현황(만원)</h5>
             
           </div>
           <div class="sale_ct">
@@ -89,6 +89,7 @@ $saleRow = $saleResult->fetch_object();
           ?>
         <tr>
           <td colspan="5"><a href=""><?=$ra->title;?></a></td>
+          <!-- <td><?=$ra->cate;?></td> -->
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
         </tr>
@@ -113,17 +114,15 @@ $saleRow = $saleResult->fetch_object();
     </div>
   </div>
 </div>
-  
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 <script>
   const lineChart = document.getElementById('line-chart');
   const barChart = document.getElementById('bar-chart');
   const pieChart = document.getElementById('pie-chart');
 
-
-  
-
   const mData = <?= json_encode($data) ?>;
+  const sData = <?= json_encode($data2) ?>;
   
   const memberData = {
     label: '회원수 비교',
@@ -131,90 +130,101 @@ $saleRow = $saleResult->fetch_object();
     borderWidth: 2   
   }
   const saleData = {
-   label: '매출액 비교',
-   data: [13,9,10,11,13,10],
-   borderWidth: 2   
+    label: '매출액 비교',
+    data: sData,
+    borderWidth: 2   
   }
   const todayData = {
-  label: '2023',
-  data: [4, 12, 8, 7, 10, 5],
-  borderWidth: 2   
-}
+    label: '2023',
+    data: [4, 12, 8, 7, 10, 5],
+    borderWidth: 2   
+  }
+  
 //회원 도넛차트
   new Chart(pieChart, {
     type: 'pie',
     data: {
       labels: ['일반회원', '신규회원', '탈퇴회원'],
-    datasets: [memberData]
-  },
-  options: {
-    cutout: '50%',
-    indexAxis:'y', //방향 변경
-    maintainAspectRatio:false
-  }
+      datasets: [
+        {
+          label:"2024",
+          data:[memberData],
+        },
+    ]
+    },
+    options: {
+      cutout: '50%',
+      indexAxis:'y', //방향 변경
+      maintainAspectRatio:false
+    }
   
 });
 
 //매출 라인차트
 new Chart(lineChart, {
-type: 'line',
-data: {
-  labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-  datasets: [
-            {
-      label: '2023',
-      data: [43,30,60,61,83,70],
-      borderWidth: 1
-      },
-      {
-        label: '2024',
-        data: [130,90,100,110,130,100],
-        borderWidth: 2,
-        // hoverBorderWidth:5,
-        // borderColor: 'rgba(0,0,0,0.5)',
-        // backgroundColor:'yellow',
-        // radius:4,
-        // hoverRadius:10,
-        // pointBorderColor:'black',
-        // pointStyle:sun,
-        // showLine:true,
-        spanGaps:true,
-        // stepped:true
-      }
-  ]
-},
-options: {
-  scales: {
-    y: {
-      stacked:true
-    }
-  },
-  maintainAspectRatio:false
-}
-});
-
-
-//접속자수 바차트
-new Chart(barChart, {
-  type: 'bar',
+  type: 'line',
   data: {
     labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-    datasets: [memberData]
+    datasets: [
+              {
+        label: '2023',
+        data: [saleData],
+        borderWidth: 1
+        },
+        {
+          label: '2024',
+          data: [saleData],
+          borderWidth: 2,
+          // hoverBorderWidth:5,
+          // borderColor: 'rgba(0,0,0,0.5)',
+          // backgroundColor:'yellow',
+          // radius:4,
+          // hoverRadius:10,
+          // pointBorderColor:'black',
+          // pointStyle:sun,
+          // showLine:true,
+          spanGaps:true,
+          // stepped:true
+        }
+    ]
   },
   options: {
-    indexAxis:'x', //방향 변경
     scales: {
       y: {
-        // beginAtZero: true
-        stacked:true
-      },
-      x: {
         stacked:true
       }
     },
     maintainAspectRatio:false
   }
 });
+
+
+//접속자수 바차트
+// new Chart(barChart, {
+//   type: 'bar',
+//   data: {
+//     labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+//     datasets: [{
+//       label:"2024",
+//       data:[20,30,18,50,90,76],
+//       borderColor: 'rgba(0,0,0,0.5)',
+//       backgroundColor:'pink'
+//     }]
+//   },
+//   options: {
+//     indexAxis:'x', //방향 변경
+//     scales: {
+//       y: {
+//         // beginAtZero: true
+//         stacked:true
+//       },
+//       x: {
+//         stacked:true
+//       }
+//     },
+//     maintainAspectRatio:false
+//   }
+// });
 
 </script>
 
