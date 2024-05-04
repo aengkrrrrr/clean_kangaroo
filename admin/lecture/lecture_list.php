@@ -8,11 +8,15 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $catesql = "SELECT * FROM product_category where step = 1";
 
-
+$category = $_GET['category']??'';
 $search_where = "";
+
 $search_keyword = $_GET['search_keyword'] ?? '';
 if($search_keyword){
-  $search_where .= " and (title LIKE '%{$search_keyword}%' or title LIKE '%{$search_keyword}%')";
+  $search_where .= " and title LIKE '%{$search_keyword}%'";
+}
+if($category){
+  $search_where .= " and cate LIKE '%{$category}%' ";
 }
 $paginationTarget = 'products';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
@@ -22,7 +26,7 @@ $result = $mysqli->query($catesql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
-$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
+//$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
 $order = " order by reg_date desc";
@@ -34,14 +38,15 @@ $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
+
 ?>
 <body>
-  <div class="board_container grid">
-    <form action="search.php" id="search">
+  <div class="board_container">
+    <form action="" id="search">
       <div class="board_category df">
         <div class="select_wrap">
-        <select class="form-select" aria-label="대분류" id="cate1">
-        <option selected>대분류</option>
+        <select class="form-select" aria-label="대분류" id="cate1" name="category">
+        <option selected disabled>대분류</option>
         <?php
         foreach ($cate1 as $c1) {
         ?>
@@ -88,7 +93,20 @@ while ($rs = $result->fetch_object()) {
                   <!-- 수강생 수 : <span class="sub_p">105</span> -->
             </a>
     </td>
-  <td><?= $ra->cate;?></td>
+  <td><?php 
+    $category = $ra->cate;
+
+    $cateArr = str_split($category, 5);
+
+    foreach($cateArr as $cate){
+      $catesql = "SELECT name FROM product_category WHERE code = '{$cate}'";
+      $cateResult = $mysqli->query($catesql);
+      $caterow = $cateResult ->fetch_object();
+      
+      echo $caterow->name.' ';
+    }
+  
+  ?></td>
   <td><?=$ra->reg_date;?></td>
   <td><?=$ra->hit;?></td>
   <td><?=$ra->status;?></td>

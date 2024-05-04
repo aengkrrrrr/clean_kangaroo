@@ -62,8 +62,8 @@ while ($row = $result->fetch_object()) {
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
-          <input type="text" id="datepicker1" class="couponC" name="datepicker1">
-          <input type="text" id="datepicker2" class="couponC" name="datepicker2">
+          <input type="text" id="datepicker1" class="couponC" name="sale_start_date">
+          <input type="text" id="datepicker2" class="couponC" name="sale_end_date">
         </div>
         </div>
       </li>
@@ -73,8 +73,7 @@ while ($row = $result->fetch_object()) {
                   <input class="form-check-input" type="radio" 
                   aria-label="공개" name="status" id="0" 
                   checked value=0>
-                   
-                   <label class="form-check-label" for="status1">
+                    <label class="form-check-label" for="status">
                     공개
                   </label>   
                 </div>
@@ -83,7 +82,7 @@ while ($row = $result->fetch_object()) {
                   <input class="form-check-input" type="radio" 
                   aria-label="일부공개(예약)" name="status" id="1"
                   value=1>
-                   <label class="form-check-label" for="status2">
+                   <label class="form-check-label" for="status">
                     일부공개
                   </label>   
                 </div>
@@ -92,7 +91,7 @@ while ($row = $result->fetch_object()) {
                   <input class="form-check-input" type="radio" 
                   aria-label="비공개" name="status" id="2"
                   value=2>
-                   <label class="form-check-label" for="status3">
+                   <label class="form-check-label" for="status">
                     비공개
                   </label>   
                 </div>
@@ -122,7 +121,7 @@ while ($row = $result->fetch_object()) {
     <ul>
       <li>
 
-        <!-- <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> -->
+         <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> 
       </li>
       <li>
         <div class="form-floating textarea">
