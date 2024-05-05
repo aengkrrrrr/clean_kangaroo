@@ -1,0 +1,84 @@
+let categorySubmitBtn = $(".modal button[type='submit']");
+
+  categorySubmitBtn.click(function() {
+    let step = $(this).attr('data-step');
+    save_category(step);
+  });
+
+  function save_category(step) {
+    let code = $(`#code${step}`).val();
+    let name = $(`#name${step}`).val();
+    let pcode = $(`#pcode${step} option:selected`).val();
+
+    if (step > 1 && !pcode) {
+      alert('부모 분류를 선택하세요');
+      return;
+    }
+    if (!code) {
+      alert('분류코드를 입력하세요');
+      return;
+    }
+    if (!name) {
+      alert('분류명을 입력하세요');
+      return;
+    }
+
+    let data = {
+      name: name,
+      code: code,
+      pcode: pcode,
+      step: step
+    }
+    $.ajax({
+      async: false,
+      type: 'post',
+      data: data,
+      url: "save_category.php",
+      dataType: 'json',
+      error: function(error) {
+        console.log(error);
+      },
+      success: function(data) {
+        console.log(data.result, typeof(data.result));
+        if (data.result === 1) {
+          alert('등록 성공');
+          location.reload(); // 새로고침
+        } else if (data.result === '-1') {
+          alert('코드가 중복됩니다.');
+          location.reload(); //강제 새로고침
+        } else if (data.result === 'member') {
+          alert('관리자가 아닙니다.');
+          location.href = '/pinkping/admin/login.php';
+        } else {
+          alert('등록 실패');
+          location.reload(); // 새로고침
+        }
+
+      }
+    }); //ajax
+  }
+
+  /*
+  function makeOption(e, step, category, target) {
+    let cate = e.val();
+    //console.log(cate);
+    // 비동기 방식으로 printOption 값 3개(cate, step, category) 일시키고, 결과가 나오면 target에 html 태그를 생성
+    let data = {
+      cate: cate,
+      step: step,
+      category: category
+    }
+    console.log(data);
+    $.ajax({
+      async: false, // sucess의 결과가 나오면 작업 수행
+      type: 'post',
+      data: data,
+      url: 'printOption.php',
+      dataType: 'html',
+      success: function(result) {
+        console.log(result);
+        target.html(result);
+      }
+    })
+  }
+  */
