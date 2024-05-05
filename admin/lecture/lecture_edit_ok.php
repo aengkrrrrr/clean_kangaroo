@@ -4,23 +4,7 @@ $title = "공지사항 관리";
 $menutitle = '게시판 관리'; 
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
-//처리현황 업데이트
-// $UpdateSql = "UPDATE notice_board SET title='{$title}', contents='{$contents}', image='{$image}' WHERE idx={$idx}";
-// $mysqli->query($UpdateSql);
-
-
-//테이블조회
-$pid = $_POST['pid'];
-$sql = "SELECT * FROM products WHERE pid={$pid}";
-$result = $mysqli->query($sql);
-$row = $result->fetch_object();
-
-//처리현황 업데이트
-// $UpdateSql = "UPDATE products SET title='{$title}', content='{$content}', url='{$url}', thumbnail='{$thumbnail}', status='{$status}', WHERE idx={$idx}";
-// $mysqli->query($UpdateSql);
 
 $mysqli->autocommit(FALSE);//커밋이 안되도록 지정
 try{
@@ -35,14 +19,12 @@ try{
  $url  = $_POST['url'] ?? '';
 $status = $_POST['status'] ?? '';
 
+
   $userid = $_SESSION['AUID'];
-
-  $dateString = $_POST['datepicker1'];
-  $dateString2 = $_POST['datepicker2']; //2024-5-2
-  $converTedDate = date('Y-m-d', strtotime($dateString));
-  $converTedDate2 = date('Y-m-d', strtotime($dateString2));
-
-
+  $dateString = $_POST['sale_start_date'];
+  $dateString2 = $_POST['sale_end_date']; //2024-5-2
+  $sale_start_date = date('Y-m-d', strtotime($dateString));
+  $sale_end_date = date('Y-m-d', strtotime($dateString2));
   //파일 사이즈 검사
   if ($_FILES['thumbnail']['size'] > 10240000) {
     echo "<script>
@@ -75,22 +57,23 @@ $status = $_POST['status'] ?? '';
   //   </script>";
   //   exit;
   // }
-  $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail,url) VALUES (
-    '{$cate}',
-    '{$title}',
-    '{$content}',
-    '{$price}',
-    '{$converTedDate}',
-    '{$converTedDate2}',
-    now(),
-    '{$status}',
-    '{$thumbnail}',
-    '{$url}'
-  )";
-  $result = $mysqli->query($sql);
-  $pid = $mysqli->insert_id;
 
- 
+//처리현황 업데이트
+$UpdateSql = "UPDATE products SET
+cate='{$cate}',
+title='{$title}',
+content='{$content}',
+price='{$price}',
+sale_start_date='{$sale_start_date}',
+sale_end_date='{$sale_end_date}',
+reg_date=now(),
+status='{$status}',
+thumbnail='{$thumbnail}',
+url='{$url}'
+WHERE pid={$pid}";
+$mysqli->query($UpdateSql);
+//$pid = $mysqli->insert_id;
+
 
 
   if ($result) { 

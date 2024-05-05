@@ -10,6 +10,13 @@ $result = $mysqli->query($sql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
+
+$dateString = $_POST['sale_start_date'];
+$dateString2 = $_POST['sale_end_date']; //2024-5-2
+
+$sale_start_date = date('Y-m-d', strtotime($dateString));
+$sale_end_date = date('Y-m-d', strtotime($dateString2));
+
 ?>
   <!----------- 헤더 -->
   <body>
@@ -96,32 +103,10 @@ while ($row = $result->fetch_object()) {
                   </label>   
                 </div>
               </li>
-      <!-- <li class="view_status">
-        <p class="status">상태&nbsp;&nbsp;</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="0" checked>
-          <label class="form-check-label" for="status">
-            공개
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="1" >
-          <label class="form-check-label" for="status">
-            일부공개
-          </label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="status" id="2" >
-          <label class="form-check-label" for="status">
-            비공개
-          </label>
-        </div>
-      </li> -->
   </ul>
     <ul>
       <li>
-
-         <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> 
+         <p class="period">수강기간 <?=($sale_start_date)?> ~ <?=($sale_end_date)?>  </p> 
       </li>
       <li>
         <div class="form-floating textarea">
