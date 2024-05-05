@@ -5,16 +5,25 @@ $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-$catesql = "SELECT * FROM product_category where step = 1";
-$result = $mysqli->query($catesql);
-while ($row = $result->fetch_object()) {
-  $cate1[] = $row;
-}
+
+
 $pid = $_GET['pid'];
-//$sql = "SELECT * FROM products where pid={$pid}";
-$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";  
+$sql = "SELECT * FROM products where pid={$pid}";
 $result = $mysqli->query($sql);
 $rowp = $result->fetch_object();
+
+$category = $rowp->cate;
+$cate = str_split($category, 5);
+//$catesql = "SELECT * FROM product_category where code = '{$cate}'";
+$catesql = "SELECT * FROM product_category c join products p on c.pcode=p.cate where 1=1";  
+
+$cateResult = $mysqli->query($catesql);
+$caterow = $cateResult ->fetch_object();
+
+
+
+
+
 ?>
 
   <!----------- 헤더 -->
@@ -27,24 +36,17 @@ $rowp = $result->fetch_object();
       <p class="form-label">카테고리</p>
       <li class="category">
       <select class="form-select" aria-label="대분류" id="cate1">
-        <option selected>대분류</option>
-        <?php
-        foreach ($cate1 as $c1) {
-        ?>
-          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
-        <?php
-        }
-        ?>
-
+        <option selected value="<?=$caterow->name;?>"><?=$caterow->name;?></option>
       </select>
-      <select class="form-select" aria-label="중분류" id="cate2">
-      </select>
+      <select class="form-select" aria-label="중분류" id="cate2" value="<?$rowp->cate;?>">
+      <option selected value="<?=$caterow->name;?>"><?=$caterow->name;?></option>
+    </select>
       </li>
     </ul>
     <ul>
       <li>
         <div class="form-floating mb-3">
-          <input type="text" name="title" class="form-control" id="floatingInput_title" placeholder="<?=$rowp->title;?>" readonly>
+          <input type="text" name="title" class="form-control" id="floatingInput_title" placeholder="<?=$rowp->title;?>" value="<?=$rowp->title;?>" readonly>
           <label for="floatingInput_title">강좌명</label>
         </div>
       </li>
@@ -53,7 +55,7 @@ $rowp = $result->fetch_object();
       <li>
         <div class="input-group c2form price">
           <div class="form-floating">
-            <input type="text" name="price" class="form-control" aria-label="lecture_price" id="lecture_price" placeholder="<?=$rowp->price;?>">
+            <input type="text" name="price" class="form-control" aria-label="lecture_price" id="lecture_price" placeholder="<?=$rowp->price;?>" value="<?=$rowp->price;?>">
             <label for="floatingInputGroup1">가격</label>
           </div>
           <span class="input-group-text">원</span>
@@ -106,9 +108,7 @@ $rowp = $result->fetch_object();
               </li>    </ul>
     <ul>
       <li>
-
       
-        <!-- <p class="period">수강기간 <?=($dateString)?> ~ <?=($dateString2)?>  </p> -->
       </li>
       <li>
         <div class="form-floating textarea">

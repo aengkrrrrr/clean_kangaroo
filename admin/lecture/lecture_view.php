@@ -11,8 +11,13 @@ $sql = "SELECT * FROM products WHERE pid = {$pid}";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_object($result);
 
+// 조회수 업데이트
+$hit = $row->hit + 1;
+$sqlUpdate = "UPDATE products SET hit={$hit} WHERE pid = {$pid}";
+$mysqli->query($sqlUpdate);
 
 ?>
+
   <!----------- 헤더 -->
   <div class="answer_wrap">
     <div class="user_write">
@@ -30,7 +35,16 @@ $row = mysqli_fetch_object($result);
             </div>
           </div>
         </div>
-        <p class="form-label ca"><?=$row->cate;?></p>
+        <p class="form-label ca">
+          <?php $category = $row->cate;
+          $cateArr = str_split($category, 5);
+          $catesql = "SELECT name FROM product_category WHERE code = '{$cateArr}'";
+      $cateResult = $mysqli->query($catesql);
+      $caterow = $cateResult ->fetch_object();
+      
+      echo $caterow->name.' ';?>
+        
+        </p>
       </ul>
       <ul>
         <div class="container">

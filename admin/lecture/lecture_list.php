@@ -5,7 +5,6 @@ $css1 = '<link rel="stylesheet" href="../../css/lecture.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
-
 $catesql = "SELECT * FROM product_category where step = 1";
 
 $category = $_GET['category']??'';
@@ -21,12 +20,10 @@ if($category){
 $paginationTarget = 'products';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
-//$sql = "SELECT * FROM products where 1=1";
 $result = $mysqli->query($catesql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
-//$sql = "SELECT * FROM products p join product_category c on p.cate=c.pcode where 1=1";
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
 $order = " order by reg_date desc";
@@ -41,12 +38,12 @@ while ($rs = $result->fetch_object()) {
 
 ?>
 <body>
-  <div class="board_container">
+  <div class="board_container grid">
     <form action="" id="search">
       <div class="board_category df">
         <div class="select_wrap">
         <select class="form-select" aria-label="대분류" id="cate1" name="category">
-        <option selected disabled>대분류</option>
+        <option selected disabled>카테고리</option>
         <?php
         foreach ($cate1 as $c1) {
         ?>
@@ -109,7 +106,15 @@ while ($rs = $result->fetch_object()) {
   ?></td>
   <td><?=$ra->reg_date;?></td>
   <td><?=$ra->hit;?></td>
-  <td><?=$ra->status;?></td>
+  <td><?php
+  if($ra->status == 0){
+    echo "공개";
+  }else if($ra->status == 1){
+    echo "일부 공개";
+  }else if($ra->status == 2){
+    echo "비공개";
+  };?>
+</td>
   <td class="lectureSvg">
   <a href="lecture_edit.php?pid=<?= $ra->pid; ?>"><img src="../../images/edit.svg" alt=""></a>
     <a href="lecture_del.php?pid=<?= $ra->pid; ?>" class="cart_item_del"><img src="../../images/delete.svg" alt=""></a>
