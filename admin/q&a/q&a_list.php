@@ -66,7 +66,9 @@ while ($rs = $result->fetch_object()) {
             foreach($rsArr as $ra){
           ?>
         <tr>
-          <td><?php if($ra->status == 0){echo '답변대기';}else{echo '답변완료';}?></td>
+          <td class="<?php echo $ra->status == 0 ? 'waiting' : 'completed'; ?>">
+          <?php echo $ra->status == 0 ? '답변대기' : '답변완료'; ?>
+          </td>
           <td><a href="/clean_kangaroo/admin/q&a/q&a_answer.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
