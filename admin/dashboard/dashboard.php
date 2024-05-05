@@ -34,19 +34,20 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
-// $price = $_POST['price'];
+// $sales_date = $_POST['sales_date'];
 // 매출 데이터
-$saleSql = "SELECT COUNT(price) FROM sales_manage";
+$saleSql = "SELECT COUNT(price) AS sale FROM sales_manage";
 $saleResult = $mysqli->query($saleSql);
 $saleRow = $saleResult->fetch_object();
 
-// $saleArr = array();
-// $saleArr[0] = $saleRow->price;
+$saleArr = array();
+$saleArr[0] = $saleRow->sale;
 
-// $data2 = [];
-// foreach($saleArr as $price){
-//     array_push($data2, $price);
-// }
+$data2 = [];
+foreach($saleArr as $price){
+    array_push($data2, $price);
+}
+print_r($data2);
 ?>
 
 <body>
@@ -124,6 +125,7 @@ $saleRow = $saleResult->fetch_object();
   
 
   const mData = <?= json_encode($data) ?>;
+  const sData = <?= json_encode($data2) ?>;
   
   const memberData = {
     label: '회원수 비교',
@@ -132,7 +134,7 @@ $saleRow = $saleResult->fetch_object();
   }
   const saleData = {
    label: '매출액 비교',
-   data: [13,9,10,11,13,10],
+   data: sData,
    borderWidth: 2   
   }
   const todayData = {
@@ -162,25 +164,12 @@ data: {
   labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
   datasets: [
             {
-      label: '2023',
-      data: [43,30,60,61,83,70],
-      borderWidth: 1
+      label: '2024',
+      data: [saleData],
+      borderWidth: 1,
+       borderColor: 'pink',
+       backgroundColor: 'pink'
       },
-      {
-        label: '2024',
-        data: [130,90,100,110,130,100],
-        borderWidth: 2,
-        // hoverBorderWidth:5,
-        // borderColor: 'rgba(0,0,0,0.5)',
-        // backgroundColor:'yellow',
-        // radius:4,
-        // hoverRadius:10,
-        // pointBorderColor:'black',
-        // pointStyle:sun,
-        // showLine:true,
-        spanGaps:true,
-        // stepped:true
-      }
   ]
 },
 options: {
@@ -199,7 +188,10 @@ new Chart(barChart, {
   type: 'bar',
   data: {
     labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-    datasets: [memberData]
+    datasets: [{
+      data:[60,50,77,69,42,62]
+    }
+    ]
   },
   options: {
     indexAxis:'x', //방향 변경

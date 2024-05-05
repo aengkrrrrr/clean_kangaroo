@@ -1,3 +1,9 @@
+.waiting {
+    color: var(--C-black) !important;
+}
+.completed {
+    color: var( --C-primary) !important;
+}
 .answer_wrap {
     margin-top: 60px;
 }
