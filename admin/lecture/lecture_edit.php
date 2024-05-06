@@ -66,10 +66,10 @@ $caterow = $cateResult ->fetch_object();
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
+        수강기간 : 
           <input type="text" id="datepicker1" class="couponC" name="datepicker1" value="<?=$rowp->sale_start_date?>">
           <input type="text" id="datepicker2" class="couponC" name="datepicker2" value="<?=$rowp->sale_end_date?>">
         </div>
-        <br>수강기간 : <span class="rel_date"><?=$rowp->sale_start_date?> ~ <?=$rowp->sale_end_date?></span>
       </div>
       </li>
 
@@ -107,9 +107,6 @@ $caterow = $cateResult ->fetch_object();
                 </div>
               </li>    </ul>
     <ul>
-      <li>
-      
-      </li>
       <li>
         <div class="form-floating textarea">
           <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea" name="content"><?=$rowp->content;?></textarea>
