@@ -26,7 +26,7 @@ while ($row = $result->fetch_object()) {
 }
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
-$order = " order by reg_date desc";
+$order = " order by pid desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;

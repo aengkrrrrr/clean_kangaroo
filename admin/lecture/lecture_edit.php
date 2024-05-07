@@ -8,9 +8,34 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 
 $pid = $_GET['pid'];
-$sql = "SELECT * FROM products where pid={$pid}";
-$result = $mysqli->query($sql);
+$psql = "SELECT * FROM products where pid={$pid}";
+$result = $mysqli->query($psql);
 $rowp = $result->fetch_object();
+
+//대분류 조회
+$sql = "SELECT * FROM product_category where step = 1";
+$result2 = $mysqli->query($sql);
+while ($row = $result2->fetch_object()) {
+  $cate1[] = $row;
+}
+
+
+//카테고리 확인
+$cates = $rowp->cate; //A0001B0001C0001  str_split(문자열, 개수);
+$cateArray = str_split($cates, 5);
+
+
+
+foreach($cateArray as $cate){
+  $sql = "SELECT * FROM product_category WHERE code = '{$cate}'";
+  $result3 = $mysqli -> query($sql);
+  while($caters = $result3->fetch_object()){
+    $cateArr[] = $caters;
+  }
+}
+
+
+
 
 $category = $rowp->cate;
 $cate = str_split($category, 5);
@@ -19,7 +44,6 @@ $catesql = "SELECT * FROM product_category c join products p on c.pcode=p.cate w
 
 $cateResult = $mysqli->query($catesql);
 $caterow = $cateResult ->fetch_object();
-
 
 
 
@@ -35,13 +59,28 @@ $caterow = $cateResult ->fetch_object();
     <ul>
       <p class="form-label">카테고리</p>
       <li class="category">
-      <select class="form-select" aria-label="대분류" id="cate1">
-        <option selected value="<?=$caterow->name;?>"><?=$caterow->name;?></option>
+      <select class="form-select" aria-label="대분류" id="cate1" name="cate1">
+        <option selected>대분류</option>
+        <?php
+        foreach ($cate1 as $c1) {
+        ?>
+
+          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+
+        <?php
+        }
+        ?>
+
       </select>
-      <select class="form-select" aria-label="중분류" id="cate2" value="<?$rowp->cate;?>">
-      <option selected value="<?=$caterow->name;?>"><?=$caterow->name;?></option>
-    </select>
+      <select class="form-select" aria-label="중분류" id="cate2" name="cate2">
+
+      </select>
       </li>
+      <?php
+                foreach($cateArr as $cate){
+                  echo $cate-> name. '-';
+                }
+              ?>
     </ul>
     <ul>
       <li>
@@ -66,10 +105,10 @@ $caterow = $cateResult ->fetch_object();
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
-        수강기간 : 
-          <input type="text" id="datepicker1" class="couponC" name="datepicker1" value="<?=$rowp->sale_start_date?>">
-          <input type="text" id="datepicker2" class="couponC" name="datepicker2" value="<?=$rowp->sale_end_date?>">
+        <input type="text" id="datepicker1" class="couponC" name="sale_start_date">
+          <input type="text" id="datepicker2" class="couponC" name="sale_end_date">
         </div>
+        <br>수강기간 : <span class="rel_date"><?=$rowp->sale_start_date?> ~ <?=$rowp->sale_end_date?></span>
       </div>
       </li>
 
@@ -107,6 +146,9 @@ $caterow = $cateResult ->fetch_object();
                 </div>
               </li>    </ul>
     <ul>
+      <li>
+      
+      </li>
       <li>
         <div class="form-floating textarea">
           <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea" name="content"><?=$rowp->content;?></textarea>

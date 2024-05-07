@@ -69,7 +69,7 @@ while ($row = $result->fetch_object()) {
       <li>
         <div class="form-floating">
         <div class="d-flex lDates">
-                          <input type="text" id="datepicker1" class="couponC" name="sale_start_date">
+          <input type="text" id="datepicker1" class="couponC" name="sale_start_date">
           <input type="text" id="datepicker2" class="couponC" name="sale_end_date">
         </div>
         </div>

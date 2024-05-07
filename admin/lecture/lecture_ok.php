@@ -15,7 +15,7 @@ try{
   $thumbnail  = $_FILES['thumbnail'];
   $url  = $_POST['url'] ?? '';
   $status = $_POST['status'] ?? '';
- $thumbnail  = $_FILES['thumbnail'];
+  $thumbnail  = $_FILES['thumbnail'];
 
   $userid = $_SESSION['AUID'];
   $dateString = $_POST['sale_start_date'];
