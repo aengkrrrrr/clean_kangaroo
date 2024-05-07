@@ -33,7 +33,7 @@ let categorySubmitBtn = $(".modal button[type='submit']");
       async: false,
       type: 'post',
       data: data,
-      url: "save_category.php",
+      url: "../../save_category.php",
       dataType: 'json',
       error: function(error) {
         console.log(error);
@@ -48,7 +48,7 @@ let categorySubmitBtn = $(".modal button[type='submit']");
           location.reload(); //강제 새로고침
         } else if (data.result === 'member') {
           alert('관리자가 아닙니다.');
-          location.href = '/pinkping/admin/login.php';
+          location.href = '/clean_kangaroo/admin/login/login.php';
         } else {
           alert('등록 실패');
           location.reload(); // 새로고침
@@ -57,28 +57,3 @@ let categorySubmitBtn = $(".modal button[type='submit']");
       }
     }); //ajax
   }
-
-  /*
-  function makeOption(e, step, category, target) {
-    let cate = e.val();
-    //console.log(cate);
-    // 비동기 방식으로 printOption 값 3개(cate, step, category) 일시키고, 결과가 나오면 target에 html 태그를 생성
-    let data = {
-      cate: cate,
-      step: step,
-      category: category
-    }
-    console.log(data);
-    $.ajax({
-      async: false, // sucess의 결과가 나오면 작업 수행
-      type: 'post',
-      data: data,
-      url: 'printOption.php',
-      dataType: 'html',
-      success: function(result) {
-        console.log(result);
-        target.html(result);
-      }
-    })
-  }
-  */

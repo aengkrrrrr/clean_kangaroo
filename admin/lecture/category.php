@@ -12,39 +12,13 @@ while ($row = $result->fetch_object()) {
 }
 ?>
 
-<div class="container">
-  <div class="category row">
-    <div class="col-md-4">
-      <select class="form-select" aria-label="대분류" id="cate1">
-        <option selected>대분류</option>
-        <?php
-        foreach ($cate1 as $c1) {
-        ?>
-          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
-        <?php
-        }
-        ?>
-      </select>
-    </div>
-    <div class="col-md-4">
-
-      <select class="form-select" aria-label="중분류" id="cate2">
-
-      </select>
-    </div>
-    <div class="col-md-4">
-
-      <select class="form-select" aria-label="소분류" id="cate3">
-
-      </select>
-    </div>
-  </div>
-
-  <div class="buttons mt-3">
+<div class="container grid d-flex catewrap">
+<div class="buttons mt-3">
     <!-- 대분류 등록 버튼 -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cate1Modal">
+    <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate1Modal">
       대분류 등록
     </button>
+
     <!--대분류 등록 Modal -->
     <div class="modal fade" id="cate1Modal" tabindex="-1" aria-labelledby="cate1ModalLabel" aria-hidden="true">
       <div class="modal-dialog">
@@ -70,7 +44,9 @@ while ($row = $result->fetch_object()) {
     </div>
 
     <!-- 중분류 등록 버튼 -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cate2Modal">중분류 등록</button>
+    <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate2Modal">
+      중분류 등록
+    </button>
 
     <!-- 중분류 등록 Modal -->
     <div class="modal fade" id="cate2Modal" tabindex="-1" aria-labelledby="cate2ModalLabel" aria-hidden="true">
@@ -103,7 +79,7 @@ while ($row = $result->fetch_object()) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn basic_btn" data-bs-dismiss="modal">닫기</button>
+            <button type="button" class="btn basic_btn" data-bs-dismiss="modal" class="">닫기</button>
             <button type="submit" class="btn primary_btn" data-step="2">등록</button>
           </div>
         </div>
@@ -111,7 +87,9 @@ while ($row = $result->fetch_object()) {
     </div>
 
     <!-- 소분류 등록 버튼 -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#cate3Modal">소분류 등록</button>
+    <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate3Modal">
+      소분류 등록
+    </button>
 
     <!--소분류 등록 Modal -->
     <div class="modal fade" id="cate3Modal" tabindex="-1" aria-labelledby="cate3ModalLabel" aria-hidden="true">
@@ -152,13 +130,43 @@ while ($row = $result->fetch_object()) {
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
-            <button type="submit" class="btn btn-primary" data-step="3">등록</button>
+            <button type="button" class="btn basic_btn" data-bs-dismiss="modal">닫기</button>
+            <button type="submit" class="btn primary_btn" data-step="3">등록</button>
           </div>
         </div>
       </div>
     </div>
+  </div>
+  <div class="category row">
 
+    <div class="col-md-4">
+
+      <select class="form-select" aria-label="대분류" id="cate1">
+        <option selected>대분류</option>
+        <?php
+        foreach ($cate1 as $c1) {
+        ?>
+
+          <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
+
+        <?php
+        }
+        ?>
+
+      </select>
+    </div>
+    <div class="col-md-4">
+
+      <select class="form-select" aria-label="중분류" id="cate2">
+
+      </select>
+    </div>
+    <div class="col-md-4">
+
+      <select class="form-select" aria-label="소분류" id="cate3">
+
+      </select>
+    </div>
 
   </div>
 </div>
@@ -167,5 +175,5 @@ while ($row = $result->fetch_object()) {
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 $script1 = '<script src="../../js/category.js"></script>';
-$script1 = '<script src="../../js/makeoption.js"></script>';
+$script2 = '<script src="../../js/makeoption.js"></script>';
 ?>
