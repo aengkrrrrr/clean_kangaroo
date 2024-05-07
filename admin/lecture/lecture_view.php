@@ -37,10 +37,21 @@ $mysqli->query($sqlUpdate);
         </div>
         <p class="form-label ca">
           <?php 
-          $catesql = "SELECT name FROM product_category WHERE code = '{$cate}'";
-      $cateResult = $mysqli->query($catesql);
-      $caterow = $cateResult ->fetch_object();
-            echo $caterow->name.' ';
+
+$category = $row->cate;
+
+$cateArr = str_split($category, 5);
+$catetext = '';
+foreach($cateArr as $cate){
+  $catesql = "SELECT name FROM product_category WHERE code = '{$cate}'";
+  $cateResult = $mysqli->query($catesql);
+  $caterow = $cateResult ->fetch_object();
+  
+  $catetext .= $caterow->name.' > ';
+}
+$trimmed_string = substr($catetext, 0, -2);
+echo $trimmed_string;
+
             ?>
         
         </p>
