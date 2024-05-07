@@ -17,9 +17,11 @@ p {
   align-items: center;
   gap: 50px;
 }
-.catebtn {margin:0 auto;}
-.buttons {
-  display: flex;
+.catewrap > .buttons {
+  gap:50px;
+  justify-content: space-between;
+}
+.category {
   gap:50px;
 }
 #datepicker1{

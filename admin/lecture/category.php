@@ -12,8 +12,8 @@ while ($row = $result->fetch_object()) {
 }
 ?>
 
-<div class="container grid d-flex catewrap">
-<div class="buttons mt-3">
+<div class="grid d-flex catewrap">
+<div class="buttons mt-3 d-flex">
     <!-- 대분류 등록 버튼 -->
     <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate1Modal">
       대분류 등록
@@ -86,60 +86,11 @@ while ($row = $result->fetch_object()) {
       </div>
     </div>
 
-    <!-- 소분류 등록 버튼 -->
-    <button type="button" class="btn primary_btn" data-bs-toggle="modal" data-bs-target="#cate3Modal">
-      소분류 등록
-    </button>
-
-    <!--소분류 등록 Modal -->
-    <div class="modal fade" id="cate3Modal" tabindex="-1" aria-labelledby="cate3ModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="cate3ModalLabel">소분류 등록</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-
-            <div class="row">
-              <div class="col">
-                <select class="form-select" aria-label="대분류" id="pcode2_1">
-                  <option selected disabled>대분류를 선택해주세요</option>
-                  <?php
-                  foreach ($cate1 as $c1) {
-                  ?>
-                    <option value="<?= $c1->code; ?>"><?= $c1->name; ?></option>
-                  <?php
-                  }
-                  ?>
-                </select>
-              </div>
-              <div class="col">
-                <select class="form-select" aria-label="중분류" id="pcode3">
-                  <option selected disabled>대분류를 먼저 선택해주세요</option>
-                </select>
-              </div>
-            </div>
-            <div class="row mt-3">
-              <div class="col">
-                <input type="text" class="form-control" id="code3" name="code3" placeholder="코드명 입력">
-              </div>
-              <div class="col">
-                <input type="text" class="form-control" id="name3" name="name3" placeholder="대분류명 입력">
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn basic_btn" data-bs-dismiss="modal">닫기</button>
-            <button type="submit" class="btn primary_btn" data-step="3">등록</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
   </div>
-  <div class="category row">
+  <div class="category row d-flex">
 
-    <div class="col-md-4">
+    <div class="select_wrap">
 
       <select class="form-select" aria-label="대분류" id="cate1">
         <option selected>대분류</option>
@@ -155,15 +106,9 @@ while ($row = $result->fetch_object()) {
 
       </select>
     </div>
-    <div class="col-md-4">
+    <div class="select_wrap">
 
       <select class="form-select" aria-label="중분류" id="cate2">
-
-      </select>
-    </div>
-    <div class="col-md-4">
-
-      <select class="form-select" aria-label="소분류" id="cate3">
 
       </select>
     </div>
