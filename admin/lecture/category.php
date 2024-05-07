@@ -171,9 +171,8 @@ while ($row = $result->fetch_object()) {
   </div>
 </div>
 
-
 <?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 $script1 = '<script src="../../js/category.js"></script>';
 $script2 = '<script src="../../js/makeoption.js"></script>';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
 ?>

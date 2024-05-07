@@ -33,7 +33,7 @@ let categorySubmitBtn = $(".modal button[type='submit']");
       async: false,
       type: 'post',
       data: data,
-      url: "../../save_category.php",
+      url: "../../js/save_category.php",
       dataType: 'json',
       error: function(error) {
         console.log(error);
