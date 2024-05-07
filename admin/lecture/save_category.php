@@ -1,8 +1,6 @@
 <?php
 session_start();
-$title = "카테고리 관리";
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 $name = $_POST['name'];
 $code = $_POST['code'];

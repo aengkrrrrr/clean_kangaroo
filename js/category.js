@@ -29,17 +29,19 @@ let categorySubmitBtn = $(".modal button[type='submit']");
       pcode: pcode,
       step: step
     }
+    console.log(data);
     $.ajax({
       async: false,
       type: 'post',
       data: data,
-      url: "../../js/save_category.php",
+      url: "save_category.php",
       dataType: 'json',
       error: function(error) {
         console.log(error);
       },
       success: function(data) {
         console.log(data.result, typeof(data.result));
+        
         if (data.result === 1) {
           alert('등록 성공');
           location.reload(); // 새로고침
@@ -53,7 +55,6 @@ let categorySubmitBtn = $(".modal button[type='submit']");
           alert('등록 실패');
           location.reload(); // 새로고침
         }
-
       }
     }); //ajax
   }

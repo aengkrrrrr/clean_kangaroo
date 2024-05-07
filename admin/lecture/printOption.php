@@ -3,9 +3,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $cate = $_POST['cate'];
 $step = $_POST['step'];
-$category = $_POST['category'];
+$product_category = $_POST['product_category'];
 
-$html = "<option selected disabled>" . $category . "</option>";
+$html = "<option selected disabled>" . $product_category . "</option>";
 $sql = "SELECT * FROM product_category where step = {$step} and pcode = '{$cate}'";
 $result = $mysqli->query($sql);
 
