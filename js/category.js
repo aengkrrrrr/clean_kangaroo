@@ -48,7 +48,7 @@ let categorySubmitBtn = $(".modal button[type='submit']");
         } else if (data.result === '-1') {
           alert('코드가 중복됩니다.');
           location.reload(); //강제 새로고침
-        } else if (data.result === 'member') {
+        } else if (data.result === 'members') {
           alert('관리자가 아닙니다.');
           location.href = '/clean_kangaroo/admin/login/login.php';
         } else {
