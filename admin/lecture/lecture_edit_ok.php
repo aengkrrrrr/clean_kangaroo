@@ -8,6 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $mysqli->autocommit(FALSE);//커밋이 안되도록 지정
 try{
+  $pid = $_POST['pid'];
   $cate1 = $_POST['cate1'] ?? '';
   $cate2 = $_POST['cate2'] ?? '';
   $cate = $cate1 . $cate2 ;
@@ -18,7 +19,6 @@ try{
  $thumbnail  = $_FILES['thumbnail'] ?? '';
  $url  = $_POST['url'] ?? '';
 $status = $_POST['status'] ?? '';
-
 
   $userid = $_SESSION['AUID'];
   $dateString = $_POST['sale_start_date'];
@@ -58,6 +58,23 @@ $status = $_POST['status'] ?? '';
   //   exit;
   // }
 
+
+  // $sql = "INSERT INTO products (cate,title,content,price,sale_start_date,sale_end_date,reg_date,status,thumbnail,url) VALUES (
+  //   '{$cate}',
+  //   '{$title}',
+  //   '{$content}',
+  //   '{$price}',
+  //   '{$sale_start_date}',
+  //   '{$sale_end_date}',
+  //   now(),
+  //   '{$status}',
+  //   '{$thumbnail}',
+  //   '{$url}'
+  // )";
+  // echo $sql;
+ //$result = $mysqli->query($sql);
+
+
 //처리현황 업데이트
 $UpdateSql = "UPDATE products SET
 cate='{$cate}',
@@ -68,22 +85,22 @@ sale_start_date='{$sale_start_date}',
 sale_end_date='{$sale_end_date}',
 reg_date=now(),
 status='{$status}',
-thumbnail='{$thumbnail}',
 url='{$url}'
 WHERE pid={$pid}";
-$mysqli->query($UpdateSql);
-//$pid = $mysqli->insert_id;
+$result = $mysqli->query($UpdateSql);
+$pid = $mysqli->insert_id;
 
 
 
-  if ($result) { 
+  if ($result) { //상품 등록 하면
+
 
     $mysqli->commit();//디비에 커밋한다
 
     echo "<script>
     alert('강의 수정 완료');
    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
-    </script>";
+     </script>";
     }
 } catch (Exception $e) {
 
@@ -91,66 +108,6 @@ $mysqli->query($UpdateSql);
 
   echo "<script>
   alert('강의 수정 실패');
-  //history.back();
+ history.back();
   </script>";
 }
-?>
-
-<body>
-<div class="notice_container">
-  <h3>공지사항 수정</h3>
-<form action="notice_edit_ok.php" method="POST">
-  <input type="hidden" name="idx" value="<?=$idx?>">
-  <ul>
-    <li>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" name="title" id="floatingInput_title" placeholder="<?=$row->title?>" value="<?=$row->title?>">
-        <label for="floatingInput_title">제목</label>
-      </div>
-    </li>
-    <li>
-        <div class="form-floating textarea">
-          <textarea class="form-control" name="contents" id="floatingTextarea"><?=$row ->contents;?></textarea>
-          <label for="floatingInput_title">공지 설명</label>
-        </div>   
-    </li>
-  </ul>
-  <ul>
-  <li><div class="mb-3">
-    <label for="formFile" class="form-label">이미지 업로드</label>
-    <input class="form-control" type="file" id="formFile" name="image" value="<?=$row->image;?>">
-  </div><span class="file_route"><?=$row->image?></span></li>
-</ul>
-  <ul>
-    <li class="btn_collect">
-      <button class="primary_btn">수정 완료</button>
-      <a href="notice_list.php" class="basic_btn">닫기</a>
-    </li>
-  </ul>
-</form>
-</div>
-
-
-<!-- 스크립트 -->
-<script>
-  //header 메뉴 액티브
-  document.addEventListener('DOMContentLoaded',function(){
-  const title = "<?php if(isset($menutitle)){ echo $menutitle;} else{echo $title;}  ?>";
-
-
-  console.log(title);
-  const headerMenu = document.querySelectorAll('#header .gnb_wrap li');
-  for(let menu of headerMenu){
-    menu.classList.remove('active');
-    if(menu.innerText === title){
-      menu.classList.add('active');
-    }
-  }
-});
-
-</script>
-<?php
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/footer.php';
-?>
-<!-------------------- 스크립트 -->
-</html>

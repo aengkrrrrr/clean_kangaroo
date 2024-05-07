@@ -36,13 +36,12 @@ $mysqli->query($sqlUpdate);
           </div>
         </div>
         <p class="form-label ca">
-          <?php $category = $row->cate;
-          $cateArr = str_split($category, 5);
-          $catesql = "SELECT name FROM product_category WHERE code = '{$cateArr}'";
+          <?php 
+          $catesql = "SELECT name FROM product_category WHERE code = '{$cate}'";
       $cateResult = $mysqli->query($catesql);
       $caterow = $cateResult ->fetch_object();
-      
-      echo $caterow->name.' ';?>
+            echo $caterow->name.' ';
+            ?>
         
         </p>
       </ul>

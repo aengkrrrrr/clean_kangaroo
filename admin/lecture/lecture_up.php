@@ -11,11 +11,11 @@ while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
 
-$dateString = $_POST['sale_start_date'];
-$dateString2 = $_POST['sale_end_date']; //2024-5-2
+//$dateString = $_POST['sale_start_date'];
+//$dateString2 = $_POST['sale_end_date']; //2024-5-2
 
-$sale_start_date = date('Y-m-d', strtotime($dateString));
-$sale_end_date = date('Y-m-d', strtotime($dateString2));
+//$sale_start_date = date('Y-m-d', strtotime($dateString));
+//$sale_end_date = date('Y-m-d', strtotime($dateString2));
 
 ?>
   <!----------- 헤더 -->
@@ -105,9 +105,6 @@ $sale_end_date = date('Y-m-d', strtotime($dateString2));
               </li>
   </ul>
     <ul>
-      <li>
-         <p class="period">수강기간 <?=($sale_start_date)?> ~ <?=($sale_end_date)?>  </p> 
-      </li>
       <li>
         <div class="form-floating textarea">
           <textarea class="form-control" placeholder="강좌설명" id="floatingTextarea" name="content"></textarea>
