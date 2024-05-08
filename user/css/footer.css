@@ -1,0 +1,25 @@
+@charset "utf-8";
+*{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+}
+footer {
+  width: 100%;
+  background: var(--C-black, #000);
+}
+.u_footer_wrap {
+  display: flex;
+  justify-content: space-between;
+}
+footer h2 a {
+  display: inline-block;
+  width: 287px;
+  height: 74px;
+  text-indent: -9999em;
+  background: url('../../images/user_footerlogo.png') no-repeat;
+}
+footer ul li, p {
+  color: var(--C-white, #fff);
+}
