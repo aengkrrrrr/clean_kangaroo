@@ -43,6 +43,9 @@
 .main_lecture{
   font-family: 'DungGeunMo', sans-serif;
 }
+.lec_container{
+  width: 1218px;
+}
 .lec, .lec_inner{
   gap:27px;
   justify-content: center;

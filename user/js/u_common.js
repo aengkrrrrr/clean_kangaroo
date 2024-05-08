@@ -33,3 +33,12 @@ searchBtn.addEventListener('click',function(e){
 		);
 	}
 });
+
+/* 강좌소개--선진 */
+$('.lec_container').bxSlider({
+	minSlides: 4,
+	maxSlides: 10,
+	slideWidth: 282,
+	slideMargin: 30
+});
+/* ////////////강좌소개--선진 */
