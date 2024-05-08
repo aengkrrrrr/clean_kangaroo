@@ -10,10 +10,7 @@ footer {
   background: var(--C-black, #000);
 }
 .u_footer_wrap {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  gap: 112px;
   padding: 46px 0;
 }
 footer h2 a {
@@ -24,11 +21,13 @@ footer h2 a {
   background: url('../../images/user_footerlogo.png') no-repeat;
 }
 .usdergrid .u_footer_wrap ul {
-  display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  align-content: center;
+  width: 543px;
 }
 footer ul li, p {
   color: var(--C-white, #fff);
+}
+footer p strong {
+  width: 164px;
+  color: var(--C-primary);
 }
