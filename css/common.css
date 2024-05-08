@@ -270,8 +270,36 @@ h1{
 .util_wrap {
   gap: 35px;
 }
-a/********** 사용자 공통 헤더 */
+/********** 사용자 공통 헤더 */
 
+/* 사용자 공통 푸터 */
+footer {
+  width: 100%;
+  background: var(--C-black, #000);
+}
+.u_footer_wrap {
+  justify-content: space-between;
+  padding: 46px 0;
+}
+footer h2 a {
+  display: inline-block;
+  width: 287px;
+  height: 74px;
+  text-indent: -9999em;
+  background: url('../../images/user_footerlogo.png') no-repeat;
+}
+.usdergrid .u_footer_wrap ul {
+  flex-wrap: wrap;
+  width: 543px;
+}
+footer ul li, footer .h4 {
+  color: var(--C-white, #fff);
+}
+footer p strong {
+  width: 164px;
+  color: var(--C-primary);
+}
+/************ 사용자 공통 푸터 */
 /* 공통 메인 타이틀 */
 .common_main_tit {
   width: calc(100% - 300px);
