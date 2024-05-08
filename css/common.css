@@ -246,14 +246,23 @@ h1{
 #u_header {
   width: 100%;
   height: 100px;
+  padding: 22px 100px;
+  box-shadow: 0 1px  3px rgba(0, 0, 0, .25);
 }
 #u_header .header_container {
   width: 100%;
+  justify-content: space-between;
 }
 .u_logo img {
   width: 190px;
 }
-/********** 사용자 공통 헤더 */
+.u_gnb{
+  gap: 55px;
+}
+.util_wrap {
+  gap: 35px;
+}
+a/********** 사용자 공통 헤더 */
 
 /* 공통 메인 타이틀 */
 .common_main_tit {
