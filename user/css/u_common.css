@@ -16,4 +16,55 @@
   font-size: 140px;
   color: var(--C-primary);
 }
-/*********** 수강평 - 다영 */
+/*********** 수강
+
+
+/*메인페이지 - 강좌소개 선진*/
+.main_lecture{
+  font-family: 'DungGeunMo', sans-serif;
+}
+.df {
+display: flex;
+gap:27px;
+justify-content: center;
+align-items: center;
+}
+.lec_cate{
+width: 206px;
+height: 46px;
+background-color: #14C4BE;
+color:white;
+border-radius: 10px;
+text-align: center;
+line-height: 46px;
+font-size: 20px;
+margin:54px 0;
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.lec_cate.active{
+opacity: 0.5;
+}
+.lec_inner.df{
+
+}
+.lec_inner_slide_abs_title{
+border-radius: 16px;
+width: 120px;
+height: 40px;
+background-color: #14C4BE;
+opacity: 0.5;
+color: white;
+font-size:20px;
+}
+.lec_inner_slide{
+width: 282px;
+height: 282px;
+border: 1px solid #14C4BE;
+border-radius: 20px;
+}
+h2{
+text-align:center;
+font-size: 48px;
+color:#14C4BE;
+}
