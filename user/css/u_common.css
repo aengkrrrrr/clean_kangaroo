@@ -1,19 +1,21 @@
 /* 메인배너 - 다영 */
-.main_banner {
-  margin-top: 70px;
-}
+
 /********** 메인배너 - 다영 */
 
 /* 수강평 - 다영 */
 .main_review {
+  position:relative;
   height: 780px;
-}
-.main_review .user_review {
   background: #efefef;
 }
 .main_review h2 {
+  position:absolute;
   font-family: 'DungGeunMo';
   font-size: 140px;
   color: var(--C-primary);
+}
+.main_review .user_review {
+
+  height: 400px;
 }
 /*********** 수강평 - 다영 */
