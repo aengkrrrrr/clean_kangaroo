@@ -1,3 +1,7 @@
+h2 {
+  font-family: 'DungGeunMo';
+  color: var(--C-primary);
+}
 /* 메인배너 - 다영 */
 
 /********** 메인배너 - 다영 */
@@ -10,9 +14,7 @@
 }
 .main_review h2 {
   position:absolute;
-  font-family: 'DungGeunMo';
   font-size: 140px;
-  color: var(--C-primary);
 }
 .main_review .user_review {
 
@@ -65,3 +67,23 @@ text-align:center;
 font-size: 48px;
 color:#14C4BE;
 }
+
+/* 공지사항 - 송림 */
+.notice a {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  font-size: var(--body-sl);
+}
+.notice_table {
+  gap: 55px;
+}
+.notice .notice_tit {
+  width: 222px;
+}
+.notice .notice_ct {
+  width: 750px;
+}
+/************* 공지사항 - 송림 */
