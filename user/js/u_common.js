@@ -1,3 +1,11 @@
+$(function(){
+  $(".user_banner").bxSlider( {
+      mode: 'fade',
+      speed: 400,
+      auto: true,
+      pager: false
+  });
+});
 let searchBtn = document.querySelector('#u_header .u_search');
 let search = document.querySelector('.search_area');
 

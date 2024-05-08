@@ -57,6 +57,7 @@ body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 180px;
 .usergrid{ /* 1200px 그리드*/
   padding: 0 360px;
 }
+
 .df {
   display: flex;
 }
@@ -352,12 +353,16 @@ footer h2 a {
   text-indent: -9999em;
   background: url('../../images/user_footerlogo.png') no-repeat;
 }
-.usdergrid .u_footer_wrap ul {
+.usergrid .u_footer_wrap ul {
+  position: relative;
   flex-wrap: wrap;
   width: 543px;
 }
 footer ul li, footer .h4 {
   color: var(--C-white, #fff);
+}
+footer ul li {
+  margin-right: 14px;
 }
 footer p strong {
   width: 164px;
