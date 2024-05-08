@@ -257,6 +257,7 @@ h1{
   height: 100px;
   padding: 22px 100px;
   box-shadow: 0 1px  3px rgba(0, 0, 0, .25);
+  position: relative;
 }
 #u_header .header_container {
   width: 100%;
@@ -268,9 +269,72 @@ h1{
 .u_gnb{
   gap: 55px;
 }
+.u_gnb li a:hover {
+  color: var(--C-active);
+  transition: all 0.2s;
+}
 .util_wrap {
   gap: 35px;
 }
+
+.cart {
+  position: relative;
+}
+.cart_quantity {
+  background-color: var(--C-primary);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 11px;
+  line-height: 20px;
+  position: absolute;
+  left: 13px;
+  top: -9px;
+  text-align: center;
+  width: 20px;
+  z-index: 2;
+  font-weight: 600;
+}
+.search_area {
+  width: 1200px;
+  height: 310px;
+  background: var(--C-white);
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 103px;
+  padding: 20px 50px;
+  overflow:hidden;
+}
+#search_keyword {
+  width: 1050px;
+  border: none;
+}
+#search_keyword::placeholder{
+  color: var(--C-disable);
+  font-size: var(--body-m);
+  font-weight: bold;
+}
+.best_wrap {
+  padding-top: 55px;
+}
+.best_wrap span {
+  display: block;
+  margin-bottom: 34px;
+}
+.best_lec {
+  gap: 120px;
+}
+.best_lec+.best_lec {
+  padding-top: 25px;
+}
+.best_lec li {
+  width: 162px;
+}
+.best_lec strong {
+  color: var(--C-primary);
+  padding-right: 15px;
+}
+
 /********** 사용자 공통 헤더 */
 
 /* 사용자 공통 푸터 */

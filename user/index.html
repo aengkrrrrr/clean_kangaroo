@@ -13,8 +13,6 @@
   
   <!-- datepicker -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="./css/u_common.css">
   <title>Deep Learning kangaroo</title>
@@ -23,26 +21,50 @@
 <!-- 사용자 헤더 -->
   <header id="u_header">
     <div class="header_container df aic">
-      <h1 class="u_logo">
-        <a href="">
-          <img src="/images/admin_header_logo.png" alt="">
+       <h1 class="u_logo">
+         <a href="">
+           <img src="/images/admin_header_logo.png" alt="">
+         </a>
+       </h1>
+       <nav class="u_gnb_wrap">
+         <ul class="u_gnb df">
+           <li><a href="" class="body3b">웹디자인/편집</a></li>
+           <li><a href="" class="body3b">웹개발</a></li>
+           <li><a href="" class="body3b">CG/모션그래픽</a></li>
+           <li><a href="" class="body3b">게임/웹툰</a></li>
+           <li><a href="" class="body3b">수강평</a></li>
+           <li><a href="" class="body3b">Q&A</a></li>
+           <li><a href="" class="body3b">공지사항</a></li>
+         </ul>
+       </nav>
+       <div class="util_wrap df aic">
+         <a href="" class="u_search"><span class="material-symbols-outlined">search</span></a>
+         <a href="" class="cart">
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span class="cart_quantity">1</span>
         </a>
-      </h1>
-      <nav class="u_gnb_wrap">
-        <ul class="u_gnb df">
-          <li><a href="" class="body3b">웹디자인/편집</a></li>
-          <li><a href="" class="body3b">웹개발</a></li>
-          <li><a href="" class="body3b">CG/모션그래픽</a></li>
-          <li><a href="" class="body3b">게임/웹툰</a></li>
-          <li><a href="" class="body3b">수강평</a></li>
-          <li><a href="" class="body3b">Q&A</a></li>
-          <li><a href="" class="body3b">공지사항</a></li>
-        </ul>
-      </nav>
-      <div class="util_wrap df aic">
-        <a href=""><span class="material-symbols-outlined"> search</span></a>
-        <a href=""><span class="material-symbols-outlined">shopping_cart</span></a>
-        <a href="">로그인</a>
+         <a href="">로그인</a>
+       </div>
+    </div>
+    <div class="search_area">
+      <div class="search_wrap df aic">
+        <input class="form-control search" type="text" id="search_keyword" name="keyword" placeholder="관심주제, 강의, 포트폴리오 찾기">
+        <a href="" class="u_search"><span class="material-symbols-outlined">search</span></a>
+      </div>
+      <div class="best_wrap">
+        <span class="body3b">지금 인기있는 BEST</span>
+        <ol class="best_lec df">
+          <li class="body2"><strong class="body1b">1</strong>웹 퍼블리셔 기초</li>
+          <li class="body2"><strong class="body1b">2</strong>JAVA</li>
+          <li class="body2"><strong class="body1b">3</strong>웹툰 그리기 기초</li>
+          <li class="body2"><strong class="body1b">4</strong>건축 디자인</li>
+        </ol>
+        <ol class="best_lec df">
+          <li class="body2"><strong class="body1b">5</strong>포토샵/GTQ</li>
+          <li class="body2"><strong class="body1b">6</strong>일러스트레이터</li>
+          <li class="body2"><strong class="body1b">7</strong>웹 디자인 기초</li>
+          <li class="body2"><strong class="body1b">8</strong>3D 랜더링</li>
+        </ol>
       </div>
     </div>
   </header>
@@ -66,7 +88,8 @@
 
   <!-- 공지사항 - 송림 -->
   <section class="main_notice">
-    <h2></h2>
+    <h2 class="h2">공지사항</h2>
+    <div class="test"></div>
   </section>
 <!----------- 공지사항 - 송림 -->
 
@@ -85,8 +108,8 @@
   </section>
 <!----------- 이벤트 - 다영 -->
 
-<!-- 사용자 푸터 -->
-  <footer class="usergrid">
+  <!-- 사용자 푸터 -->
+  <footer class="usdergrid">
     <div class="df u_footer_wrap">
       <h2><a href="index.php">딥러닝캥거루</a></h2>
       <ul class="df">
