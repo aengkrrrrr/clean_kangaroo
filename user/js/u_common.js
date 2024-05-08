@@ -1,5 +1,8 @@
 $(function(){
   $(".user_banner").bxSlider( {
-      auto: true
+      mode: 'fade',
+      speed: 400,
+      auto: true,
+      pager: false
   });
 });
