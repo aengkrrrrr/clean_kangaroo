@@ -289,11 +289,15 @@ footer h2 a {
   background: url('../../images/user_footerlogo.png') no-repeat;
 }
 .usergrid .u_footer_wrap ul {
+  position: relative;
   flex-wrap: wrap;
   width: 543px;
 }
 footer ul li, footer .h4 {
   color: var(--C-white, #fff);
+}
+footer ul li {
+  margin-right: 14px;
 }
 footer p strong {
   width: 164px;
