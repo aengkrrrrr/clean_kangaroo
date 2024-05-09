@@ -1,6 +1,10 @@
 h2 {
   font-family: 'DungGeunMo';
   color: var(--C-primary);
+  font-size: 48px;
+}
+.bx-wrapper {
+  box-shadow: none;
 }
 /* 메인배너 - 다영 */
 
@@ -112,13 +116,16 @@ height: 282px;
 border: 1px solid #14C4BE;
 border-radius: 20px;
 }
-h2{
-text-align:center;
-font-size: 48px;
-color:#14C4BE;
-}
+
 
 /* 공지사항 - 송림 */
+.main_notice {
+  position: relative;
+}
+.main_notice h2 {
+  padding-top: 80px;
+  text-align: center;
+}
 .notice a {
   display: inline-block;
   overflow: hidden;
@@ -126,6 +133,10 @@ color:#14C4BE;
   text-overflow: ellipsis;
   word-break: break-all;
   font-size: var(--body-sl);
+}
+.notice {
+  gap: 35px;
+  padding: 60px 360px 80px;
 }
 .notice_table {
   gap: 55px;
@@ -136,4 +147,49 @@ color:#14C4BE;
 .notice .notice_ct {
   width: 750px;
 }
+.notice_table {
+  width: 1200px;
+  height: 100px;
+  border: 1px solid #777;
+  border-radius: 20px;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.bx-wrapper {
+  position: relative;
+}
+.main_notice .controls .bx-prev{
+  background: url(../../images/navi_arrow.png) no-repeat;
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  top: 95px;
+  right: 425px;
+  text-indent: -9999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main_notice .controls .bx-next{
+  background: url(../../images/navi_arrow.png) no-repeat;
+  width: 30px;
+  height: 30px;
+  display: block;
+  position: absolute;
+  transform: rotate(180deg);
+  top: 95px;
+  right: 376px;
+  text-indent: -9999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.main_notice .controls .bx-prev:hover,
+.main_notice .controls .bx-next:hover {
+  background-image: url(../../images/navi_arrow_active.png);
+  transform: rotate(180deg);
+}
+.main_notice .controls .bx-next:hover {
+  transform: rotate(0);
+}
+
 /************* 공지사항 - 송림 */

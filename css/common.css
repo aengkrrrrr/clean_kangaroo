@@ -38,7 +38,11 @@ body {
 }
 
 
-body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 180px;}
+::selection{
+  background: var(--C-primary);
+  color: var(--C-white);
+}
+body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 180px; overflow-x: hidden;}
 .u_body {
   padding: 0;
 }
