@@ -6,6 +6,6 @@ LMS(학습지원시스템) 유저 페이지 팀 프로젝트 //
 
 
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
-![html](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
-![css](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
-![php](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+![html](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=html5&logoColor=white)
+![css](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=css&logoColor=white)
+![php](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=php&logoColor=white)
