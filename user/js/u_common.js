@@ -38,11 +38,20 @@ searchBtn.addEventListener('click',function(e){
 
 // 강좌소개 - 선진 
 $('.lec_container').bxSlider({
-	minSlides: 4,
-	maxSlides: 10,
+	minSlides: 2,
+	maxSlides: 4,
 	slideWidth: 282,
-	slideMargin: 30
+	slideMargin: 30,
+	pager:false,
+	prevSelector:'.lec_container .lec_controls .lec_prev',
+	nextSelector:'.lec_container .lec_controls .lec_next'
 });
+
+$(".lec_cate").click(function(){
+	$(".lec_cate").removeClass("active"); 
+	$(this).addClass("active"); 
+});
+
 //////////// 강좌소개 - 선진 
 
 
@@ -54,3 +63,21 @@ $('.notice_wrap').bxSlider({
 	nextSelector:'.main_notice .controls .next'
 });
 //////////// 공지사항 - 송림
+
+
+
+
+// back_to_top - 선진 
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 100) {
+		$('.back-to-top').fadeIn();
+	} else {
+		$('.back-to-top').fadeOut();
+	}
+});
+
+$('.back-to-top').click(function(){
+	$('html, body').animate({scrollTop : 0},0);
+	return false;
+});
+//////////// back_to_top - 선진 

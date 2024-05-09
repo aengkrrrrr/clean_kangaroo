@@ -10,88 +10,116 @@ h2 {
 
 /********** 메인배너 - 다영 */
 
-/*메인페이지 - 강좌소개 선진*/
-.main_lecture{
-  font-family: 'DungGeunMo', sans-serif;
+/* 수강평 - 다영 */
+.main_review {
+  position:relative;
+  height: 780px;
+  border: 1px solid #000;
 }
-.lec_container{
-  width: 1218px;
+.main_review_wrap::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top:140px;
+  background: #EFEFEF;
 }
-.lec, .lec_inner{
+.main_review .usergrid h2 {
+  position:absolute;
+  font-size: 140px;
+}
+
+.u_profile img {
+  width: 114px;
+  height: 114px;
+}
+/*********** 수강
+
+
+/* 강좌소개 -선진 */
+.main_lecture h2{
+padding-top: 80px;
+text-align: center;
+}
+.lec{
   gap:27px;
   justify-content: center;
   align-items: center;
 }
+
 .lec_cate{
 width: 206px;
 height: 46px;
-background-color: #14C4BE;
+background-color: #777777;
 color:white;
 border-radius: 10px;
 text-align: center;
 line-height: 46px;
 font-size: 20px;
 margin:54px 0;
-text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+cursor: pointer;
 }
 .lec_cate.active{
-opacity: 0.5;
+  background-color: var(--C-primary);
+  cursor: pointer;
 }
 
-  .lec_inner_slide_abs_title{
-    border-radius: 16px;
-    width: 120px;
-    height: 40px;
-    background-color: #14C4BE;
-    opacity: 0.5;
-    color: white;
-    font-size:20px;
-    position:absolute;
-    right: 0px;
-    bottom:40px;
-    text-align: right;
-    z-index: 1000;
-  }
-
-  .lec_inner_slide_abs_title:hover{
-    right: 0px;
-    bottom:102px;
-    position:absolute;
-  }
-  .lec_inner_slide_abs_content{
-    visibility: hidden;
-  }
-
-  .lec_inner_slide_abs_content:hover{
-    visibility: visible;
-    border-radius: 20px;
-    width: 282px;
-    height: 102px;
-    background-color: #3A4949;
-    opacity: 0.2;
-    color: white;
-    position:absolute;
-    right: 0px;
-    bottom:0px;
+.lec_container {
+  justify-content: center;
+  align-items: center;
+  font-size: var(--body-sl);
 }
-.lec_inner_slide_abs_title{
-border-radius: 16px;
-width: 120px;
-height: 40px;
-background-color: #14C4BE;
-opacity: 0.5;
-color: white;
-font-size:20px;
+.lec_container ul{
+  height: 284px;
 }
-.lec_inner_slide{
-width: 282px;
-height: 282px;
-border: 1px solid #14C4BE;
-border-radius: 20px;
+.lec_container.df ul li:first-child img{
+  width: 282px;
+  height: 180px;
+  border-radius: 20px;
+  background: black;
+filter: drop-shadow(0px 10px 10px rgba(0, 0, 0, 0.25));
+margin-bottom: 20px;
+}
+.bx-wrapper{
+  margin: 0 auto;
+}
+.bx-viewport{
+  height: auto;
 }
 
+.lec_controls .lec_prev{
+  background: url(../../images/navi_arrow.png) no-repeat;
+  object-fit:fill;
+  width: 38px;
+  height: 38px;
+  display: block;
+  position: absolute;
+  top: 1100px;
+  left: 327px;
+  text-indent: -9999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.lec_controls .lec_next{
+  background: url(../../images/navi_arrow.png) no-repeat;
+  object-fit:fill;
+  width: 38px;
+  height: 38px;
+  display: block;
+  position: absolute;
+  transform: rotate(180deg);
+  top: 1100px;
+  right: 327px;
+  text-indent: -9999px;
+  cursor: pointer;
+  transition: 0.3s;
+}
 
+.lec_container.df.visible{
+  order : -1;
+}
 /* 공지사항 - 송림 */
 .main_notice {
   position: relative;
@@ -212,3 +240,67 @@ border-radius: 20px;
 }
 
 /*********** 이벤트 - 다영 */
+
+/* 수강평 - 다영 */
+.main_review {
+  position:relative;
+  height: 780px;
+  border: 1px solid #000;
+}
+.main_review_wrap::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 400px;
+  top:140px;
+  background: #EFEFEF;
+}
+.main_review .usergrid h2 {
+  position:absolute;
+  font-size: 140px;
+}
+
+.u_profile img {
+  width: 114px;
+  height: 114px;
+}
+
+/*********** 수강평 - 다영 */
+
+/* 이벤트 - 다영 */
+
+.user_e_title {
+  width: 386px;
+  height: 425px;
+}
+.user_e_title p {
+  width: 76%;
+}
+.user_e_link {
+  color: var(--C-primary, #14C4BE);
+  
+}
+.user_e_link {
+  text-decoration: underline;
+}
+
+/*********** 이벤트 - 다영 */
+
+/*back to top - 선진 */
+.back-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 99;
+  background-color: var(--C-primary);
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+}
+.back-to-top span{
+  font-size: 50px;
+}
+/************* back to top - 선진 */
