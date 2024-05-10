@@ -190,6 +190,7 @@ h1{
 }
 
 
+
 /* 호버 효과 */
 .primary_btn:hover{
   background: var(--C-hover);
@@ -260,6 +261,7 @@ h1{
   height: 100px;
   padding: 22px 100px;
   position: relative;
+  box-shadow: 2px 2px 3px rgba(107, 107, 107, 0.25);
 }
 #u_header .header_container {
   width: 100%;
@@ -460,7 +462,10 @@ footer p strong {
 
   /***공통 pagination***/
 
-
+.form-control:focus{
+  border-color:var(--C-primary);
+  box-shadow: 0 0 0 .25rem rgba(20, 196, 190, .25);
+}
 
 /*공통 check & radio*/
 .form-check-input:checked{
