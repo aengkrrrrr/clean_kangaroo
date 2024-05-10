@@ -43,8 +43,8 @@ $('.lec_container').bxSlider({
 	slideWidth: 282,
 	slideMargin: 30,
 	pager:false,
-	prevSelector:'.lec_container .lec_controls .lec_prev',
-	nextSelector:'.lec_container .lec_controls .lec_next'
+	prevSelector:'.lec_controls .lec_prev',
+	nextSelector:'.lec_controls .lec_next'
 });
 
 $(".lec_cate").click(function(){
