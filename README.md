@@ -2,7 +2,7 @@
 #DEEP LEARNING KANGAROO LMS WEBSITE
 
 ![header](https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=Deep%Learning&fontSize=90)
-<img src="https://capsule-render.vercel.app/api?type=waving&color=auto&height=200&section=header&text=Deep Learning Kangaroo&fontSize=90" />
+
 
 ###LMS(학습지원시스템) 유저 페이지 팀 프로젝트
 
