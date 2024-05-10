@@ -71,11 +71,23 @@ $('.notice_wrap').bxSlider({
 		auto: true,
 		moveSlides: 1,
 		slideWidth: 370,
+		slideMargin: 45,
 		maxSlides: 3,
+		controls:false,
 		pager: false
 	});
 
 /////////// 수강평 - 다영
+
+// 이벤트 - 다영
+$(".user_e_slide").bxSlider( {
+	moveSlides: 1,
+	slideWidth: 370,
+	maxSlides: 3,
+	pager: false
+});
+
+/////////// 이벤트 - 다영
 
 // back_to_top - 선진 
 $(window).scroll(function(){

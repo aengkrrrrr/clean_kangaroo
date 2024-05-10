@@ -188,6 +188,8 @@ margin-bottom: 20px;
   background:#EFEFEF;
 }
 .main_review .usergrid {
+  width:1200px;
+  margin:0 auto;
   padding: 140px 0;
 }
 .main_review .usergrid h2 {
@@ -210,12 +212,9 @@ margin-bottom: 20px;
   background:var(--C-black, #000);
   color: var(--C-white, #fff);
 }
-.main_review_list {
-  gap: 54px;
-
-}
 .main_review .usergrid .bx-wrapper {
   background: transparent;
+  width: 1200px !important;
 }
 .u_profile {
   width: 370px;
@@ -252,6 +251,8 @@ margin-bottom: 20px;
 .user_e_title {
   width: 386px;
   height: 425px;
+  padding: 50px 0;
+  box-sizing: border-box;
 }
 .user_e_title p {
   width: 76%;
@@ -282,6 +283,9 @@ margin-bottom: 20px;
   transform: rotate(45deg);
 }
 .user_e_link:hover {
+  text-decoration: underline;
+}
+.user_e_slide p:hover {
   text-decoration: underline;
 }
 
