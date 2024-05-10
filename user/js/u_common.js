@@ -28,13 +28,14 @@ searchBtn.addEventListener('click',function(e){
 });
 //////////// 공통 header 검색창
 
-
+// 메인배너 - 다영
   $(".user_banner").bxSlider( {
       mode: 'fade',
       speed: 400,
       auto: true,
       pager: false
   });
+///////////// 메인배너 - 다영
 
 // 강좌소개 - 선진 
 $('.lec_container').bxSlider({
@@ -65,7 +66,16 @@ $('.notice_wrap').bxSlider({
 //////////// 공지사항 - 송림
 
 
+// 수강평 - 다영
+	$(".main_review_list").bxSlider( {
+		auto: true,
+		moveSlides: 1,
+		slideWidth: 370,
+		maxSlides: 3,
+		pager: false
+	});
 
+/////////// 수강평 - 다영
 
 // back_to_top - 선진 
 $(window).scroll(function(){
