@@ -49,7 +49,8 @@ $('.lec_container').bxSlider({
 
 $(".lec_cate").click(function(){
 	$(".lec_cate").removeClass("active"); 
-	$(this).addClass("active"); 
+	$(this).addClass("active");
+	$(this).find('.lec_container').addClass("visible"); 
 });
 
 //////////// 강좌소개 - 선진 
