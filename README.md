@@ -8,4 +8,4 @@ LMS(학습지원시스템) 유저 페이지 팀 프로젝트 //
 
 
 ![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
-![js](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=JavaScript&logoColor=white)
+![html](https://img.shields.io/badge/JavaScript-#E34F26?style=for-the-badge&logo=JavaScript&logoColor=white)
