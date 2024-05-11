@@ -53,7 +53,8 @@ pager: false
 // 이벤트 - 다영
 $(".user_e_slide").bxSlider( {
 moveSlides: 1,
-slideWidth: 370,
+slideWidth: 330,
+slideMargin: 60,
 maxSlides: 3,
 nextSelector: '#slider_next',
 prevSelector: false,
