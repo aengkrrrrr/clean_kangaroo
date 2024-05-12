@@ -12,14 +12,21 @@
 .mypage_menu li a {
     width: 208px;
 }
-.my_lecture {
-    padding-left: 370px;
+
+/* 강의 */
+.my_lecture,
+.my_coupon,
+.my_review {
+    margin-left: 370px;
     position: relative;
 }
-.my_lecture h2 {
+.my_lecture h2,
+.my_coupon h3,
+.my_review h2 {
     padding-bottom: 15px;
 }
-.my_lecture #search_keyword {
+.my_lecture #search_keyword,
+.my_coupon #search_keyword{
     width: 728px;
     border: 1px solid #BDBDBD;
     margin-bottom: 30px;
@@ -28,4 +35,76 @@
     position: absolute;
     right: 100px;
     top: 53px;
+}
+
+/* 쿠폰 */
+.cart_coupon {
+    padding-left: 40px;
+    padding-top: 10px;
+}
+.my_coupon .cart_ct {
+    height: 178px;
+}
+.my_coupon .cart_ct img {
+    height: 80px;
+    margin-top: 20px;
+}
+.coupon_ct +.coupon_ct {
+    padding: 5px 0;
+}
+.my_coupon button {
+    position: absolute;
+    right: 115px;
+    top: 53px;
+}
+
+/* 수강평 */
+.my_review {
+    width: 838px;
+
+}
+.review_table thead {
+    position: relative;
+}
+.review_table thead tr th {
+    padding: 15px 0;
+    
+}
+.review_table thead:after {
+    content: '';
+    position: absolute;
+    left: 26px;
+    bottom: 0;
+    width: 778px;
+    height: 1px;
+    background: #BDBDBD;
+}
+.my_review .mypage_ct {
+    width: 838px;
+    border: 1px solid #bdbdbd;
+    border-radius: 10px;
+}
+.review_table tbody tr td {
+    padding: 20px 0;
+}
+.review_table thead tr,
+.review_table tbody tr {
+    width: 838px;
+    position: relative;
+    justify-content: space-around;
+}
+.review_table tbody tr:after {
+    content: '';
+    position: absolute;
+    left: 26px;
+    bottom: 0;
+    width: 778px;
+    height: 1px;
+    background: #BDBDBD;
+}
+.review_table tbody tr .edit,
+.review_table tbody tr .del {
+    width: 60px;
+    height: 40px;
+    padding: 0;
 }

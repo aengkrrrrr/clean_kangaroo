@@ -188,6 +188,19 @@ h1{
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
 }
+.delete_btn {
+  display: inline-block;
+  background:#BE0000;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 22.4px;
+  font-size: 16px;
+  color: #fff;
+  padding: 10px 30px;
+  text-transform: capitalize;
+  font-family: 'SUIT', sans-serif;
+  cursor: pointer;
+}
 .line_btn {
   display: inline-block;
   background:var(--C-white);
