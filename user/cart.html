@@ -14,8 +14,7 @@
   <!-- datepicker -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="../css/common.css">
-  <!-- <link rel="stylesheet" href="./css/u_common.css"> -->
-  <link rel="stylesheet" href="./css/u_login.css">
+  <link rel="stylesheet" href="./css/cart.css">
   <title>Deep Learning kangaroo</title>
 </head>
 <body class="u_body">
@@ -71,47 +70,104 @@
   </header>
 <!------- 사용자 헤더 -->
 <main class="usergrid">
-  <form class="user_login_wrap df fdc" action="" method="POST">
-    <div  class="login_top">
-    <img src="../images/admin_header_logo.png" alt="">
-      <strong class="body3b">쉽고 빠르게 달리자,<br>
-        딥러닝 캥거루</strong>
-    </div>
-    <div class="login_mid">
-      <div class="form-floating mb-3 df aic">
-        <input type="text" class="form-control name" id="floatingInput" placeholder="name@example.com" required>
-        <label for="floatingInput">이름</label>
-        <button class="primary_btn check">중복</button>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-        <label for="floatingInput">이메일</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-        <label for="floatingInput">전화번호</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-        <label for="floatingInput">비밀번호</label>
-      </div>
-      <div class="form-floating mb-3">
-        <input type="password" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-        <label for="floatingInput">비밀번호 확인</label>
-      </div>
-    </div>
-    <div class="login_bt">
-      <div class="login_check form-check">
+  <div class="my_cart">
+    <h2 class="h2">장바구니</h2>
+    <div class="select df aic">
+      <div class="form-floating">
         <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
-        <label class="form-check-label" for="flexCheckChecked">서비스 이용 약관 동의(필수)</label>
-      
-      
+        <label class="form-check-label" for="flexCheckChecked">전체선택</label>
       </div>
-    <div class="login_btn_wrap df fdc">
-      <button class="primary_btn">회원가입하기</button>
+      <div class="num df">
+        <span>0개</span>
+        <span class="total_num">총 0개</span>
+      </div>
     </div>
+    <div class="cart_ct_none df fdc jcc aic hidden">
+      <img src="/images/cart_kang.png" alt="">
+      <strong class="body1b">장바구니에 담긴 강의가 없습니다.</strong>
+      <a href="" class="primary_btn">홈으로 이동</a>
     </div>
-  </form>
+    <div class="cart_ct df">
+      <img src="/images/cart_img01.png" alt="">
+      <div class="cart_lec_ct">
+        <h3 class="body3b">Figma 기초 강의</h3>
+        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
+          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
+        <div class="lec_time df aic">
+          <span class="material-symbols-outlined">description</span>
+          <span class="body4">수강기간</span>
+          <span class="body4 month">2개월</span>
+          <strong class="cart_lec_price body1b">200,000원</strong>
+        </div>
+      </div>
+    </div>
+    <div class="cart_ct df">
+      <img src="/images/cart_img02.png" alt="">
+      <div class="cart_lec_ct">
+        <h3 class="body3b">Figma 기초 강의</h3>
+        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
+          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
+        <div class="lec_time df aic">
+          <span class="material-symbols-outlined">description</span>
+          <span class="body4">수강기간</span>
+          <span class="body4 month">2개월</span>
+          <strong class="cart_lec_price body1b">200,000원</strong>
+        </div>
+      </div>
+    </div>
+    <div class="cart_ct df">
+      <img src="/images/cart_img01.png" alt="">
+      <div class="cart_lec_ct">
+        <h3 class="body3b">Figma 기초 강의</h3>
+        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
+          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
+        <div class="lec_time df aic">
+          <span class="material-symbols-outlined">description</span>
+          <span class="body4">수강기간</span>
+          <span class="body4 month">2개월</span>
+          <strong class="cart_lec_price body1b">200,000원</strong>
+        </div>
+      </div>
+    </div>
+    <div class="cart_ct df">
+      <img src="/images/cart_img02.png" alt="">
+      <div class="cart_lec_ct">
+        <h3 class="body3b">Figma 기초 강의</h3>
+        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
+          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
+        <div class="lec_time df aic">
+          <span class="material-symbols-outlined">description</span>
+          <span class="body4">수강기간</span>
+          <span class="body4 month">2개월</span>
+          <strong class="cart_lec_price body1b">200,000원</strong>
+        </div>
+      </div>
+    </div>
+    <div class="pay_wrap">
+      <h3 class="body1b">결제정보</h3>
+      <div class="select_wrap">
+        <label for="" class="body3">쿠폰선택</label>
+        <select class="form-select" aria-label="" id="" name="">
+          <option selected>사용가능한 쿠폰</option>
+          <option>이벤트 쿠폰</option>
+          <option>회원가입 쿠폰</option>
+        </select>
+      </div>
+      <div class="cart_price df">
+        <span class="body3">상품 금액 :</span>
+        <span class="body3">0 원</span>
+      </div>
+      <div class="cart_sale df">
+        <span class="body3">할인 금액 :</span>
+        <span class="body3">0 원</span>
+      </div>
+      <div class="cart_total df">
+        <strong class="body2b">총 결제 금액 :</strong>
+        <strong class="body2b">0 원</strong>
+      </div>
+      <button class="secondary_btn pay">구매하기</button>
+    </div>
+  </div>
 </main>
 
 

@@ -1,0 +1,133 @@
+.my_cart {
+  margin: 60px 0;
+}
+.select {
+  gap: 100px;
+  padding-bottom: 53px;
+}
+.form-floating>label {
+  padding: 0;
+  padding-left: 25px;
+}
+.num .total_num {
+  position: relative;
+}
+.num span:after{
+  content: '';
+  width: 1px;
+  height: 13px;
+  position: absolute;
+  left: -40px;
+  top: 6px;
+  background: #777;
+}
+.cart_ct {
+  border: 1px solid #777;
+  border-radius: 5px;
+  width: 728px;
+  padding: 14px 30px;
+  box-shadow: 1px 2px 3px rgba(90, 90, 90, 0.25);
+}
+.cart_ct +.cart_ct {
+  margin-top: 30px;
+}
+.cart_ct img {
+  width: 176px;
+}
+.cart_lec_ct {
+  padding-left: 30px;
+  padding-top: 12px;
+}
+.cart_lec_ct p {
+  padding: 10px 0 20px 0;
+}
+.lec_time strong {
+  color: var(--C-primary);
+}
+.lec_time {
+  gap: 10px;
+}
+.lec_time .month {
+  padding-left: 10px;
+  position: relative;
+}
+.lec_time .month:after {
+  content: '';
+  width: 1px;
+  height: 13px;
+  position: absolute;
+  left:-1px;
+  top: 6px;
+  background: #777;
+}
+.lec_time .cart_lec_price {
+  padding-left: 190px;
+}
+
+.cart_ct_none {
+  width: 342px;
+  margin-left: 260px;
+  margin-top: 15px;
+  display: none;
+}
+.cart_ct_none img {
+  width: 340px;
+}
+.cart_ct_none strong {
+  display: block;
+  padding: 30px 0;
+}
+.pay_wrap {
+  position: fixed;
+  width: 416px;
+  border: 1px solid #777;
+  border-radius: 10px;
+  right: 350px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 30px 42px 30px 30px;
+}
+.select_wrap {
+  padding: 20px 0 48px 0;
+}
+.select_wrap label {
+  padding-bottom: 10px;
+}
+.select_wrap select {
+  width: 343px;
+}
+.cart_price {
+  justify-content: space-between;
+  padding-top: 15px;
+  position: relative;
+}
+.cart_price:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -15px;
+  background: #777;
+  width: 343px;
+  height: 1px;
+}
+.cart_sale {
+  justify-content: space-between;
+  position: relative;
+  padding-top: 15px;
+}
+.cart_sale:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+  background: #777;
+  width: 343px;
+  height: 1px;
+}
+.cart_total {
+  justify-content: space-between;
+  padding: 50px 0 30px 0;
+}
+.pay {
+  width: 343px;
+}
