@@ -2,11 +2,30 @@
     padding: 80px 0;
 }
 .mypage_menu {
-    padding-top: 50px;
+    position: absolute;
+    left: 350px;
+    top: 280px;
 }
 .mypage_menu .menu {
     gap: 15px;
 }
 .mypage_menu li a {
     width: 208px;
+}
+.my_lecture {
+    padding-left: 370px;
+    position: relative;
+}
+.my_lecture h2 {
+    padding-bottom: 15px;
+}
+.my_lecture #search_keyword {
+    width: 728px;
+    border: 1px solid #BDBDBD;
+    margin-bottom: 30px;
+}
+.my_lecture button {
+    position: absolute;
+    right: 100px;
+    top: 53px;
 }
