@@ -24,3 +24,16 @@
   background: var(--C-hover);
   /* color:var(--C-white, #fff); */
 }
+.user_subevent_wrap {
+  padding:0 74px;
+  margin-bottom:103px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  column-gap:70px;
+  row-gap:90px;
+}
+.user_subevent_wrap img {
+  margin-bottom:20px;
+}
