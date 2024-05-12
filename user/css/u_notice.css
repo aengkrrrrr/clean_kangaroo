@@ -9,20 +9,24 @@
       padding : 54px 0;
       font-weight: bold;
     }
-
+    /* .usergrid{
+      width: 1200px;
+    } */
     .upper_wrapper {
       display: flex;
       justify-content: space-between;
       margin: 0 auto;
-      width: 1218px;
+      width: 1200px;
     }
 
     .search {
       display: flex;
       gap: 20px;
-      font-size: 24px;
+      font-size: 16px;
     }
-
+    .search_wrap{
+      height: 40px;
+    }
     .strong.figure {
       font-size: 24px;
   font-weight: bold;
@@ -37,6 +41,7 @@
       background-color: #bdbdbd;
       font-weight: bold;
       border: #bdbdbd;
+      font-size:18px;
     }
 
     thead {
@@ -47,6 +52,7 @@
       color: black;
       text-decoration: none;
       text-align: center;
+      font-size:18px;
     }
 
     .notice_list tr td {
@@ -67,13 +73,16 @@
 }
     #search_keyword{
       width: 220px;
+      border: 1px solid #dbdbdb;
     }
 .select_wrap{
   width: auto;
+  height: 40px;
 }
 .board_category{
   gap: 5px;
   align-items: center;
+  padding-bottom:48px;
 }
 .form-select:focus {
     border-color: var(--C-primary);
@@ -84,12 +93,12 @@
       border: 1px solid #bdbdbd;
      border-radius: 5px;
       margin: 0 auto;
-      width: 1218px;
+      width: 1200px;
       font-size: 18px;
       line-height: 25px;
     }
     .table>thead th {
-    padding: 30px 0;
+    padding: 24px 0;
     background: white;
     border-top: 0 solid #000;
     border-bottom: 0 solid #000;
@@ -112,8 +121,7 @@
 
 .table>tbody tr td {
     border-bottom: 0px solid #bdbdbd;
-    padding: 0;
-    padding: 30px 0;
+    padding: 24px 0;
     border-right: 0px solid #bdbdbd;
 }
 .table>tbody tr:last-child td:first-child {
@@ -140,6 +148,18 @@
     .notice_viewd tr td:first-child{
       text-align: left;
       padding-left:33px;
+      padding-right:33px;
+          }
+    .notice_viewd tr{
+      position:relative;
+    }
+    .notice_viewd tr:after{
+     position: absolute;
+    width: 1152px;
+    height: 0px;
+    left: 385px;
+    top: 282px;
+    border: 1px solid #BDBDBD;
     }
     .notice_viewd tr td:first-child{
       padding-bottom: 81px;
@@ -148,8 +168,9 @@
       font-size: 18px;
       line-height: 25px;
       text-align: left;
-
+      border-top:1px solid #dbdbdb;
     }
+
     .notice_viewhead tr th:nth-child(2),
     .notice_viewhead tr th:nth-child(3){
       font-weight: normal;
@@ -171,9 +192,10 @@
     }
     .listbtn{
       margin: 0 auto;
-      width: 1215px;
+      width: 1200px;
       justify-content: end;
       }
+
     .primary_btn.list{
       margin:54px 0;
     }

@@ -62,22 +62,23 @@
   .lec_prev .bx-prev{
     background: url(../../images/navi_arrow.png) no-repeat;
     object-fit:fill;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     top: 1100px;
     left: 327px;
     text-indent: -9999px;
     cursor: pointer;
-    transition: 0.3s;
     z-index: 99;
+    background-color: white;
+    border-radius: 50%;
   }
   .lec_next .bx-next{
     background: url(../../images/navi_arrow.png) no-repeat;
     object-fit:fill;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     transform: rotate(180deg);
@@ -85,8 +86,10 @@
     right: 327px;
     text-indent: -9999px;
     cursor: pointer;
-    transition: 0.3s;
     z-index: 99;
+    background-color: white;
+    border-radius: 50%;
+
   
   } 
   
@@ -323,13 +326,28 @@
     right: 20px;
     z-index: 99;
     background-color: var(--C-primary);
-    color: #fff;
     border: none;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
   }
+  .back-to-top.qna{
+    background-color: var(--C-secondary);
+    bottom: 98px;
+    padding:0;
+    text-align: center;
+
+  }
+  .back-to-top.qna span{
+    font-size: 24px;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: inherit;
+  }
   .back-to-top span{
     font-size: 50px;
+    color: #fff;
   }
   /************* back to top - 선진 */

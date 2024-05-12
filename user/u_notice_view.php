@@ -1,7 +1,6 @@
 <?php
 session_start();
 $title = "공지사항 관리";
-$css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 //테이블조회
