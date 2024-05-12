@@ -37,3 +37,11 @@
 .user_subevent_wrap img {
   margin-bottom:20px;
 }
+.event_pager {
+  margin-bottom:95px;
+}
+.event_pager .pagination {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}
