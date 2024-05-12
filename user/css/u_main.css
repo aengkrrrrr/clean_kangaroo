@@ -240,6 +240,7 @@
   /* 이벤트 - 다영 */
   .main_event { margin:50px 0;}
   .user_e_title {
+    position: relative;
     width: 100%;
     height: 425px;
     padding: 50px 0;
@@ -276,8 +277,16 @@
   .user_e_link:hover {
     text-decoration: underline;
   }
-  #slider_next {
+  .slider_next .bx-next{
     display: block;
+    position:absolute;
+    background: url(../../images/user_event_navigation.svg) no-repeat;
+    text-indent: -999px;
+    width: 60px;
+    height: 60px;
+    bottom: 0px;
+    right: 70px;
+    cursor: pointer;
   }
   .user_e_slide li {
     border-radius: 8px;
