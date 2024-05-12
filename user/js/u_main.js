@@ -19,10 +19,23 @@ prevSelector:'.lec_controls .lec_prev',
 nextSelector:'.lec_controls .lec_next'
 });
 
+// const tabContent = document.querySelectorAll('.lec_wrapper > ul')
+// function showContent(num){
+//   tabContent.forEach(function(){
+//     $(this).style.display = 'none';
+//    tabContent[num].style.display = 'block';
+// }
+// )}
+// showContent(0);
+
 $(".lec_cate").click(function(){
 $(".lec_cate").removeClass("active"); 
 $(this).addClass("active"); 
 });
+
+
+
+
 
 //////////// 강좌소개 - 선진 
 
