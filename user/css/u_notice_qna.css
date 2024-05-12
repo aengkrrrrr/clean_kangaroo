@@ -150,17 +150,18 @@
       padding-left:33px;
       padding-right:33px;
           }
-    .notice_viewd tr{
-      position:relative;
+
+    .notice_viewhead tr th:last-child:after{
+      content: '';
+      position: absolute;
+      width: 1152px;
+      height: 1px;
+      left: 385px;
+      top: 392px;
+      background:  #BDBDBD;
     }
-    .notice_viewd tr:after{
-     position: absolute;
-    width: 1152px;
-    height: 0px;
-    left: 385px;
-    top: 282px;
-    border: 1px solid #BDBDBD;
-    }
+
+
     .notice_viewd tr td:first-child{
       padding-bottom: 81px;
     }
@@ -195,7 +196,21 @@
       width: 1200px;
       justify-content: end;
       }
-
+.edit{
+  width: 1198px;
+  justify-content: end;
+}
     .primary_btn.list{
       margin:54px 0;
+    }
+    .secondary_btn.edit,
+    .delete_btn.del{
+      width: 60px;
+      height: 40px;
+      padding: 0;
+      margin-right: 10px;
+    }
+
+    .wrapper.usergrid{
+      margin-bottom: 72px;
     }

@@ -48,7 +48,7 @@ while ($rs = $result->fetch_object()) {
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="./css/u_common.css">
-  <link rel="stylesheet" href="./css/u_notice.css">
+  <link rel="stylesheet" href="./css/u_notice_qna.css">
   <title>Deep Learning kangaroo</title>
   </head>
 
