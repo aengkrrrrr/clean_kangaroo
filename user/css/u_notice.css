@@ -57,6 +57,10 @@
     .strong {
       color: var(--C-primary);
     }
+    
+    .notice_list tr td a:hover {
+      color: var(--C-primary);
+    }
     .form-select {
     width: 126px;
     height: auto;
