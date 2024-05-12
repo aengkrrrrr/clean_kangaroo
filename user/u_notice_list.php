@@ -1,7 +1,6 @@
 <?php
 $title = "공지사항 관리";
 $menutitle = '게시판 관리'; 
-$css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $search_keyword = $_GET['search_keyword'] ?? '';
@@ -25,10 +24,9 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
-$totalsql = "SELECT COUNT(*) AS post_count FROM notice_board";
-$totalresult = $mysqli -> query($totalsql);
-$totalrow = $totalresult -> fetch_object(); // $row->cnt
-
+// $totalsql = "SELECT COUNT(*) AS post_count FROM notice_board";
+// $totalresult = $mysqli -> query($totalsql);
+// $totalrow = $totalresult -> fetch_object(); // $row->cnt
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -111,7 +109,7 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
       <h3>공지사항</h3>
       <div class="upper_wrapper df">
 
-        <div class="total">전체 <span class="strong figure"><?= $totalow->cnt?></span>건</div>
+        <div class="total">전체 <span class="strong figure"></span>건</div>
           <form action="" id="">
           <div class="board_category df">
             <div class="select_wrap">
@@ -123,7 +121,7 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
             </div>
             <div class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
-              <button class="primary_btn">검색</button>
+              <button class="primary_btn sea">검색</button>
             </div>
           </div>
         </form>
@@ -149,7 +147,6 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
               <td><?=$ra->date;?></td>
               <td><?=$ra->hit;?></td>
             </tr>
-            <tr>
             <?php
               }
             }
