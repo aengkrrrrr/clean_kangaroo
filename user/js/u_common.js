@@ -28,3 +28,18 @@ searchBtn.addEventListener('click',function(e){
 });
 //////////// 공통 header 검색창
 
+
+// back_to_top - 선진 
+$(window).scroll(function(){
+	if ($(this).scrollTop() > 100) {
+	$('.back-to-top').fadeIn();
+	} else {
+	$('.back-to-top').fadeOut();
+	}
+	});
+	
+	$('.back-to-top').click(function(){
+	$('html, body').animate({scrollTop : 0},0);
+	return false;
+	});
+	//////////// back_to_top - 선진 
