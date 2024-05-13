@@ -6,6 +6,7 @@ $(".user_banner").bxSlider( {
   controls:false,
   pager: false
 });
+
 ///////////// 메인배너 - 다영
 
 // 강좌소개 - 선진 

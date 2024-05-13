@@ -104,27 +104,34 @@
 <main>
 <!-- 메인배너 - 다영 -->
   <section class="main_banner">
+    <ul class="user_banner">
+      <li><img src="../images/user_main_banner1.png" alt=""></li>
+      <li><img src="../images/user_main_banner2.png" alt=""></li>
+      <li><img src="../images/user_main_banner3.png" alt=""></li>
+    </ul>
     <div class="main_count usergrid">
       <ul class="user_count df">
-        <img src="../images/user_main_count.png" alt="">
-        <li class="user_count_title">
-          <p class="body2b">[캥거루 패밀리 세일]</p>
-          <p class="body2b">구독 할인 중!</p>
+        <li class="user_count_title df">
+          <img src="../images/user_main_count.png" alt="">
+          <div>
+            <p class="body2b">[캥거루 패밀리 세일]</p>
+            <p class="body2b">구독 할인 중!</p>
+          </div>
         </li>
         <li>
           <div class="countdown">
-            <div id="clock" class="card card-default">
-              <div class="card-body df">
-                <div class="clock-section">
-                  <div id="hours" class="value text-warning">00</div>
-                </div>
-                <div class="clock-section">
-                  <div id="minutes" class="value text-warning">00</div>
-                </div>
-                <div class="clock-section">
-                  <div id="seconds" class="value text-warning">00</div>
-                </div>
-              </div>
+            <span class="card_title mb-4">
+              <span data-date="6/28/2024"></span>
+            </span>
+            <div class="timer">
+              <span id="days" class="value text-warning h4">00</span>
+              <span class="text-warning h4">일</span>
+              <span id="hours" class="value text-warning h4">00</span>
+              <span class="text-warning h4">:</span>
+              <span id="minutes" class="value text-warning h4">00</span>
+              <span class="text-warning h4">:</span>
+              <span id="seconds" class="value text-warning h4">00</span>
+              <span class="text-warning h4">남음</span>
             </div>
           </div>
         </li>
@@ -133,12 +140,6 @@
         </li>
       </ul>
     </div>
-    <ul class="user_banner">
-      <li><img src="../images/user_main_banner1.png" alt=""></li>
-      <li><img src="../images/user_main_banner2.png" alt=""></li>
-      <li><img src="../images/user_main_banner3.png" alt=""></li>
-    </ul>
-    
   </section>
 <!----------- 메인배너 - 다영 -->
   
@@ -425,7 +426,7 @@
     </section>
   <!----------- 수강평 - 다영 -->
 
-     <!-- 이벤트 - 다영 -->
+  <!-- 이벤트 - 다영 -->
   <section class="main_event usergrid df">
     <div class="user_e_title">
       <h2>EVENT</h2>
@@ -487,8 +488,15 @@
 <!-- 스크립트 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="./js/jquery.bxslider.min.js"></script>
+
+<!-- 카운트다운 -->
+<script src='./js/moment.js'></script>
+<script src='./js/moment-with-locales.js'></script>
+<script src="./js/countdown.js"></script>
+
 <script src="./js/u_main.js"></script>
 <script src="./js/u_common.js"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>

@@ -11,10 +11,9 @@
   z-index: 2;
 }
 .user_count {
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   border-radius: 10px 10px 0px 0px;
-  padding:21px 0;
   background: var(--Primary, #14C4BE);
 }
 .user_count img {
@@ -22,6 +21,8 @@
   height: 95px;
 }
 .user_count_title {
+  align-items: center;
+  gap: 24px;
   color:var(--C-white, #fff);
   box-sizing: border-box;
 }
@@ -33,6 +34,13 @@
 .user_count_btn a {
   display: inline-block;
   padding: 12px 98px;
+}
+.countdown .card {
+  background: none;
+  border: none;
+}
+.text-warning {
+  color: var(--C-white, #fff) !important;
 }
 .main_banner .bx-wrapper {
   z-index: 1;
