@@ -45,3 +45,24 @@
   padding: 0;
   justify-content: center;
 }
+
+/* event_view */
+
+.event_container {
+  padding:47px;
+  box-sizing: border-box;
+  border: 1px solid var(--C-disable, #BDBDBD);
+  border-radius: 5px;
+}
+.event_viewtt {
+  justify-content: space-between;
+  padding-bottom:35px;
+  border-bottom: 1px solid var(--C-disable, #BDBDBD);
+}
+.event_viewinfo {
+  margin-top:35px;
+}
+.event_list_btn {
+  margin:47px 0;
+  justify-content: flex-end;
+}
