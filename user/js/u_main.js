@@ -16,14 +16,17 @@ maxSlides: 4,
 slideWidth: 282,
 slideMargin: 30,
 pager:false,
-prevSelector:'.lec_controls .lec_prev',
-nextSelector:'.lec_controls .lec_next'
 });
-
+setTimeout(()=>{
 $('.con1').show();
 $('.con2').hide();
 $('.con3').hide();
 $('.con4').hide();
+$('.lec_wrapper .bx-wrapper:nth-child(2) .bx-controls.bx-has-controls-direction .bx-controls-direction .bx-prev').hide();
+$('.lec_wrapper .bx-wrapper:nth-child(3) .bx-controls.bx-has-controls-direction .bx-controls-direction .bx-prev').hide();
+$('.lec_wrapper .bx-wrapper:nth-child(4) .bx-controls.bx-has-controls-direction .bx-controls-direction .bx-prev').hide();
+},300)
+
 
 
 $('.lec_cate a').on('click', function(e){
@@ -32,6 +35,11 @@ $('.lec_cate a').on('click', function(e){
   // 탭의 활성화 상태 제어
   $('.lec_cate').removeClass('active');
   $('.lec_container').hide();
+
+  $('.lec_wrapper .bx-wrapper:nth-child(2) .bx-controls.bx-has-controls-direction .bx-controls-direction .bx-prev').hide();
+  $('.lec_wrapper .bx-wrapper:nth-child(3) .bx-controls.bx-has-controls-direction .bx-controls-direction .bx-prev').hide();
+  $('.lec_wrapper .bx-wrapper:nth-child(4) .bx-controls.bx-has-controls-direction .bx-controls-direction .bx-prev').hide();
+
 
   // 클릭한 탭 활성화 및 해당하는 내용 표시
   $(this).parent('.lec_cate').addClass('active');
