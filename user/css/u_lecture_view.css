@@ -1,0 +1,41 @@
+.lecture_detail {
+  background: #282828;
+  color: var(--C-white);
+}
+.lecture_detail h2 {
+  text-align: center;
+  font-weight: 500;
+}
+.lecture_detail strong {
+  color: var(--C-primary);
+  font-family: 'DungGeunMo';
+  font-weight: 500;
+  text-align: center;
+  display: block;
+}
+.lecture_detail img {
+  width: 525px;
+  display: block;
+  margin: 0 auto;
+}
+.lecture_content {
+  margin: 0 auto;
+  width: 350px;
+  border: 2px solid var(--C-white);
+  border-radius: 10px;
+  padding: 30px;
+}
+.lec_group {
+  width: 130px;
+  border: 2px solid var(--C-white);
+  padding: 10px 15px;
+  border-radius: 10px;
+  gap: 25px;
+}
+.lec_group em {
+  position: relative;
+}
+.lecture_content .detail {
+  gap: 10px;
+  padding: 30px 0;
+}
