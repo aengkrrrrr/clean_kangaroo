@@ -1,12 +1,13 @@
 .lecture_detail {
   background: #282828;
   color: var(--C-white);
+  padding-top: 170px;
 }
 .lecture_detail h2 {
   text-align: center;
   font-weight: 500;
 }
-.lecture_detail strong {
+.lecture_detail .sub_tit {
   color: var(--C-primary);
   font-family: 'DungGeunMo';
   font-weight: 500;
@@ -18,24 +19,89 @@
   display: block;
   margin: 0 auto;
 }
+.lecture_content_wrap {
+  gap: 48px;
+  padding: 100px 0 170px 0;
+}
 .lecture_content {
-  margin: 0 auto;
   width: 350px;
   border: 2px solid var(--C-white);
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 30px;
+  background: rgba(0, 73, 71, 0.3);
+  
 }
 .lec_group {
-  width: 130px;
+  width: 135px;
   border: 2px solid var(--C-white);
   padding: 10px 15px;
   border-radius: 10px;
-  gap: 25px;
+  gap: 27px;
+  position: relative;
+}
+.lec_group:after {
+  content: '';
+  position: absolute;
+  width: 67px;
+  height: 54px;
+  height: 50px;
+  right: 50%;
+  background: var(--C-primary);
+  border-left: 2px solid var(--C-white);
+  border-right: 2px solid var(--C-white);
+  border-radius: 10px 0 0 10px;
 }
 .lec_group em {
   position: relative;
+  z-index: 1;
 }
 .lecture_content .detail {
   gap: 10px;
   padding: 30px 0;
+}
+.lecture_content button,
+.lecture_content a {
+  width: 140px;
+  border-radius: 20px;
+}
+.lec_btn {
+  gap: 15px;
+}
+.lecture_system_wrap {
+  gap: 30px;
+}
+.lecture_system_wrap +.lecture_system_wrap  {
+  padding-top: 40px;
+  padding-bottom: 100px;
+}
+.lecture_system {
+  width: 625px;
+  background: var(--C-white);
+  padding: 30px 40px;
+  gap: 50px;
+  border-radius: 20px;
+}
+.system_tit_wrap{
+  gap: 15px;
+
+}
+.lecture_system em {
+  width: 75px;
+  padding: 5px 13px;
+  background: var(--C-secondary);
+  border-radius: 10px;
+}
+.lecture_system strong {
+  color: var(--C-black);
+}
+.lecture_system p {
+  color: #777;
+}
+.lecture_system .strong {
+  color: var(--C-secondary);
+}
+.lecture_system img {
+  width: 220px;
+  height: 235px;
+  margin: 0;
 }
