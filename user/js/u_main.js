@@ -29,7 +29,7 @@ $('.lec_cate a').on('click', function(e){
   // 클릭한 탭 활성화 및 해당하는 내용 표시
   $(this).parent('.lec_cate').addClass('active');
   $(currentAttrValue).show();
-
+  
   e.preventDefault();
 });
 
