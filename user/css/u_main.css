@@ -2,7 +2,7 @@
 .main_banner {
   position:relative;
 }
-.main_count {
+.main_banner .main_count {
   position: absolute;
   width: 100%;
   left: 50%;
@@ -10,7 +10,7 @@
   transform: translate(-50%);
 }
 .user_count {
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 /********** 메인배너, 카운트다운 - 다영 */
 
