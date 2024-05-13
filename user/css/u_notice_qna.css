@@ -2,13 +2,13 @@
       padding: 0;
     }
 
-    .wrapper h3 {
+    .wrapper .h3 {
       text-align: center;
-      font-size: 40px;
-        padding : 54px 0;
-      font-weight: bold;
+      padding : 54px 0;
     }
-
+.h3.view{
+  padding : 54px 0 0;
+}
     .upper_wrapper {
       display: flex;
       justify-content: space-between;
@@ -36,20 +36,17 @@
     thead tr th {
       padding: 27px 0;
       background-color: #bdbdbd;
-      font-weight: bold;
       border: #bdbdbd;
-      font-size:18px;
     }
 
     thead {
       border-color: #bdbdbd;
     }
 
-    .notice_list tr * {
+    .notice_list tr.body3b * {
       color: black;
       text-decoration: none;
       text-align: center;
-      font-size:18px;
     }
 
     .notice_list tr td {
@@ -86,11 +83,10 @@
     outline: 0;
     box-shadow: 0 0 0 .25rem rgba(20, 196, 190, .25);
 }
-    .u_notice.table {
+    .u_notice.table.body3 {
      border: 1px solid #bdbdbd;
      border-radius: 5px;
      width: 1200px;
-     font-size: 18px;
     }
     .u_notice.table.view{
     margin: 68px auto 0;
@@ -170,8 +166,7 @@
     .notice_viewd tr td:first-child{
       padding-bottom: 81px;
     }
-    .notice_viewd{
-      font-size: 18px;
+    .notice_viewd.body3{
       text-align: left;
       border-top:1px solid #dbdbdb;
     }
@@ -188,10 +183,8 @@
       font-size: 24px;
       font-weight: bold;
     }
-    .notice_viewhead tr th:nth-child(2),
-    .notice_viewhead tr th:nth-child(3){
+    .notice_viewhead tr .body3{
       border:none;
-      font-size: 18px;
     }
     .listbtn{
       margin: 0 auto;
@@ -229,8 +222,5 @@
       margin-bottom:10px;
       margin-top:60px;
       padding:25px;
-    }
-    .wrapper.usergrid.view h3{
-      padding: 54px auto 0;
     }
 
