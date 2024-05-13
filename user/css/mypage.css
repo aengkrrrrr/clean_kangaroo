@@ -1,10 +1,13 @@
 .mypage_wrap {
-    padding: 80px 0;
+    padding: 100px 0;
+}
+.mypage_common {
+    position: fixed;
+    left: 361px;
+    top: 200px;
 }
 .mypage_menu {
-    position: absolute;
-    left: 350px;
-    top: 280px;
+    padding-top: 30px;
 }
 .mypage_menu .menu {
     gap: 15px;
@@ -16,14 +19,16 @@
 /* 강의 */
 .my_lecture,
 .my_coupon,
-.my_review {
+.my_review,
+.my_qna {
     margin-left: 370px;
     position: relative;
 }
 .my_lecture h2,
-.my_coupon h3,
-.my_review h2 {
-    padding-bottom: 15px;
+.my_coupon h2,
+.my_review h2,
+.my_qna h2 {
+    padding-bottom: 20px;
 }
 .my_lecture #search_keyword,
 .my_coupon #search_keyword{
@@ -59,52 +64,67 @@
 }
 
 /* 수강평 */
-.my_review {
+.my_review,
+.my_qna {
     width: 838px;
 
 }
-.review_table thead {
+.review_table thead
+.qna_table thead {
     position: relative;
 }
-.review_table thead tr th {
+.review_table thead tr th,
+.qna_table thead tr th {
     padding: 15px 0;
-    
 }
-.review_table thead:after {
+.review_table thead:after,
+.qna_table thead:after {
     content: '';
     position: absolute;
     left: 26px;
-    bottom: 0;
     width: 778px;
     height: 1px;
     background: #BDBDBD;
 }
-.my_review .mypage_ct {
+.my_review .mypage_ct,
+.my_qna .mypage_ct {
     width: 838px;
     border: 1px solid #bdbdbd;
     border-radius: 10px;
 }
-.review_table tbody tr td {
-    padding: 20px 0;
+.review_table tbody tr td,
+.qna_table tbody tr td  {
+    padding: 30px 0;
 }
 .review_table thead tr,
-.review_table tbody tr {
+.review_table tbody tr,
+.qna_table thead tr,
+.qna_table tbody tr{
     width: 838px;
     position: relative;
     justify-content: space-around;
 }
-.review_table tbody tr:after {
+.review_table tbody tr + tr:after,
+.qna_table tbody tr + tr:after {
     content: '';
     position: absolute;
     left: 26px;
-    bottom: 0;
+    top: 0;
     width: 778px;
     height: 1px;
     background: #BDBDBD;
 }
 .review_table tbody tr .edit,
-.review_table tbody tr .del {
+.review_table tbody tr .del,
+.qna_table tbody tr .edit,
+.qna_table tbody tr .del  {
     width: 60px;
     height: 40px;
     padding: 0;
 }
+.nav_wrap .review,
+.nav_wrap .qna  {
+    padding-left: 685px;
+}
+
+/* 질문 */
