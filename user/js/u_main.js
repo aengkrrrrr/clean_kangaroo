@@ -77,3 +77,20 @@ pager: false
 });
 
 /////////// 이벤트 - 다영
+
+
+
+
+
+
+
+
+
+
+// 강좌 보기 페이지
+$('.lec_cur_wrap').bxSlider({
+  minSlides: 1,
+  pager:false,
+  prevSelector:'.lec_cur_wrap .controls .prev',
+  nextSelector:'.lec_cur_wrap .controls .next'
+  });
