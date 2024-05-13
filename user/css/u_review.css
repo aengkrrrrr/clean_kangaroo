@@ -38,10 +38,17 @@
 .review_form_wrap {
   margin-top:70px;
   margin-bottom: 95px;
-  padding:0px 74px;
+  padding: 17px 74px;
   justify-content: space-between;
   align-items: center;
   border: 1px solid var(--C-disable, #BDBDBD);
+}
+.review_form_wrap .board_category {
+  padding:0;
+}
+.review_form_wrap .board_category .select_wrap .form-select {
+  width: 150px;
+  margin-right: 25px;
 }
 .intreview_box {
   margin-bottom:103px;
@@ -52,6 +59,16 @@
   background: #f8f8f8;
   padding: 40px;
   margin-top: 30px;
+}
+.user_intreview_tbox .df {
+  justify-content: space-between;
+  align-items: center;
+}
+.user_intreview_cbox {
+  border: 1px solid var(--C-black, #000);
+  border-radius: 10px;
+  padding:30px;
+  box-sizing: border-box;
 }
 .user_review_pager {
   margin-bottom:95px;
