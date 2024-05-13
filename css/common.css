@@ -376,6 +376,10 @@ footer {
   width: 100%;
   background: var(--C-black, #000);
 }
+.user_countainer {
+  width: 1200px;
+  margin:0 auto;
+}
 .u_footer_wrap {
   justify-content: space-between;
   padding: 46px 0;
@@ -387,7 +391,7 @@ footer h2 a {
   text-indent: -9999em;
   background: url('../../images/user_footerlogo.png') no-repeat;
 }
-.usergrid .u_footer_wrap ul {
+.user_countainer .u_footer_wrap ul {
   position: relative;
   flex-wrap: wrap;
   width: 543px;

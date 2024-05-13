@@ -1,7 +1,11 @@
 <?php
 session_start();
+<<<<<<< Updated upstream
 $title = "공지사항 관리";
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
+=======
+$title = "공지사항";
+>>>>>>> Stashed changes
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 //테이블조회
@@ -130,7 +134,6 @@ $mysqli->query($sqlUpdate);
             </tr>     
         </tbody>
         </table>
-      </form>
     </div>
       <footer class="usergrid">
         <div class="df u_footer_wrap">

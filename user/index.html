@@ -15,6 +15,11 @@
   <link rel="stylesheet" href="./css/u_common.css">
   <link rel="stylesheet" href="./css/u_main.css">
   <title>Deep Learning kangaroo</title>
+  <style>
+    .lec_container{
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body class="u_body">
 <!-- 사용자 헤더 -->
@@ -92,16 +97,109 @@
   </header>
 <!------- 사용자 헤더 -->
 <main>
-  <!-- 메인배너 - 다영 -->
-    <section class="main_banner">
-        <ul class="user_banner">
-          <li><img src="../images/user_main_banner1.png" alt=""></li>
-          <li><img src="../images/user_main_banner2.png" alt=""></li>
-          <li><img src="../images/user_main_banner3.png" alt=""></li>
-        </ul>
-    </section>
-  <!----------- 메인배너 - 다영 -->
+<!-- 메인배너 - 다영 -->
+  <section class="main_banner">
+    <div class="main_count usergrid">
+      <ul class="user_count df">
+        <li>
+          <p>[캥거루 패밀리 세일]</p>
+          <p>구독 할인 중!</p>
+        </li>
+        <li>
+          <div class="countdown">
+            <div id="clock" class="card card-default">
+              <div class="card-body df">
+                <div class="clock-section">
+                  <div id="hours" class="value text-warning">00</div>
+                </div>
+                <div class="clock-section">
+                  <div id="minutes" class="value text-warning">00</div>
+                </div>
+                <div class="clock-section">
+                  <div id="seconds" class="value text-warning">00</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <a href="">지금 혜택 받기</a>
+        </li>
+      </ul>
+    </div>
+    <ul class="user_banner">
+      <li><img src="../images/user_main_banner1.png" alt=""></li>
+      <li><img src="../images/user_main_banner2.png" alt=""></li>
+      <li><img src="../images/user_main_banner3.png" alt=""></li>
+    </ul>
     
+  </section>
+<!----------- 메인배너 - 다영 -->
+  
+<!-- 강좌소개 - 선진 -->
+  <section class="main_lecture">
+    <h2>강좌소개</h2>
+    <div class="lec df">
+    <div class="lec_cate active"><a href="#tab1">웹/편집/인테리어</a></div>
+    <div class="lec_cate"><a href="#tab2">CG/VFX</a></div>
+    <div class="lec_cate"><a href="#tab3">모션그래픽</a></div>
+    <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
+    </div>
+    <div class="lec_wrapper df">
+      <div class="lec_container df con1" id="tab1">
+        <ul>
+          <li><a href=""><img src="../images/Rectangle 161.png" /></a></li>
+          <li><a href="">[입문] 실무 프로세스를 따라 직접 만들며 배우는, 스무의 실전 피그마 A to Z</a></li>
+        </ul>
+        <ul>
+          <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
+          <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
+        </ul>
+        <ul>
+          <li><a href=""><img src="../images/Rectangle 159.png" /></a></li>
+          <li><a href="">기능부터 트렌드까지, 입문자를 위한 포토샵&일러스트</a></li>
+        </ul>
+        <ul>
+          <li><a href=""><img src="../images/Rectangle 162.png" /></a></li>
+          <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
+        </ul>
+        <ul>
+          <li><a href=""><img src="../images/Rectangle 158.png" /></a></li>
+          <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
+        </ul>
+        <ul>
+          <li><a href=""><img src="../images/Rectangle 157.png" /></a></li>
+          <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
+        </ul>
+    </div>
+    <div class="lec_container df con2" id="tab2" hidden>
+      <ul>
+        <li><img src="../images/Rectangle 001.png" /></li>
+        <li>[입문] 피그마 A to Z</li>
+      </ul>
+      <ul>
+        <li><img src="../images/Rectangle 002.jpg" /></li>
+        <li>[2주 완성] 실포트폴리오 만들기</li>
+      </ul>
+      <ul>
+        <li><img src="../images/Rectangle 003.jpg" /></li>
+        <li>기능부터 트렌드까지</li>
+      </ul>
+      <ul>
+        <li><img src="../images/Rectangle 004.jpg" /></li>
+        <li>확실한 인포그래픽으로  브랜딩 디자인</li>
+      </ul>
+      <ul>
+        <li><img src="../images/Rectangle 005.jpg" /></li>
+        <li>확실한 인포그래픽으로 클인</li>
+      </ul>
+      <ul>
+        <li><img src="../images/Rectangle 006.jpg" /></li>
+        <li>확실한 인 만드는 브랜딩 디자인</li>
+      </ul>
+  </div>
+  <div class="lec_container df con3"  id="tab3" hidden>
+
   <!-- 강좌소개 - 선진 -->
     <section class="main_lecture">
       <h2>강좌소개</h2>
@@ -165,66 +263,64 @@
         </ul>
     </div>
 
-    <div class="lec_container df con3"  id="tab_content_3">
-      <ul>
-        <li><img src="http://placehold.it/730x200&text=FooBar1" /></li>
-        <li>[입문] 피그마 A to Z</li>
-      </ul>
-      <ul>
-        <li><img src="http://placehold.it/730x200&text=FooBar2" /></li>
-        <li>[2주 완성] 실포트폴리오 만들기</li>
-      </ul>
-      <ul>
-        <li><img src="http://placehold.it/730x200&text=FooBar3" /></li>
-        <li>기능부터 트렌드까지</li>
-      </ul>
-      <ul>
-        <li><img src="http://placehold.it/730x200&text=FooBar4" /></li>
-        <li>확실한 인포그래픽으로  브랜딩 디자인</li>
-      </ul>
-      <ul>
-        <li><img src="http://placehold.it/730x200&text=FooBar5" /></li>
-        <li>확실한 인포그래픽으로 클인</li>
-      </ul>
-      <ul>
-        <li><img src="http://placehold.it/730x200&text=FooBar6" /></li>
-        <li>확실한 인 만드는 브랜딩 디자인</li>
-      </ul>
-  </div>
-
-  <div class="lec_container df con4" id="tab_content_4">
+  <div class="lec_container df con3"  id="tab_content_3">
     <ul>
-      <li><img src="http://placehold.it/730x200&text=FooBar1" /></li>
+      <li><img src="../images/Rectangle 007.jpg" /></li>
       <li>[입문] 피그마 A to Z</li>
     </ul>
     <ul>
-      <li><img src="http://placehold.it/730x200&text=FooBar2" /></li>
+      <li><img src="../images/Rectangle 008.png" /></li>
       <li>[2주 완성] 실포트폴리오 만들기</li>
     </ul>
     <ul>
-      <li><img src="http://placehold.it/730x200&text=FooBar3" /></li>
+      <li><img src="../images/Rectangle 009.jpg" /></li>
       <li>기능부터 트렌드까지</li>
     </ul>
     <ul>
-      <li><img src="http://placehold.it/730x200&text=FooBar4" /></li>
+      <li><img src="../images/Rectangle 010.jpg" /></li>
       <li>확실한 인포그래픽으로  브랜딩 디자인</li>
     </ul>
     <ul>
-      <li><img src="http://placehold.it/730x200&text=FooBar5" /></li>
+      <li><img src="../images/Rectangle 011.png" /></li>
       <li>확실한 인포그래픽으로 클인</li>
     </ul>
     <ul>
-      <li><img src="http://placehold.it/730x200&text=FooBar6" /></li>
+      <li><img src="../images/Rectangle 012.png" /></li>
       <li>확실한 인 만드는 브랜딩 디자인</li>
     </ul>
-  </div> -->
-
-      <div class="lec_controls">
-        <span class="lec_prev"></span>
-        <span class="lec_next"></span>
-      </div>
-      </div>
-    </section>
+</div>
+<div class="lec_container df con4" id="tab4" hidden>
+  <ul>
+    <li><img src="../images/Rectangle 013.jpg" /></li>
+    <li>[입문] 피그마 A to Z</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 014.jpg" /></li>
+    <li>[2주 완성] 실포트폴리오 만들기</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 015.png" /></li>
+    <li>기능부터 트렌드까지</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 016.png" /></li>
+    <li>확실한 인포그래픽으로  브랜딩 디자인</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 017.png" /></li>
+    <li>확실한 인포그래픽으로 클인</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 018.png" /></li>
+    <li>확실한 인 만드는 브랜딩 디자인</li>
+  </ul>
+</div>
+    <div class="lec_controls">
+      <span class="lec_prev"></span>
+      <span class="lec_next"></span>
+    </div>
+    </div>
+  </section>
 
   <!----------- 강좌소개 - 선진 -->
 
@@ -392,24 +488,26 @@
 
   <!-- back_to_top - 선진 -->
   <div class="back-to-top"><span class="material-symbols-outlined">
-    arrow_upward
-    </span></div>
+    arrow_upward</span>
+  </div>
   <!-- back_to_top - 선진 -->
 </main>
 
   <!-- 사용자 푸터 -->
-  <footer class="usergrid">
-    <div class="df u_footer_wrap">
-      <h2><a href="index.php">딥러닝캥거루</a></h2>
-      <ul class="df">
-        <li class="body3">딥러닝캥거루</li>
-        <li class="body3">사업자번호 : 640-81-01354</li>
-        <li class="body3">대표 : 깨끗한 아기 캥거루</li>
-        <li class="body3">개인정보책임자 : 김동주</li>
-        <li class="body3">제휴&마케팅 문의 : dlkang@create.co.kr</li>
-        <li class="body3">Copyright © DEEP LEARNING KANGAROO. All Rights Reserved.</li>
-      </ul>
-      <p class="h4">대표전화<br><strong>1988-8782</strong></p>
+  <footer>
+    <div class="user_countainer">
+      <div class="df u_footer_wrap">
+        <h2><a href="index.php">딥러닝캥거루</a></h2>
+        <ul class="df">
+          <li class="body3">딥러닝캥거루</li>
+          <li class="body3">사업자번호 : 640-81-01354</li>
+          <li class="body3">대표 : 깨끗한 아기 캥거루</li>
+          <li class="body3">개인정보책임자 : 김동주</li>
+          <li class="body3">제휴&마케팅 문의 : dlkang@create.co.kr</li>
+          <li class="body3">Copyright © DEEP LEARNING KANGAROO. All Rights Reserved.</li>
+        </ul>
+        <p class="h4">대표전화<br><strong>1988-8782</strong></p>
+      </div>
     </div>
   </footer>
 <!--------- 사용자 푸터 -->

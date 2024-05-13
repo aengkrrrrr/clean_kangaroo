@@ -1,0 +1,92 @@
+@charset "utf-8";
+
+.user_subreview_title {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  margin:70px 0
+}
+.user_subreview_title h2 {
+  font-family: 'SUIT';
+  text-transform: uppercase;
+}
+.user_profile {
+  width: 370px;
+  padding:23px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid var(--C-black, #000);
+  background: var(--C-white, #fff);
+}
+.user_profile img {
+  width: 114px;
+  height: 114px;
+}
+.user_profile .user_review_img {
+  margin-bottom: 38px;
+  padding-bottom: 38px;
+  align-items: center;
+  gap:40px;
+  border-bottom: 1px solid var(--C-black, #000);
+}
+.main_review_txt {
+  flex-direction: column;
+  align-items: center;
+  gap:50px;
+}
+.review_form_wrap {
+  margin-top:70px;
+  margin-bottom: 95px;
+  padding: 17px 74px;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid var(--C-disable, #BDBDBD);
+}
+.review_form_wrap .board_category {
+  padding:0;
+}
+.review_form_wrap .board_category .select_wrap .form-select {
+  width: 150px;
+  margin-right: 25px;
+}
+.intreview_box {
+  margin-bottom:103px;
+}
+.intreview_box li {
+  width: 100%;
+  border-top: 3px solid #56c6ca;
+  background: #f8f8f8;
+  padding: 40px;
+  margin-top: 30px;
+}
+.user_intreview_tbox {
+  gap:30px;
+  margin-bottom:43px;
+}
+.user_intreview_tbox > .df {
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+}
+.user_intreview_title.df {
+  align-items: center;
+  gap: 30px;
+}
+.user_intreview_title img {
+  width: 20%;
+}
+.user_intreview_cbox {
+  border: 1px solid var(--C-black, #000);
+  border-radius: 10px;
+  padding:30px;
+  box-sizing: border-box;
+}
+.user_review_pager {
+  margin-bottom:95px;
+}
+.user_review_pager .pagination {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}

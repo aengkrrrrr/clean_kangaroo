@@ -1,5 +1,5 @@
 <?php
-$title = "공지사항 관리";
+$title = "공지사항";
 $menutitle = '게시판 관리'; 
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
@@ -28,7 +28,10 @@ while ($rs = $result->fetch_object()) {
 $totalsql = "SELECT COUNT(*) AS post_count FROM notice_board";
 $totalresult = $mysqli -> query($totalsql);
 $totalrow = $totalresult -> fetch_object(); // $row->cnt
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -110,25 +113,20 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
     <div class="wrapper usergrid">
       <h3>공지사항</h3>
       <div class="upper_wrapper df">
+<<<<<<< Updated upstream
 
         <div class="total">전체 <span class="strong figure"><?= $totalow->cnt?></span>건</div>
+=======
+        <div class="total">전체 <span class="strong figure"><?= count($totalrow);?></span>건</div>
+>>>>>>> Stashed changes
           <form action="" id="">
           <div class="board_category df">
-            <div class="select_wrap">
-              <select class="form-select" aria-label="" id="" name="">
-                <option selected>대분류</option>
-                <option>중분류</option>
-                <option>소분류</option>
-              </select>
-            </div>
             <div class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
               <button class="primary_btn">검색</button>
             </div>
           </div>
-        </form>
 </div>
-      <form action="">
         <table class="u_notice table">
           <thead>
             <tr>
@@ -156,7 +154,6 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
           ?>
           </tbody>
         </table>
-      </form>
       <!--공통 pagination-->
       <div class="nav_wrap df aic">
         <nav aria-label="">
