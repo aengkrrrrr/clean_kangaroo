@@ -19,6 +19,12 @@ prevSelector:'.lec_controls .lec_prev',
 nextSelector:'.lec_controls .lec_next'
 });
 
+$('.con1').show();
+$('.con2').hide();
+$('.con3').hide();
+$('.con4').hide();
+
+
 $('.lec_cate a').on('click', function(e){
   var currentAttrValue = $(this).attr('href');
 
@@ -37,8 +43,6 @@ $(".lec_cate").click(function(){
 $(".lec_cate").removeClass("active"); 
 $(this).addClass("active"); 
 });
-
-
 
 //////////// 강좌소개 - 선진 
 
