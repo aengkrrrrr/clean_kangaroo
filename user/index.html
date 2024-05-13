@@ -20,6 +20,11 @@
       margin: 0 auto;
     }
   </style>
+  <style>
+    .lec_container{
+      margin: 0 auto;
+    }
+  </style>
 </head>
 <body class="u_body">
 <!-- 사용자 헤더 -->
@@ -42,19 +47,19 @@
         </ul>
       </nav>
       <div class="util_wrap df aic">
-        <a href="" class="u_search"><span class="material-symbols-outlined">search</span></a>
+        <button class="u_search"><span class="material-symbols-outlined">search</span></button>
         <a href="cart.html" class="cart">
-        <span class="material-symbols-outlined">shopping_cart</span>
-        <span class="cart_quantity">1</span>
-      </a>
+          <span class="material-symbols-outlined">shopping_cart</span>
+          <span class="cart_quantity">1</span>
+        </a>
         <a href="u_login.html">로그인</a>
       </div>
     </div>
     <div class="search_area">
-      <div class="search_wrap df aic">
+      <form action="" class="search_wrap df aic" method="POST">
         <input class="form-control search" type="text" id="search_keyword" name="keyword" placeholder="관심주제, 강의, 포트폴리오 찾기">
-        <a href="" class="u_search"><span class="material-symbols-outlined">search</span></a>
-      </div>
+        <button class="u_search"><span class="material-symbols-outlined">search</span></button>
+      </form>
       <div class="best_wrap">
         <span class="body3b">지금 인기있는 BEST</span>
         <ol class="best_lec df">
@@ -69,6 +74,29 @@
           <li class="body2"><strong class="body1b">7</strong>웹 디자인 기초</li>
           <li class="body2"><strong class="body1b">8</strong>3D 랜더링</li>
         </ol>
+      </div>
+    </div>
+    <div class="min_cart_wrap">
+      <div class="min_cart df">
+        <img src="/images/cart_img01.png" alt="" class="min_cart_img">
+        <p class="min_cart_ct">
+            <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
+            <span class="min_cart_price body4">200,000원</span>
+        </p>
+      </div>
+      <div class="min_cart df">
+        <img src="/images/cart_img01.png" alt="" class="min_cart_img">
+        <p class="min_cart_ct">
+            <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
+            <span class="min_cart_price body4">200,000원</span>
+        </p>
+      </div>
+      <div class="min_cart df">
+        <img src="/images/cart_img01.png" alt="" class="min_cart_img">
+        <p class="min_cart_ct">
+            <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
+            <span class="min_cart_price body4">200,000원</span>
+        </p>
       </div>
     </div>
   </header>
@@ -200,6 +228,39 @@
       <li><img src="../images/Rectangle 012.png" /></li>
       <li>확실한 인 만드는 브랜딩 디자인</li>
     </ul>
+</div>
+<div class="lec_container df con4" id="tab4" hidden>
+  <ul>
+    <li><img src="../images/Rectangle 013.jpg" /></li>
+    <li>[입문] 피그마 A to Z</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 014.jpg" /></li>
+    <li>[2주 완성] 실포트폴리오 만들기</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 015.png" /></li>
+    <li>기능부터 트렌드까지</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 016.png" /></li>
+    <li>확실한 인포그래픽으로  브랜딩 디자인</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 017.png" /></li>
+    <li>확실한 인포그래픽으로 클인</li>
+  </ul>
+  <ul>
+    <li><img src="../images/Rectangle 018.png" /></li>
+    <li>확실한 인 만드는 브랜딩 디자인</li>
+  </ul>
+</div>
+    <div class="lec_controls">
+      <span class="lec_prev"></span>
+      <span class="lec_next"></span>
+    </div>
+    </div>
+  </section>
 </div>
 <div class="lec_container df con4" id="tab4" hidden>
   <ul>
@@ -397,12 +458,26 @@
 
   <!-- back_to_top - 선진 -->
   <div class="back-to-top"><span class="material-symbols-outlined">
-    arrow_upward
-    </span></div>
+    arrow_upward</span>
+  </div>
   <!-- back_to_top - 선진 -->
 </main>
 
   <!-- 사용자 푸터 -->
+  <footer>
+    <div class="user_countainer">
+      <div class="df u_footer_wrap">
+        <h2><a href="index.php">딥러닝캥거루</a></h2>
+        <ul class="df">
+          <li class="body3">딥러닝캥거루</li>
+          <li class="body3">사업자번호 : 640-81-01354</li>
+          <li class="body3">대표 : 깨끗한 아기 캥거루</li>
+          <li class="body3">개인정보책임자 : 김동주</li>
+          <li class="body3">제휴&마케팅 문의 : dlkang@create.co.kr</li>
+          <li class="body3">Copyright © DEEP LEARNING KANGAROO. All Rights Reserved.</li>
+        </ul>
+        <p class="h4">대표전화<br><strong>1988-8782</strong></p>
+      </div>
   <footer>
     <div class="user_countainer">
       <div class="df u_footer_wrap">
@@ -431,4 +506,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js" integrity="sha512-ahmSZKApTDNd3gVuqL5TQ3MBTj8tL5p2tYV05Xxzcfu6/ecvt1A0j6tfudSGBVuteSoTRMqMljbfdU0g2eDNUA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </html>
