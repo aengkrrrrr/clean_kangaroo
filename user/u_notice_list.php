@@ -112,13 +112,6 @@ while ($rs = $result->fetch_object()) {
         <div class="total">전체 <span class="strong figure"></span>건</div>
           <form action="" id="">
           <div class="board_category df">
-            <div class="select_wrap">
-              <select class="form-select" aria-label="" id="" name="">
-                <option selected>대분류</option>
-                <option>중분류</option>
-                <option>소분류</option>
-              </select>
-            </div>
             <div class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
               <button class="primary_btn sea">검색</button>
