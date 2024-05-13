@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+.user_subevent_title {
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+  margin: 0 auto;
+  margin:70px 0;
+}
+.user_subevent_title h2 {
+  font-family: 'SUIT';
+  text-transform: uppercase;
+}
+.event_btn {
+  display: block;
+  width: 100%;
+  padding: 11px 0;
+  text-align: center;
+  border-radius: 50px;
+  background: var(--C-primary, #14C4BE);
+  transition: 0.2s;
+}
+.event_btn:hover{
+  background: var(--C-hover);
+  /* color:var(--C-white, #fff); */
+}
+.user_subevent_wrap {
+  padding:0 74px;
+  margin-bottom:103px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  column-gap:70px;
+  row-gap:90px;
+}
+.user_subevent_wrap img {
+  margin-bottom:20px;
+}
+.event_pager {
+  margin-bottom:95px;
+}
+.event_pager .pagination {
+  display: flex;
+  padding: 0;
+  justify-content: center;
+}

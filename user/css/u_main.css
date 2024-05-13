@@ -75,22 +75,23 @@
   .lec_prev .bx-prev{
     background: url(../../images/navi_arrow.png) no-repeat;
     object-fit:fill;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     top: 1100px;
     left: 327px;
     text-indent: -9999px;
     cursor: pointer;
-    transition: 0.3s;
     z-index: 99;
+    background-color: white;
+    border-radius: 50%;
   }
   .lec_next .bx-next{
     background: url(../../images/navi_arrow.png) no-repeat;
     object-fit:fill;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
     display: block;
     position: absolute;
     transform: rotate(180deg);
@@ -98,7 +99,6 @@
     right: 327px;
     text-indent: -9999px;
     cursor: pointer;
-    transition: 0.3s;
     z-index: 99;
     background-color: white;
     border-radius: 50%;
@@ -249,8 +249,9 @@
   /*********** 수강평 - 다영 */
   
   /* 이벤트 - 다영 */
-  
+  .main_event { margin:50px 0;}
   .user_e_title {
+    position: relative;
     width: 100%;
     height: 425px;
     padding: 50px 0;
@@ -287,18 +288,32 @@
   .user_e_link:hover {
     text-decoration: underline;
   }
-  #slider_next {
+  .slider_next .bx-next{
     display: block;
-  }
-  .user_e_slide {
-    margin:47px 0;
+    position:absolute;
+    background: url(../../images/user_event_navigation.svg) no-repeat;
+    text-indent: -999px;
+    width: 60px;
+    height: 60px;
+    bottom: 0px;
+    right: 70px;
+    cursor: pointer;
   }
   .user_e_slide li {
-    width: 360px;
-    height: 430px;
     border-radius: 8px;
-    background: #FFF;
-    box-shadow: 1px 2px 9.7px 0px rgba(0, 0, 0, 0.25);
+    transition:0.5s all;
+  }
+  .user_e_slide li:hover {
+    transform:translateY(-20px);
+  }
+  .user_e_slide li:hover a {
+    box-shadow:5px 5px 10px rgba(0,0,0,.15);
+  }
+  .user_e_slide li a {
+    display: block;
+  }
+  .user_e_slide p {
+    padding: 23px 10px;
   }
   .user_e_slide p:hover {
     text-decoration: underline;
@@ -319,13 +334,28 @@
     right: 20px;
     z-index: 99;
     background-color: var(--C-primary);
-    color: #fff;
     border: none;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
   }
+  .back-to-top.qna{
+    background-color: var(--C-secondary);
+    bottom: 98px;
+    padding:0;
+    text-align: center;
+
+  }
+  .back-to-top.qna span{
+    font-size: 24px;
+    line-height: 70px;
+    text-align: center;
+    vertical-align: inherit;
+  }
   .back-to-top span{
     font-size: 50px;
+    color: #fff;
   }
   /************* back to top - 선진 */

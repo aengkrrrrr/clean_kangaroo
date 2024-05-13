@@ -40,8 +40,6 @@ $(this).addClass("active");
 
 
 
-
-
 //////////// 강좌소개 - 선진 
 
 
@@ -74,8 +72,7 @@ moveSlides: 1,
 slideWidth: 330,
 slideMargin: 60,
 maxSlides: 3,
-nextSelector: '#slider_next',
-prevSelector: false,
+nextSelector: '.user_e_title .slider_next',
 pager: false
 });
 
