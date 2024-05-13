@@ -5,19 +5,17 @@
     .wrapper h3 {
       text-align: center;
       font-size: 40px;
-      line-height: 44px;
-      padding : 54px 0;
+        padding : 54px 0;
       font-weight: bold;
     }
-    /* .usergrid{
-      width: 1200px;
-    } */
+
     .upper_wrapper {
       display: flex;
       justify-content: space-between;
       margin: 0 auto;
       width: 1200px;
     }
+
 
     .search {
       display: flex;
@@ -34,7 +32,6 @@
 .total{
   font-size: 24px;
   font-weight: bold;
-  line-height: 32px;
 }
     thead tr th {
       padding: 27px 0;
@@ -82,7 +79,7 @@
 .board_category{
   gap: 5px;
   align-items: center;
-  padding-bottom:48px;
+  padding-bottom:45px;
 }
 .form-select:focus {
     border-color: var(--C-primary);
@@ -90,13 +87,15 @@
     box-shadow: 0 0 0 .25rem rgba(20, 196, 190, .25);
 }
     .u_notice.table {
-      border: 1px solid #bdbdbd;
+     border: 1px solid #bdbdbd;
      border-radius: 5px;
-      margin: 0 auto;
-      width: 1200px;
-      font-size: 18px;
-      line-height: 25px;
+     width: 1200px;
+     font-size: 18px;
     }
+    .u_notice.table.view{
+    margin: 68px auto 0;
+    }
+
     .table>thead th {
     padding: 24px 0;
     background: white;
@@ -144,6 +143,8 @@
     .notice_viewhead tr {
       padding: 54px 0;
     }
+
+    
     .notice_viewhead tr th:first-child,
     .notice_viewd tr td:first-child{
       text-align: left;
@@ -151,13 +152,17 @@
       padding-right:33px;
           }
 
+
+     .notice_viewhead tr{
+      position: relative;
+     }
     .notice_viewhead tr th:last-child:after{
       content: '';
       position: absolute;
-      width: 1152px;
+      width: 1130px;
       height: 1px;
-      left: 385px;
-      top: 392px;
+      left: 34px;
+      top: 140px;
       background:  #BDBDBD;
     }
 
@@ -167,7 +172,6 @@
     }
     .notice_viewd{
       font-size: 18px;
-      line-height: 25px;
       text-align: left;
       border-top:1px solid #dbdbdb;
     }
@@ -182,14 +186,12 @@
       padding-bottom: 54px;
       border-bottom: none;
       font-size: 24px;
-      line-height: 32px;
       font-weight: bold;
     }
     .notice_viewhead tr th:nth-child(2),
     .notice_viewhead tr th:nth-child(3){
       border:none;
       font-size: 18px;
-      line-height: 25px;
     }
     .listbtn{
       margin: 0 auto;
@@ -214,3 +216,18 @@
     .wrapper.usergrid{
       margin-bottom: 72px;
     }
+    .res{
+      border-radius: 5px;
+      border:1px solid #dbdbdb;
+       width: 906px;
+      height: 168px;
+      font-weight: normal;
+      padding:25px;
+    }
+    .res_wrap{
+      font-weight: bold;
+      margin-bottom:10px;
+      margin-top:60px;
+      padding:25px;
+    }
+

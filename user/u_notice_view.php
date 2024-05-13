@@ -1,7 +1,11 @@
 <?php
 session_start();
+<<<<<<< HEAD
 $title = "공지사항 관리";
 $css1 = '<link rel="stylesheet" href="../../css/notice.css">';
+=======
+$title = "공지사항";
+>>>>>>> main-park
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 //테이블조회
@@ -96,7 +100,6 @@ $mysqli->query($sqlUpdate);
   <!------- 사용자 헤더 -->
     <div class="wrapper usergrid">
       <h3>공지사항</h3>
-      <form action="">
         <table class="u_notice table">
           <thead class="notice_viewhead">
             <tr>

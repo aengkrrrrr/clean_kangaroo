@@ -10,40 +10,35 @@ $(".user_banner").bxSlider( {
 ///////////// 메인배너 - 다영
 
 // 강좌소개 - 선진 
-$('.lec_container').bxSlider({
-minSlides: 2,
-maxSlides: 4,
-slideWidth: 282,
-slideMargin: 30,
-pager:false,
-prevSelector:'.lec_controls .lec_prev',
-nextSelector:'.lec_controls .lec_next'
-});
+$lec_slide = $('.lec_wrapper .con');
 
-$('.con1').show();
-$('.con2').hide();
-$('.con3').hide();
-$('.con4').hide();
+
+  $('.lec_container').bxSlider({
+    minSlides: 2,
+    maxSlides: 4,
+    slideWidth: 282,
+    slideMargin: 30,
+    pager:false,
+    });
+
 
 
 $('.lec_cate a').on('click', function(e){
+  e.preventDefault();
   var currentAttrValue = $(this).attr('href');
 
   // 탭의 활성화 상태 제어
   $('.lec_cate').removeClass('active');
-  $('.lec_container').hide();
+  $lec_slide .removeClass('active');
+
 
   // 클릭한 탭 활성화 및 해당하는 내용 표시
   $(this).parent('.lec_cate').addClass('active');
-  $(currentAttrValue).show();
-  
-  e.preventDefault();
+  $(currentAttrValue).addClass('active');
+
+ 
 });
 
-$(".lec_cate").click(function(){
-$(".lec_cate").removeClass("active"); 
-$(this).addClass("active"); 
-});
 
 //////////// 강좌소개 - 선진 
 
@@ -82,3 +77,20 @@ pager: false
 });
 
 /////////// 이벤트 - 다영
+
+
+
+
+
+
+
+
+
+
+// 강좌 보기 페이지
+$('.lec_cur_wrap').bxSlider({
+  minSlides: 1,
+  pager:false,
+  prevSelector:'.lec_cur_wrap .controls .prev',
+  nextSelector:'.lec_cur_wrap .controls .next'
+  });

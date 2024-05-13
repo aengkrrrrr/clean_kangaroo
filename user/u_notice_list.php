@@ -108,13 +108,7 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
     <div class="wrapper usergrid">
       <h3>공지사항</h3>
       <div class="upper_wrapper df">
-<<<<<<< Updated upstream
-
-        <div class="total">전체 <span class="strong figure"><?= $totalow->cnt?></span>건</div>
-=======
         <div class="total">전체 <span class="strong figure"><?= count($totalrow);?></span>건</div>
->>>>>>> Stashed changes
-          <form action="" id="">
           <div class="board_category df">
             <div class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
