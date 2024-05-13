@@ -1,13 +1,16 @@
 @charset "utf-8";
 
-.user_subreview_title {
+/* review_list */
+.user_subreview_title,
+.user_review_writett {
   display: inline-block;
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  margin:70px 0
+  margin:70px 0;
 }
-.user_subreview_title h2 {
+.user_subreview_title h2,
+.user_review_writett h2 {
   font-family: 'SUIT';
   text-transform: uppercase;
 }
@@ -84,6 +87,9 @@
 .user_intreview_title img {
   width: 20%;
 }
+.user_review_writecn > div {
+  margin-bottom: 30px;
+}
 main p.df {justify-content: flex-end;}
 .user_intreview_cbox {
   border: 1px solid var(--C-black, #000);
@@ -95,4 +101,21 @@ main p.df {justify-content: flex-end;}
   display: flex;
   padding: 0;
   justify-content: center;
+}
+
+/* review_up */
+
+.user_review_titlewrap > .form-floating {
+  width: 80%;
+}
+.make_star {
+  width: 20%;
+  justify-content: flex-end;
+  align-items: center;
+}
+.make_star select {
+  width: 30px;
+}
+.rating svg{
+	color:#ebebeb;
 }
