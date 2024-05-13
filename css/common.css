@@ -375,6 +375,7 @@ h1{
 footer {
   width: 100%;
   background: var(--C-black, #000);
+  margin-top:94px;
 }
 .user_countainer {
   width: 1200px;

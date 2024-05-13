@@ -43,12 +43,20 @@
   align-items: center;
   border: 1px solid var(--C-disable, #BDBDBD);
 }
+.review_form_wrap .totalcp span { color:var(--C-primary, #14C4BE);}
+.board_container .board_container {
+  width: 100%;
+}
 .review_form_wrap .board_category {
   padding:0;
+  gap:20px;
+}
+.review_form_wrap .board_category .select_wrap {width: auto;}
+.review_form_wrap .board_category .form-control {
+  width: 340px;
 }
 .review_form_wrap .board_category .select_wrap .form-select {
   width: 150px;
-  margin-right: 25px;
 }
 .intreview_box {
   margin-bottom:103px;
@@ -76,14 +84,12 @@
 .user_intreview_title img {
   width: 20%;
 }
+main p.df {justify-content: flex-end;}
 .user_intreview_cbox {
   border: 1px solid var(--C-black, #000);
   border-radius: 10px;
   padding:30px;
   box-sizing: border-box;
-}
-.user_review_pager {
-  margin-bottom:95px;
 }
 .user_review_pager .pagination {
   display: flex;
