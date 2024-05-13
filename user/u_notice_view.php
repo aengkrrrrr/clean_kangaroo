@@ -1,6 +1,6 @@
 <?php
 session_start();
-$title = "공지사항 관리";
+$title = "공지사항";
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 //테이블조회
@@ -129,7 +129,6 @@ $mysqli->query($sqlUpdate);
             </tr>     
         </tbody>
         </table>
-      </form>
     </div>
       <footer class="usergrid">
         <div class="df u_footer_wrap">

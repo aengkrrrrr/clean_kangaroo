@@ -1,5 +1,5 @@
 <?php
-$title = "공지사항 관리";
+$title = "공지사항";
 $menutitle = '게시판 관리'; 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
@@ -24,9 +24,9 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
-// $totalsql = "SELECT COUNT(*) AS post_count FROM notice_board";
-// $totalresult = $mysqli -> query($totalsql);
-// $totalrow = $totalresult -> fetch_object(); // $row->cnt
+$totalsql = "SELECT COUNT(*) AS post_count FROM notice_board";
+$totalresult = $mysqli -> query($totalsql);
+$totalrow = $totalresult -> fetch_object(); // $row->cnt
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -108,25 +108,15 @@ while ($rs = $result->fetch_object()) {
     <div class="wrapper usergrid">
       <h3>공지사항</h3>
       <div class="upper_wrapper df">
-
-        <div class="total">전체 <span class="strong figure"></span>건</div>
+        <div class="total">전체 <span class="strong figure"><?= count($totalrow);?></span>건</div>
           <form action="" id="">
           <div class="board_category df">
-            <div class="select_wrap">
-              <select class="form-select" aria-label="" id="" name="">
-                <option selected>대분류</option>
-                <option>중분류</option>
-                <option>소분류</option>
-              </select>
-            </div>
             <div class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
               <button class="primary_btn sea">검색</button>
             </div>
           </div>
-        </form>
 </div>
-      <form action="">
         <table class="u_notice table">
           <thead>
             <tr>
@@ -153,7 +143,6 @@ while ($rs = $result->fetch_object()) {
           ?>
           </tbody>
         </table>
-      </form>
       <!--공통 pagination-->
       <div class="nav_wrap df aic">
         <nav aria-label="">

@@ -29,7 +29,7 @@ $('.lec_cate a').on('click', function(e){
   // 클릭한 탭 활성화 및 해당하는 내용 표시
   $(this).parent('.lec_cate').addClass('active');
   $(currentAttrValue).show();
-
+  
   e.preventDefault();
 });
 
@@ -77,18 +77,3 @@ pager: false
 });
 
 /////////// 이벤트 - 다영
-
-// back_to_top - 선진 
-$(window).scroll(function(){
-if ($(this).scrollTop() > 100) {
-$('.back-to-top').fadeIn();
-} else {
-$('.back-to-top').fadeOut();
-}
-});
-
-$('.back-to-top').click(function(){
-$('html, body').animate({scrollTop : 0},0);
-return false;
-});
-//////////// back_to_top - 선진 
