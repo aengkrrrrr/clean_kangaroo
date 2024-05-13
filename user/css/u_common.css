@@ -6,3 +6,37 @@ h2 {
 .bx-wrapper {
   box-shadow: none;
 }
+
+
+/* 미니 카트 */
+.min_cart_wrap {
+  display: none;
+  position: absolute;
+  right: 80px;
+  top: 75px;
+  width: 240px;
+  border: 1px solid var(--C-gray);
+  box-shadow: 3px 3px 4px rgba(150, 150, 150, 0.25);
+  z-index: 100;
+  border-radius: 10px;
+  padding: 30px 24px;
+  background: var(--C-white);
+}
+.min_cart + .min_cart {
+  padding-top: 30px;
+}
+.min_cart_img {
+  width: 71px;
+  height: 67px;
+}
+.min_cart_ct {
+  padding-top: 8px;
+  padding-left: 10px;
+  height: 67px;
+}
+.min_cart_price {
+  color: var(--C-primary);
+  display: block;
+  padding-top: 5px;
+}
+/*********** 미니 카트 */

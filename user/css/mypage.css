@@ -1,10 +1,13 @@
 .mypage_wrap {
     padding: 100px 0;
 }
-.mypage_menu {
-    position: absolute;
+.mypage_common {
+    position: fixed;
     left: 361px;
-    top: 300px;
+    top: 200px;
+}
+.mypage_menu {
+    padding-top: 30px;
 }
 .mypage_menu .menu {
     gap: 15px;
@@ -91,7 +94,7 @@
 }
 .review_table tbody tr td,
 .qna_table tbody tr td  {
-    padding: 20px 0;
+    padding: 30px 0;
 }
 .review_table thead tr,
 .review_table tbody tr,

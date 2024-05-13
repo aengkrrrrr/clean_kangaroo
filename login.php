@@ -39,7 +39,7 @@ if (isset($_SESSION['AUID'])) {
     <div class="popct01">
       <p>팀 깨끗한 아기 캥거루 :  추송림(팀장), 박선진, 이다영</p>
       <p><strong>제작기간:</strong> 2024. 04. 8 ~ 2024. 5. 25</p>
-      <p><strong>개발환경:</strong> html5, css3, javascript, php, mySQL</p>
+      <p><strong>개발환경:</strong> HTML5, CSS3, JAVASCRIPT, PHP, MYSQL</p>
       <div class="link df aic">
         <p>
           <strong>기획서:</strong>
