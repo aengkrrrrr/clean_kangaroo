@@ -13,7 +13,7 @@ searchBtn.addEventListener('click',function(e){
 				{ height: '310px'},
 
 			],
-			{duration:500, fill: "forwards", mode: 'swing'},
+			{duration:800, fill: "forwards", easing: "cubic-bezier(0.34, 1.56, 0.64, 1)"},
 		);
 				
 	} else {
@@ -22,7 +22,7 @@ searchBtn.addEventListener('click',function(e){
 				{ height: '310px'},
 				{ height: '0px'},
 			],
-			{duration:500, fill: "forwards"},
+			{duration:700, fill: "forwards",easing: "cubic-bezier(0.25, 1, 0.5, 1)"},
 		);
 	}
 });
@@ -45,14 +45,13 @@ $(window).scroll(function(){
 	//////////// back_to_top - 선진 
 
 // 장바구니 아이콘 호버
-// let cart = document.querySelector('.util_wrap .cart');
-// let min_cart = document.querySelector('.min_cart_wrap');
+let cart = document.querySelector('.util_wrap .cart');
+let min_cart = document.querySelector('.min_cart_wrap');
 
-$('.util_wrap .cart').hover(function(){
-	$('.min_cart_wrap').animate({display:'block'});
-}, function(){
-	$('.min_cart_wrap').animate({display:'none'});
-}
-)
-
+cart.addEventListener('mouseenter',function(){
+	min_cart.style.display='block';
+})
+min_cart.addEventListener('mouseleave',function(){
+	min_cart.style.display='none';
+})
 ////////////// 장바구니 아이콘 호버

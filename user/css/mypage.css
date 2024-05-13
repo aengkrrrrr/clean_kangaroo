@@ -1,10 +1,10 @@
 .mypage_wrap {
-    padding: 100px 0;
+    padding: 100px 0 60px 0;
+    gap: 100px;
 }
 .mypage_common {
-    position: fixed;
-    left: 361px;
-    top: 200px;
+    position: sticky;
+    top: 150px;
 }
 .mypage_menu {
     padding-top: 30px;
@@ -15,15 +15,12 @@
 .mypage_menu li a {
     width: 208px;
 }
+.mypage_pager {
+    padding-bottom: 60px;
+    padding-top: 0;
+}
 
 /* 강의 */
-.my_lecture,
-.my_coupon,
-.my_review,
-.my_qna {
-    margin-left: 370px;
-    position: relative;
-}
 .my_lecture h2,
 .my_coupon h2,
 .my_review h2,
@@ -67,7 +64,6 @@
 .my_review,
 .my_qna {
     width: 838px;
-
 }
 .review_table thead
 .qna_table thead {
@@ -81,8 +77,7 @@
 .qna_table thead:after {
     content: '';
     position: absolute;
-    left: 26px;
-    width: 778px;
+    width: 837px;
     height: 1px;
     background: #BDBDBD;
 }
