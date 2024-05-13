@@ -190,7 +190,7 @@ h1{
 }
 .delete_btn {
   display: inline-block;
-  background:#BE0000;
+  background:#E00000;
   border-radius: 6px;
   text-align: center;
   line-height: 22.4px;
@@ -200,6 +200,7 @@ h1{
   text-transform: capitalize;
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
+  transition: 0.2s;
 }
 .line_btn {
   display: inline-block;
@@ -215,6 +216,7 @@ h1{
   font-family: 'SUIT', sans-serif;
   cursor: pointer;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, .25);
+  transition: 0.2s;
 }
 
 
@@ -224,10 +226,13 @@ h1{
   background: var(--C-hover);
 }
 .secondary_btn:hover {
-  background: #f3790f;
+  background: #D8741E;
 }
 .basic_btn:hover {
   background: #525252;
+}
+.delete_btn:hover {
+  background: #BE0000;
 }
 
 /* 공통 pagination 호버 효과 */

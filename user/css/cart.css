@@ -21,6 +21,10 @@
   top: 6px;
   background: #777;
 }
+.select .delete_btn {
+  margin-left: 348px;
+  padding: 10px 20px;
+}
 .cart_ct {
   border: 1px solid #777;
   border-radius: 5px;

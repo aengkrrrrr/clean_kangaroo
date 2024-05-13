@@ -31,7 +31,7 @@ if (isset($_SESSION['AUID'])) {
 <body>
   <div class="popup">
     <div class="pophd">
-      <img src="../../images/pooup_logo.png" alt="팝업창 로고" class="pop_up_img">
+      <img src="/clean_kangaroo/images/pooup_logo.png" alt="팝업창 로고" class="pop_up_img">
       <strong class="body2b">LMS 포트폴리오 사이트(3차 - 관리자페이지)</strong>
       <strong class="body2b">본 사이트는 구직용 포트폴리오 웹사이트이며,<br>실제로 운영되는 사이트가 아닙니다.</strong>
     </div>
