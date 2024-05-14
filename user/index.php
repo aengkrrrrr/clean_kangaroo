@@ -300,7 +300,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             </div>
           </li>
         </ul>
-        <a href="u_review_list.html" class="primary_btn">후기 더 보러가기</a>
+        <a href="u_review_list.php" class="primary_btn">후기 더 보러가기</a>
       </div>
     </section>
   <!----------- 수강평 - 다영 -->
@@ -310,7 +310,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
     <div class="user_e_title">
       <h2>EVENT</h2>
       <p class="body2b">딥러닝캥거루에서 진행하는 다양한 이벤트를 확인하고 참여해보세요!</p>
-      <a href="event_list.html" class="user_e_link">더 보기</a>
+      <a href="event_list.php" class="user_e_link">더 보기</a>
       <span class="slider_next"></span>
     </div>
     <ul class="user_e_slide">
