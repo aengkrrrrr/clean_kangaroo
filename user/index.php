@@ -350,5 +350,4 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
 
-
 ?>
