@@ -1,5 +1,8 @@
-.lecture_detail {
+main {
   background: #282828;
+
+}
+.lecture_detail {
   color: var(--C-white);
   padding-top: 170px;
 }
@@ -76,10 +79,9 @@
   padding-bottom: 100px;
 }
 .lecture_system {
-  width: 625px;
+  width: 593px;
   background: var(--C-white);
   padding: 30px 40px;
-  gap: 50px;
   border-radius: 20px;
 }
 .system_tit_wrap{
@@ -114,19 +116,23 @@
 
 
 
-
+.lecture_cur  {
+  background: var(--C-white);
+}
 .lecture_cur h2 {
   color: var(--C-black);
   font-family: 'SUIT', sans-serif;
-  font-weight: 500;
-  padding: 90px 0 70px 0;
 }
 .cur_tit {
   justify-content: space-between;
-  padding: 0 56px;  
+  padding: 0 56px; 
+  padding: 90px 60px 70px 60px; 
 }
 .lec_cur_pager {
   gap: 20px;
+  border: 1px solid #BDBDBD;
+  border-radius: 10px;
+  padding: 30px 40px 50px 40px;
 }
 .lec_cur_wrap {
   justify-content: space-around;
@@ -135,6 +141,9 @@
   width: 486px;
   border: 1px solid var(--C-primary);
   border-radius: 15px;
+}
+.lec_cur_slide ul {
+  padding: 30px 138px 30px 40px;
 }
 .lec_cur_slide em {
   display: block;
@@ -145,9 +154,48 @@
   text-align: center;
   border-radius: 15px 15px 0 0;
 }
-.lec_cur_slide li {
-  padding: 30px 138px 30px 40px;
-}
 .lec_cur_slide li span + span {
+  padding-top: 5px;
+}
+
+.bx-controls-direction {
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.bx-prev {
+  display: block;
+  background: url(/images/navi_arrow.png) no-repeat 50% 50%;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+  position: absolute;
+  left: 0;
+  top: 155px;
+}
+.bx-next {
+  display: block;
+  background: url(/images/navi_arrow.png) no-repeat 50% 50%;
+  transform: rotate(180deg);
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+  position: absolute;
+  right: 0;
+  top: 155px;
+}
+.bx-pager{
+  display: flex;
+  gap: 20px;
+}
+.lec_cur_pager li {
+  background: url(/images/pager_star.svg) no-repeat 100% 100%;
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-align: center;
+}
+.lec_cur_pager li span {
+  display: block;
   padding-top: 5px;
 }
