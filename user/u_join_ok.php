@@ -4,10 +4,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 $userid= $_POST['userid'];
 $username = $_POST['username'];
 $email = $_POST['email'];
-$password = $_POST['passwd'];
+$pass = $_POST['passwd'];
+$password = hash('sha512', $pass);
 
-$sql = "INSERT INTO members (userid,username,email,passwd) VALUES('{$userid}','{$username}','{$email}',{$password})";
-
+$sql = "INSERT INTO members (userid,username,email,passwd) VALUES('{$userid}','{$username}','{$email}','{$password}')";
 if($mysqli->query($sql) === true) {
   echo "
   <script>

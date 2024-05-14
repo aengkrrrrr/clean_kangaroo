@@ -17,24 +17,24 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
     <div class="login_mid">
       <div class="form-floating mb-3 df aic">
         <input type="text" name="userid" class="form-control name" id="userid" required>
-        <label for="floatingInput">아이디</label>
+        <label for="userid">아이디</label>
         <button type="button" class="primary_btn check">중복</button>
       </div>
       <div class="form-floating mb-3">
         <input type="text" name="username" class="form-control" id="username" required>
-        <label for="floatingInput">이름</label>
+        <label for="username">이름</label>
       </div>
       <div class="form-floating mb-3">
         <input type="email"  name="email" class="form-control" id="email" placeholder="name@example.com" required>
-        <label for="floatingInput">이메일</label>
+        <label for="email">이메일</label>
       </div>
       <div class="form-floating mb-3">
         <input type="password"  name="passwd" class="form-control" id="passwd" required>
-        <label for="floatingInput">비밀번호</label>
+        <label for="passwd">비밀번호</label>
       </div>
       <div class="form-floating mb-3">
         <input type="password" name="passwd_check" class="form-control" id="passwd_check" required>
-        <label for="floatingInput">비밀번호 확인</label>
+        <label for="passwd_check">비밀번호 확인</label>
       </div>
     </div>
     <div class="login_bt">
