@@ -1,8 +1,7 @@
 <?php
 session_start();
 $title='수강 목록';
-$css1 =' <link rel="stylesheet" href="./css/u_main.css">';
-$css2 =' <link rel="stylesheet" href="./css/u_lecture_list.css">';
+$css1 =' <link rel="stylesheet" href="./css/u_lecture_list.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 

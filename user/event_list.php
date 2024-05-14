@@ -1,8 +1,7 @@
 <?php
 session_start();
-$title='이벤트';
-$css1 =' <link rel="stylesheet" href="./css/u_main.css">';
-$css2 =' <link rel="stylesheet" href="./css/u_event.css">';
+$title = "이벤트";
+$css1 =' <link rel="stylesheet" href="./css/u_event.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 

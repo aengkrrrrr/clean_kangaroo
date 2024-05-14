@@ -1,12 +1,31 @@
 <?php
 session_start();
 $title='수강평';
-$css1 =' <link rel="stylesheet" href="./css/u_main.css">';
-$css2 =' <link rel="stylesheet" href="./css/u_review.css">';
+$css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
+$search_where = "";
+$search_keyword = $_GET['search_keyword'] ?? '';
 
+if($search_keyword){
+  $search_where .= " and (name LIKE '%{$search_keyword}%')";
+}
+
+$paginationTarget = 'review_board';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
+
+$sql = "SELECT * FROM review_board where 1=1";
+$sql .= $search_where;
+$order = " order by name desc";
+$sql .= $order;
+$limit = " LIMIT $startLimit, $endLimit";
+$sql .= $limit;
+
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
 
 ?>
   <main class="usergrid">
@@ -14,71 +33,32 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       <h2 class="h2">REVIEW</h2>
       <p class="body1">수강하며 느낀 점을 자세히 공유해요!</p>
     </div>
+    <?php
+      if (isset($rsArr)) {
+      foreach ($rsArr as $item) {
+    ?>
       <ul class="df user_review_list">
         <li class="user_profile">
           <div class="df user_review_img">
             <img src="../images/user_profile1.png" alt="">
             <p>
-              <span class="h4">김*윤</span><br>
+              <span class="h4"><?= $item->name; ?></span><br>
               <span class="body1">3d애니메이터</span>
             </p>
           </div>
-            <p class="body3">애니메이션 작업을 파이프라인을 따라<br>
-              직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서<br>
-              개인적으로 부족한 점을 다시 한번 되돌아<br>
-              볼 수 있었습니다.
-            </p>
-        </li>
-        <li class="user_profile">
-          <div class="df user_review_img">
-            <img src="../images/user_profile1.png" alt="">
-            <p>
-              <span class="h4">김*윤</span><br>
-              <span class="body1">3d애니메이터</span>
-            </p>
-          </div>
-            <p class="body3">애니메이션 작업을 파이프라인을 따라<br>
-              직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서<br>
-              개인적으로 부족한 점을 다시 한번 되돌아<br>
-              볼 수 있었습니다.
-            </p>
-        </li>
-        <li class="user_profile">
-          <div class="df user_review_img">
-            <img src="../images/user_profile1.png" alt="">
-            <p>
-              <span class="h4">김*윤</span><br>
-              <span class="body1">3d애니메이터</span>
-            </p>
-          </div>
-            <p class="body3">애니메이션 작업을 파이프라인을 따라<br>
-              직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서<br>
-              개인적으로 부족한 점을 다시 한번 되돌아<br>
-              볼 수 있었습니다.
-            </p>
-        </li>
-        <li class="user_profile">
-          <div class="df user_review_img">
-            <img src="../images/user_profile1.png" alt="">
-            <p>
-              <span class="h4">김*윤</span><br>
-              <span class="body1">3d애니메이터</span>
-            </p>
-          </div>
-            <p class="body3">애니메이션 작업을 파이프라인을 따라 직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서 개인적으로 부족한 점을 다시 한번 되돌아볼 수 있었습니다.
-            </p>
+            <p class="body3"><?= $item->content; ?></p>
         </li>
       </ul>
+      <?php
+          }
+        }
+      ?>
       <div class="review_form_wrap df">
         <div class="totalcp">
-          <p class="body3b">전체 <span>0</span>건</p>
+          <p class="body3b">전체 <span><?= $count;  ?></span>건</p>
         </div>
         <div class="board_container">
-          <form action="" class="search_wrap">
+          <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap">
             <div class="board_category df aic">
               <div class="select_wrap">
                 <select class="form-select" id="coupon_status" class="form-select" name="status">
@@ -94,179 +74,66 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
         </div>
       </div>
       <section class="user_intreview ">
+      <?php
+        if (isset($rsArr)) {
+        foreach ($rsArr as $item) {
+      ?>
         <ul class="intreview_box">
           <li>
             <div class="user_intreview_tbox df">
               <div class="df">
                 <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
+                  <img src="<?= $item->is_img; ?>" alt="">
                   <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
+                  <p class="body4b"><?= $item->name; ?></p>
                 </div>
-                <p class="body4b">24-05-07</p>
+                <p class="body4b"><?= $item->date; ?></p>
               </div>
             </div>
             <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
-            </div>
-          </li>
-          <li>
-            <div class="user_intreview_tbox df">
-              <div class="df">
-                <div class="user_intreview_title df">
-                  <img src="../images/user_profile1.png" alt="">
-                  <p class="body4b">비주얼 디자인 포트폴리오</p>
-                  <p class="body4b">강O경</p>
-                </div>
-                <p class="body4b">24-05-07</p>
-              </div>
-            </div>
-            <div class="user_intreview_cbox">
-              <p>대학교에서 디자인을 전공했지만 졸업 후 다른 일을 하다 거의 5년 만에 다시 디자인을 하려니 막막했었는데 좋은 강사님을 만나서 포트폴리오 무사히 제작할 수 있었습니다. 다른 수강생분들 작업 공유하면서 보는 것도 좋았고 6개월간 많은 배움 얻었습니다. 정말 감사합니다!</p>
+              <p><?= $item->content; ?></p>
             </div>
           </li>
         </ul>
+        <?php
+            }
+          }
+        ?>
       </section>
-    <nav aria-label="" class="user_review_pager">
+      <nav aria-label="">
       <ul class="pagination">
-        <li class="page-item disabled">
-          <a class="page-link">&laquo;</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active" aria-current="page">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">&raquo;</a>
-        </li>
+        <?php
+        if($pageNumber > 1){
+          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
+          //이전
+          if($block_num > 1){
+            $prev = 1 + ($block_num - 2) * $block_ct;
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
+          }
+        }
+
+          for($i=$block_start;$i<=$block_end;$i++){
+            if($i == $pageNumber){
+              echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            }else{
+              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            }            
+          }  
+
+          if($pageNumber < $total_page){
+            if($total_block > $block_num){
+              $next = $block_num * $block_ct + 1;
+              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+            }
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
+          }        
+        ?>
       </ul>
-    </nav>
-    <p class="df"><a href="u_review_up.html" class="primary_btn">글쓰기</a></p>
+      </nav>
   </main>
   <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
-
+$script1 = '<script src="../../js/u_review.js"></script>';
 
 ?>
