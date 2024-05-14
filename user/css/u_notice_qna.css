@@ -87,7 +87,6 @@
      border: 1px solid #bdbdbd;
      border-radius: 5px;
      width: 1200px;
-     margin: 0 auto;
     }
     .u_notice.table.view{
     margin: 68px auto 0;
@@ -140,7 +139,6 @@
     .notice_viewhead tr {
       padding: 54px 0;
     }
-
     
     .notice_viewhead tr th:first-child,
     .notice_viewd tr td:first-child{
@@ -148,7 +146,6 @@
       padding-left:33px;
       padding-right:33px;
           }
-
 
      .notice_viewhead tr{
       position: relative;
@@ -162,8 +159,6 @@
       top: 140px;
       background:  #BDBDBD;
     }
-
-
     .notice_viewd tr td:first-child{
       padding-bottom: 81px;
     }
@@ -192,10 +187,10 @@
       width: 1200px;
       justify-content: end;
       }
-.edit{
-  width: 1198px;
-  justify-content: end;
-}
+      .edit{
+      width: 1198px;
+      justify-content: end;
+    }
     .primary_btn.list{
       margin:54px 0;
     }
@@ -227,3 +222,16 @@
       margin-left:104px;
           }
 
+          .btn_collect{
+            display: flex;
+            justify-content: right;
+            gap:50px;
+            margin-bottom:60px;
+          }
+          #floatingTextarea{
+            height:200px;
+            margin-bottom:60px;
+          }
+          /* .form-control{
+           margin: 0 10px;
+          } */
