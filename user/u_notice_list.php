@@ -30,7 +30,6 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
 ?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,7 +78,7 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
         <span class="material-symbols-outlined">shopping_cart</span>
         <span class="cart_quantity">1</span>
       </a>
-      <a href="u_login.html">로그인</a>
+      <a href="u_login.php">로그인</a>
     </div>
   </div>
   <div class="search_area">
@@ -128,20 +127,21 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
   </div>
 </header>
 <!------- 사용자 헤더 -->
-    <div class="wrapper usergrid">
-      <h3>공지사항</h3>
+<div class="wrapper usergrid">
+      <h3 class="h3">공지사항</h3>
       <div class="upper_wrapper df">
-        <div class="total">전체 <span class="strong figure"></span>건</div>
+        <div class="total">전체 <span class="strong figure">20</span>건</div>
           <div class="board_category df">
             <div class="search_wrap df">
               <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
-              <button class="primary_btn sea">검색</button>
+              <button class="primary_btn">검색</button>
             </div>
           </div>
-</div>
-        <table class="u_notice table">
+        </div>
+
+        <table class="u_notice table body3">
           <thead>
-            <tr>
+            <tr class="body3b">
               <th scope="col">번호</th>
               <th colspan="3" scope="col">제목</th>
               <th scope="col">작성일</th>
@@ -153,9 +153,9 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
             if(isset($rsArr)){
               foreach($rsArr as $ra){
             ?>
-            <tr>
+            <tr class="body3">
               <td><?=$ra->idx;?></td>
-              <td colspan="3" scope="col"><span class="strong"><a href="u_notice_view.php?idx=<?=$ra->idx;?>"><?=$ra->title;?></a></span></td>
+              <td colspan="3" scope="col"><a href="u_notice_view.php?idx=<?=$ra->idx;?>"><?=$ra->title;?></a></td>
               <td><?=$ra->date;?></td>
               <td><?=$ra->hit;?></td>
             </tr>

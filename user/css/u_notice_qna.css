@@ -87,6 +87,7 @@
      border: 1px solid #bdbdbd;
      border-radius: 5px;
      width: 1200px;
+     margin: 0 auto;
     }
     .u_notice.table.view{
     margin: 68px auto 0;

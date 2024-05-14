@@ -117,16 +117,16 @@ $mysqli->query($sqlUpdate);
 </header>
 <!------- 사용자 헤더 -->
     <div class="wrapper usergrid">
-      <h3>공지사항</h3>
-        <table class="u_notice table">
+    <h3 class="h3 view">공지사항</h3>
+    <table class="u_notice table view body3">
           <thead class="notice_viewhead">
             <tr>
               <th colspan="3" scope="col"><?= $row->title; ?></th>
-              <th scope="col">작성일 : <?=$row ->date;?></th>
-              <th scope="col">조회수 : <?=$row ->hit;?></th>
+              <th class="body3" scope="col">작성일 : <?=$row ->date;?></th>
+              <th class="body3" scope="col">조회수 : <?=$row ->hit;?></th>
             </tr>
           </thead>
-          <tbody class="notice_viewd">
+          <tbody class="notice_viewd body3">
             <tr>
               <td colspan="5" scope="col">
               <?=$row ->contents;?>
