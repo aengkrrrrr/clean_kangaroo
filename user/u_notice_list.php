@@ -1,6 +1,5 @@
 <?php
 $title = "공지사항";
-$menutitle = '게시판 관리'; 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $search_keyword = $_GET['search_keyword'] ?? '';
@@ -18,16 +17,12 @@ $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
 
-
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
-
-$totalsql = "SELECT COUNT(*) AS post_count FROM notice_board";
-$totalresult = $mysqli -> query($totalsql);
-$totalrow = $totalresult -> fetch_object(); // $row->cnt
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,7 +63,7 @@ $totalrow = $totalresult -> fetch_object(); // $row->cnt
         <li><a href="" class="body3b">게임/웹툰</a></li>
         <li><a href="u_review_list.html" class="body3b">수강평</a></li>
         <li><a href="u_qna_list.html" class="body3b">Q&A</a></li>
-        <li><a href="u_notice_list.html" class="body3b">공지사항</a></li>
+        <li><a href="u_notice_list.php" class="body3b">공지사항</a></li>
         <li><a href="" class="body3b">이벤트</a></li>
       </ul>
     </nav>
