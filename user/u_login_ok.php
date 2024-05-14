@@ -14,6 +14,8 @@ $rs = $result->fetch_object();
 
 if ($rs) {
   $_SESSION['UNAME'] = $rs->username;
+  $_SESSION['UID'] = $rs->userid;
+
 
 
   echo "<script>

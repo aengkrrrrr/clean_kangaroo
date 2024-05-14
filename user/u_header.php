@@ -56,11 +56,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
         <?php
           if (!isset($_SESSION['UID'])) {
         ?>
-            <a href="/clean_kangaroo/user/login.php">로그인</a>
+            <a href="/clean_kangaroo/user/u_login.php">로그인</a>
         <?php
           } else {
         ?>
-            <a href="/clean_kangaroo/user/mypage.php"><?=$_SESSION['UNAME']?>님</a>
+            <a href="/clean_kangaroo/user/mypage_lecture.php"><?=$_SESSION['UNAME']?>님</a>
         <?php
               }
           ?>
