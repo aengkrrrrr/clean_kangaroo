@@ -345,11 +345,11 @@ h1{
 .search_area .search_wrap {
   padding: 20px 50px;
 }
-#search_keyword {
+.search_wrap #search_keyword {
   width: 1050px;
   border: none;
 }
-#search_keyword::placeholder{
+.search_wrap  #search_keyword::placeholder{
   color: var(--C-disable);
   font-size: var(--body-m);
   font-weight: bold;
