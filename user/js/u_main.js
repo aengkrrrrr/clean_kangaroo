@@ -90,6 +90,6 @@ pager: false
 // 강좌 보기 페이지
 $('.lec_cur_slide_wrap').bxSlider({
   infiniteLoop:true,
+  pager: false,
   easing:'cubic-bezier(0.76, 0, 0.24, 1)',
-  pagerSelector:'.lec_cur_pager'
 });
