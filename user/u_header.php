@@ -18,8 +18,8 @@ $title = '홈';
   <!-- datepicker -->
   <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
 
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="./css/u_common.css">
+  <link rel="stylesheet" href="/clean_kangaroo/css/common.css">
+  <link rel="stylesheet" href="/clean_kangaroo/user/css/u_common.css">
   <?= $css1 ?? ''?>
   <?= $css2 ?? ''?>
   <title> <?=$title ?? '' ?> | Deep Learning kangaroo</title>
@@ -30,7 +30,7 @@ $title = '홈';
     <div class="header_container df aic">
       <h1 class="u_logo">
         <a href="index.html">
-          <img src="/images/admin_header_logo.png" alt="">
+          <img src="/clean_kangaroo/images/admin_header_logo.png" alt="">
         </a>
       </h1>
       <nav class="u_gnb_wrap">
