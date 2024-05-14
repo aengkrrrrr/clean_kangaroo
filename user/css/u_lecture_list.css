@@ -48,11 +48,13 @@
   align-items: center;
   grid-gap: 50px;
 }
-.user_sublecture_wrap .user_lecture_contents:hover p.body2b {
-  text-decoration: underline;
+.user_sublecture_wrap .user_lecture_contents {
+  display:grid;
+  justify-items: end;
+  grid-gap: 14px
 }
-.user_lecture_keyword {
-  margin:20px 0;
+.user_sublecture_wrap .user_lecture_contents:hover p.body3b {
+  text-decoration: underline;
 }
 .user_lecture_keyword span {
   padding:5px 10px;
@@ -63,7 +65,12 @@
   background:var(--C-secondary, #FF861E);
 }
 .user_lecture_keyword .lec_word2 {
-  background:var(--C-black, #000);
+  background:var(--C-white, #fff);
+  border:1px solid var(--C-disable, #BDBDBD);
+  color: var(--C-black, #000);
+}
+.user_price {
+  color: var(--C-secondary, #FF861E);
 }
 .user_lecture_pager {
   margin-top:82px;
