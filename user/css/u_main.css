@@ -295,7 +295,7 @@
   /*********** 수강평 - 다영 */
   
   /* 이벤트 - 다영 */
-  .main_event { margin:50px 0;}
+  .main_event { margin-top:50px;}
   .user_e_title {
     position: relative;
     width: 100%;
@@ -346,6 +346,8 @@
     cursor: pointer;
   }
   .user_e_slide li {
+    padding:40px 0;
+    box-sizing: border-box;
     border-radius: 8px;
     transition:0.5s all;
   }
@@ -365,8 +367,8 @@
     text-decoration: underline;
   }
   .user_e_slide img {
-    width: 330px;
-    height: 352px;
+    width: 260px;
+    height: 330px;
     object-fit: cover;
   }
   
