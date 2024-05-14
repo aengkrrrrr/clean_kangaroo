@@ -88,9 +88,8 @@ pager: false
 
 
 // 강좌 보기 페이지
-$('.lec_cur_wrap').bxSlider({
-  minSlides: 1,
-  pager:false,
-  prevSelector:'.lec_cur_wrap .controls .prev',
-  nextSelector:'.lec_cur_wrap .controls .next'
-  });
+$('.lec_cur_slide_wrap').bxSlider({
+  infiniteLoop:true,
+  easing:'cubic-bezier(0.76, 0, 0.24, 1)',
+  pagerSelector:'.lec_cur_pager'
+});

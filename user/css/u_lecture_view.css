@@ -136,6 +136,9 @@
   border: 1px solid var(--C-primary);
   border-radius: 15px;
 }
+.lec_cur_slide ul {
+  padding: 30px 138px 30px 40px;
+}
 .lec_cur_slide em {
   display: block;
   width: 486px;
@@ -145,9 +148,27 @@
   text-align: center;
   border-radius: 15px 15px 0 0;
 }
-.lec_cur_slide li {
-  padding: 30px 138px 30px 40px;
-}
 .lec_cur_slide li span + span {
   padding-top: 5px;
+}
+
+.bx-controls-direction {
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.bx-prev {
+  display: block;
+  background: url(/images/navi_arrow.png) no-repeat 50% 50%;
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
+}
+.bx-next {
+  display: block;
+  background: url(/images/navi_arrow.png) no-repeat 50% 50%;
+  transform: rotate(180deg);
+  width: 40px;
+  height: 40px;
+  text-indent: -9999px;
 }
