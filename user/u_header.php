@@ -1,7 +1,7 @@
 <?php
-$title = '홈';
-
-
+$title = '';
+session_start();
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 
 ?>
@@ -49,11 +49,21 @@ $title = '홈';
       </nav>
       <div class="util_wrap df aic">
         <button class="u_search"><span class="material-symbols-outlined">search</span></button>
-        <a href="cart.html" class="cart">
+        <a href="cart.php" class="cart">
           <span class="material-symbols-outlined">shopping_cart</span>
           <span class="cart_quantity">1</span>
         </a>
-        <a href="u_login.html">로그인</a>
+        <?php
+          if (!isset($_SESSION['UID'])) {
+        ?>
+            <a href="/clean_kangaroo/user/login.php">로그인</a>
+        <?php
+          } else {
+        ?>
+            <a href="/clean_kangaroo/user/mypage.php"><?=$_SESSION['UNAME']?>님</a>
+        <?php
+              }
+          ?>
       </div>
     </div>
     <div class="search_area">
