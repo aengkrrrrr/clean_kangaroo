@@ -5,6 +5,7 @@
 .mypage_common {
     position: sticky;
     top: 150px;
+    align-self: flex-start;
 }
 .mypage_menu {
     padding-top: 30px;
@@ -54,10 +55,13 @@
 .coupon_ct +.coupon_ct {
     padding: 5px 0;
 }
+.coupon_search_wrap {
+    position: relative;
+}
 .my_coupon button {
     position: absolute;
-    right: 115px;
-    top: 53px;
+    right: 15px;
+    top: 6px;
 }
 
 /* 수강평 */
