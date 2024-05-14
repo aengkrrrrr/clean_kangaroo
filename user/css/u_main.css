@@ -343,6 +343,7 @@
     cursor: pointer;
   }
   .user_e_slide li {
+    padding:20px 0;
     border-radius: 8px;
     transition:0.5s all;
   }
@@ -362,8 +363,8 @@
     text-decoration: underline;
   }
   .user_e_slide img {
-    width: 330px;
-    height: 352px;
+    width: 260px;
+    height: 330px;
     object-fit: cover;
   }
   
