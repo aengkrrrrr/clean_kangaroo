@@ -77,21 +77,21 @@ $title = '홈';
     </div>
     <div class="min_cart_wrap">
       <div class="min_cart df">
-        <img src="/images/cart_img01.png" alt="" class="min_cart_img">
+        <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
         <p class="min_cart_ct">
             <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
             <span class="min_cart_price body4">200,000원</span>
         </p>
       </div>
       <div class="min_cart df">
-        <img src="/images/cart_img01.png" alt="" class="min_cart_img">
+        <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
         <p class="min_cart_ct">
             <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
             <span class="min_cart_price body4">200,000원</span>
         </p>
       </div>
       <div class="min_cart df">
-        <img src="/images/cart_img01.png" alt="" class="min_cart_img">
+        <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
         <p class="min_cart_ct">
             <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
             <span class="min_cart_price body4">200,000원</span>
