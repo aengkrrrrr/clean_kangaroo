@@ -1,6 +1,6 @@
 <?php
 $title='홈';
-
+$css1 =' <link rel="stylesheet" href="./css/u_main.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
@@ -16,8 +16,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       <li><img src="../images/user_main_banner2.png" alt=""></li>
       <li><img src="../images/user_main_banner3.png" alt=""></li>
     </ul>
-    <div class="main_count usergrid">
-      <ul class="user_count df">
+    <div class="main_count ">
+      <ul class="user_count df usergrid">
         <li class="user_count_title df">
           <img src="../images/user_main_count.png" alt="">
           <div>
@@ -51,13 +51,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 <!----------- 메인배너 - 다영 -->
   
 <!-- 강좌소개 - 선진 -->
-  <section class="main_lecture">
+<section class="main_lecture">
     <h2>강좌소개</h2>
     <div class="lec df">
-    <div class="lec_cate active"><a href="#tab1">웹/편집/인테리어</a></div>
-    <div class="lec_cate"><a href="#tab2">CG/VFX</a></div>
-    <div class="lec_cate"><a href="#tab3">모션그래픽</a></div>
-    <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
+      <div class="lec_cate active"><a href="#tab1">웹/편집/인테리어</a></div>
+      <div class="lec_cate"><a href="#tab2">CG/VFX</a></div>
+      <div class="lec_cate"><a href="#tab3">모션그래픽</a></div>
+      <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
     </div>
     <div class="lec_wrapper df">
       <div class="con active" id="tab1">
@@ -172,6 +172,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       </ul>
     </div>
   </div>
+</div>
      </section>
 
   <!----------- 강좌소개 - 선진 -->
@@ -316,19 +317,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       <li>
         <a href="">
           <img src="../images/user_main_eventbanner1.png" alt="">
-          <p class="body1b">인디자인 강의 신청 이벤트</p>
+          <p class="body2b">인디자인 강의 신청 이벤트</p>
         </a>
       </li>
       <li>
         <a href="">
           <img src="../images/user_main_eventbanner1.png" alt="">
-          <p class="body1b">인디자인 강의 신청 이벤트</p>
+          <p class="body2b">인디자인 강의 신청 이벤트</p>
         </a>
       </li>
       <li>
         <a href="">
           <img src="../images/user_main_eventbanner1.png" alt="">
-          <p class="body1b">인디자인 강의 신청 이벤트</p>
+          <p class="body2b">인디자인 강의 신청 이벤트</p>
         </a>
       </li>
     </ul>
@@ -343,8 +344,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
   arrow_upward
   </span></div>
 <!-- back_to_top - 선진 -->
-
 </main>
+
 
 <?php
 
