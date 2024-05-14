@@ -7,6 +7,7 @@ $title = '홈';
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,12 +21,13 @@ $title = '홈';
 
   <link rel="stylesheet" href="/clean_kangaroo/css/common.css">
   <link rel="stylesheet" href="/clean_kangaroo/user/css/u_common.css">
-  <?= $css1 ?? ''?>
-  <?= $css2 ?? ''?>
-  <title> <?=$title ?? '' ?> | Deep Learning kangaroo</title>
+  <?= $css1 ?? '' ?>
+  <?= $css2 ?? '' ?>
+  <title> <?= $title ?? '' ?> | Deep Learning kangaroo</title>
 </head>
+
 <body class="u_body">
-<!-- 사용자 헤더 -->
+  <!-- 사용자 헤더 -->
   <header id="u_header">
     <div class="header_container df aic">
       <h1 class="u_logo">
@@ -40,8 +42,8 @@ $title = '홈';
           <li><a href="u_lecture_list.html" class="body3b">CG/모션그래픽</a></li>
           <li><a href="u_lecture_list.html" class="body3b">게임/웹툰</a></li>
           <li><a href="u_review_list.html" class="body3b">수강평</a></li>
-          <li><a href="u_qna_list.html" class="body3b">Q&A</a></li>
-          <li><a href="u_notice_list.html" class="body3b">공지사항</a></li>
+          <li><a href="u_qna_list.php" class="body3b">Q&A</a></li>
+          <li><a href="u_notice_list.php" class="body3b">공지사항</a></li>
           <li><a href="event_list.html" class="body3b">이벤트</a></li>
         </ul>
       </nav>
@@ -79,24 +81,24 @@ $title = '홈';
       <div class="min_cart df">
         <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
         <p class="min_cart_ct">
-            <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
-            <span class="min_cart_price body4">200,000원</span>
+          <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
+          <span class="min_cart_price body4">200,000원</span>
         </p>
       </div>
       <div class="min_cart df">
         <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
         <p class="min_cart_ct">
-            <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
-            <span class="min_cart_price body4">200,000원</span>
+          <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
+          <span class="min_cart_price body4">200,000원</span>
         </p>
       </div>
       <div class="min_cart df">
         <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
         <p class="min_cart_ct">
-            <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
-            <span class="min_cart_price body4">200,000원</span>
+          <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
+          <span class="min_cart_price body4">200,000원</span>
         </p>
       </div>
     </div>
   </header>
-<!------- 사용자 헤더 -->
+  <!------- 사용자 헤더 -->
