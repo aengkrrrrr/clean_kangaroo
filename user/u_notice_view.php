@@ -1,5 +1,4 @@
 <?php
-session_start();
 $title = '공지사항';
 $css1 = ' <link rel="stylesheet" href="./css/u_notice_qna.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
@@ -43,7 +42,8 @@ $mysqli->query($sqlUpdate);
                 <p>홈페이지의 문의하기로 접수하시는 내용도 10월 5일(월)부터 접수 순서대로 답변 드리겠습니다.
                 즐겁고 풍성한 한가위 보내시기 바랍니다.</p>
                 <p></p>
-                <p>감사합니다.</p></td> -->
+                <p>감사합니다.</p>-->
+          </td>
         </tr>
       </tbody>
     </table>
