@@ -31,7 +31,7 @@ $title = '홈';
   <header id="u_header">
     <div class="header_container df aic">
       <h1 class="u_logo">
-        <a href="index.html">
+        <a href="index.php">
           <img src="/clean_kangaroo/images/admin_header_logo.png" alt="">
         </a>
       </h1>

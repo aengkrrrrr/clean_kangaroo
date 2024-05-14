@@ -38,7 +38,6 @@ while ($rs = $result->fetch_object()) {
         </div>
       </div>
     </div>
-
     <table class="u_notice table body3">
       <thead>
         <tr class="body3b">
