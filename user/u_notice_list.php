@@ -24,19 +24,25 @@ $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
+
+$csql = "SELECT COUNT(*) AS cnt FROM notice_board";
+$cresult = $mysqli->query($csql);
+$crow = $cresult->fetch_array();
 ?>
 
 <main class="u_body">
   <div class="wrapper usergrid">
     <h3 class="h3">공지사항</h3>
     <div class="upper_wrapper df">
-      <div class="total">전체 <span class="strong figure">20</span>건</div>
-      <div class="board_category df">
-        <div class="search_wrap df">
-          <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
-          <button class="primary_btn">검색</button>
+      <div class="total">전체 <span class="strong figure"><?= $crow['cnt'] ?></span>건</div>
+      <form action="" id="">
+        <div class="board_category df">
+          <div class="search_wrap df">
+            <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
+            <button class="primary_btn">검색</button>
+          </div>
         </div>
-      </div>
+      </form>
     </div>
     <table class="u_notice table body3">
       <thead>
