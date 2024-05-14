@@ -132,7 +132,7 @@ main {
   gap: 20px;
   border: 1px solid #BDBDBD;
   border-radius: 10px;
-  padding: 30px 30px 50px 30px;
+  padding: 30px 40px 50px 40px;
 }
 .lec_cur_wrap {
   justify-content: space-around;
@@ -188,10 +188,14 @@ main {
   display: flex;
   gap: 20px;
 }
-.bx-pager-link {
+.lec_cur_pager li {
   background: url(/images/pager_star.svg) no-repeat 100% 100%;
   width: 50px;
   height: 50px;
-  text-indent: -9999px;
   display: block;
+  text-align: center;
+}
+.lec_cur_pager li span {
+  display: block;
+  padding-top: 5px;
 }
