@@ -3,6 +3,20 @@ $title = '홈';
 $css1 = ' <link rel="stylesheet" href="./css/u_main.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
+
+//강좌소개 sql 쿼리
+$lec_sql = "SELECT * FROM products where 1=1";
+$result = $mysqli->query($lec_sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
+//강좌소개 category쿼리
+$catesql = "SELECT * FROM product_category where step = 1";
+$category = $_GET['category']??'';
+$result = $mysqli->query($catesql);
+while ($row = $result->fetch_object()) {
+  $cate1[] = $row;
+}
 ?>
 
 <main>
@@ -57,12 +71,22 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
     </div>
     <div class="lec_wrapper df">
-      <div class="con active" id="tab1">
+      <div class="con active" id="#tab1">
         <div class="lec_container">
+        <?php
+          if(isset($rsArr)){
+            foreach($rsArr as $ra){
+          ?>
           <ul>
-            <li><a href=""><img src="../images/Rectangle 161.png" /></a></li>
-            <li><a href="">[입문] 실무 프로세스를 따라 직접 만들며 배우는, 스무의 실전 피그마 A to Z</a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$ra->pid;?>">
+                <img src="<?=$ra->thumbnail;?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$ra->pid;?>"><?=$ra->title;?></a></li>
           </ul>
+          <?php
+            }
+          }
+        ?>
+
           <ul>
             <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
             <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>

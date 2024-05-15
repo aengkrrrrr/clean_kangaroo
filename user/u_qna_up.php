@@ -4,31 +4,17 @@ $css1 = ' <link rel="stylesheet" href="./css/u_notice_qna.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-$userid = trim($_POST['userid']);
-$sql = "SELECT * FROM members where userid='{$userid}'";
-$result = $mysqli->query($sql);
-$rs = $result->fetch_object();
-
-// 로그인되어 있는지 확인
-if (!isset($_SESSION['UID'])) {
-  header("Location: u_login.php");
-  exit();
-}
-
-if ($rs) {
-$_SESSION['UNAME'] = $rs->username;
-$_SESSION['UID'] = $rs->userid;
-
 ?>
 
 <main class="u_body">
     <div class="wrapper usergrid">
     <form action="u_qna_ok.php" method="POST" enctype="multipart/form-data" id="product_save">
     <input type="hidden" name="idx">
-    <input type="hidden" name="<?=$_SESSION['UID']?>"
-    value="<?=$_SESSION['UNAME']?>">
+    <input type="hidden" name="
     <?php
-}?>
+    if (isset($_SESSION['UID']))
+    {echo $_SESSION['UNAME'];}
+    ?>">
       <h3 class="h3">Q&A 게시판</h3>
       <ul class="u_qna up body3">
         <li>
