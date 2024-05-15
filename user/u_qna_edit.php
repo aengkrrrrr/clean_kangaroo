@@ -11,22 +11,22 @@ $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
 
-$userid = trim($_POST['userid']);
-$msql = "SELECT * FROM members where userid='{$userid}'";
-$result2 = $mysqli->query($msql);
-$rs = $result2->fetch_object();
+//$userid = trim($_POST['userid']);
+//$msql = "SELECT * FROM members where userid='{$userid}'";
+//$result2 = $mysqli->query($msql);
+//$rs = $result2->fetch_object();
 
 // 로그인되어 있는지 확인
-if (!isset($_SESSION['UID'])) {
-  header("Location: u_login.php");
-  exit();
-}
+// if (!isset($_SESSION['UID'])) {
+//   header("Location: u_login.php");
+//   exit();
+// }
 
-if ($rs) {
-$_SESSION['UNAME'] = $rs->username;
-$_SESSION['UID'] = $rs->userid;
-}
-?>
+// if ($rs) {
+// $_SESSION['UNAME'] = $rs->username;
+// $_SESSION['UID'] = $rs->userid;
+// }
+// ?>
 
 <main class="u_body">
     <div class="wrapper usergrid">
