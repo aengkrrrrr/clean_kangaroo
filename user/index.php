@@ -1,178 +1,175 @@
 <?php
-$title='홈';
-$css1 =' <link rel="stylesheet" href="./css/u_main.css">';
+$title = '홈';
+$css1 = ' <link rel="stylesheet" href="./css/u_main.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
-
-
-
 ?>
 
 <main>
   <!-- 메인배너 - 다영 -->
-    <section class="main_banner">
-      <ul class="user_banner">
-        <li><img src="../images/user_main_banner1.png" alt=""></li>
-        <li><img src="../images/user_main_banner2.png" alt=""></li>
-        <li><img src="../images/user_main_banner3.png" alt=""></li>
+  <section class="main_banner">
+    <ul class="user_banner">
+      <li><img src="../images/user_main_banner1.png" alt=""></li>
+      <li><img src="../images/user_main_banner2.png" alt=""></li>
+      <li><img src="../images/user_main_banner3.png" alt=""></li>
+    </ul>
+    <div class="main_count ">
+      <ul class="user_count df usergrid">
+        <li class="user_count_title df">
+          <img src="../images/user_main_count.png" alt="">
+          <div>
+            <p class="body2b">[캥거루 패밀리 세일]</p>
+            <p class="body2b">구독 할인 중!</p>
+          </div>
+        </li>
+        <li>
+          <div class="countdown">
+            <span class="card_title mb-4">
+              <span data-date="6/28/2024"></span>
+            </span>
+            <div class="timer">
+              <span id="days" class="value text-warning h4">00</span>
+              <span class="text-warning h4">일</span>
+              <span id="hours" class="value text-warning h4">00</span>
+              <span class="text-warning h4">:</span>
+              <span id="minutes" class="value text-warning h4">00</span>
+              <span class="text-warning h4">:</span>
+              <span id="seconds" class="value text-warning h4">00</span>
+              <span class="text-warning h4">남음</span>
+            </div>
+          </div>
+        </li>
+        <li class="user_count_btn">
+          <a href="" class="body2b">지금 혜택 받기</a>
+        </li>
       </ul>
-      <div class="main_count ">
-        <ul class="user_count df usergrid">
-          <li class="user_count_title df">
-            <img src="../images/user_main_count.png" alt="">
-            <div>
-              <p class="body2b">[캥거루 패밀리 세일]</p>
-              <p class="body2b">구독 할인 중!</p>
-            </div>
-          </li>
-          <li>
-            <div class="countdown">
-              <span class="card_title mb-4">
-                <span data-date="6/28/2024"></span>
-              </span>
-              <div class="timer">
-                <span id="days" class="value text-warning h4">00</span>
-                <span class="text-warning h4">일</span>
-                <span id="hours" class="value text-warning h4">00</span>
-                <span class="text-warning h4">:</span>
-                <span id="minutes" class="value text-warning h4">00</span>
-                <span class="text-warning h4">:</span>
-                <span id="seconds" class="value text-warning h4">00</span>
-                <span class="text-warning h4">남음</span>
-              </div>
-            </div>
-          </li>
-          <li class="user_count_btn">
-            <a href="" class="body2b">지금 혜택 받기</a>
-          </li>
-        </ul>
-      </div>
-    </section>
+    </div>
+  </section>
   <!----------- 메인배너 - 다영 -->
-  
+
   <!-- 강좌소개 - 선진 -->
   <section class="main_lecture">
-      <h2>강좌소개</h2>
-      <div class="lec df">
+    <h2>강좌소개</h2>
+    <div class="lec df">
       <div class="lec_cate active"><a href="#tab1">웹/편집/인테리어</a></div>
       <div class="lec_cate"><a href="#tab2">CG/VFX</a></div>
       <div class="lec_cate"><a href="#tab3">모션그래픽</a></div>
       <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
-      </div>
-      <div class="lec_wrapper df">
-        <div class="con active" id="tab1">
-            <div class="lec_container">
-              <ul>
-                <li><a href=""><img src="../images/Rectangle 161.png" /></a></li>
-                <li><a href="">[입문] 실무 프로세스를 따라 직접 만들며 배우는, 스무의 실전 피그마 A to Z</a></li>
-              </ul>
-              <ul>
-                <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
-                <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
-              </ul>
-              <ul>
-                <li><a href=""><img src="../images/Rectangle 159.png" /></a></li>
-                <li><a href="">기능부터 트렌드까지, 입문자를 위한 포토샵&일러스트</a></li>
-              </ul>
-              <ul>
-                <li><a href=""><img src="../images/Rectangle 162.png" /></a></li>
-                <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-              </ul>
-              <ul>
-                <li><a href=""><img src="../images/Rectangle 158.png" /></a></li>
-                <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-              </ul>
-              <ul>
-                <li><a href=""><img src="../images/Rectangle 157.png" /></a></li>
-                <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-              </ul>
-            </div>
-        </div>
-        <div class="con" id="tab2">
-              <div class="lec_container">
-            <ul>
-              <li><img src="../images/Rectangle 001.png" /></li>
-              <li>[입문] 피그마 A to Z</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 002.jpg" /></li>
-              <li>[2주 완성] 실포트폴리오 만들기</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 003.jpg" /></li>
-              <li>기능부터 트렌드까지</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 004.jpg" /></li>
-              <li>확실한 인포그래픽으로  브랜딩 디자인</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 005.jpg" /></li>
-              <li>확실한 인포그래픽으로 클인</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 006.jpg" /></li>
-              <li>확실한 인 만드는 브랜딩 디자인</li>
-            </ul>
-                </div>
-        </div>
-        <div class="con" id="tab3">
-          <div class="lec_container">
-            <ul>
-              <li><img src="../images/Rectangle 007.jpg" /></li>
-              <li>[입문] 피그마 A to Z</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 008.png" /></li>
-              <li>[2주 완성] 실포트폴리오 만들기</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 009.jpg" /></li>
-              <li>기능부터 트렌드까지</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 010.jpg" /></li>
-              <li>확실한 인포그래픽으로  브랜딩 디자인</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 011.png" /></li>
-              <li>확실한 인포그래픽으로 클인</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 012.png" /></li>
-              <li>확실한 인 만드는 브랜딩 디자인</li>
-            </ul>
-          </div>
-        </div>
-        <div class="con" id="tab4">
-          <div class="lec_container">
-            <ul>
-              <li><img src="../images/Rectangle 013.jpg" /></li>
-              <li>[입문] 피그마 A to Z</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 014.jpg" /></li>
-              <li>[2주 완성] 실포트폴리오 만들기</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 015.png" /></li>
-              <li>기능부터 트렌드까지</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 016.png" /></li>
-              <li>확실한 인포그래픽으로  브랜딩 디자인</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 017.png" /></li>
-              <li>확실한 인포그래픽으로 클인</li>
-            </ul>
-            <ul>
-              <li><img src="../images/Rectangle 018.png" /></li>
-              <li>확실한 인 만드는 브랜딩 디자인</li>
-            </ul>
-          </div>
+    </div>
+    <div class="lec_wrapper df">
+      <div class="con active" id="tab1">
+        <div class="lec_container">
+          <ul>
+            <li><a href=""><img src="../images/Rectangle 161.png" /></a></li>
+            <li><a href="">[입문] 실무 프로세스를 따라 직접 만들며 배우는, 스무의 실전 피그마 A to Z</a></li>
+          </ul>
+          <ul>
+            <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
+            <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
+          </ul>
+          <ul>
+            <li><a href=""><img src="../images/Rectangle 159.png" /></a></li>
+            <li><a href="">기능부터 트렌드까지, 입문자를 위한 포토샵&일러스트</a></li>
+          </ul>
+          <ul>
+            <li><a href=""><img src="../images/Rectangle 162.png" /></a></li>
+            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
+          </ul>
+          <ul>
+            <li><a href=""><img src="../images/Rectangle 158.png" /></a></li>
+            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
+          </ul>
+          <ul>
+            <li><a href=""><img src="../images/Rectangle 157.png" /></a></li>
+            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
+          </ul>
         </div>
       </div>
+      <div class="con" id="tab2">
+        <div class="lec_container">
+          <ul>
+            <li><img src="../images/Rectangle 001.png" /></li>
+            <li>[입문] 피그마 A to Z</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 002.jpg" /></li>
+            <li>[2주 완성] 실포트폴리오 만들기</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 003.jpg" /></li>
+            <li>기능부터 트렌드까지</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 004.jpg" /></li>
+            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 005.jpg" /></li>
+            <li>확실한 인포그래픽으로 클인</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 006.jpg" /></li>
+            <li>확실한 인 만드는 브랜딩 디자인</li>
+          </ul>
+        </div>
+      </div>
+      <div class="con" id="tab3">
+        <div class="lec_container">
+          <ul>
+            <li><img src="../images/Rectangle 007.jpg" /></li>
+            <li>[입문] 피그마 A to Z</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 008.png" /></li>
+            <li>[2주 완성] 실포트폴리오 만들기</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 009.jpg" /></li>
+            <li>기능부터 트렌드까지</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 010.jpg" /></li>
+            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 011.png" /></li>
+            <li>확실한 인포그래픽으로 클인</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 012.png" /></li>
+            <li>확실한 인 만드는 브랜딩 디자인</li>
+          </ul>
+        </div>
+      </div>
+      <div class="con" id="tab4">
+        <div class="lec_container">
+          <ul>
+            <li><img src="../images/Rectangle 013.jpg" /></li>
+            <li>[입문] 피그마 A to Z</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 014.jpg" /></li>
+            <li>[2주 완성] 실포트폴리오 만들기</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 015.png" /></li>
+            <li>기능부터 트렌드까지</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 016.png" /></li>
+            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 017.png" /></li>
+            <li>확실한 인포그래픽으로 클인</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 018.png" /></li>
+            <li>확실한 인 만드는 브랜딩 디자인</li>
+          </ul>
+        </div>
+      </div>
+    </div>
   </section>
   <!----------- 강좌소개 - 선진 -->
 
@@ -337,10 +334,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
   <!-- back_to_top - 선진 -->
   <div class="back-to-top qna"><span class="qnaquick">
-    <a href="">Q&A</a>
+      <a href="">Q&A</a>
     </span></div>
   <div class="back-to-top"><span class="material-symbols-outlined">
-    arrow_upward
+      arrow_upward
     </span></div>
   <!-- back_to_top - 선진 -->
 </main>
@@ -349,6 +346,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
-
 
 ?>

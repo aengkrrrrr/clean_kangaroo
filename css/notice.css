@@ -18,8 +18,9 @@ p{
 }
 
 #floatingTextarea{
-height: 300px;
+height: 500px;
 }
+
 .btn_collect{
   display: flex;
   justify-content: right;

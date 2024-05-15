@@ -1,6 +1,6 @@
 <?php
-$title='홈';
-
+$title = "이벤트";
+$css1 =' <link rel="stylesheet" href="./css/u_event.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
@@ -14,23 +14,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
     <section class="user_subevent_wrap">
       <div class="user_event_item">
         <img src="../images/user_sub_eventimg1.png" alt="">
-        <a href="event_view.html" class="event_btn body1b">이벤트 신청하기</a>
-      </div>
-      <div class="user_event_item">
-        <img src="../images/user_sub_eventimg1.png" alt="">
-        <a href="" class="event_btn body1b">이벤트 신청하기</a>
-      </div>
-      <div class="user_event_item">
-        <img src="../images/user_sub_eventimg1.png" alt="">
-        <a href="" class="event_btn body1b">이벤트 신청하기</a>
-      </div>
-      <div class="user_event_item">
-        <img src="../images/user_sub_eventimg1.png" alt="">
-        <a href="" class="event_btn body1b">이벤트 신청하기</a>
-      </div>
-      <div class="user_event_item">
-        <img src="../images/user_sub_eventimg1.png" alt="">
-        <a href="" class="event_btn body1b">이벤트 신청하기</a>
+        <a href="event_view.php" class="event_btn body1b">이벤트 신청하기</a>
       </div>
     </section>
     <nav aria-label="" class="event_pager">
