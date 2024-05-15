@@ -60,7 +60,8 @@ $crow = $cresult->fetch_array();
         ?>
             <tr class="body3">
               <td><?= $ra->idx; ?></td>
-              <td colspan="3" scope="col"><a href="u_notice_view.php?idx=<?= $ra->idx; ?>"><?= $ra->title; ?></a></td>
+              <td colspan="3" scope="col">
+                <a href="u_notice_view.php?idx=<?= $ra->idx; ?>"><?= $ra->title; ?></a></td>
               <td><?= $ra->date; ?></td>
               <td><?= $ra->hit; ?></td>
             </tr>

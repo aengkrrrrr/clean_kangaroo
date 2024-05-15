@@ -194,12 +194,13 @@
     .primary_btn.list{
       margin:54px 0;
     }
-    .secondary_btn.edit,
-    .delete_btn.del{
+    .secondary_btn.edit.qna,
+    .delete_btn.del.qna{
       width: 60px;
       height: 40px;
       padding: 0;
       margin-right: 10px;
+      line-height: 40px;
     }
 
     .wrapper.usergrid{
@@ -226,7 +227,7 @@
             display: flex;
             justify-content: right;
             gap:50px;
-            margin-bottom:60px;
+            margin:60px 0;
           }
           #floatingTextarea{
             height:200px;
@@ -235,3 +236,19 @@
           /* .form-control{
            margin: 0 10px;
           } */
+
+        .waiting {
+            color: var(--C-black) !important;
+        }
+        .completed {
+            color: var( --C-primary) !important;
+        }
+        .listbtn.df.up{
+          margin-top:54px;
+        }
+
+        #floatingInput_title,
+        #floatingTextarea{
+          margin:0 auto;
+          width: 1190px;
+        }
