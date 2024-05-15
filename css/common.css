@@ -59,7 +59,9 @@ body {font-family: 'SUIT', sans-serif;  padding-left: 300px; padding-top: 180px;
   box-sizing: border-box;
 }
 .usergrid{ /* 1200px 그리드*/
-  padding: 0 360px;
+  width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
 }
 .df {
   display: flex;
@@ -340,14 +342,14 @@ h1{
   z-index: 100;
   height: 0;
 }
-.search_area .search_wrap {
+#u_header .search_area .search_wrap {
   padding: 20px 50px;
 }
-#search_keyword {
+#u_header .search_wrap #search_keyword {
   width: 1050px;
   border: none;
 }
-#search_keyword::placeholder{
+.search_wrap  #search_keyword::placeholder{
   color: var(--C-disable);
   font-size: var(--body-m);
   font-weight: bold;
@@ -394,7 +396,7 @@ footer h2 a {
   width: 287px;
   height: 74px;
   text-indent: -9999em;
-  background: url('../../images/user_footerlogo.png') no-repeat;
+  background: url('/clean_kangaroo/images/user_footerlogo.png') no-repeat;
 }
 .user_countainer .u_footer_wrap ul {
   position: relative;

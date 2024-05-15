@@ -69,7 +69,7 @@ pager: false
 // 이벤트 - 다영
 $(".user_e_slide").bxSlider( {
 moveSlides: 1,
-slideWidth: 330,
+slideWidth: 260,
 slideMargin: 60,
 maxSlides: 3,
 nextSelector: '.user_e_title .slider_next',
@@ -88,9 +88,8 @@ pager: false
 
 
 // 강좌 보기 페이지
-$('.lec_cur_wrap').bxSlider({
-  minSlides: 1,
-  pager:false,
-  prevSelector:'.lec_cur_wrap .controls .prev',
-  nextSelector:'.lec_cur_wrap .controls .next'
-  });
+$('.lec_cur_slide_wrap').bxSlider({
+  infiniteLoop:true,
+  pager: false,
+  easing:'cubic-bezier(0.76, 0, 0.24, 1)',
+});

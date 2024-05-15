@@ -1,45 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-  <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="icon" href="../images/favicon.png" type="image/x-icon">
+<?php
+session_start();
+$title='수강 목록';
+$css1 =' <link rel="stylesheet" href="./css/u_lecture_list.css">';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-  <title>Deep Learning kangaroo | 강의</title>
 
-  <link rel="stylesheet" href="../css/common.css">
-  <link rel="stylesheet" href="./css/u_common.css">
-  <link rel="stylesheet" href="./css/u_lecture_list.css">
-</head>
-<body class="u_body">
-  <header id="u_header">
-    <div class="header_container df aic">
-        <h1 class="u_logo">
-          <a href="index.html">
-            <img src="/images/admin_header_logo.png" alt="">
-          </a>
-        </h1>
-        <nav class="u_gnb_wrap">
-          <ul class="u_gnb df">
-            <li><a href="" class="body3b">웹디자인/편집</a></li>
-            <li><a href="" class="body3b">웹개발</a></li>
-            <li><a href="" class="body3b">CG/모션그래픽</a></li>
-            <li><a href="" class="body3b">게임/웹툰</a></li>
-            <li><a href="" class="body3b">수강평</a></li>
-            <li><a href="" class="body3b">Q&A</a></li>
-            <li><a href="" class="body3b">공지사항</a></li>
-          </ul>
-        </nav>
-        <div class="util_wrap df aic">
-          <a href=""><span class="material-symbols-outlined"> search</span></a>
-          <a href=""><span class="material-symbols-outlined">shopping_cart</span></a>
-          <a href="">로그인</a>
-        </div>
-    </div>
-  </header>
+
+?>
   <main class="usergrid">
     <div class="user_sublecture_title">
       <h2 class="h2">웹디자인/편집</h2>
@@ -77,25 +45,29 @@
           <input type="radio" class="form-check-input" name="optradio" value="good">  
           <label class="form-check-label" for="btn1">피그마</label>  
           </div>
-          <button class="primary_btn">필터 실행</button>
+          <button class="primary_btn">filter</button>
           </form>  
         </div>  
         <div class="user_sublecture_filter">
           <h4 class="h4">class</h4>  
-          <form action="">  
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">초급</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">중급</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">고급</label>  
-          </div>
-          <button class="primary_btn">필터 실행</button>
+          <form action="">
+            <div class="form-check">  
+              <input type="radio" class="form-check-input" name="optradio" value="good">  
+              <label class="form-check-label" for="btn1">전체선택</label>  
+              </div>
+            <div class="form-check">  
+              <input type="radio" class="form-check-input" name="optradio" value="good">  
+              <label class="form-check-label" for="btn1">초급</label>  
+            </div>
+            <div class="form-check">  
+              <input type="radio" class="form-check-input" name="optradio" value="good">  
+              <label class="form-check-label" for="btn1">중급</label>
+            </div>
+            <div class="form-check">  
+              <input type="radio" class="form-check-input" name="optradio" value="good">  
+              <label class="form-check-label" for="btn1">고급</label>
+            </div>
+            <button class="primary_btn">filter</button>
           </form>  
         </div>
       </div>  
@@ -104,66 +76,98 @@
           <li class="user_lecture_contents">
             <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
             <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg2.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
             </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg3.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
-            </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
           </li>
           <li class="user_lecture_contents">
             <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
             <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg2.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
             </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg3.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
-            </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
           </li>
           <li class="user_lecture_contents">
             <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
             <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
+            </p>
           </li>
           <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg2.png" alt=""></a>
+            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
             <p class="user_lecture_keyword">
-              <span class="lec_word1">UI/UX</span>
-              <span class="lec_word2">초급</span>
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body2b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
+            </p>
+          </li>
+          <li class="user_lecture_contents">
+            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
+            <p class="user_lecture_keyword">
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
+            </p>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
+            </p>
+          </li>
+          <li class="user_lecture_contents">
+            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
+            <p class="user_lecture_keyword">
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
+            </p>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
+            </p>
+          </li>
+          <li class="user_lecture_contents">
+            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
+            <p class="user_lecture_keyword">
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
+            </p>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
+            </p>
+          </li>
+          <li class="user_lecture_contents">
+            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
+            <p class="user_lecture_keyword">
+              <span class="lec_word1 body5">UI/UX</span>
+              <span class="lec_word2 body5">초급</span>
+            </p>
+            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <p class="lecture_price">
+              <span class="body1b user_price">95000</span>
+              <span class="body4b">원</span>
+            </p>
           </li>
         </ul>
       </div>
