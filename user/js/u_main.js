@@ -45,7 +45,7 @@ $('.lec_cate a').on('click', function(e){
 
 // 공지사항 - 송림
 $('.notice_wrap').bxSlider({
-minSlides: 1,
+maxSlides: 3,
 pager:false,
 prevSelector:'.main_notice .controls .prev',
 nextSelector:'.main_notice .controls .next'

@@ -30,7 +30,7 @@ $row = mysqli_fetch_object($result);
           <em class="body3b">모집정원 : 10명</em>
         </div>
       <div class="lec_btn df aic">
-          <a href="u_lecture_list.php" class="primary_btn body2b">장바구니</a>
+          <button class="primary_btn body2b add_cart_btn">장바구니</button>
           <a href="u_qna_list.php" class="primary_btn body2b">문의하기</a>
       </div>
       </div>
@@ -46,7 +46,7 @@ $row = mysqli_fetch_object($result);
           <em class="body3b">모집정원 : 10명</em>
         </div>
       <div class="lec_btn df aic">
-          <a href="" class="primary_btn body2b">장바구니</a>
+          <button class="primary_btn body2b add_cart_btn">장바구니</button>
           <a href="u_qna_list.html" class="primary_btn body2b">문의하기</a>
       </div>
       </div>
@@ -241,6 +241,46 @@ $row = mysqli_fetch_object($result);
   <!-- back_to_top - 선진 -->
 </main>
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script>
+$('.add_cart_btn').on('click', function(){
+            
+    //상품코드, 옵션명, 수량
+    // let target = $('.widget-desc input[type="radio"]:checked');
+    // let pid = <?= $pid; ?>;            
+    // let optname = target.attr('data-name');
+    // let qty = Number($('#qty').val());
+    // let total = Number($('#subtotal span').text());
+
+    // let data = {
+    //     pid : pid,
+    //     optname: optname,
+    //     qty :qty,
+    //     total:total
+    // }
+    // console.log(data);
+
+  $.ajax({
+    url:'cart_insert.php',
+    async:false,
+    type: 'POST',
+    data:data,
+    dataType:'json',
+    error:function(){},
+    success:function(data){
+      console.log(data);                    
+      if(data.result == '중복'){
+          alert('이미 장바구니에 담았습니다.');                                            
+      } else if(data.result=='ok'){
+          alert('장바구니에 상품을 담았습니다.'); 
+          location.reload();   
+      } else{
+          alert('담기 실패!'); 
+      }
+    }
+  });
+});
+</script>
 
 <?php
 

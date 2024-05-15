@@ -41,51 +41,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
         </div>
       </div>
     </div>
-    <div class="cart_ct df">
-      <input class="form-check-input" type="checkbox" value="" name="cart" id="cart">
-      <img src="/images/cart_img02.png" alt="">
-      <div class="cart_lec_ct">
-        <h3 class="body3b">Figma 기초 강의</h3>
-        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
-          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
-        <div class="lec_time df aic">
-          <span class="material-symbols-outlined">description</span>
-          <span class="body4">수강기간</span>
-          <span class="body4 month">2개월</span>
-          <strong class="cart_lec_price body1b">200,000원</strong>
-        </div>
-      </div>
-    </div>
-    <div class="cart_ct df">
-      <input class="form-check-input" type="checkbox" value="" name="cart" id="cart">
-      <img src="/images/cart_img01.png" alt="">
-      <div class="cart_lec_ct">
-        <h3 class="body3b">Figma 기초 강의</h3>
-        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
-          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
-        <div class="lec_time df aic">
-          <span class="material-symbols-outlined">description</span>
-          <span class="body4">수강기간</span>
-          <span class="body4 month">2개월</span>
-          <strong class="cart_lec_price body1b">200,000원</strong>
-        </div>
-      </div>
-    </div>
-    <div class="cart_ct df">
-      <input class="form-check-input" type="checkbox" value="" name="cart" id="cart">
-      <img src="/images/cart_img02.png" alt="">
-      <div class="cart_lec_ct">
-        <h3 class="body3b">Figma 기초 강의</h3>
-        <p class="body4">Figma의 기본툴부터 활용법까지<br> 
-          A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
-        <div class="lec_time df aic">
-          <span class="material-symbols-outlined">description</span>
-          <span class="body4">수강기간</span>
-          <span class="body4 month">2개월</span>
-          <strong class="cart_lec_price body1b">200,000원</strong>
-        </div>
-      </div>
-    </div>
     <div class="pay_wrap">
       <h3 class="body1b">결제정보</h3>
       <div class="select_wrap">
