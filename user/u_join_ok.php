@@ -8,19 +8,9 @@ $pass = $_POST['passwd'];
 $password = hash('sha512', $pass);
 
 $sql = "INSERT INTO members (userid,username,email,passwd) VALUES('{$userid}','{$username}','{$email}','{$password}')";
-if($mysqli->query($sql) === true) {
-  echo "
-  <script>
-    alert('회원가입을 축하드립니다.');
-    location.href = 'index.php';
-  </script>
-  ";
-} else {
-  echo "
-  <script>
-    alert('회원가입 실패, 관리자에게 문의하세요.');
-    history.back();
-  </script>
-  ";
+$result = $mysqli -> query($sql);
+if($mysqli->query($sql) === true){
+    //회원가입 축하 쿠폰 발행
+    issue_coupon($mysqli, $userid, 38, '회원가입');
 }
 ?>

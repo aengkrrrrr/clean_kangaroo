@@ -4,8 +4,6 @@ $css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-
-
 ?>
 <main class="usergrid">
   <div class="user_review_writett">
@@ -13,21 +11,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
   </div>
   <section class="user_review_writecn">
     <form action="u_review_ok.php" enctype="multipart/form-data" method="POST">
-    <input type="hidden" name="cid">
-      <div class="select_wrap user_review_form">
-        <select class="form-select" aria-label="" id="" name="">
-          <option selected>과목 선택</option>
-          <option>중분류 과목1</option>
-          <option>중분류 과목2</option>
-        </select>
-      </div>
+    <input type="hidden" name="idx">
       <div class="user_review_titlewrap df user_review_form">
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="title"></textarea>
           <label for="floatingTextarea">제목</label>
         </div>
         <div class="make_star df">
-          <select name="" id="makeStar" class="form-select">
+          <select name="star" id="makeStar" class="form-select">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -44,15 +35,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
         </div>
       </div>
       <div class="form-floating user_review_form">
-        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 500px"></textarea>
+        <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" name="content" style="height: 500px"></textarea>
         <label for="floatingTextarea2">내용</label>
       </div>
-    </form>
-  </section>
-  <p class="df">
+      <p class="df">
     <a href="u_review_list.php" class="basic_btn rvbackbtn">취소</a>
     <button class="primary_btn">등록</button>
   </p>
+    </form>
+  </section>
+  
 </main>
 
 <?php
