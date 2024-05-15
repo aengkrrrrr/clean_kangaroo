@@ -17,7 +17,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
-$order = " order by title desc";
+$order = " order by pid desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -104,7 +104,7 @@ while ($rs = $result->fetch_object()) {
               <span class="lec_word1 body5">UI/UX</span>
               <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body3b"><?= $item->title; ?></p></a>
+            <a href="u_lecture_view.php?pid=<?= $item->pid; ?>"><p class="body3b"><?= $item->title; ?></p></a>
             <p class="lecture_price">
               <span class="body1b user_price"><?= $item->price; ?></span>
               <span class="body4b">원</span>
