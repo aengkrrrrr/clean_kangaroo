@@ -85,10 +85,37 @@
 .login_mid .name{
   width: 255px;
 }
-.login_mid .check {
-  width: 94px;
+.login_mid .check_btn {
+  width: 104px;
   height: 58px;
 }
 .join_btn {
   padding: 14px;
+}
+/* .is-invalid ~ .invalid-feedback,
+.is-invalid ~ .invalid-tooltip,
+.was-validated :invalid ~ .invalid-feedback,
+.was-validated :invalid ~ .invalid-tooltip {
+  display: none;
+} */
+.is-invalid + .invalid-feedback,
+.is-invalid + .invalid-tooltip,
+.was-validated :invalid + .invalid-feedback,
+.was-validated :invalid + .invalid-tooltip {
+  display: none;
+}
+.is-invalid + .invalid-feedback,
+.is-invalid + .invalid-tooltip,
+.was-validated :invalid + .invalid-feedback,
+.was-validated :invalid + .invalid-tooltip {
+  display: block !important;
+  position: absolute;
+  left: 88px;
+  top: 7px;
+}
+.invalid-feedback,
+.valid-feedback {
+  position: absolute;
+  left: 88px;
+  top: 7px;
 }
