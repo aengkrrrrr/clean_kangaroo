@@ -94,7 +94,6 @@ while ($row = $result->fetch_object()) {
             }
           }
         ?>
-
           <ul>
             <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
             <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
@@ -111,14 +110,23 @@ while ($row = $result->fetch_object()) {
             <li><a href=""><img src="../images/Rectangle 158.png" /></a></li>
             <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
           </ul>
-          <ul>
-            <li><a href=""><img src="../images/Rectangle 157.png" /></a></li>
-            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-          </ul>
         </div>
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
+          <ul>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>">
+                <img src="<?=$rsl->thumbnail;?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>"><?=$rsl->title;?></a></li>
+          </ul>
+          <?php
+            }
+          }
+        ?>
           <ul>
             <li><img src="../images/Rectangle 001.png" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -135,18 +143,14 @@ while ($row = $result->fetch_object()) {
             <li><img src="../images/Rectangle 004.jpg" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
           </ul>
-          <ul>
-            <li><img src="../images/Rectangle 005.jpg" /></li>
-            <li>확실한 인포그래픽으로 클인</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 006.jpg" /></li>
-            <li>확실한 인 만드는 브랜딩 디자인</li>
-          </ul>
         </div>
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
           <ul>
             <li><img src="../images/Rectangle 007.jpg" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -163,18 +167,18 @@ while ($row = $result->fetch_object()) {
             <li><img src="../images/Rectangle 010.jpg" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
           </ul>
-          <ul>
-            <li><img src="../images/Rectangle 011.png" /></li>
-            <li>확실한 인포그래픽으로 클인</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 012.png" /></li>
-            <li>확실한 인 만드는 브랜딩 디자인</li>
-          </ul>
+          <?php
+            }
+          }
+        ?>
         </div>
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
           <ul>
             <li><img src="../images/Rectangle 013.jpg" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -191,14 +195,10 @@ while ($row = $result->fetch_object()) {
             <li><img src="../images/Rectangle 016.png" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
           </ul>
-          <ul>
-            <li><img src="../images/Rectangle 017.png" /></li>
-            <li>확실한 인포그래픽으로 클인</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 018.png" /></li>
-            <li>확실한 인 만드는 브랜딩 디자인</li>
-          </ul>
+          <?php
+            }
+          }
+        ?>
         </div>
       </div>
     </div>
