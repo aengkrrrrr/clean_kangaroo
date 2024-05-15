@@ -15,8 +15,8 @@ while ($rs = $result->fetch_object()) {
 //강좌소개 sql 쿼리
 $lec_sql = "SELECT * FROM products where 1=1";
 $result = $mysqli->query($lec_sql);
-while ($rs = $result->fetch_object()) {
-  $rsArr[] = $rs;
+while ($rsl = $result->fetch_object()) {
+  $rslArr[] = $rsl;
 }
 //강좌소개 category쿼리
 $catesql = "SELECT * FROM product_category where step = 1";
@@ -79,16 +79,16 @@ while ($row = $result->fetch_object()) {
       <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
     </div>
     <div class="lec_wrapper df">
-      <div class="con active" id="#tab1">
+      <div class="con active" id="tab1">
         <div class="lec_container">
         <?php
-          if(isset($rsArr)){
-            foreach($rsArr as $ra){
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
           ?>
           <ul>
-            <li><a href="u_lecture_list.php?pid=<?=$ra->pid;?>">
-                <img src="<?=$ra->thumbnail;?>" alt=""></a></li>
-            <li><a href="u_lecture_list.php?pid=<?=$ra->pid;?>"><?=$ra->title;?></a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>">
+                <img src="<?=$rsl->thumbnail;?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>"><?=$rsl->title;?></a></li>
           </ul>
           <?php
             }
