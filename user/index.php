@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 // 공지사항 
-$sql = "select * from notice_board order by idx desc limit 0, 3"; //3개만 보이게
+$sql = "select * from notice_board order by idx desc limit 0, 3"; //3개만보이게
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
