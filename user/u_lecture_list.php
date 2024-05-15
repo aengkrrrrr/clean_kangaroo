@@ -1,12 +1,29 @@
 <?php
-session_start();
 $title='수강 목록';
 $css1 =' <link rel="stylesheet" href="./css/u_lecture_list.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
+$sql = "SELECT * FROM products  WHERE ismain = 1 AND status = 1 ORDER BY pid DESC LIMIT 0, 3";
+$result = $mysqli -> query($sql);
 
+while($row = $result->fetch_object()){
+    $rsc[] = $row;
+}
+
+//메인상품 카테고리명, 코드 출력
+$sql = "SELECT c.name, c.code
+FROM products p
+JOIN product_category c ON p.cate LIKE CONCAT('%', c.code, '%')
+WHERE p.ismain = 1 AND p.status = 1
+GROUP BY c.name, c.code";
+
+$result = $mysqli -> query($sql);
+while($rs = $result->fetch_object()){
+    $resultArr[] = $rs;
+}
+//print_r($resultArr);
 ?>
   <main class="usergrid">
     <div class="user_sublecture_title">
@@ -72,104 +89,36 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
         </div>
       </div>  
       <div class="user_sublecture_contentwrap">
+      <?php
+        if(isset($rsc)){
+            foreach($rsc as $item){
+            $codeArr = str_split($item->cate,3);
+            $code = '';
+            foreach($codeArr as $c){
+                $code .= $c.' ';
+            }
+            //$code = substr($item->cate, -5);
+      ?>
         <ul>
           <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
+            <a href="u_lecture_view.php?pid=<?= $item->pid; ?>"><img src="<?= $item->thumnail; ?>" alt=""></a>
             <p class="user_lecture_keyword">
               <span class="lec_word1 body5">UI/UX</span>
               <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
+            <a href=""><p class="body3b"><?= $item->name; ?></p></a>
             <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
-              <span class="body4b">원</span>
-            </p>
-          </li>
-          <li class="user_lecture_contents">
-            <a href=""><img src="../images/user_lecture_listimg1.png" alt=""></a>
-            <p class="user_lecture_keyword">
-              <span class="lec_word1 body5">UI/UX</span>
-              <span class="lec_word2 body5">초급</span>
-            </p>
-            <a href=""><p class="body3b">서비스기획자, 혼자 공부하는 역기획</p></a>
-            <p class="lecture_price">
-              <span class="body1b user_price">95000</span>
+              <span class="body1b user_price"><?= $item->price; ?></span>
               <span class="body4b">원</span>
             </p>
           </li>
         </ul>
+        <?php
+              }
+          } else {
+              echo "<p>조회 상품이 없습니다.</p>";
+          }
+        ?>
       </div>
     </section>
     <nav aria-label="" class="user_lecture_pager">
