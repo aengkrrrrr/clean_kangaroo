@@ -5,25 +5,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
-$sql = "SELECT * FROM products  WHERE ismain = 1 AND status = 1 ORDER BY pid DESC LIMIT 0, 3";
-$result = $mysqli -> query($sql);
+$search_where = "";
+$search_keyword = $_GET['search_keyword'] ?? '';
 
-while($row = $result->fetch_object()){
-    $rsc[] = $row;
+if($search_keyword){
+  $search_where .= " and (name LIKE '%{$search_keyword}%')";
 }
 
-//메인상품 카테고리명, 코드 출력
-$sql = "SELECT c.name, c.code
-FROM products p
-JOIN product_category c ON p.cate LIKE CONCAT('%', c.code, '%')
-WHERE p.ismain = 1 AND p.status = 1
-GROUP BY c.name, c.code";
+$paginationTarget = 'products';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
-$result = $mysqli -> query($sql);
-while($rs = $result->fetch_object()){
-    $resultArr[] = $rs;
+$sql = "SELECT * FROM products where 1=1";
+$sql .= $search_where;
+$order = " order by title desc";
+$sql .= $order;
+$limit = " LIMIT $startLimit, $endLimit";
+$sql .= $limit;
+
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
 }
-//print_r($resultArr);
 ?>
   <main class="usergrid">
     <div class="user_sublecture_title">
@@ -89,51 +91,60 @@ while($rs = $result->fetch_object()){
         </div>
       </div>  
       <div class="user_sublecture_contentwrap">
-      <?php
-        if(isset($rsc)){
-            foreach($rsc as $item){
-            $codeArr = str_split($item->cate,3);
-            $code = '';
-            foreach($codeArr as $c){
-                $code .= $c.' ';
-            }
-            //$code = substr($item->cate, -5);
-      ?>
         <ul>
+        <?php
+          if (isset($rsArr)) {
+          foreach ($rsArr as $item) {
+        ?>
           <li class="user_lecture_contents">
-            <a href="u_lecture_view.php?pid=<?= $item->pid; ?>"><img src="<?= $item->thumnail; ?>" alt=""></a>
+            <a href="u_lecture_view.php?pid=<?= $item->pid; ?>">
+              <img src="<?= $item->thumbnail; ?>" alt="">
+            </a>
             <p class="user_lecture_keyword">
               <span class="lec_word1 body5">UI/UX</span>
               <span class="lec_word2 body5">초급</span>
             </p>
-            <a href=""><p class="body3b"><?= $item->name; ?></p></a>
+            <a href=""><p class="body3b"><?= $item->title; ?></p></a>
             <p class="lecture_price">
               <span class="body1b user_price"><?= $item->price; ?></span>
               <span class="body4b">원</span>
             </p>
           </li>
-        </ul>
-        <?php
+          <?php
               }
-          } else {
-              echo "<p>조회 상품이 없습니다.</p>";
-          }
-        ?>
+            }
+          ?>
+        </ul>
       </div>
     </section>
     <nav aria-label="" class="user_lecture_pager">
       <ul class="pagination">
-        <li class="page-item disabled">
-          <a class="page-link">&laquo;</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item active" aria-current="page">
-          <a class="page-link" href="#">2</a>
-        </li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item">
-          <a class="page-link" href="#">&raquo;</a>
-        </li>
+      <?php
+      if($pageNumber > 1){
+        echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
+        //이전
+        if($block_num > 1){
+          $prev = 1 + ($block_num - 2) * $block_ct;
+          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
+        }
+      }
+
+        for($i=$block_start;$i<=$block_end;$i++){
+          if($i == $pageNumber){
+            echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+          }else{
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+          }            
+        }  
+
+        if($pageNumber < $total_page){
+          if($total_block > $block_num){
+            $next = $block_num * $block_ct + 1;
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+          }
+          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
+        }        
+      ?>
       </ul>
     </nav>
   </main>
