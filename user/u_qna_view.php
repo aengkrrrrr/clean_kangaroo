@@ -10,13 +10,6 @@ $sql = "SELECT * FROM qna_board WHERE idx={$idx}";
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
-//멤버테이블조회
-$userid = $_SESSION['UID'];
-$username = $_SESSION['UNAME'];
-$msql = "SELECT * FROM members where userid='{$userid}'";
-$result2 = $mysqli->query($msql);
-$rsm = $result2->fetch_object();
-
 // 조회수 업데이트
 $hit = $row->hit + 1;
 $sqlUpdate = "UPDATE qna_board SET hit={$hit} WHERE idx = {$idx}";
@@ -31,7 +24,10 @@ $mysqli->query($sqlUpdate);
         <tr>
           <th colspan="3" scope="col"><?= $row->title; ?></th>
           <th class="body3" scope="col">작성일 : <?= $row->date; ?></th>
-          <th class="body3" scope="col">이름 : <?= $username; ?></th>
+          <<<<<<< HEAD <th class="body3" scope="col">이름 : <?= $username; ?></th>
+            =======
+            <th class="body3" scope="col">이름 : <?= $row->userid; ?></th>
+            >>>>>>> main-park
         </tr>
       </thead>
 

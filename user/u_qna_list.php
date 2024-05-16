@@ -39,7 +39,6 @@ $rsm = $result2->fetch_object();
 
 ?>
 
-
 <main class="u_body">
   <div class="wrapper usergrid">
     <h3 class="h3">Q&A 게시판</h3>

@@ -2,7 +2,6 @@
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-//테이블조회
 $name = $_POST['userid'];
 $title = $_POST['title'];
 $content = $_POST['content'];
