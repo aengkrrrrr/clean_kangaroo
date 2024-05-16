@@ -6,7 +6,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 //테이블조회
 $idx = $_GET['idx'];
-$sql = "SELECT * FROM qna_board WHERE idx={$idx}";
+$sql = "select b.*, m.username
+from qna_board b 
+join members m 
+on b.userid=m.userid WHERE b.idx={$idx}";
+
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
@@ -24,10 +28,10 @@ $mysqli->query($sqlUpdate);
         <tr>
           <th colspan="3" scope="col"><?= $row->title; ?></th>
           <th class="body3" scope="col">작성일 : <?= $row->date; ?></th>
-          <<<<<<< HEAD <th class="body3" scope="col">이름 : <?= $username; ?></th>
-            =======
-            <th class="body3" scope="col">이름 : <?= $row->userid; ?></th>
-            >>>>>>> main-park
+          <th class="body3" scope="col">이름 : <?= $username; ?></th>
+
+          <th class="body3" scope="col">이름 : <?= $row->username; ?></th>
+
         </tr>
       </thead>
 

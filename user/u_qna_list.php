@@ -13,13 +13,19 @@ $paginationTarget = 'qna_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 
-/////////////qna 쿼리
-$sql = "SELECT * FROM qna_board where 1=1";
+$sql = "select b.*, m.username
+from qna_board b 
+join members m 
+on b.userid=m.userid where 1=1";
+
+
+// $sql = "SELECT * FROM qna_board where 1=1";
 $sql .= $search_where;
 $order = " order by idx desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
+// echo $sql;
 
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
@@ -89,7 +95,7 @@ $rsm = $result2->fetch_object();
                   <?= $ra->title; ?></a>
               </td>
               <td><?= $ra->date; ?></td>
-              <td><?= $ra->userid; ?></td>
+              <td><?= $ra->username; ?></td>
             </tr>
         <?php
           }

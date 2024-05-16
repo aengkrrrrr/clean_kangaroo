@@ -6,19 +6,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 //테이블조회
 $idx = $_GET['idx'];
+$userid = $_SESSION['UID'];
 $sql = "SELECT * FROM qna_board WHERE idx={$idx}";
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
 ?>
+?>
 
 <main class="u_body">
   <div class="wrapper usergrid">
     <form action="u_qna_edit_ok.php" method="POST" enctype="multipart/form-data" id="product_save">
-      <input type="hidden" name="idx" value="<?= $idx ?>">
-      <input type="hidden" name="
-
-    ">
+      <input type="hidden" name="idx" value="<?= $idx; ?>">
+      <input type="hidden" name="userid" value="<?= $userid; ?>">
       <h3 class="h3">Q&A 게시판</h3>
       <ul class="u_qna up body3">
         <li>

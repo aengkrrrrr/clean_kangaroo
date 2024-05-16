@@ -36,8 +36,5 @@ $rsm = $result2->fetch_object();
   </div>
 </main>
 <?php
-
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
-
-
 ?>
