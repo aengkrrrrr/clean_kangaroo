@@ -36,11 +36,12 @@ $memberrs = $memberresult->fetch_object();
     <h2 class="h2">REVIEW</h2>
     <p class="body1">수강하며 느낀 점을 자세히 공유해요!</p>
   </div>
-  <?php
-    if (isset($rsArr)) {
-    foreach ($rsArr as $item) {
-  ?>
+
     <ul class="df user_review_list">
+    <?php
+      if (isset($rsArr)) {
+      foreach ($rsArr as $item) {
+    ?>
       <li class="user_profile">
         <div class="df user_review_img">
           <img src="../images/user_profile1.png" alt="">
@@ -51,11 +52,12 @@ $memberrs = $memberresult->fetch_object();
         </div>
           <p class="body3"><?= $item->content; ?></p>
       </li>
-    </ul>
-    <?php
+      <?php
+          }
         }
-      }
-    ?>
+      ?>
+    </ul>
+
     <div class="review_form_wrap df">
       <div class="totalcp">
         <p class="body3b">전체 <span><?= $count;  ?></span>건</p>
@@ -86,9 +88,12 @@ $memberrs = $memberresult->fetch_object();
           <div class="user_intreview_tbox df">
             <div class="df">
               <div class="user_intreview_title df">
-                <img src="<?= $item->is_img; ?>" alt="">
+                <img src="../images/user_profile1.png" alt="">
                 <p class="body4b">비주얼 디자인 포트폴리오</p>
                 <p class="body4b"><?= $item->name; ?></p>
+                <p class="body4b">
+                  <i class="fas fa-star"><?= $item->star; ?></i>
+                </p>
               </div>
               <p class="body4b"><?= $item->date; ?></p>
             </div>
