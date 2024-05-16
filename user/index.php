@@ -20,7 +20,7 @@ while ($rsl = $result->fetch_object()) {
 }
 //강좌소개 category쿼리
 $catesql = "SELECT * FROM product_category where step = 1";
-$category = $_GET['category']??'';
+$category = $_GET['category'] ?? '';
 $result = $mysqli->query($catesql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
@@ -81,19 +81,19 @@ while ($row = $result->fetch_object()) {
     <div class="lec_wrapper df">
       <div class="con active" id="tab1">
         <div class="lec_container">
-        <?php
-          if(isset($rslArr)){
-            foreach($rslArr as $rsl){
+          <?php
+          if (isset($rslArr)) {
+            foreach ($rslArr as $rsl) {
           ?>
-          <ul>
-            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>">
-                <img src="<?=$rsl->thumbnail;?>" alt=""></a></li>
-            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>"><?=$rsl->title;?></a></li>
-          </ul>
+              <ul>
+                <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
+                    <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
+                <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
+              </ul>
           <?php
             }
           }
-        ?>
+          ?>
           <ul>
             <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
             <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
@@ -114,19 +114,19 @@ while ($row = $result->fetch_object()) {
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
-        <?php
-          if(isset($rslArr)){
-            foreach($rslArr as $rsl){
+          <?php
+          if (isset($rslArr)) {
+            foreach ($rslArr as $rsl) {
           ?>
-          <ul>
-            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>">
-                <img src="<?=$rsl->thumbnail;?>" alt=""></a></li>
-            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>"><?=$rsl->title;?></a></li>
-          </ul>
+              <ul>
+                <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
+                    <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
+                <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
+              </ul>
           <?php
             }
           }
-        ?>
+          ?>
           <ul>
             <li><img src="../images/Rectangle 001.png" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -147,58 +147,58 @@ while ($row = $result->fetch_object()) {
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
-        <?php
-          if(isset($rslArr)){
-            foreach($rslArr as $rsl){
+          <?php
+          if (isset($rslArr)) {
+            foreach ($rslArr as $rsl) {
           ?>
-          <ul>
-            <li><img src="../images/Rectangle 007.jpg" /></li>
-            <li>[입문] 피그마 A to Z</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 008.png" /></li>
-            <li>[2주 완성] 실포트폴리오 만들기</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 009.jpg" /></li>
-            <li>기능부터 트렌드까지</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 010.jpg" /></li>
-            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-          </ul>
+              <ul>
+                <li><img src="../images/Rectangle 007.jpg" /></li>
+                <li>[입문] 피그마 A to Z</li>
+              </ul>
+              <ul>
+                <li><img src="../images/Rectangle 008.png" /></li>
+                <li>[2주 완성] 실포트폴리오 만들기</li>
+              </ul>
+              <ul>
+                <li><img src="../images/Rectangle 009.jpg" /></li>
+                <li>기능부터 트렌드까지</li>
+              </ul>
+              <ul>
+                <li><img src="../images/Rectangle 010.jpg" /></li>
+                <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+              </ul>
           <?php
             }
           }
-        ?>
+          ?>
         </div>
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
-        <?php
-          if(isset($rslArr)){
-            foreach($rslArr as $rsl){
+          <?php
+          if (isset($rslArr)) {
+            foreach ($rslArr as $rsl) {
           ?>
-          <ul>
-            <li><img src="../images/Rectangle 013.jpg" /></li>
-            <li>[입문] 피그마 A to Z</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 014.jpg" /></li>
-            <li>[2주 완성] 실포트폴리오 만들기</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 015.png" /></li>
-            <li>기능부터 트렌드까지</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 016.png" /></li>
-            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-          </ul>
+              <ul>
+                <li><img src="../images/Rectangle 013.jpg" /></li>
+                <li>[입문] 피그마 A to Z</li>
+              </ul>
+              <ul>
+                <li><img src="../images/Rectangle 014.jpg" /></li>
+                <li>[2주 완성] 실포트폴리오 만들기</li>
+              </ul>
+              <ul>
+                <li><img src="../images/Rectangle 015.png" /></li>
+                <li>기능부터 트렌드까지</li>
+              </ul>
+              <ul>
+                <li><img src="../images/Rectangle 016.png" /></li>
+                <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+              </ul>
           <?php
             }
           }
-        ?>
+          ?>
         </div>
       </div>
     </div>
@@ -210,18 +210,18 @@ while ($row = $result->fetch_object()) {
     <h2>공지사항</h2>
     <div class="notice_wrap">
       <ul class="notice df fdc">
-      <?php
-          if (isset($rsArr)) {
-            foreach ($rsArr as $ra) {
-        ?>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit"><?= $ra->title; ?></a>
-          <a href="" class="notice_ct"><?= $ra->contents; ?></a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
         <?php
-            }
+        if (isset($rsArr)) {
+          foreach ($rsArr as $ra) {
+        ?>
+            <li class="notice_table df aic">
+              <a href="" class="notice_tit"><?= $ra->title; ?></a>
+              <a href="" class="notice_ct"><?= $ra->contents; ?></a>
+              <a href=""><span class="material-symbols-outlined"> east</span></a>
+            </li>
+        <?php
           }
+        }
         ?>
       </ul>
       <ul class="notice df fdc">
@@ -364,9 +364,9 @@ while ($row = $result->fetch_object()) {
 
   <!-- back_to_top - 선진 -->
   <div class="back-to-top qna"><span class="qnaquick">
-      <a href="">Q&A</a>
+      <a href="u_qna_list.php">Q&A</a>
     </span></div>
-  <div class="back-to-top"><span class="material-symbols-outlined">
+  <div class="back-to-top top"><span class="material-symbols-outlined">
       arrow_upward
     </span></div>
   <!-- back_to_top - 선진 -->
