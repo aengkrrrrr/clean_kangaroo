@@ -28,8 +28,6 @@ $mysqli->query($sqlUpdate);
         <tr>
           <th colspan="3" scope="col"><?= $row->title; ?></th>
           <th class="body3" scope="col">작성일 : <?= $row->date; ?></th>
-          <th class="body3" scope="col">이름 : <?= $username; ?></th>
-
           <th class="body3" scope="col">이름 : <?= $row->username; ?></th>
 
         </tr>
@@ -42,9 +40,20 @@ $mysqli->query($sqlUpdate);
         </tr>
         <tr>
           <td class="edit df" colspan="5" scope="col">
-            <a href="u_qna_edit.php?idx=<?= $row->idx ?>" class="secondary_btn edit qna">수정</a>
-            <a href="u_qna_del.php?idx=<?= $row->idx ?>" class="delete_btn del qna">삭제</a>
-          </td>
+            <?php
+            if (isset($_SESSION['UNAME']) == $row->username) {
+              ?>
+         <a href="/clean_kangaroo/user/u_qna_edit.php?idx=<?=$row->idx?>" class="secondary_btn edit qna" >수정</a>
+         <a href="/clean_kangaroo/user/u_qna_del.php?idx=<?=$row->idx?>" class="delete_btn del qna" >삭제</a>
+        <?php 
+        }else{
+          ?>
+         <a href="/clean_kangaroo/user/u_qna_edit.php?idx=<?=$row->idx?>" class="secondary_btn edit qna" hidden>수정</a>
+         <a href="/clean_kangaroo/user/u_qna_del.php?idx=<?=$row->idx?>" class="delete_btn del qna" hidden>삭제</a>
+          <?php
+        }
+         ?>
+            </td>
         </tr>
       </tbody>
     </table>

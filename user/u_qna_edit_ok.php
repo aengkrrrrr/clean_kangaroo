@@ -8,14 +8,14 @@ $content = $_POST['content'];
 $UpdateSql = "UPDATE qna_board SET
 title='{$title}',
 content='{$content}',
-date='now()'
+date=now()
 WHERE idx={$idx}";
 echo $UpdateSql;
 $mysqli->query($UpdateSql);
 if ($mysqli->query($UpdateSql) === true) {
   echo "<script>
       alert('Q&A 수정 완료');
-      location.href='notice_list.php';
+      location.href='u_qna_list.php';
       </script>";
 } else {
   echo "Error:" . $sql . "<br>" . $mysqli->error;
