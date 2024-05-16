@@ -85,7 +85,8 @@
   gap: 30px;
 }
 .user_intreview_title img {
-  width: 20%;
+  width: 60px;
+  height:60px;
 }
 main p.df {justify-content: flex-end;}
 .user_intreview_cbox {
@@ -102,7 +103,7 @@ main p.df {justify-content: flex-end;}
 
 /* review_up */
 
-.user_review_writecn > div {
+.user_review_form {
   margin-bottom: 54px;
 }
 .user_review_titlewrap > .form-floating {

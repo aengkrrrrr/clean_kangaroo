@@ -3,6 +3,28 @@ $title = '홈';
 $css1 = ' <link rel="stylesheet" href="./css/u_main.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
+
+// 공지사항 
+$sql = "select * from notice_board order by idx desc limit 0, 3"; //3개만보이게
+$result = $mysqli->query($sql);
+while ($rs = $result->fetch_object()) {
+  $rsArr[] = $rs;
+}
+/////////// 공지사항 
+
+//강좌소개 sql 쿼리
+$lec_sql = "SELECT * FROM products where 1=1";
+$result = $mysqli->query($lec_sql);
+while ($rsl = $result->fetch_object()) {
+  $rslArr[] = $rsl;
+}
+//강좌소개 category쿼리
+$catesql = "SELECT * FROM product_category where step = 1";
+$category = $_GET['category']??'';
+$result = $mysqli->query($catesql);
+while ($row = $result->fetch_object()) {
+  $cate1[] = $row;
+}
 ?>
 
 <main>
@@ -59,10 +81,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
     <div class="lec_wrapper df">
       <div class="con active" id="tab1">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
           <ul>
-            <li><a href=""><img src="../images/Rectangle 161.png" /></a></li>
-            <li><a href="">[입문] 실무 프로세스를 따라 직접 만들며 배우는, 스무의 실전 피그마 A to Z</a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>">
+                <img src="<?=$rsl->thumbnail;?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>"><?=$rsl->title;?></a></li>
           </ul>
+          <?php
+            }
+          }
+        ?>
           <ul>
             <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
             <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
@@ -79,14 +110,23 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             <li><a href=""><img src="../images/Rectangle 158.png" /></a></li>
             <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
           </ul>
-          <ul>
-            <li><a href=""><img src="../images/Rectangle 157.png" /></a></li>
-            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-          </ul>
         </div>
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
+          <ul>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>">
+                <img src="<?=$rsl->thumbnail;?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?=$rsl->pid;?>"><?=$rsl->title;?></a></li>
+          </ul>
+          <?php
+            }
+          }
+        ?>
           <ul>
             <li><img src="../images/Rectangle 001.png" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -103,18 +143,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             <li><img src="../images/Rectangle 004.jpg" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
           </ul>
-          <ul>
-            <li><img src="../images/Rectangle 005.jpg" /></li>
-            <li>확실한 인포그래픽으로 클인</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 006.jpg" /></li>
-            <li>확실한 인 만드는 브랜딩 디자인</li>
-          </ul>
         </div>
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
           <ul>
             <li><img src="../images/Rectangle 007.jpg" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -131,18 +167,18 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             <li><img src="../images/Rectangle 010.jpg" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
           </ul>
-          <ul>
-            <li><img src="../images/Rectangle 011.png" /></li>
-            <li>확실한 인포그래픽으로 클인</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 012.png" /></li>
-            <li>확실한 인 만드는 브랜딩 디자인</li>
-          </ul>
+          <?php
+            }
+          }
+        ?>
         </div>
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
+        <?php
+          if(isset($rslArr)){
+            foreach($rslArr as $rsl){
+          ?>
           <ul>
             <li><img src="../images/Rectangle 013.jpg" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -159,14 +195,10 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             <li><img src="../images/Rectangle 016.png" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
           </ul>
-          <ul>
-            <li><img src="../images/Rectangle 017.png" /></li>
-            <li>확실한 인포그래픽으로 클인</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 018.png" /></li>
-            <li>확실한 인 만드는 브랜딩 디자인</li>
-          </ul>
+          <?php
+            }
+          }
+        ?>
         </div>
       </div>
     </div>
@@ -178,21 +210,19 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
     <h2>공지사항</h2>
     <div class="notice_wrap">
       <ul class="notice df fdc">
+      <?php
+          if (isset($rsArr)) {
+            foreach ($rsArr as $ra) {
+        ?>
         <li class="notice_table df aic">
-          <a href="" class="notice_tit">프론트엔드 수업 관련 안내 공지드립니다.</a>
-          <a href="" class="notice_ct">프론트엔드 수업 개강날짜가 변경되었습니다. 기존의 5월6일에서 5월 23일로 변경되었으니 이점 유의해주시기 바랍니다.</a>
+          <a href="" class="notice_tit"><?= $ra->title; ?></a>
+          <a href="" class="notice_ct"><?= $ra->contents; ?></a>
           <a href=""><span class="material-symbols-outlined"> east</span></a>
         </li>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">국비지원교육 지원금 관련 공지사항입니다.</a>
-          <a href="" class="notice_ct">국비지원교육 지원금 대상 변경되었습니다. 기존의 지원금 대상이셨던 분들도 해당되오니 담당 부서에 확인부탁드립니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">대체공휴일 보강수업 일정 안내사항 입니다.</a>
-          <a href="" class="notice_ct">대체공휴일 보강 수업에 희망하시는 분들에 한해서 학원에서 별도로 보강 수업을 진행합니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
+        <?php
+            }
+          }
+        ?>
       </ul>
       <ul class="notice df fdc">
         <li class="notice_table df aic">
@@ -346,6 +376,5 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
-
 
 ?>

@@ -20,3 +20,33 @@ $(".user_review_list").bxSlider( {
   ticker: true,
   speed: 20000
   });
+
+
+
+
+  // 삭제
+  $('.delete_btn').click(function(){
+
+    $(this).closest('tr').remove();
+    let cpid =  $(this).find('.cart_ct').attr('data-id');
+    let data = {
+      cpid :cpid
+    }
+    $.ajax({
+        url:'u_review_delete.php',
+        async:false,
+        type: 'POST',
+        data:data,
+        dataType:'json',
+        error:function(){},
+        success:function(data){
+        console.log(data);
+        if(data.result=='ok'){
+            alert('선택한 글이 삭제되었습니다.');  
+            location.reload();                      
+        }else{
+            alert('오류, 다시 시도하세요');                        
+            }
+        }
+    });
+  });

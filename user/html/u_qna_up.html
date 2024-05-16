@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,91 +99,26 @@
 <!------- 사용자 헤더 -->
     <div class="wrapper usergrid">
       <h3 class="h3">Q&A 게시판</h3>
-      <div class="upper_wrapper df">
-        <div class="total">전체 <span class="strong figure">20</span>건</div>
-          <div class="board_category df">
-            <div class="select_wrap">
-              <select class="form-select" aria-label="" id="" name="">
-                <option selected>전체</option>
-                <option>제목</option>
-                <option>이름</option>
-              </select>
-            </div>
-            <div class="search_wrap df">
-              <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
-              <button class="primary_btn">검색</button>
-            </div>
+      <ul class="u_qna up body3">
+        <li>
+          <div class="form-floating mb-3 body3">
+            <input type="text" class="form-control" id="floatingInput_title" placeholder="제목">
+            <label for="floatingInput_title">제목</label>
           </div>
-</div>
-        <table class="u_notice table body3">
-          <thead>
-            <tr class="body3b">
-              <th scope="col">상태</th>
-              <th colspan="3" scope="col">제목</th>
-              <th scope="col">작성일</th>
-              <th scope="col">이름</th>
-            </tr>
-          </thead>
-          <tbody class="notice_list">
-            <tr class="body3">
-              <td>답변대기</td>
-              <td colspan="3" scope="col"><a href="u_qna_view.html">백엔드 강의 환불 관련해서 문의드립니다.</a></td>
-              <td>2024-05-07</td>
-              <td>츄츄</td>
-            </tr>
-            <tr class="body3">
-              <td>답변대기</td>
-              <td colspan="3" scope="col"><a href="u_qna_view.html">백엔드 강의 환불 관련해서 문의드립니다.</a></td>
-              <td>2024-05-07</td>
-              <td>츄츄</td>
-            </tr>
-            <tr class="body3">
-              <td>답변대기</td>
-              <td colspan="3" scope="col"><a href="u_qna_view.html">백엔드 강의 환불 관련해서 문의드립니다.</a></td>
-              <td>2024-05-07</td>
-              <td>츄츄</td>
-            </tr>
-            <tr class="body3">
-              <td>답변대기</td>
-              <td colspan="3" scope="col"><a href="u_qna_list.html">백엔드 강의 환불 관련해서 문의드립니다.</a></td>
-              <td>2024-05-07</td>
-              <td>츄츄</td>
-            </tr>
-            <tr class="body3">
-              <td>답변대기</td>
-              <td colspan="3" scope="col"><a href="u_qna_view.html">백엔드 강의 환불 관련해서 문의드립니다.</a></td>
-              <td>2024-05-07</td>
-              <td>츄츄</td>
-            </tr>
-            <tr class="body3">
-              <td>답변대기</td>
-              <td colspan="3" scope="col"><a href="u_qna_view.html">백엔드 강의 환불 관련해서 문의드립니다.</a></td>
-              <td>2024-05-07</td>
-              <td>츄츄</td>
-            </tr>        
-          </tbody>
-        </table>
-      <!--공통 pagination-->
-      <div class="nav_wrap df aic">
-        <nav aria-label="">
-          <ul class="pagination">
-            <li class="page-item disabled">
-              <a class="page-link">&laquo;</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item active" aria-current="page">
-              <a class="page-link" href="#">2</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-              <a class="page-link" href="#">&raquo;</a>
-            </li>
-          </ul>
-        </nav>
-      </div>
-      <!------------- 공통 pagination-->
+        </li>
+        <li>
+            <div class="form-floating textarea body3">
+              <textarea class="form-control" placeholder="공지 설명" id="floatingTextarea"></textarea>
+              <label for="floatingTextarea " hidden>comment</label>
+            </div>   
+        </li>  
+        <li class="btn_collect">
+          <a href="" class="primary_btn">등록 완료</a>
+          <a href="javascript:history.back();" class="basic_btn">목록</a>
+        </li>
+      </ul>
     </div>
-      <footer class="usergrid">
+      <footer class="user_countainer">
         <div class="df u_footer_wrap">
           <h2><a href="index.php">딥러닝캥거루</a></h2>
           <ul class="df">
