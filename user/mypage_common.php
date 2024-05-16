@@ -7,7 +7,7 @@ $rs = $result->fetch_object();
 ?>
 
 <div class="mypage_common">
-    <h2 class="h4"><?=$_SESSION['UNAME']?>님 반갑습니다.</h2>
+    <h2 class="h4"><?=$_SESSION['UNAME']?>님<br>반갑습니다.</h2>
     <span class="body3"><?=$rs->email?></span>
     <nav class="mypage_menu">
       <ul class="menu df fdc">

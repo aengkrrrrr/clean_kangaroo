@@ -55,10 +55,12 @@
 .coupon_ct +.coupon_ct {
     padding: 5px 0;
 }
-.coupon_search_wrap {
+.coupon_search_wrap,
+.lecture_search_wrap {
     position: relative;
 }
-.my_coupon button {
+.my_coupon button,
+.my_lecture button {
     position: absolute;
     right: 15px;
     top: 6px;
