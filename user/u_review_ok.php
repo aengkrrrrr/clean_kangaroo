@@ -24,7 +24,7 @@ $star = intval($_POST['star']);
         </script>";
     } else{
       echo "<script>
-      alert('쿠폰등록 실패');
+      alert('리뷰쓰기 실패');
       history.back();
       </script>";
   }
