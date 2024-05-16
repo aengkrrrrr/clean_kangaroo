@@ -1,5 +1,6 @@
 <?php
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/coupon_func.php';
 
 $userid= $_POST['userid'];
 $username = $_POST['username'];
