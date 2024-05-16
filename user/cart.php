@@ -43,8 +43,8 @@ if(isset($_SESSION['UID'])){
         <label class="form-check-label" for="all_check">전체선택</label>
       </div>
       <div class="num df">
-        <span class="select_num">0개</span>
-        <span class="total_num">총 0개</span>
+        <span class="select_num">0</span><span>개</span>
+        <span class="total_num">총 0</span><span>개</span>
       </div>
       <button class="delete_btn select_del">선택 삭제</button>
     </div>
@@ -92,9 +92,9 @@ if(isset($_SESSION['UID'])){
       ?>
         </select>
       </div>
-        <div class="cart_price df">
+        <div class="cart_price_wrap df">
           <span class="body3">상품 금액 :</span>
-          <span class="body3">0 원</span>
+          <span class="body3 cart_price">0</span><em>원</em>
         </div>
         <div class="cart_sale df">
           <span class="body3">할인 금액 :</span>
@@ -102,7 +102,7 @@ if(isset($_SESSION['UID'])){
         </div>
         <div class="cart_total df">
           <strong class="body2b">총 결제 금액 :</strong>
-          <strong class="body2b">0 원</strong>
+          <strong class="body2b cart_total_price">0</strong><em>원</em>
         </div>
         <button class="secondary_btn pay_btn">구매하기</button>
       </form>
@@ -111,9 +111,12 @@ if(isset($_SESSION['UID'])){
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
+  let all_check = $('.all_check');
+  let select_del = $('.select_del');
+
+function cartInfo() {
   let cart_item = $('.cart_ct');
   let cart_item_checked = cart_item.find('input:checked');
-  let all_check = $('.all_check');
 
 
 //모든 아이템이 체크가 되면 전체선택에 checked
@@ -123,11 +126,29 @@ if(cart_item.length === cart_item_checked.length){
   all_check.find('input').prop('checked',false);
 }
 
-//상품 전체 개수
-$('.total_num').text(cart_item.length);
+//상품 전체개수
+$('.total_num').text('총' + cart_item.length);
 
 //선택 상품개수
 $('.select_num').text(cart_item_checked.length);
+
+//강좌금액 출력
+  let total_price = 0;
+  cart_item_checked.each(function(){
+  let target_pr = $('.cart_price_wrap .cart_price').text().replace(',','');
+  total_price+=Number(target_pr);
+  });
+  $('.cart_price').text(total_price);
+  $('.cart_price').number(true);
+  
+  //전체금액 계산
+  $('.cart_total_price').text(total_price);
+  $('.cart_total_price').number(true);
+  return total_price;
+
+
+}
+
 
 //전체선택 체크(전체선택) / 해제(전체해제)
 all_check.change(function(){
@@ -143,11 +164,11 @@ all_check.change(function(){
 
 
 //선택삭제 클릭 시 선택된 아이템 삭제
-select_del.click(function(){
-  let cart_item = $('.cart_ct');
-  canUdel(cart_item.find('input:checked').parent());
-  cartInfo();
-});
+// select_del.click(function(){
+//   let cart_item = $('.cart_ct');
+//   canUdel(cart_item.find('input:checked').parent());
+//   cartInfo();
+// });
 
 
 
