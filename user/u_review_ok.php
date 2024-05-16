@@ -5,12 +5,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
+$name = $_POST['name'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (title,content,date,star) VALUES (
+  $sql = "INSERT INTO review_board (name,title,content,date,star) VALUES (
+    '{$name}', 
     '{$title}', 
     '{$content}', 
     now(),

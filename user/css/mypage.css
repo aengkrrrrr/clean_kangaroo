@@ -125,5 +125,9 @@
 .nav_wrap .qna  {
     padding-left: 685px;
 }
+.secondary_btn.edit {
+    line-height: 40px;
+    vertical-align: baseline;
+}
 
 /* 질문 */
