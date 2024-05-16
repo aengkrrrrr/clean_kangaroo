@@ -14,6 +14,7 @@
 }
 .num .total_num {
   position: relative;
+  padding-left: 10px;
 }
 .num span:after{
   content: '';
@@ -107,12 +108,12 @@
 .select_wrap select {
   width: 343px;
 }
-.cart_price {
+.cart_price_wrap {
   justify-content: space-between;
   padding-top: 15px;
   position: relative;
 }
-.cart_price:after {
+.cart_price_wrap:after {
   content: '';
   position: absolute;
   left: 0;
