@@ -43,13 +43,13 @@ if(isset($_SESSION['UID'])){
         <label class="form-check-label" for="all_check">전체선택</label>
       </div>
       <div class="num df">
-        <span>0개</span>
+        <span class="select_num">0개</span>
         <span class="total_num">총 0개</span>
       </div>
       <button class="delete_btn select_del">선택 삭제</button>
     </div>
     <div class="cart_ct_none df fdc jcc aic hidden">
-      <img src="/images/cart_kang.png" alt="">
+      <img src="/clean_kangaroo/images/cart_kang.png" alt="">
       <strong class="body1b">장바구니에 담긴 강의가 없습니다.</strong>
       <a href="" class="primary_btn">홈으로 이동</a>
     </div>
@@ -104,12 +104,31 @@ if(isset($_SESSION['UID'])){
           <strong class="body2b">총 결제 금액 :</strong>
           <strong class="body2b">0 원</strong>
         </div>
-        <button class="secondary_btn pay">구매하기</button>
+        <button class="secondary_btn pay_btn">구매하기</button>
       </form>
   </div>
 </main>
 
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
+  let cart_item = $('.cart_ct');
+  let cart_item_checked = cart_item.find('input:checked');
+  let all_check = $('.all_check');
+
+
+//모든 아이템이 체크가 되면 전체선택에 checked
+if(cart_item.length === cart_item_checked.length){
+  all_check.find('input').prop('checked',true);
+} else{
+  all_check.find('input').prop('checked',false);
+}
+
+//상품 전체 개수
+$('.total_num').text(cart_item.length);
+
+//선택 상품개수
+$('.select_num').text(cart_item_checked.length);
+
 //전체선택 체크(전체선택) / 해제(전체해제)
 all_check.change(function(){
   let cart_item = $('.cart_ct');
@@ -131,17 +150,12 @@ select_del.click(function(){
 });
 
 
-//각 item 속 del_btn 클릭 시 해당 아이템 삭제
-$('.del_btn').click(function(){
-  canUdel($(this).parent());
-  cartInfo();
-});
+
 
 
 
 //결제하기 클릭
-$('.pay_wrap').submit(function(e){
-  e.preventDefault();
+$('.pay_btn').click(function(){
 
   if($('.cart_ct').find('input:checked').length>0){
 
@@ -159,31 +173,27 @@ $('.pay_wrap').submit(function(e){
   
     let userid = $(this).find('.userid').val();
 
-    // let cpid = $(this).find('.coupon_select').val();
-    // console.log('cpid'+cpid);
+    let cpid = $(this).find('.coupon_select').val();
+    console.log('cpid'+cpid);
   
   
     let data = {
-      total_price : total_price,
       cartid : cart_id,
       userid: userid,
-      cpid: cpid
+      pid: pid
     }
   console.log(data);
     $.ajax({
       async : false, 
       type: 'post',     
       data: data, 
-      url: "payment_insert.php", 
+      url: "cart_payment.php", 
       dataType: 'json', //결과 json 객체형식
       error: function(error){
         console.log('Error:', error);
       },
       success: function(return_data){
         location.reload();
-        // target.remove();
-        // console.log(return_data);
-        location.href = "/clean_kangaroo/user/cart/cart_complete.php";
       }
     });//ajax
   } else{

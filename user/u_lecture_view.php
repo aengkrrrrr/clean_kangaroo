@@ -101,135 +101,135 @@ $row = mysqli_fetch_object($result);
    </div>
   </section>
   <section class="lecture_cur">
-  <div class="lecture_cur_container usergrid">
-    <div class="cur_tit df aic">
-      <h2 class="h3">커리큘럼 4개월 과정</h2>
-      <ul class="lec_cur_pager df">
-        <li>
-          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
-          <span class="body3b">1개월</span>
-        </li>
-        <li>
-          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
-          <span class="body3b">2개월</span>
-        </li>
-        <li>
-          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
-          <span class="body3b">3개월</span>
-        </li>
-        <li>
-          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
-          <span class="body3b">4개월</span>
-        </li>
-      </ul>
+    <div class="lecture_cur_container usergrid">
+      <div class="cur_tit df aic">
+        <h2 class="h3">커리큘럼 4개월 과정</h2>
+        <ul class="lec_cur_pager df">
+          <li>
+            <img src="/clean_kangaroo/images/pager_star.svg" alt="">
+            <span class="body3b">1개월</span>
+          </li>
+          <li>
+            <img src="/clean_kangaroo/images/pager_star.svg" alt="">
+            <span class="body3b">2개월</span>
+          </li>
+          <li>
+            <img src="/clean_kangaroo/images/pager_star.svg" alt="">
+            <span class="body3b">3개월</span>
+          </li>
+          <li>
+            <img src="/clean_kangaroo/images/pager_star.svg" alt="">
+            <span class="body3b">4개월</span>
+          </li>
+        </ul>
+      </div>
+      <div class="lec_cur_slide_wrap">
+        <div class="lec_cur_wrap df jcc">
+          <div class="lec_cur_slide">
+            <em class="body3b">1~2주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+          <div class="lec_cur_slide">
+            <em class="body3b">3~4주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lec_cur_wrap df jcc">
+          <div class="lec_cur_slide">
+            <em class="body3b">5~6주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+          <div class="lec_cur_slide">
+            <em class="body3b">7~8주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lec_cur_wrap df jcc">
+          <div class="lec_cur_slide">
+            <em class="body3b">9~10주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+          <div class="lec_cur_slide">
+            <em class="body3b">11~12주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+        </div>
+        <div class="lec_cur_wrap df jcc">
+          <div class="lec_cur_slide">
+            <em class="body3b">13~14주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+          <div class="lec_cur_slide">
+            <em class="body3b">15~16주차</em>
+            <ul class="df fdc body2">
+              <li>- VScode 설정</li>
+              <li>- html 기본 개념</li>
+              <li>- 태그와 스타일의 기본적인 사용방법</li>
+              <li>- 박스 관련 속성과 여백 속성</li>
+              <li>- 폼 요소와 테이블 요소</li>
+              <li>- 포지션 속성과 레이아웃 정렬</li>
+              <li>- 웹 폰트 속성과 인터렉션 속성</li>
+            </ul>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="lec_cur_slide_wrap">
-      <div class="lec_cur_wrap df jcc">
-        <div class="lec_cur_slide">
-          <em class="body3b">1~2주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-        <div class="lec_cur_slide">
-          <em class="body3b">3~4주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-      </div>
-      <div class="lec_cur_wrap df jcc">
-        <div class="lec_cur_slide">
-          <em class="body3b">5~6주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-        <div class="lec_cur_slide">
-          <em class="body3b">7~8주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-      </div>
-      <div class="lec_cur_wrap df jcc">
-        <div class="lec_cur_slide">
-          <em class="body3b">9~10주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-        <div class="lec_cur_slide">
-          <em class="body3b">11~12주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-      </div>
-      <div class="lec_cur_wrap df jcc">
-        <div class="lec_cur_slide">
-          <em class="body3b">13~14주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-        <div class="lec_cur_slide">
-          <em class="body3b">15~16주차</em>
-          <ul class="df fdc body2">
-            <li>- VScode 설정</li>
-            <li>- html 기본 개념</li>
-            <li>- 태그와 스타일의 기본적인 사용방법</li>
-            <li>- 박스 관련 속성과 여백 속성</li>
-            <li>- 폼 요소와 테이블 요소</li>
-            <li>- 포지션 속성과 레이아웃 정렬</li>
-            <li>- 웹 폰트 속성과 인터렉션 속성</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
 
   </section>
   <!------------- 강좌보기 - 송림 -->
