@@ -13,6 +13,8 @@ on b.userid=m.userid WHERE b.idx={$idx}";
 
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
+$_SESSION['UNAME'] = $row->username;
+$_SESSION['UID'] = $row->userid;
 
 // 조회수 업데이트
 $hit = $row->hit + 1;
@@ -41,10 +43,10 @@ $mysqli->query($sqlUpdate);
         <tr>
           <td class="edit df" colspan="5" scope="col">
             <?php
-            if (isset($_SESSION['UNAME']) == $row->username) {
+            if ($_SESSION['UID'] !== $row->username) {
               ?>
-         <a href="/clean_kangaroo/user/u_qna_edit.php?idx=<?=$row->idx?>" class="secondary_btn edit qna" >수정</a>
-         <a href="/clean_kangaroo/user/u_qna_del.php?idx=<?=$row->idx?>" class="delete_btn del qna" >삭제</a>
+         <a href="/clean_kangaroo/user/u_qna_edit.php?idx=<?=$row->idx?>" class="secondary_btn edit qna">수정</a>
+         <a href="/clean_kangaroo/user/u_qna_del.php?idx=<?=$row->idx?>" class="delete_btn del qna">삭제</a>
         <?php 
         }else{
           ?>
