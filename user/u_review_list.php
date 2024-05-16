@@ -26,10 +26,16 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
-// 회원 아이디 불러오기
+// 회원 이름 불러오기
 $membersql = "SELECT * FROM members";
 $memberresult = $mysqli->query($membersql);
 $memberrs = $memberresult->fetch_object();
+
+
+// 수강평 답글 조회
+$reply_sql = "SELECT * FROM review_reply";
+$reply_result = $mysqli -> query($reply_sql);
+$rr = $reply_result->fetch_object();
 ?>
 <main class="usergrid">
   <div class="user_subreview_title">
@@ -46,11 +52,11 @@ $memberrs = $memberresult->fetch_object();
         <div class="df user_review_img">
           <img src="../images/user_profile1.png" alt="">
           <p>
-            <span class="h4"><?= $memberrs->username ?></span><br>
+            <span class="body2b"><?= $memberrs->username ?></span><br>
             <span class="body1">3d애니메이터</span>
           </p>
         </div>
-          <p class="body3"><?= $item->content; ?></p>
+        <p class="body3"><?= $item->content; ?></p>
       </li>
       <?php
           }
@@ -90,16 +96,23 @@ $memberrs = $memberresult->fetch_object();
               <div class="user_intreview_title df">
                 <img src="../images/user_profile1.png" alt="">
                 <p class="body4b">비주얼 디자인 포트폴리오</p>
-                <p class="body4b"><?= $item->name; ?></p>
-                <p class="body4b">
-                  <i class="fas fa-star"><?= $item->star; ?></i>
-                </p>
+                <span class="body4b"><?= $memberrs->username ?></span><br>
+                <div class="body4b rating" data-rate="<?= $item->star; ?>">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>	
+                </div>
               </div>
               <p class="body4b"><?= $item->date; ?></p>
             </div>
           </div>
           <div class="user_intreview_cbox">
             <p><?= $item->content; ?></p>
+          </div>
+          <div class="admina user_intreview_cbox">
+            <p><?= $rr->content; ?></p>
           </div>
         </li>
       </ul>

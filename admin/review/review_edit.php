@@ -8,7 +8,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 // 수강평 조회
-$idx = $_GET['idx']; 
+$idx = $_GET['idx'];
 $sql = "SELECT * FROM review_board WHERE idx = {$idx}";
 $result = $mysqli -> query($sql);
 $rs = $result->fetch_object();

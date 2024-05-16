@@ -25,6 +25,22 @@ $result = $mysqli->query($catesql);
 while ($row = $result->fetch_object()) {
   $cate1[] = $row;
 }
+
+// 리뷰
+
+$rsql = "SELECT * FROM review_board where 1=1";
+$order = " order by name desc";
+
+$result = $mysqli->query($rsql);
+while ($rrs = $result->fetch_object()) {
+  $rrsArr[] = $rrs;
+}
+
+// 회원 이름 불러오기
+$membersql = "SELECT * FROM members";
+$memberresult = $mysqli->query($membersql);
+$memberrs = $memberresult->fetch_object();
+
 ?>
 
 <main>
@@ -271,60 +287,24 @@ while ($row = $result->fetch_object()) {
     <div class="usergrid">
       <h2>student review</h2>
       <ul class="df main_review_list">
-        <li class="u_profile">
-          <div class="df main_review_img">
-            <img src="../images/user_profile1.png" alt="">
-            <p>
-              <span class="h4">김*윤</span><br>
-              <span class="body1">3d애니메이터</span>
-            </p>
-          </div>
-          <div class="df main_review_txt">
-            <p class="body4">애니메이션 작업을 파이프라인을 따라<br>
-              직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서<br>
-              개인적으로 부족한 점을 다시 한번 되돌아<br>
-              볼 수 있었습니다.
-            </p>
-            <a href="" class="primary_btn">CG/VFX</a>
-          </div>
-        </li>
-        <li class="u_profile">
-          <div class="df main_review_img">
-            <img src="../images/user_profile1.png" alt="">
-            <p>
-              <span class="h4">김*윤</span><br>
-              <span class="body1">3d애니메이터</span>
-            </p>
-          </div>
-          <div class="df main_review_txt">
-            <p class="body4">애니메이션 작업을 파이프라인을 따라<br>
-              직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서<br>
-              개인적으로 부족한 점을 다시 한번 되돌아<br>
-              볼 수 있었습니다.
-            </p>
-            <a href="" class="primary_btn">CG/VFX</a>
-          </div>
-        </li>
-        <li class="u_profile">
-          <div class="df main_review_img">
-            <img src="../images/user_profile1.png" alt="">
-            <p>
-              <span class="h4">김*윤</span><br>
-              <span class="body1">3d애니메이터</span>
-            </p>
-          </div>
-          <div class="df main_review_txt">
-            <p class="body4">애니메이션 작업을 파이프라인을 따라<br>
-              직접 작업해보고,<br>
-              또한 선생님의 상세한 피드백을 통해서<br>
-              개인적으로 부족한 점을 다시 한번 되돌아<br>
-              볼 수 있었습니다.
-            </p>
-            <a href="" class="primary_btn">CG/VFX</a>
-          </div>
-        </li>
+      <?php
+        if (isset($rrsArr)) {
+        foreach ($rrsArr as $item) {
+      ?>
+      <li class="user_profile">
+        <div class="df user_review_img">
+          <img src="../images/user_profile1.png" alt="">
+          <p>
+            <span class="body2b"><?= $memberrs->username ?></span><br>
+            <span class="body1">3d애니메이터</span>
+          </p>
+        </div>
+        <p class="body3"><?= $item->content; ?></p>
+      </li>
+      <?php
+          }
+        }
+      ?>
       </ul>
       <a href="u_review_list.php" class="primary_btn">후기 더 보러가기</a>
     </div>
