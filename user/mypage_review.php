@@ -39,7 +39,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
               <td>2024-04-27</td>
               <td>피그마 A부터 Z까지 배워보자</td>
               <td>
-                <a href="u_review_edit.php" class="secondary_btn edit">수정</a>
+                <a href="u_review_edit.php?idx=" class="secondary_btn edit">수정</a>
                 <button class="delete_btn del">삭제</button>
               </td>
             </tr>

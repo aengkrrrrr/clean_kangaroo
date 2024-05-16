@@ -62,7 +62,7 @@
   width: 150px;
 }
 .intreview_box {
-  margin-bottom:103px;
+  margin-bottom:30px;
 }
 .intreview_box li {
   width: 100%;
@@ -88,7 +88,25 @@
   width: 60px;
   height:60px;
 }
-main p.df {justify-content: flex-end;}
+main p.df {
+  justify-content: flex-end;
+}
+.intreview_box .admina {
+  position:relative;
+  border: none;
+  background:#e1e1e1;
+  margin-top:20px;
+}
+.intreview_box .admina p::before {
+  content: '';
+  position:absolute;
+  width: 16px;
+  height: 16px;
+  top: -5px;
+  left: 20px;
+  transform: rotate(45deg);
+  background:#e1e1e1;
+}
 .user_intreview_cbox {
   border: 1px solid var(--C-black, #000);
   border-radius: 10px;
@@ -121,7 +139,7 @@ main p.df {justify-content: flex-end;}
 .make_star select {
   width: 30%;
 }
-.rating svg{
+.rating i{
 	color:#ebebeb;
 }
 .rvbackbtn {

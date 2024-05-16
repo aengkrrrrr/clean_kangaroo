@@ -17,7 +17,7 @@ $memberrs = $memberresult->fetch_object();
     <form action="u_review_ok.php" enctype="multipart/form-data" method="POST">
     <input type="hidden" name="idx">
       <p class="review_userid">
-        <span class="body1">ID : <?= $memberrs->username ?></span>
+        <span class="body2">NAME : <?= $memberrs->username ?></span>
       </p>
       <div class="user_review_titlewrap df user_review_form">
         <div class="form-floating">

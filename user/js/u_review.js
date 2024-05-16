@@ -1,4 +1,4 @@
-let rating = $('.review .rating');
+let rating = $('.user_intreview_title .rating');
 let selectForm = $('#makeStar');
 // rating.eq(0).find('i:nth-child(-1+3)').css({color:'#F05522'});
 
