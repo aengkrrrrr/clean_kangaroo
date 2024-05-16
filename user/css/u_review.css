@@ -109,6 +109,9 @@ main p.df {justify-content: flex-end;}
 .user_review_titlewrap > .form-floating {
   width: 80%;
 }
+.user_review_writecn .review_userid {
+  margin-bottom: 30px;
+}
 .make_star {
   width: 20%;
   justify-content: flex-end;

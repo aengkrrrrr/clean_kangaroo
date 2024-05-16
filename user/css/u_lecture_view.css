@@ -11,7 +11,7 @@ main {
   text-align: center;
   font-weight: 500;
 }
-.lecture_detail strong {
+.lecture_detail .sub_tit {
   padding-bottom: 40px;
 }
 .lecture_detail .sub_tit {

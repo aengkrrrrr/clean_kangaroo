@@ -26,7 +26,9 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             <tr class="df aic">
               <td>2024-04-27</td>
               <td>피그마 A부터 Z까지 배워보자</td>
-              <td><button class="primary_btn">작성하기</button></td>
+              <td>
+                <a href="u_review_up.php" class="primary_btn">작성하기</a>
+              </td>
             </tr>
             <tr class="df aic">
               <td>2024-04-27</td>
@@ -37,7 +39,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
               <td>2024-04-27</td>
               <td>피그마 A부터 Z까지 배워보자</td>
               <td>
-                <button class="secondary_btn edit">수정</button>
+                <a href="u_review_edit.php" class="secondary_btn edit">수정</a>
                 <button class="delete_btn del">삭제</button>
               </td>
             </tr>

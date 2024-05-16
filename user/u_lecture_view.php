@@ -30,7 +30,7 @@ $row = mysqli_fetch_object($result);
           <em class="body3b">모집정원 : 10명</em>
         </div>
       <div class="lec_btn df aic">
-          <button class="primary_btn body2b add_cart_btn">장바구니</button>
+          <button class="primary_btn body2b add_cart_btn" data-cid="<?=$pid?>">장바구니</button>
           <a href="u_qna_list.php" class="primary_btn body2b">문의하기</a>
       </div>
       </div>
@@ -46,7 +46,7 @@ $row = mysqli_fetch_object($result);
           <em class="body3b">모집정원 : 10명</em>
         </div>
       <div class="lec_btn df aic">
-          <button class="primary_btn body2b add_cart_btn">장바구니</button>
+          <button class="primary_btn body2b add_cart_btn" data-cid="<?=$pid?>">장바구니</button>
           <a href="u_qna_list.html" class="primary_btn body2b">문의하기</a>
       </div>
       </div>
@@ -61,7 +61,7 @@ $row = mysqli_fetch_object($result);
               <b class="strong">취업에 성공</b>하고 있습니다.
             </p>
         </div>
-        <img src="/images/lecture_ct_img01.png" alt="">
+        <img src="/clean_kangaroo/images/lecture_ct_img01.png" alt="">
       </div>
       <div class="lecture_system df">
         <div class="system_tit_wrap df fdc">
@@ -72,7 +72,7 @@ $row = mysqli_fetch_object($result);
               될 수 있도록 교육합니다.
             </p>
         </div>
-        <img src="/images/lecture_ct_img02.png" alt="">
+        <img src="/clean_kangaroo/images/lecture_ct_img02.png" alt="">
       </div>
     </div>
     <div class="lecture_system_wrap df jcc">
@@ -85,7 +85,7 @@ $row = mysqli_fetch_object($result);
                 각종 애로사항들을 해결해드립니다.
               </p>
           </div>
-          <img src="/images/lecture_ct_img03.png" alt="">
+          <img src="/clean_kangaroo/images/lecture_ct_img03.png" alt="">
         </div>
         <div class="lecture_system df">
           <div class="system_tit_wrap df fdc">
@@ -96,7 +96,7 @@ $row = mysqli_fetch_object($result);
                 기업 검색부터 자소서 및 면접준비까지!
               </p>
           </div>
-          <img src="/images/lecture_ct_img04.png" alt="">
+          <img src="/clean_kangaroo/images/lecture_ct_img04.png" alt="">
         </div>
    </div>
   </section>
@@ -106,19 +106,19 @@ $row = mysqli_fetch_object($result);
       <h2 class="h3">커리큘럼 4개월 과정</h2>
       <ul class="lec_cur_pager df">
         <li>
-          <img src="/images/pager_star.svg" alt="">
+          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
           <span class="body3b">1개월</span>
         </li>
         <li>
-          <img src="/images/pager_star.svg" alt="">
+          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
           <span class="body3b">2개월</span>
         </li>
         <li>
-          <img src="/images/pager_star.svg" alt="">
+          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
           <span class="body3b">3개월</span>
         </li>
         <li>
-          <img src="/images/pager_star.svg" alt="">
+          <img src="/clean_kangaroo/images/pager_star.svg" alt="">
           <span class="body3b">4개월</span>
         </li>
       </ul>
@@ -244,22 +244,15 @@ $row = mysqli_fetch_object($result);
 <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 <script>
 $('.add_cart_btn').on('click', function(){
-            
-    //상품코드, 옵션명, 수량
-    // let target = $('.widget-desc input[type="radio"]:checked');
-    // let pid = <?= $pid; ?>;            
-    // let optname = target.attr('data-name');
-    // let qty = Number($('#qty').val());
-    // let total = Number($('#subtotal span').text());
+    //pid,userid
+    let pid = <?= $pid; ?>;            
+    let userid = "<?=$_SESSION['UID']?>";
 
-    // let data = {
-    //     pid : pid,
-    //     optname: optname,
-    //     qty :qty,
-    //     total:total
-    // }
+    let data = {
+        pid : pid,
+        userid: userid
+    }
     // console.log(data);
-
   $.ajax({
     url:'cart_insert.php',
     async:false,

@@ -4,6 +4,12 @@ $css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
+// 수강평 조회
+$idx = $_GET['idx']; 
+$sql = "SELECT * FROM review_board WHERE idx = {$idx}";
+$result = $mysqli -> query($sql);
+$rs = $result->fetch_object();
+
 // 회원 아이디 불러오기
 $membersql = "SELECT * FROM members";
 $memberresult = $mysqli->query($membersql);
@@ -47,7 +53,7 @@ $memberrs = $memberresult->fetch_object();
       </div>
       <p class="df">
     <a href="u_review_list.php" class="basic_btn rvbackbtn">취소</a>
-    <button class="primary_btn">등록</button>
+    <button class="primary_btn">수정</button>
   </p>
     </form>
   </section>

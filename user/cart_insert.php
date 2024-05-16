@@ -3,18 +3,18 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $pid = $_POST['pid'];
-$optname = $_POST['optname'] ?? '';
-$qty =  $_POST['qty'];
-$total =  $_POST['total'];
+$userid = $_SESSION['UID'];
 
-if(isset($_SESSION['UID'])){
-    $userid = $_SESSION['UID'];
-} else {
-    $userid = '';
-}
+// if(isset($_SESSION['UID'])){
+//     $userid = $_SESSION['UID'];
+// } else {
+//     $userid = '';
+// }
 
 //pid 장바구니 중복체크
-$sql = "SELECT COUNT(*) AS cnt FROM cart WHERE pid = '{$pid}' AND (userid = '{$userid}' or ssid='{$ssid}')";
+$sql = "SELECT COUNT(*) AS cnt FROM cart WHERE pid = '{$pid}' AND userid = '{$userid}'";
+// $data = array('result' => $sql);
+// echo json_encode($data);
 $result = $mysqli -> query($sql);
 $row = $result -> fetch_object(); // $row->cnt
 
@@ -23,14 +23,9 @@ if($result){
         $data = array('result' => '중복');
         echo json_encode($data);
     }else {
-        $cartsql = "INSERT INTO cart (pid,userid,ssid,options,cnt,total,regdate) VALUES (
+        $cartsql = "INSERT INTO cart (pid,userid) VALUES (
             {$pid},
-            '{$userid}',
-            '{$ssid}',
-            '{$optname}',
-            '{$qty}',
-            '{$total}',
-            now()
+            '{$userid}'
         )";
         
         $cartresult = $mysqli -> query($cartsql);

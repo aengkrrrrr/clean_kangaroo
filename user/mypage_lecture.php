@@ -14,11 +14,13 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
     <div class="my_lecture">
       <h2 class="body1b">내 강의실</h3>
+      <div class="lecture_search_wrap">
         <input class="form-control search" type="text" id="search_keyword" name="keyword">
         <button>
           <span class="material-symbols-outlined">
             search
           </span>
+      </div>
         </button>
       <div class="cart_ct df">
         <img src="/images/cart_img01.png" alt="">

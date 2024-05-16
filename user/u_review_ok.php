@@ -5,12 +5,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
+$name = $_POST['name'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (title,content,date,star) VALUES (
+  $sql = "INSERT INTO review_board (name,title,content,date,star) VALUES (
+    '{$name}', 
     '{$title}', 
     '{$content}', 
     now(),
@@ -24,7 +26,7 @@ $star = intval($_POST['star']);
         </script>";
     } else{
       echo "<script>
-      alert('쿠폰등록 실패');
+      alert('리뷰쓰기 실패');
       history.back();
       </script>";
   }
