@@ -37,14 +37,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
       </h1>
       <nav class="u_gnb_wrap">
         <ul class="u_gnb df">
-          <li><a href="u_lecture_list.html" class="body3b">웹디자인/편집</a></li>
-          <li><a href="u_lecture_list.html" class="body3b">웹개발</a></li>
-          <li><a href="u_lecture_list.html" class="body3b">CG/모션그래픽</a></li>
-          <li><a href="u_lecture_list.html" class="body3b">게임/웹툰</a></li>
-          <li><a href="u_review_list.html" class="body3b">수강평</a></li>
+          <li><a href="u_lecture_list.php" class="body3b">웹디자인/편집</a></li>
+          <li><a href="u_lecture_list.php" class="body3b">웹개발</a></li>
+          <li><a href="u_lecture_list.php" class="body3b">CG/모션그래픽</a></li>
+          <li><a href="u_lecture_list.php" class="body3b">게임/웹툰</a></li>
+          <li><a href="u_review_list.php" class="body3b">수강평</a></li>
           <li><a href="u_qna_list.php" class="body3b">Q&A</a></li>
           <li><a href="u_notice_list.php" class="body3b">공지사항</a></li>
-          <li><a href="event_list.html" class="body3b">이벤트</a></li>
+          <li><a href="event_list.php" class="body3b">이벤트</a></li>
         </ul>
       </nav>
       <div class="util_wrap df aic">

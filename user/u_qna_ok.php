@@ -1,7 +1,8 @@
 <?php
+session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-
+ 
 $idx = $_POST['idx'];
 $name = $_POST['name'];
 $title = $_POST['title'];
@@ -10,6 +11,7 @@ $date = date("Y-m-d");
 
 $sql = "INSERT INTO qna_board (idx, name, title, content, date) VALUES ('{$idx}','{$name}','{$title}','{$content}',now())";
 
+echo $sql;
 if($mysqli->query($sql) === true){
   echo "<script>
       alert('Q&A 작성 완료');
