@@ -4,7 +4,8 @@ $css1 =' <link rel="stylesheet" href="./css/u_lecture_list.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-$c_where = '';
+
+
 
 // 필터
 $pcode = $_GET['code'] ?? '';
@@ -15,6 +16,17 @@ while ($step2rs = $step2result->fetch_object()) {
 }
 
 
+
+//필터 카테고리 조회
+$c_where = '';
+
+if($cate != ''){
+  if($cate == $step2sql){
+    $c_where .= " and cate LIKE '%{$cate}%'";
+  }
+}else{
+  $c_where .= "";
+}
 
 
 // 검색창
@@ -140,19 +152,19 @@ while ($rs = $result->fetch_object()) {
       <ul class="pagination">
       <?php
       if($pageNumber > 1){
-        echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
+        echo "<li class=\"page-item\"><a href=\"u_lecture_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
         //이전
         if($block_num > 1){
           $prev = 1 + ($block_num - 2) * $block_ct;
-          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
+          echo "<li class=\"page-item\"><a href=\"u_lecture_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
         }
       }
 
         for($i=$block_start;$i<=$block_end;$i++){
           if($i == $pageNumber){
-            echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            echo "<li class=\"page-item active\"><a href=\"u_lecture_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
           }else{
-            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            echo "<li class=\"page-item\"><a href=\"u_lecture_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
           }            
         }  
 
