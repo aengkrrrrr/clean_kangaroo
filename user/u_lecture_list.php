@@ -38,56 +38,60 @@ while ($rs = $result->fetch_object()) {
     <section class="user_sublecture_wrap">
       <div class="user_filter_wrap">
         <div class="user_sublecture_filter">
-          <h4 class="h4">category</h4>  
-          <form action="">  
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">전체선택</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">포토샵</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">일러스트</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">인디자인</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">비주얼디자인</label>  
-          </div>
-          <div class="form-check">  
-          <input type="radio" class="form-check-input" name="optradio" value="good">  
-          <label class="form-check-label" for="btn1">피그마</label>  
-          </div>
-          <button class="primary_btn">filter</button>
-          </form>  
-        </div>  
-        <div class="user_sublecture_filter">
-          <h4 class="h4">class</h4>  
+          <h4 class="body1b">category</h4>  
           <form action="">
             <div class="form-check">  
-              <input type="radio" class="form-check-input" name="optradio" value="good">  
-              <label class="form-check-label" for="btn1">전체선택</label>  
+              <input class="form-check-input" type="checkbox" value="" id="checkAlls">
+              <label class="form-check-label" for="flexCheckDefault">전체선택</label>
+            </div>
+            <div class="select_lecture">
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="chk">
+                <label class="form-check-label" for="flexCheckDefault">포토샵</label>
               </div>
-            <div class="form-check">  
-              <input type="radio" class="form-check-input" name="optradio" value="good">  
-              <label class="form-check-label" for="btn1">초급</label>  
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="2" id="flexCheckDefault" name="chk">
+                <label class="form-check-label" for="flexCheckDefault">일러스트</label>
+              </div>
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault" name="chk">
+                <label class="form-check-label" for="flexCheckDefault">인디자인</label>
+              </div>
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="4" id="flexCheckDefault" name="chk">
+                <label class="form-check-label" for="flexCheckDefault">비주얼디자인</label>
+              </div>
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="5" id="flexCheckDefault" name="chk">
+                <label class="form-check-label" for="flexCheckDefault">피그마</label>
+              </div>
             </div>
+            <button id="filter-submit-btn" class="btn primary_btn">filter</button>
+          </form>
+        </div>  
+        <div class="user_sublecture_filter">
+          <h4 class="body1b">class</h4>  
+          <form action="">
             <div class="form-check">  
-              <input type="radio" class="form-check-input" name="optradio" value="good">  
-              <label class="form-check-label" for="btn1">중급</label>
+              <input class="form-check-input" type="checkbox" value="" id="checkAll">
+              <label class="form-check-label" for="flexCheckDefault">전체선택</label>
             </div>
-            <div class="form-check">  
-              <input type="radio" class="form-check-input" name="optradio" value="good">  
-              <label class="form-check-label" for="btn1">고급</label>
+            <div class="select_lecture">
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="6" id="flexCheckDefault" name="chks">
+                <label class="form-check-label" for="flexCheckDefault">초급</label>
+              </div>
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="7" id="flexCheckDefault" name="chks">
+                <label class="form-check-label" for="flexCheckDefault">중급</label>
+              </div>
+              <div class="form-check">  
+                <input class="form-check-input" type="checkbox" value="8" id="flexCheckDefault" name="chks">
+                <label class="form-check-label" for="flexCheckDefault">고급</label>
+              </div>
             </div>
-            <button class="primary_btn">filter</button>
-          </form>  
+            <button id="filter-submit-btn" class="btn primary_btn">filter</button>
+          </form>
         </div>
       </div>  
       <div class="user_sublecture_contentwrap">
@@ -148,29 +152,7 @@ while ($rs = $result->fetch_object()) {
       </ul>
     </nav>
   </main>
-  <footer>
-    <div class="user_countainer">
-      <div class="df u_footer_wrap">
-        <h2><a href="index.php">딥러닝캥거루</a></h2>
-        <ul class="df">
-          <li class="body3">딥러닝캥거루</li>
-          <li class="body3">사업자번호 : 640-81-01354</li>
-          <li class="body3">대표 : 깨끗한 아기 캥거루</li>
-          <li class="body3">개인정보책임자 : 김동주</li>
-          <li class="body3">제휴&마케팅 문의 : dlkang@create.co.kr</li>
-          <li class="body3">Copyright © DEEP LEARNING KANGAROO. All Rights Reserved.</li>
-        </ul>
-        <p class="h4">대표전화<br><strong>1988-8782</strong></p>
-      </div>
-    </div>
-  </footer>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="./js/jquery.bxslider.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js"></script>
-<script src="./js/u_review.js"></script>
-<script src="./js/u_common.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-</html>
+  <?php
+    $script1 = '<script src="./js/u_lecture.js"></script>';
+    include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
+  ?>

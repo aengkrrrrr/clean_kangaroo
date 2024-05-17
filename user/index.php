@@ -36,10 +36,13 @@ while ($rrs = $result->fetch_object()) {
   $rrsArr[] = $rrs;
 }
 
-// 회원 이름 불러오기
+///// 회원 이름 불러오기
 $membersql = "SELECT * FROM members";
 $memberresult = $mysqli->query($membersql);
 $memberrs = $memberresult->fetch_object();
+
+// 이벤트
+
 
 ?>
 

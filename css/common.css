@@ -225,6 +225,7 @@ h1{
 /* 호버 효과 */
 .primary_btn:hover{
   background: var(--C-hover);
+  color: var(--C-white, #fff);
 }
 .secondary_btn:hover {
   background: #D8741E;
