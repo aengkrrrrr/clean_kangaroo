@@ -165,7 +165,7 @@ $memberrs = $memberresult->fetch_object();
             }
           }
           ?>
-          <!-- <ul>
+          <ul>
             <li><img src="../images/Rectangle 001.png" /></li>
             <li>[입문] 피그마 A to Z</li>
           </ul>
@@ -180,7 +180,7 @@ $memberrs = $memberresult->fetch_object();
           <ul>
             <li><img src="../images/Rectangle 004.jpg" /></li>
             <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-          </ul> -->
+          </ul>
         </div>
       </div>
       <div class="con" id="tab3">
@@ -189,7 +189,7 @@ $memberrs = $memberresult->fetch_object();
           if (isset($rslArr3)) {
             foreach ($rslArr3 as $rsl3) {
           ?>
-              <!-- <ul>
+              <ul>
                 <li><img src="../images/Rectangle 007.jpg" /></li>
                 <li>[입문] 피그마 A to Z</li>
               </ul>
@@ -204,7 +204,7 @@ $memberrs = $memberresult->fetch_object();
               <ul>
                 <li><img src="../images/Rectangle 010.jpg" /></li>
                 <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-              </ul> -->
+              </ul>
           <?php
             }
           }
@@ -217,7 +217,7 @@ $memberrs = $memberresult->fetch_object();
           if (isset($rslArr4)) {
             foreach ($rslArr4 as $rsl4) {
           ?>
-              <!-- <ul>
+              <ul>
                 <li><img src="../images/Rectangle 013.jpg" /></li>
                 <li>[입문] 피그마 A to Z</li>
               </ul>
@@ -232,7 +232,7 @@ $memberrs = $memberresult->fetch_object();
               <ul>
                 <li><img src="../images/Rectangle 016.png" /></li>
                 <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-              </ul> -->
+              </ul>
           <?php
             }
           }

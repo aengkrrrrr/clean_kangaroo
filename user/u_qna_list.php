@@ -7,7 +7,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 $search_keyword = $_GET['search_keyword'] ?? '';
 $search_where = "";
 if ($search_keyword) {
-  $search_where .= " and (title LIKE '%{$search_keyword}%' or userid LIKE '%{$search_keyword}%')";
+  $search_where .= " and (title LIKE '%{$search_keyword}%' or username LIKE '%{$search_keyword}%')";
 }
 $paginationTarget = 'qna_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
@@ -18,13 +18,11 @@ from qna_board b
 join members m 
 on b.userid=m.userid where 1=1";
 
-
 $sql .= $search_where;
 $order = " order by idx desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
-// echo $sql;
 
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
@@ -41,6 +39,9 @@ $username = $_SESSION['UNAME'];
 $msql = "SELECT * FROM members where userid='{$userid}'";
 $result2 = $mysqli->query($msql);
 $rsm = $result2->fetch_object();
+
+
+
 ?>
 
 <main class="u_body">
