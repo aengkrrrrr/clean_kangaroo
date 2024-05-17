@@ -2,18 +2,18 @@
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 
-  $pid = $_POST['pid'];
+  // $pid = $_POST['pid'];
   $cartid = $_POST['cartid'];
   $userid = $_POST['userid'];
   $total = $_POST['total'];
 
     $sql = "INSERT into payment
-        (pid,cartid,userid,total) values
-        ({$pid},'{$cartid}','{$userid}',{$total})
+        (cartid,userid,total) values
+        ('{$cartid}','{$userid}',{$total})
     ";
     $result = $mysqli -> query($sql);
 
-    if($result2 === true){ // INSERT가 성공한 경우
+    if($result === true){ // INSERT가 성공한 경우
     $return_data = array("result" => "success");
   } else { // INSERT가 실패한 경우
     $return_data = array("result" => "error", "message" => $mysqli->error);

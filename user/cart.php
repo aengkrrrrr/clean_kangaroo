@@ -77,6 +77,7 @@ if(isset($_SESSION['UID'])){
     ?>
     <form class="pay_wrap" action="#" method="POST">
       <h3 class="body1b">결제정보</h3>
+      <input type="hidden" value="<?=$userid?>" class="userid">
       <div class="select_wrap">
         <label for="" class="body3">쿠폰선택</label>
         <select class="form-select" aria-label="" id="" name="">
@@ -237,9 +238,15 @@ $('.pay_btn').click(function(){
         
       } 
     })
+    
+    let userid = $(this).find('.userid').val();
+    let total = $('.cart_total').find('.cart_total_price');
 
     let data = {
-      cartid : cartid
+      pid : pid
+      cartid : cartid,
+      userid : userid,
+      total : total
     }
     console.log(data);
 
@@ -252,7 +259,7 @@ $('.pay_btn').click(function(){
       error:function(){},
       success:function(data){
       console.log(data);
-      if(data.result=='ok'){
+      if(data.result=='true'){
           alert('상품을 구매가 완료되었습니다.');     
           location.reload();                   
       }else{
