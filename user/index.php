@@ -1,6 +1,6 @@
 <?php
 $title = '홈';
-$css1 = ' <link rel="stylesheet" href="./css/u_main.css">';
+$css1 = ' <link rel="stylesheet" href="/clean_kangaroo/user/css/u_main.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 

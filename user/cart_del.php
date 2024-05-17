@@ -1,14 +1,14 @@
 <?php
  include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-  $cartid = $_POST['cartid'];
-  
-  foreach($cartid as $ctid){
-    $sql = "DELETE from cart where cartid=$cartid";
-    $result = $mysqli->query($sql);
-
-  }
-  $return_data = array("result"=>$result); 
-  echo json_encode($return_data);
-  exit;
+ $cartid = $_POST['cartid'];
+ $sql = "DELETE FROM cart WHERE cartid = {$cartid}";
+ $result = $mysqli -> query($sql);
+ 
+ if($result){
+     $data = array('result'=>'ok');
+ }else{
+     $data = array('result'=>'no');
+ }
+ echo json_encode($data);
 ?>
