@@ -5,6 +5,22 @@ $css2 ='<link rel="stylesheet" href="css/mypage.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
+//구매내역 조회
+if (isset($_SESSION['UID'])){
+  $userid = $_SESSION['UID'];
+
+  $paysql = "SELECT p.*,pm.* FROM payment pm
+          JOIN products p ON p.pid = pm.pid
+          WHERE pm.userid = '{$userid}'
+          ORDER BY pm.pmid DESC";
+  
+  $payresult = $mysqli-> query($paysql);
+  while($pay = $payresult->fetch_object()){
+    $payarr[]=$pay;
+  }
+}
+
+
 ?>
 
 <main class="usergrid">
@@ -22,20 +38,27 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
           </span>
       </div>
         </button>
+      <?php
+        if (isset($payarr)) {
+          foreach ($payarr as $pay) {
+       ?>
       <div class="cart_ct df">
         <img src="/images/cart_img01.png" alt="">
         <div class="cart_lec_ct">
-          <h3 class="body3b">Figma 기초 강의</h3>
-          <p class="body4">Figma의 기본툴부터 활용법까지<br> 
-            A부터 Z까지 차근차근 배워나가는 기초 강의입니다.</p>
+          <h3 class="body3b"><?=$pay->title?></h3>
+          <p class="body4"><?=$pay->content?></p>
           <div class="lec_time df aic">
             <span class="material-symbols-outlined">description</span>
             <span class="body4">수강기간</span>
             <span class="body4 month">2개월</span>
-            <strong class="cart_lec_price body1b">200,000원</strong>
+            <strong class="cart_lec_price body1b"><?=$pay->price?> 원</strong>
           </div>
         </div>
       </div>
+      <?php
+          }
+        }
+      ?>
     </div>
   </div>
   <div class="nav_wrap mypage_pager">
