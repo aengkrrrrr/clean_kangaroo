@@ -7,8 +7,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
 // 필터
-$pcode = $_GET['code'];
-$step2sql = "SELECT * from product_category where step=2 and pcode='{$pcode}'" ;
+$pcode = $_GET['code'] ?? '';
+$step2sql = "SELECT * from product_category where step=2 and pcode='{$pcode}'";
 $step2result = $mysqli->query($step2sql);
 while ($step2rs = $step2result->fetch_object()) {
   $cate2Arr[] = $step2rs;
@@ -21,6 +21,8 @@ $search_keyword = $_GET['search_keyword'] ?? '';
 
 if($search_keyword){
   $search_where .= " and (title LIKE '%{$search_keyword}%')";
+} else {
+  $search_where = "";
 }
 
 $paginationTarget = 'products';
@@ -40,26 +42,34 @@ while ($rs = $result->fetch_object()) {
 ?>
   <main class="usergrid">
     <div class="user_sublecture_title">
-      <h2 class="h2">웹디자인/편집</h2>
+      <h2 class="h2">
+        <?php
+          if (isset($cate1Arr) && !empty($cate1Arr)) {
+            echo $cate1Arr[0]->name;
+          } else {
+            echo '카테고리명';
+          }
+        ?>
+      </h2>
     </div>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df user_lecture_search">
-      <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
+      <input class="form-control search" type="text" id="search_keyword" name="search_keyword" placeholder="강의명으로 검색">
       <button class="primary_btn">검색</button>
     </form>
     <section class="user_sublecture_wrap">
       <div class="user_filter_wrap">
         <div class="user_sublecture_filter">
-          <h4 class="body1b">category</h4>  
+          <h4 class="body1b">category</h4>
           <form action="">
             <div class="form-check">  
               <input class="form-check-input" type="checkbox" value="" id="checkAlls">
-              <label class="form-check-label" for="flexCheckDefault">전체선택</label>
+              <label class="form-check-label" for="flexCheckDefault" value="">전체선택</label>
             </div>
             <div class="select_lecture">
             <?php
-                if(isset($cate2Arr)){
-                  foreach($cate2Arr as $cate2){
-              ?>
+              if(isset($cate2Arr)){
+                foreach($cate2Arr as $cate2){
+            ?>
               <div class="form-check">
                 <input class="form-check-input" type="checkbox" value="<?= $cate2->pcode?>" id="flexCheckDefault" name="pcode">
                 <label class="form-check-label" for="flexCheckDefault"><?= $cate2->name?></label>
