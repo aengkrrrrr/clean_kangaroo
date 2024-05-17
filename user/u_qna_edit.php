@@ -12,7 +12,6 @@ $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
 ?>
-?>
 
 <main class="u_body">
   <div class="wrapper usergrid">
