@@ -3,6 +3,12 @@ $title = '';
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
+// 대분류 조회
+$step1sql = "SELECT * from product_category where step=1 " ;
+$step1result = $mysqli->query($step1sql);
+while ($step1rs = $step1result->fetch_object()) {
+  $cate1Arr[] = $step1rs;
+}
 
 ?>
 <!DOCTYPE html>
@@ -37,10 +43,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
       </h1>
       <nav class="u_gnb_wrap">
         <ul class="u_gnb df">
-          <li><a href="u_lecture_list.php" class="body3b">웹디자인/편집</a></li>
-          <li><a href="u_lecture_list.php" class="body3b">웹개발</a></li>
-          <li><a href="u_lecture_list.php" class="body3b">CG/모션그래픽</a></li>
-          <li><a href="u_lecture_list.php" class="body3b">게임/웹툰</a></li>
+          <?php
+            if(isset($cate1Arr)){
+              foreach($cate1Arr as $cate1){
+
+          ?>
+            <li><a href="u_lecture_list.php?code=<?= $cate1->code ?>&name=<?= $cate1->name ?>" class="body3b"><?= $cate1->name ?></a></li>
+          <?php
+              }
+            }
+          ?>
           <li><a href="u_review_list.php" class="body3b">수강평</a></li>
           <li><a href="u_qna_list.php" class="body3b">Q&A</a></li>
           <li><a href="u_notice_list.php" class="body3b">공지사항</a></li>

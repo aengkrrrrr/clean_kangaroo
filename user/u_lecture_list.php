@@ -5,6 +5,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
+
+// 필터
+$pcode = $_GET['code'];
+$step2sql = "SELECT * from product_category where step=2 and pcode='{$pcode}'" ;
+$step2result = $mysqli->query($step2sql);
+while ($step2rs = $step2result->fetch_object()) {
+  $cate2Arr[] = $step2rs;
+}
+
+
+// 검색창
 $search_where = "";
 $search_keyword = $_GET['search_keyword'] ?? '';
 
@@ -31,10 +42,10 @@ while ($rs = $result->fetch_object()) {
     <div class="user_sublecture_title">
       <h2 class="h2">웹디자인/편집</h2>
     </div>
-    <from action="<?php echo $_SERVER['PHP_SELF']; ?>" class="df user_lecture_search">
-      <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="강의명 검색">
+    <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df user_lecture_search">
+      <input class="form-control search" type="text" id="search_keyword" name="search_keyword">
       <button class="primary_btn">검색</button>
-    </from>
+    </form>
     <section class="user_sublecture_wrap">
       <div class="user_filter_wrap">
         <div class="user_sublecture_filter">
@@ -45,26 +56,18 @@ while ($rs = $result->fetch_object()) {
               <label class="form-check-label" for="flexCheckDefault">전체선택</label>
             </div>
             <div class="select_lecture">
-              <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="1" id="flexCheckDefault" name="chk">
-                <label class="form-check-label" for="flexCheckDefault">포토샵</label>
+            <?php
+                if(isset($cate2Arr)){
+                  foreach($cate2Arr as $cate2){
+              ?>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="<?= $cate2->pcode?>" id="flexCheckDefault" name="pcode">
+                <label class="form-check-label" for="flexCheckDefault"><?= $cate2->name?></label>
               </div>
-              <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="2" id="flexCheckDefault" name="chk">
-                <label class="form-check-label" for="flexCheckDefault">일러스트</label>
-              </div>
-              <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="3" id="flexCheckDefault" name="chk">
-                <label class="form-check-label" for="flexCheckDefault">인디자인</label>
-              </div>
-              <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="4" id="flexCheckDefault" name="chk">
-                <label class="form-check-label" for="flexCheckDefault">비주얼디자인</label>
-              </div>
-              <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="5" id="flexCheckDefault" name="chk">
-                <label class="form-check-label" for="flexCheckDefault">피그마</label>
-              </div>
+              <?php
+                    }
+                  }
+                ?>
             </div>
             <button id="filter-submit-btn" class="btn primary_btn">filter</button>
           </form>
@@ -78,15 +81,15 @@ while ($rs = $result->fetch_object()) {
             </div>
             <div class="select_lecture">
               <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="6" id="flexCheckDefault" name="chks">
+                <input class="form-check-input" type="checkbox" value="6" id="flexCheckDefault" name="code2">
                 <label class="form-check-label" for="flexCheckDefault">초급</label>
               </div>
               <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="7" id="flexCheckDefault" name="chks">
+                <input class="form-check-input" type="checkbox" value="7" id="flexCheckDefault" name="code2">
                 <label class="form-check-label" for="flexCheckDefault">중급</label>
               </div>
               <div class="form-check">  
-                <input class="form-check-input" type="checkbox" value="8" id="flexCheckDefault" name="chks">
+                <input class="form-check-input" type="checkbox" value="8" id="flexCheckDefault" name="code2">
                 <label class="form-check-label" for="flexCheckDefault">고급</label>
               </div>
             </div>
