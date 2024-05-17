@@ -45,16 +45,20 @@
 .user_sublecture_contentwrap ul {
   display:grid;
   grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
   grid-gap: 50px;
 }
 .user_sublecture_wrap .user_lecture_contents {
   display:grid;
-  justify-items: end;
+  justify-items: start;
   grid-gap: 14px
 }
 .user_sublecture_wrap .user_lecture_contents:hover p.body3b {
   text-decoration: underline;
+}
+.user_sublecture_wrap .user_lecture_contents img {
+  object-fit: cover;
+  width: 240px;
+  height: 150px;
 }
 .user_lecture_keyword span {
   padding:5px 10px;
