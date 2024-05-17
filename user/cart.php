@@ -26,6 +26,7 @@ if(isset($_SESSION['UID'])){
   $sqlcp = "SELECT c.* FROM user_coupons uc
           JOIN coupons c ON c.cid = uc.couponid
           WHERE uc.userid = '{$userid}'
+          AND uc.couponid = c.cid
           ORDER BY uc.couponid DESC";
   
   // echo $sqlcp;
@@ -106,7 +107,7 @@ if(isset($_SESSION['UID'])){
         </div>
         <div class="cart_sale df">
           <span class="body3">할인 금액 :</span>
-          <span class="body3 discount">0 </span><em>원</em>
+          <span class="body3 discount">20000 </span><em>원</em>
         </div>
         <div class="cart_total df">
           <strong class="body2b">총 결제 금액 :</strong>

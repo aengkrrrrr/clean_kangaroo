@@ -48,7 +48,7 @@ if (isset($_SESSION['UID'])){
             ?>
             <tr class="df aic">
               <td><?=$pay->regdate?></td>
-              <td><?=$pay->title?></td>
+              <td class="review_tit"><?=$pay->title?></td>
               <td>
                 <a href="u_review_up.php" class="primary_btn">작성하기</a>
               </td>
