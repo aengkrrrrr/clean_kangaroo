@@ -68,8 +68,8 @@
   width: 1px;
   height: 13px;
   position: absolute;
-  left: -4px;
-  top: 17px;
+  left: -1px;
+  top: 6px;
   background: #777;
 }
 .lec_time .cart_lec_price {
@@ -80,7 +80,6 @@
   width: 342px;
   margin-left: 260px;
   margin-top: 15px;
-  display: none;
 }
 .cart_ct_none img {
   width: 340px;

@@ -1,15 +1,10 @@
 <?php
 session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/user_check.php';
 
 $pid = $_POST['pid'];
 $userid = $_SESSION['UID'];
-
-// if(isset($_SESSION['UID'])){
-//     $userid = $_SESSION['UID'];
-// } else {
-//     $userid = '';
-// }
 
 //pid 장바구니 중복체크
 $sql = "SELECT COUNT(*) AS cnt FROM cart WHERE pid = '{$pid}' AND userid = '{$userid}'";
