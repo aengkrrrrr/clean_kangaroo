@@ -14,6 +14,15 @@
       </div>
     </div>
   </footer>
+
+  <!-- back_to_top - 선진 -->
+  <div class="back-to-top qna"><span class="qnaquick">
+      <a href="u_qna_list.php">Q&A</a>
+    </span></div>
+  <div class="back-to-top top"><span class="material-symbols-outlined">
+      arrow_upward
+    </span></div>
+  <!-- back_to_top - 선진 -->
   <!--------- 사용자 푸터 -->
   <!-- 스크립트 -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -32,8 +41,8 @@
   <script src='/clean_kangaroo/user/js/moment.js'></script>
   <script src='/clean_kangaroo/user/js/moment-with-locales.js'></script>
   <script src="/clean_kangaroo/user/js/countdown.js"></script>
-  <?= $script1 ?? ''?>
-  <?= $script2 ?? ''?>
+  <?= $script1 ?? '' ?>
+  <?= $script2 ?? '' ?>
   </body>
 
-</html>
+  </html>
