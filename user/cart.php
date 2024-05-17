@@ -77,6 +77,7 @@ if(isset($_SESSION['UID'])){
     ?>
     <form class="pay_wrap" action="#" method="POST">
       <h3 class="body1b">결제정보</h3>
+      <input type="hidden" value="<?=$userid?>" class="userid">
       <div class="select_wrap">
         <label for="" class="body3">쿠폰선택</label>
         <select class="form-select" aria-label="" id="" name="">
@@ -180,14 +181,14 @@ all_check.change(function(){
 
   //카트 삭제 업데이트
   $('.select_del').click(function(){
-    function cartDel(target){
+      let target =$('.cart_ct');
+
       if(target.length > 0){
         let cartid = [];
         $('.cart_ct').each(function(){
 
           if($(this).find('input').prop('checked')){
             cartid.push($(this).find('input').val());
-            // console.log(cartid);
             
           } 
         })
@@ -195,11 +196,14 @@ all_check.change(function(){
         let data = {
           cartid : cartid
         }
+        console.log(data);
 
         $.ajax({
           url:'cart_del.php',
           async:false,
+          type:'POST',
           dataType:'json',
+          data:data,
           error:function(){},
           success:function(data){
           console.log(data);
@@ -211,10 +215,8 @@ all_check.change(function(){
               }
             }
         });
-      } else {
+      } 
 
-      }
-    }
   });
 
 
@@ -223,52 +225,53 @@ all_check.change(function(){
 
 
 //결제하기 클릭
-// $('.pay_btn').click(function(){
+$('.pay_btn').click(function(){
 
-//   if($('.cart_ct').find('input:checked').length>0){
+  let target =$('.cart_ct');
 
-//     let total_price = Number($('.cart_total_price').text().replace(',',''));
-  
-//     let discount_price = Number($('.cart_pay_price').text().replace(',',''));
-//     console.log(discount_price);
-  
-//     let select_item = $('.cart_ct').find('input:checked').parent();
-//     let cart_id = [];
-//     select_item.each(function(){
-//       cart_id.push(Number($(this).attr('data-cartid')));
-//     });
-//     console.log(cart_id);
-  
-//     let userid = $(this).find('.userid').val();
+  if(target.length > 0){
+    let cartid = [];
+    $('.cart_ct').each(function(){
 
-//     let cpid = $(this).find('.coupon_select').val();
-//     console.log('cpid'+cpid);
-  
-  
-//     let data = {
-//       cartid : cart_id,
-//       userid: userid,
-//       pid: pid
-//     }
-//   console.log(data);
-//     $.ajax({
-//       async : false, 
-//       type: 'post',     
-//       data: data, 
-//       url: "cart_payment.php", 
-//       dataType: 'json', //결과 json 객체형식
-//       error: function(error){
-//         console.log('Error:', error);
-//       },
-//       success: function(return_data){
-//         location.reload();
-//       }
-//     });//ajax
-//   } else{
-//     alert('상품을 선택해주세요');
-//   }
+      if($(this).find('input').prop('checked')){
+        cartid.push($(this).find('input').val());
+        
+      } 
+    })
+    
+    let userid = $(this).find('.userid').val();
+    let total = $('.cart_total').find('.cart_total_price');
 
-// });
+    let data = {
+      pid : pid
+      cartid : cartid,
+      userid : userid,
+      total : total
+    }
+    console.log(data);
+
+    $.ajax({
+      url:'cart_payment.php',
+      async:false,
+      type:'POST',
+      dataType:'json',
+      data:data,
+      error:function(){},
+      success:function(data){
+      console.log(data);
+      if(data.result=='true'){
+          alert('상품을 구매가 완료되었습니다.');     
+          location.reload();                   
+      }else{
+          alert('구매오류, 다시 시도하세요');                        
+          }
+        }
+    });
+  }  else{
+    alert('상품을 선택해주세요');
+  }
+
+});
 
 </script>
 <?php

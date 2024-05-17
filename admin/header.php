@@ -34,7 +34,7 @@ $row = $result->fetch_object();
           <li><a href="/clean_kangaroo/admin/notice/notice_list.php" class="body1b">게시판 관리</a></li>
           <li><a href="/clean_kangaroo/admin/member/member_list.php" class="body1b">회원 관리</a></li>
           <li><a href="/clean_kangaroo/admin/coupon/coupon_list.php" class="body1b">쿠폰 관리</a></li>
-          <li><a href="/clean_kangaroo/admin/sales/sales_manage.php" class="body1b">매출 관리</a></li>
+          <!-- <li><a href="/clean_kangaroo/admin/sales/sales_manage.php" class="body1b">매출 관리</a></li> -->
         </ul>
       </nav>
       <a href="/clean_kangaroo/admin/login/logout.php"><button class="logout_btn primary_btn">로그아웃</button></a>
