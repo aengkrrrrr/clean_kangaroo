@@ -10,7 +10,6 @@ $userid = $_SESSION['UID'];
 $sql = "SELECT * FROM qna_board WHERE idx={$idx}";
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
-
 ?>
 
 <main class="u_body">

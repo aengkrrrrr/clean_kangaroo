@@ -13,20 +13,31 @@ while ($rs = $result->fetch_object()) {
 /////////// 공지사항 
 
 
-//강좌소개 category쿼리
-// $catesql = "SELECT * FROM product_category where step = 1";
-// $category = $_GET['category'] ?? '';
-// $result = $mysqli->query($catesql);
-// while ($row = $result->fetch_object()) {
-//   $cate1[] = $row;
-// }
+//강좌소개 sql 쿼리
+$lec_sql1 = "SELECT * FROM products where cate = 'A0001'";
+$result1 = $mysqli->query($lec_sql1);
+while ($rsl1 = $result->fetch_object()) {
+  $rsArr1[] = $rsl1;
+}
 
-// // //강좌소개 sql 쿼리
-// $lec_sql = "SELECT * FROM products where cate = 'A0001'";
-// $result = $mysqli->query($lec_sql);
-// while ($rsl = $result->fetch_object()) {
-//   $rslArr[] = $rsl;
-// }
+$lec_sql2 = "SELECT * FROM products where cate = 'B0001'";
+$result2 = $mysqli->query($lec_sql2);
+while ($rsl2 = $result2->fetch_object()) {
+  $rsArr2[] = $rsl2;
+}
+
+$lec_sql3 = "SELECT * FROM products where cate = 'C0001'";
+$result3 = $mysqli->query($lec_sql3);
+while ($rsl3 = $result3->fetch_object()) {
+  $rsArr3[] = $rsl3;
+}
+
+$lec_sql4 = "SELECT * FROM products where cate = 'D0001'";
+$result4 = $mysqli->query($lec_sql4);
+while ($rsl4 = $result4->fetch_object()) {
+  $rsArr4[] = $rsl4;
+}
+
 
 // 리뷰
 
@@ -101,92 +112,70 @@ $memberrs = $memberresult->fetch_object();
     <div class="lec_wrapper df">
       <div class="con active" id="tab1">
         <div class="lec_container">
-          <ul>
-            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
-                <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
-            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
-          </ul>
-          <ul>
-            <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
-            <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
-          </ul>
-          <ul>
-            <li><a href=""><img src="../images/Rectangle 159.png" /></a></li>
-            <li><a href="">기능부터 트렌드까지, 입문자를 위한 포토샵&일러스트</a></li>
-          </ul>
-          <ul>
-            <li><a href=""><img src="../images/Rectangle 162.png" /></a></li>
-            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-          </ul>
-          <ul>
-            <li><a href=""><img src="../images/Rectangle 158.png" /></a></li>
-            <li><a href="">확실한 인포그래픽으로 클라이언트가 만족하는 작업물 만드는 브랜딩 디자인</a></li>
-          </ul>
+          <?php
+          if (isset($rsArr1)) {
+            foreach ($rsArr1 as $rsl1) {
+          ?>
+              <ul>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl1->pid; ?>">
+                    <img src="<?= $rsl1->thumbnail; ?>" alt=""></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
+              </ul>
+          <?php
+            }
+          }
+          ?>
         </div>
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
-          <ul>
-            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
-                <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
-            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 001.png" /></li>
-            <li>[입문] 피그마 A to Z</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 002.jpg" /></li>
-            <li>[2주 완성] 실포트폴리오 만들기</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 003.jpg" /></li>
-            <li>기능부터 트렌드까지</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 004.jpg" /></li>
-            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-          </ul>
+          <?php
+          if (isset($rsArr2)) {
+            foreach ($rsArr2 as $rsl2) {
+          ?>
+              <ul>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl2->pid; ?>">
+                    <img src="/clean_kangaroo/images/<?= $rsl2->thumbnail; ?>" alt=""></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl2->pid; ?>"><?= $rsl2->title; ?></a></li>
+              </ul>
+          <?php
+            }
+          }
+          ?>
         </div>
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
-          <ul>
-            <li><img src="../images/Rectangle 007.jpg" /></li>
-            <li>[입문] 피그마 A to Z</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 008.png" /></li>
-            <li>[2주 완성] 실포트폴리오 만들기</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 009.jpg" /></li>
-            <li>기능부터 트렌드까지</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 010.jpg" /></li>
-            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-          </ul>
+          <?php
+          if (isset($rsArr3)) {
+            foreach ($rsArr3 as $rsl3) {
+          ?>
+              <ul>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl3->pid; ?>">
+                    <img src="/clean_kangaroo/images/<?= $rsl3->thumbnail; ?>" alt=""></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl3->pid; ?>"><?= $rsl3->title; ?></a></li>
+              </ul>
+          <?php
+            }
+          }
+          ?>
         </div>
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
-          <ul>
-            <li><img src="../images/Rectangle 013.jpg" /></li>
-            <li>[입문] 피그마 A to Z</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 014.jpg" /></li>
-            <li>[2주 완성] 실포트폴리오 만들기</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 015.png" /></li>
-            <li>기능부터 트렌드까지</li>
-          </ul>
-          <ul>
-            <li><img src="../images/Rectangle 016.png" /></li>
-            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-          </ul>
+          <?php
+          if (isset($rsArr4)) {
+            foreach ($rsArr4 as $rsl4) {
+          ?>
+              <ul>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl4->pid; ?>">
+                    <img src="/clean_kangaroo/images/<?= $rsl4->thumbnail; ?>" alt=""></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl4->pid; ?>"><?= $rsl4->title; ?></a></li>
+              </ul>
+          <?php
+            }
+          }
+          ?>
         </div>
       </div>
     </div>

@@ -86,9 +86,9 @@ $rsm = $result2->fetch_object();
                 <a href="
                 <?php
                 if ($ra->status == 0) {
-                  echo "u_qna_view.php?idx=$ra->idx";
+                  echo "/clean_kangaroo/user/u_qna_view.php?idx=$ra->idx";
                 } else {
-                  echo "u_qna_ans.php?idx=$ra->idx";
+                  echo "/clean_kangaroo/user/u_qna_ans.php?idx=$ra->idx";
                 };
                 ?>">
                   <?= $ra->title; ?></a>
@@ -102,7 +102,7 @@ $rsm = $result2->fetch_object();
         ?>
       </tbody>
     </table>
-    <div class="listbtn df up" colspan="5" scope="col"><a href="u_qna_up.php" class="primary_btn">Q&A 등록</a></div>
+    <div class="listbtn df up" colspan="5" scope="col"><a href="/clean_kangaroo/user/u_qna_up.php" class="primary_btn">Q&A 등록</a></div>
 
 
 
