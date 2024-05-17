@@ -135,7 +135,7 @@ $memberrs = $memberresult->fetch_object();
           ?>
               <ul>
                 <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl2->pid; ?>">
-                    <img src="/clean_kangaroo/images/<?= $rsl2->thumbnail; ?>" alt=""></a></li>
+                    <img src="<?= $rsl2->thumbnail; ?>" alt=""></a></li>
                 <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl2->pid; ?>"><?= $rsl2->title; ?></a></li>
               </ul>
           <?php
@@ -152,7 +152,7 @@ $memberrs = $memberresult->fetch_object();
           ?>
               <ul>
                 <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl3->pid; ?>">
-                    <img src="/clean_kangaroo/images/<?= $rsl3->thumbnail; ?>" alt=""></a></li>
+                    <img src="<?= $rsl3->thumbnail; ?>" alt=""></a></li>
                 <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl3->pid; ?>"><?= $rsl3->title; ?></a></li>
               </ul>
           <?php
@@ -169,7 +169,7 @@ $memberrs = $memberresult->fetch_object();
           ?>
               <ul>
                 <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl4->pid; ?>">
-                    <img src="/clean_kangaroo/images/<?= $rsl4->thumbnail; ?>" alt=""></a></li>
+                    <img src="<?= $rsl4->thumbnail; ?>" alt=""></a></li>
                 <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl4->pid; ?>"><?= $rsl4->title; ?></a></li>
               </ul>
           <?php
