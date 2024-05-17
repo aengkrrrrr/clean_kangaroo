@@ -14,7 +14,8 @@ h2 {
   position: absolute;
   right: 80px;
   top: 75px;
-  width: 240px;
+  width: 300px;
+  height: 155px;
   border: 1px solid var(--C-gray);
   box-shadow: 3px 3px 4px rgba(150, 150, 150, 0.25);
   z-index: 100;
@@ -23,16 +24,15 @@ h2 {
   background: var(--C-white);
 }
 .min_cart + .min_cart {
-  padding-top: 30px;
+  padding-top: 20px;
 }
 .min_cart_img {
-  width: 71px;
+  width: 90px;
   height: 67px;
 }
 .min_cart_ct {
-  padding-top: 8px;
-  padding-left: 10px;
   height: 67px;
+  padding: 5px 0 0 5px;
 }
 .min_cart_price {
   color: var(--C-primary);

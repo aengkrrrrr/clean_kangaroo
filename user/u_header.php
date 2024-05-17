@@ -10,6 +10,29 @@ while ($step1rs = $step1result->fetch_object()) {
   $cate1Arr[] = $step1rs;
 }
 
+if (isset($_SESSION['UID'])){
+  $userid = $_SESSION['UID'];
+  // 장바구니 개수 조회
+  $csql = "SELECT COUNT(*) AS cnt FROM cart WHERE userid='{$userid}';";
+  $cresult = $mysqli->query($csql);
+  $crow = $cresult->fetch_object();
+}
+
+//장바구니 항목 조회
+if (isset($_SESSION['UID'])){
+  $userid = $_SESSION['UID'];
+
+  //cart item 조회
+  $sqlct = "SELECT p.*,ct.* FROM cart ct
+          JOIN products p ON p.pid = ct.pid
+          WHERE ct.userid = '{$userid}'
+          ORDER BY ct.cartid DESC";
+  
+  $resultct = $mysqli-> query($sqlct);
+  while($rsct = $resultct->fetch_object()){
+    $rscct[]=$rsct;
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +86,13 @@ while ($step1rs = $step1result->fetch_object()) {
         <button class="u_search"><span class="material-symbols-outlined">search</span></button>
         <a href="cart.php" class="cart">
           <span class="material-symbols-outlined">shopping_cart</span>
-          <span class="cart_quantity">1</span>
+          <?php
+          if(isset($crow)){
+          ?>
+          <span class="cart_quantity"><?=$crow->cnt?></span>
+          <?php
+            }
+          ?>
         </a>
         <?php
           if (!isset($_SESSION['UID'])) {
@@ -100,27 +129,21 @@ while ($step1rs = $step1result->fetch_object()) {
       </div>
     </div>
     <div class="min_cart_wrap">
+      <?php
+        if (isset($rscct)) {
+          foreach ($rscct as $ctItem) {
+      ?>
       <div class="min_cart df">
-        <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
+        <img src="<?=$ctItem->thumbnail?>" alt="" class="min_cart_img">
         <p class="min_cart_ct">
-          <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
-          <span class="min_cart_price body4">200,000원</span>
+          <a href="cart.php" class="min_cart_tit body4"><?=$ctItem->title?></a>
+          <span class="min_cart_price body4"><?=$ctItem->price?> 원</span>
         </p>
       </div>
-      <div class="min_cart df">
-        <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
-        <p class="min_cart_ct">
-          <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
-          <span class="min_cart_price body4">200,000원</span>
-        </p>
-      </div>
-      <div class="min_cart df">
-        <img src="/clean_kangaroo//images/cart_img01.png" alt="" class="min_cart_img">
-        <p class="min_cart_ct">
-          <a href="cart.html" class="min_cart_tit body4">Figma 기초 강의</a>
-          <span class="min_cart_price body4">200,000원</span>
-        </p>
-      </div>
+      <?php
+        }
+      }
+      ?>
     </div>
   </header>
   <!------- 사용자 헤더 -->
