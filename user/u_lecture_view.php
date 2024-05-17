@@ -252,7 +252,7 @@ $('.add_cart_btn').on('click', function(){
         pid : pid,
         userid: userid
     }
-    // console.log(data);
+    console.log(data);
   $.ajax({
     url:'cart_insert.php',
     async:false,
