@@ -15,7 +15,6 @@ h2 {
   right: 80px;
   top: 75px;
   width: 300px;
-  height: 155px;
   border: 1px solid var(--C-gray);
   box-shadow: 3px 3px 4px rgba(150, 150, 150, 0.25);
   z-index: 100;
@@ -34,10 +33,17 @@ h2 {
   height: 67px;
   padding: 5px 0 0 5px;
 }
+.min_cart_tit {
+  width: 170px;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
 .min_cart_price {
   color: var(--C-primary);
   display: block;
-  padding-top: 5px;
 }
 /*********** 미니 카트 */
 
