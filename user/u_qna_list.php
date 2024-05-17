@@ -19,7 +19,6 @@ join members m
 on b.userid=m.userid where 1=1";
 
 
-// $sql = "SELECT * FROM qna_board where 1=1";
 $sql .= $search_where;
 $order = " order by idx desc";
 $sql .= $order;
@@ -42,7 +41,6 @@ $username = $_SESSION['UNAME'];
 $msql = "SELECT * FROM members where userid='{$userid}'";
 $result2 = $mysqli->query($msql);
 $rsm = $result2->fetch_object();
-
 ?>
 
 <main class="u_body">
