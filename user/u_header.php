@@ -10,6 +10,13 @@ while ($step1rs = $step1result->fetch_object()) {
   $cate1Arr[] = $step1rs;
 }
 
+
+// $userid = $_SESSION['UID'];
+// // 장바구니 개수 조회
+// $csql = "SELECT COUNT(*) AS cnt FROM cart WHERE userid='{$userid}';";
+// $cresult = $mysqli->query($csql);
+// $crow = $cresult->fetch_object();
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -63,7 +70,7 @@ while ($step1rs = $step1result->fetch_object()) {
         <button class="u_search"><span class="material-symbols-outlined">search</span></button>
         <a href="cart.php" class="cart">
           <span class="material-symbols-outlined">shopping_cart</span>
-          <span class="cart_quantity">1</span>
+          <span class="cart_quantity"><?=$crow->cnt?></span>
         </a>
         <?php
           if (!isset($_SESSION['UID'])) {
