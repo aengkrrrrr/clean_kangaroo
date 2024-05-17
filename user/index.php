@@ -14,37 +14,19 @@ while ($rs = $result->fetch_object()) {
 
 
 //강좌소개 category쿼리
-$catesql = "SELECT * FROM product_category where step = 1";
-$category = $_GET['category'] ?? '';
-$result = $mysqli->query($catesql);
-while ($row = $result->fetch_object()) {
-  $cate1[] = $row;
-}
+// $catesql = "SELECT * FROM product_category where step = 1";
+// $category = $_GET['category'] ?? '';
+// $result = $mysqli->query($catesql);
+// while ($row = $result->fetch_object()) {
+//   $cate1[] = $row;
+// }
 
-//강좌소개 sql 쿼리
-$lec_sql1 = "SELECT * FROM products where cate = 'A0001'";
-$result1 = $mysqli->query($lec_sql1);
-while ($rsl1 = $result1->fetch_object()) {
-  $rslArr1[] = $rsl1;
-}
-
-$lec_sql2 = "SELECT * FROM products where cate = 'B0001'";
-$result2 = $mysqli->query($lec_sql2);
-while ($rsl2 = $result2->fetch_object()) {
-  $rslArr2[] = $rsl2;
-}
-
-$lec_sql3 = "SELECT * FROM products where cate = 'C0001'";
-$result3 = $mysqli->query($lec_sql3);
-while ($rsl3 = $result3->fetch_object()) {
-  $rslArr3[] = $rsl3;
-}
-
-$lec_sql4 = "SELECT * FROM products where cate = 'D0001'";
-$result4 = $mysqli->query($lec_sql4);
-while ($rsl4 = $result4->fetch_object()) {
-  $rslArr4[] = $rsl4;
-}
+// // //강좌소개 sql 쿼리
+// $lec_sql = "SELECT * FROM products where cate = 'A0001'";
+// $result = $mysqli->query($lec_sql);
+// while ($rsl = $result->fetch_object()) {
+//   $rslArr[] = $rsl;
+// }
 
 // 리뷰
 
@@ -111,27 +93,19 @@ $memberrs = $memberresult->fetch_object();
   <section class="main_lecture">
     <h2>강좌소개</h2>
     <div class="lec df">
-      <div class="lec_cate active"><a href="<?= $rsl1; ?>">웹/편집/인테리어</a></div>
-      <div class="lec_cate"><a href="<?= $rsl2; ?>">CG/VFX</a></div>
-      <div class="lec_cate"><a href="<?= $rsl3; ?>">모션그래픽</a></div>
-      <div class="lec_cate"><a href="<?= $rsl4; ?>">게임/웹툰</a></div>
+      <div class="lec_cate active"><a href="tab1">웹/편집/인테리어</a></div>
+      <div class="lec_cate"><a href="tab2">CG/VFX</a></div>
+      <div class="lec_cate"><a href="tab3">모션그래픽</a></div>
+      <div class="lec_cate"><a href="tab4">게임/웹툰</a></div>
     </div>
     <div class="lec_wrapper df">
       <div class="con active" id="tab1">
         <div class="lec_container">
-          <?php
-          if (isset($rslArr1)) {
-            foreach ($rslArr1 as $rsl1) {
-          ?>
-              <ul>
-                <li><a href="u_lecture_list.php?pid=<?= $rsl1->pid; ?>">
-                    <img src="<?= $rsl1->thumbnail; ?>" alt=""></a></li>
-                <li><a href="u_lecture_list.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
-              </ul>
-          <?php
-            }
-          }
-          ?>
+          <ul>
+            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
+                <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
+          </ul>
           <ul>
             <li><a href=""><img src="../images/Rectangle 160.png" /></a></li>
             <li><a href="">[2주 완성] 실무에 강한 웹 퍼블리셔 포트폴리오 만들기</a></li>
@@ -152,19 +126,11 @@ $memberrs = $memberresult->fetch_object();
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
-          <?php
-          if (isset($rslArr2)) {
-            foreach ($rslArr2 as $rsl2) {
-          ?>
-              <ul>
-                <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
-                    <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
-                <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
-              </ul>
-          <?php
-            }
-          }
-          ?>
+          <ul>
+            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>">
+                <img src="<?= $rsl->thumbnail; ?>" alt=""></a></li>
+            <li><a href="u_lecture_list.php?pid=<?= $rsl->pid; ?>"><?= $rsl->title; ?></a></li>
+          </ul>
           <ul>
             <li><img src="../images/Rectangle 001.png" /></li>
             <li>[입문] 피그마 A to Z</li>
@@ -185,58 +151,42 @@ $memberrs = $memberresult->fetch_object();
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
-          <?php
-          if (isset($rslArr3)) {
-            foreach ($rslArr3 as $rsl3) {
-          ?>
-              <ul>
-                <li><img src="../images/Rectangle 007.jpg" /></li>
-                <li>[입문] 피그마 A to Z</li>
-              </ul>
-              <ul>
-                <li><img src="../images/Rectangle 008.png" /></li>
-                <li>[2주 완성] 실포트폴리오 만들기</li>
-              </ul>
-              <ul>
-                <li><img src="../images/Rectangle 009.jpg" /></li>
-                <li>기능부터 트렌드까지</li>
-              </ul>
-              <ul>
-                <li><img src="../images/Rectangle 010.jpg" /></li>
-                <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-              </ul>
-          <?php
-            }
-          }
-          ?>
+          <ul>
+            <li><img src="../images/Rectangle 007.jpg" /></li>
+            <li>[입문] 피그마 A to Z</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 008.png" /></li>
+            <li>[2주 완성] 실포트폴리오 만들기</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 009.jpg" /></li>
+            <li>기능부터 트렌드까지</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 010.jpg" /></li>
+            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+          </ul>
         </div>
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
-          <?php
-          if (isset($rslArr4)) {
-            foreach ($rslArr4 as $rsl4) {
-          ?>
-              <ul>
-                <li><img src="../images/Rectangle 013.jpg" /></li>
-                <li>[입문] 피그마 A to Z</li>
-              </ul>
-              <ul>
-                <li><img src="../images/Rectangle 014.jpg" /></li>
-                <li>[2주 완성] 실포트폴리오 만들기</li>
-              </ul>
-              <ul>
-                <li><img src="../images/Rectangle 015.png" /></li>
-                <li>기능부터 트렌드까지</li>
-              </ul>
-              <ul>
-                <li><img src="../images/Rectangle 016.png" /></li>
-                <li>확실한 인포그래픽으로 브랜딩 디자인</li>
-              </ul>
-          <?php
-            }
-          }
-          ?>
+          <ul>
+            <li><img src="../images/Rectangle 013.jpg" /></li>
+            <li>[입문] 피그마 A to Z</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 014.jpg" /></li>
+            <li>[2주 완성] 실포트폴리오 만들기</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 015.png" /></li>
+            <li>기능부터 트렌드까지</li>
+          </ul>
+          <ul>
+            <li><img src="../images/Rectangle 016.png" /></li>
+            <li>확실한 인포그래픽으로 브랜딩 디자인</li>
+          </ul>
         </div>
       </div>
     </div>
