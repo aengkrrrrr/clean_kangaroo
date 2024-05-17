@@ -25,7 +25,7 @@ if ($rs) {
   exit();
 } else {
   echo "<script>
-    alert('실패');
+    alert('아이디 혹은 비밀번호가 맞지 않습니다.');
     history.back();    
   </script>";
   exit();

@@ -107,6 +107,15 @@
 .review_table tbody tr td,
 .qna_table tbody tr td  {
     padding: 30px 0;
+
+}
+.review_tit {
+    width: 170px;
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-break: break-all;
 }
 .review_table thead tr,
 .review_table tbody tr,
