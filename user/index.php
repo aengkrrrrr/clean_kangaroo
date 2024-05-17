@@ -303,14 +303,6 @@ $memberrs = $memberresult->fetch_object();
   </section>
   <!----------- 이벤트 - 다영 -->
 
-  <!-- back_to_top - 선진 -->
-  <div class="back-to-top qna"><span class="qnaquick">
-      <a href="u_qna_list.php">Q&A</a>
-    </span></div>
-  <div class="back-to-top top"><span class="material-symbols-outlined">
-      arrow_upward
-    </span></div>
-  <!-- back_to_top - 선진 -->
 </main>
 
 
