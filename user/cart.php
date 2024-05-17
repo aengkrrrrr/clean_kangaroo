@@ -58,7 +58,7 @@ if(isset($_SESSION['UID'])){
           foreach ($rscct as $item) {
         ?>
     <div class="cart_ct df">
-      <input class="form-check-input" type="checkbox" value="" name="cart" id="cart">
+      <input class="form-check-input" type="checkbox" value="<?= $item->cartid ?>" name="cart" id="cart">
       <img src="<?=$item->thumbnail;?>" alt="">
       <div class="cart_lec_ct">
         <h3 class="body3b"><?=$item->title?></h3>
@@ -143,20 +143,24 @@ $('.cart_ct').change(function(){
 
 //강좌금액 출력
 function calcTotal(){
-    let cartItem = $('.cart_ct .lec_time');
+    let cartItem = $('.cart_ct');
     let grand_total = 0;
+    let p_sub_price = 0;
+
     cartItem.each(function(){
-        let price = Number($(this).find('.cart_lec_price').text());
+      let price = Number($(this).find('.cart_lec_price').text());
 
-        let sub_price = $('.cart_price_wrap').find('.cart_price');
-        let total_price = $('.cart_total').find('.cart_total_price');
-        grand_total = price;   
-        console.log(grand_total);        
+      let sub_price = $('.cart_price_wrap').find('.cart_price');
+      let total_price = $('.cart_total').find('.cart_total_price');
+
+      p_sub_price += price;
     });        
-    $('.cart_total_price').text(grand_total);
-  }
-  calcTotal();
 
+    $('.cart_total_price').text(grand_total);
+    $('.cart_price').text(p_sub_price);
+  }
+calcTotal();
+  
 
 
 
@@ -176,26 +180,41 @@ all_check.change(function(){
 
   //카트 삭제 업데이트
   $('.select_del').click(function(){
+    function cartDel(target){
+      if(target.length > 0){
+        let cartid = [];
+        $('.cart_ct').each(function(){
 
-      data = {
-        cart_item_checked
-      }
+          if($(this).find('input').prop('checked')){
+            cartid.push($(this).find('input').val());
+            // console.log(cartid);
+            
+          } 
+        })
 
-      $.ajax({
-        url:'cart_del.php',
-        async:false,
-        dataType:'json',
-        error:function(){},
-        success:function(data){
-        console.log(data);
-        if(data.result=='ok'){
-            alert('상품을 삭제하였습니다.');     
-            location.reload();                   
-        }else{
-            alert('오류, 다시 시도하세요');                        
-            }
+        let data = {
+          cartid : cartid
         }
-    });
+
+        $.ajax({
+          url:'cart_del.php',
+          async:false,
+          dataType:'json',
+          error:function(){},
+          success:function(data){
+          console.log(data);
+          if(data.result=='ok'){
+              alert('상품을 삭제하였습니다.');     
+              location.reload();                   
+          }else{
+              alert('오류, 다시 시도하세요');                        
+              }
+            }
+        });
+      } else {
+
+      }
+    }
   });
 
 
