@@ -8,7 +8,7 @@ $search_where = "";
 $search_keyword = $_GET['search_keyword'] ?? '';
 
 if($search_keyword){
-  $search_where .= " and (name LIKE '%{$search_keyword}%')";
+  $search_where .= " and (content LIKE '%{$search_keyword}%')";
 }
 
 $paginationTarget = 'review_board';
@@ -16,7 +16,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sql = "SELECT * FROM review_board where 1=1";
 $sql .= $search_where;
-$order = " order by name desc";
+$order = " order by content desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;

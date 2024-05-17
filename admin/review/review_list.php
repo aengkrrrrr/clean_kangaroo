@@ -11,7 +11,7 @@ $search_where = "";
 $search_keyword = $_GET['search_keyword'] ?? '';
 
 if($search_keyword){
-  $search_where .= " and (name LIKE '%{$search_keyword}%')";
+  $search_where .= " and (content LIKE '%{$search_keyword}%')";
 }
 
 $paginationTarget = 'review_board';
@@ -19,7 +19,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sql = "SELECT * FROM review_board where 1=1";
 $sql .= $search_where;
-$order = " order by name desc";
+$order = " order by content desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -29,6 +29,10 @@ while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
 
+// 회원 이름 불러오기
+$membersql = "SELECT * FROM members";
+$memberresult = $mysqli->query($membersql);
+$memberrs = $memberresult->fetch_object();
 
 ?>
 
@@ -57,7 +61,7 @@ while ($rs = $result->fetch_object()) {
           <div class="profile df aic pb-5">
             <div class="username d-flex">
               <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
-              <h5 class="body3b"><?= $item->name; ?></h5>
+              <h5 class="body3b"><?= $memberrs->username ?></h5>
             </div>
             <div class="rating" data-rate="3">
               <i class="fas fa-star"></i>

@@ -9,7 +9,7 @@ $search_where = "";
 $search_keyword = $_GET['search_keyword'] ?? '';
 
 if($search_keyword){
-  $search_where .= " and (name LIKE '%{$search_keyword}%')";
+  $search_where .= " and (title LIKE '%{$search_keyword}%')";
 }
 
 $paginationTarget = 'products';
@@ -17,7 +17,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
-$order = " order by pid desc";
+$order = " order by title desc";
 $sql .= $order;
 $limit = " LIMIT $startLimit, $endLimit";
 $sql .= $limit;
@@ -31,7 +31,7 @@ while ($rs = $result->fetch_object()) {
     <div class="user_sublecture_title">
       <h2 class="h2">웹디자인/편집</h2>
     </div>
-    <from action="" class="df user_lecture_search">
+    <from action="<?php echo $_SERVER['PHP_SELF']; ?>" class="df user_lecture_search">
       <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="강의명 검색">
       <button class="primary_btn">검색</button>
     </from>
