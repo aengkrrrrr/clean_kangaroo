@@ -4,7 +4,7 @@ $css1 =' <link rel="stylesheet" href="./css/u_lecture_list.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-
+$c_where = '';
 
 // 필터
 $pcode = $_GET['code'] ?? '';
@@ -13,6 +13,8 @@ $step2result = $mysqli->query($step2sql);
 while ($step2rs = $step2result->fetch_object()) {
   $cate2Arr[] = $step2rs;
 }
+
+
 
 
 // 검색창
@@ -26,7 +28,7 @@ if($search_keyword){
 }
 
 $paginationTarget = 'products';
-include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
+include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/lecture_pagination.php';
 
 $sql = "SELECT * FROM products where 1=1";
 $sql .= $search_where;
