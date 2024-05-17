@@ -5,6 +5,15 @@ $css2 ='<link rel="stylesheet" href="css/mypage.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
+$idx = $_POST['idx'];
+$userid = $_SESSION['UID'];
+
+$sql = "SELECT * FROM qna_board where userid='{$userid}'";
+$result = $mysqli->query($sql);
+while($qna = $result->fetch_object()){
+  $qarr[]=$qna;
+}
+
 ?>
 
 <main class="usergrid">
@@ -13,7 +22,8 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
     <div class="my_qna">
       <h2 class="body1b">내 질문</h3>
       <div class="mypage_ct df">
-        <form action="">
+        <form action="u_qna_del.php" method="POST">
+         
           <table class="qna_table">
             <thead>
               <tr class="df aic">
@@ -23,30 +33,31 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
               </tr>
             </thead>
             <tbody>
+              <?php
+              if(isset($qarr)){
+                foreach ($qarr as $qrs) {
+              ?>
             <tr class="df aic">
-              <td>답변대기</td>
-              <td>결석처리 관련 질문드립니다.</td>
+              <input type="hidden" name="<?= $qrs->idx;?>">
               <td>
-                <button class="secondary_btn edit">수정</button>
+                <?php
+                if($qrs->status === '0'){
+                  echo '답변대기';
+                } else {
+                  echo '답변완료';
+                }
+                ?>
+              </td>
+              <td><?=$qrs->title?></td>
+              <td>
+                <a href="u_qna_edit.php?idx=<?= $qrs->idx; ?>" class="secondary_btn edit">수정</a>
                 <button class="delete_btn del">삭제</button>
               </td>
             </tr>
-            <tr class="df aic">
-              <td>답변대기</td>
-              <td>결석처리 관련 질문드립니다.</td>
-              <td>
-                <button class="secondary_btn edit">수정</button>
-                <button class="delete_btn del">삭제</button>
-              </td>
-            </tr>
-            <tr class="df aic">
-              <td>답변대기</td>
-              <td>결석처리 관련 질문드립니다.</td>
-              <td>
-                <button class="secondary_btn edit">수정</button>
-                <button class="delete_btn del">삭제</button>
-              </td>
-            </tr>
+            <?php
+                }
+              }
+            ?>
             </tbody>
           </table>
           

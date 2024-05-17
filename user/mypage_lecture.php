@@ -43,7 +43,7 @@ if (isset($_SESSION['UID'])){
           foreach ($payarr as $pay) {
        ?>
       <div class="cart_ct df">
-        <img src="/images/cart_img01.png" alt="">
+        <img src="<?=$pay->thumbnail?>" alt="">
         <div class="cart_lec_ct">
           <h3 class="body3b"><?=$pay->title?></h3>
           <p class="body4"><?=$pay->content?></p>

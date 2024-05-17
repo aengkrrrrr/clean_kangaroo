@@ -4,7 +4,7 @@
 }
 .mypage_common {
     position: sticky;
-    top: 150px;
+    top: 100px;
     align-self: flex-start;
 }
 .mypage_menu {
@@ -51,6 +51,17 @@
 .my_coupon .cart_ct img {
     height: 80px;
     margin-top: 20px;
+}
+.mypage_ct .qna_table thead tr {
+    justify-content: space-between;
+    padding: 0 65px;
+}
+.mypage_ct .qna_table tbody tr{
+    justify-content: space-between;
+    padding: 0 54px;
+}
+.qna_table thead tr .hidden {
+    padding: 0 35px;
 }
 .coupon_ct +.coupon_ct {
     padding: 5px 0;

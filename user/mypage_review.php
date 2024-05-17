@@ -5,6 +5,25 @@ $css2 ='<link rel="stylesheet" href="css/mypage.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
+
+//구매한 강좌 조회
+if (isset($_SESSION['UID'])){
+  $userid = $_SESSION['UID'];
+
+  $paysql = "SELECT p.*,pm.* FROM payment pm
+          JOIN products p ON p.pid = pm.pid
+          WHERE pm.userid = '{$userid}'
+          ORDER BY pm.pmid DESC";
+  
+  $payresult = $mysqli-> query($paysql);
+  while($pay = $payresult->fetch_object()){
+    $payarr[]=$pay;
+  }
+}
+
+
+
+
 ?>
 
 <main class="usergrid">
@@ -23,26 +42,25 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
               </tr>
             </thead>
             <tbody>
+            <?php
+              if (isset($payarr)) {
+                foreach ($payarr as $pay) {
+            ?>
             <tr class="df aic">
-              <td>2024-04-27</td>
-              <td>피그마 A부터 Z까지 배워보자</td>
+              <td><?=$pay->regdate?></td>
+              <td><?=$pay->title?></td>
               <td>
                 <a href="u_review_up.php" class="primary_btn">작성하기</a>
               </td>
-            </tr>
-            <tr class="df aic">
-              <td>2024-04-27</td>
-              <td>피그마 A부터 Z까지 배워보자</td>
-              <td><button class="primary_btn">작성하기</button></td>
-            </tr>
-            <tr class="df aic">
-              <td>2024-04-27</td>
-              <td>피그마 A부터 Z까지 배워보자</td>
               <td>
                 <a href="u_review_edit.php?idx=" class="secondary_btn edit">수정</a>
                 <button class="delete_btn del">삭제</button>
               </td>
             </tr>
+            <?php
+                }
+              }
+            ?>
             </tbody>
           </table>
           
