@@ -47,7 +47,6 @@ $data2 = [];
 foreach($saleArr as $price){
     array_push($data2, $price);
 }
-print_r($data2);
 ?>
 
 <body>
