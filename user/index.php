@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 // 공지사항 
-$sql = "select * from notice_board order by idx desc limit 0, 3"; //3개만보이게
+$sql = "SELECT * from notice_board order by idx desc limit 0,3"; //3개만보이게
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
@@ -201,40 +201,7 @@ $memberrs = $memberresult->fetch_object();
         }
         ?>
       </ul>
-      <ul class="notice df fdc">
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">프론트엔드 수업 관련 안내 공지드립니다.</a>
-          <a href="" class="notice_ct">프론트엔드 수업 개강날짜가 변경되었습니다. 기존의 5월6일에서 5월 23일로 변경되었으니 이점 유의해주시기 바랍니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">국비지원교육 지원금 관련 공지사항입니다.</a>
-          <a href="" class="notice_ct">국비지원교육 지원금 대상 변경되었습니다. 기존의 지원금 대상이셨던 분들도 해당되오니 담당 부서에 확인부탁드립니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">대체공휴일 보강수업 일정 안내사항 입니다.</a>
-          <a href="" class="notice_ct">대체공휴일 보강 수업에 희망하시는 분들에 한해서 학원에서 별도로 보강 수업을 진행합니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-      </ul>
-      <ul class="notice df fdc">
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">프론트엔드 수업 관련 안내 공지드립니다.</a>
-          <a href="" class="notice_ct">프론트엔드 수업 개강날짜가 변경되었습니다. 기존의 5월6일에서 5월 23일로 변경되었으니 이점 유의해주시기 바랍니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">국비지원교육 지원금 관련 공지사항입니다.</a>
-          <a href="" class="notice_ct">국비지원교육 지원금 대상 변경되었습니다. 기존의 지원금 대상이셨던 분들도 해당되오니 담당 부서에 확인부탁드립니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-        <li class="notice_table df aic">
-          <a href="" class="notice_tit">대체공휴일 보강수업 일정 안내사항 입니다.</a>
-          <a href="" class="notice_ct">대체공휴일 보강 수업에 희망하시는 분들에 한해서 학원에서 별도로 보강 수업을 진행합니다.</a>
-          <a href=""><span class="material-symbols-outlined"> east</span></a>
-        </li>
-      </ul>
+      
     </div>
     <div class="controls">
       <span class="prev"></span>
