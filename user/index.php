@@ -118,71 +118,63 @@ $memberrs = $memberresult->fetch_object();
             foreach ($rsArr1 as $rsl1) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= $rsl1->pid; ?>">
+                <li><a href="u_lecture_view.php?pid=<?= $rsl1->pid; ?>">
                     <img src="<?= $rsl1->thumbnail; ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
               </ul>
           <?php
             }
-          } else {
-              echo "<p>No lectures available for this category1.</p>";
           }
           ?>
         </div>
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
-          <?php
+        <?php
           if (isset($rsArr2) && !empty($rsArr2)) {
             foreach ($rsArr2 as $rsl2) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl2->pid, ENT_QUOTES, 'UTF-8'); ?>">
-                    <img src="<?= htmlspecialchars($rsl2->thumbnail, ENT_QUOTES, 'UTF-8'); ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl2->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl2->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl2->pid; ?>">
+                    <img src="<?= $rsl2->thumbnail; ?>" alt=""></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl2->pid; ?>"><?= $rsl2->title; ?></a></li>
               </ul>
           <?php
             }
-          } else {
-              echo "<p>No lectures available for this category2.</p>";
           }
           ?>
         </div>
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
-          <?php
+        <?php
           if (isset($rsArr3) && !empty($rsArr3)) {
             foreach ($rsArr3 as $rsl3) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl3->pid, ENT_QUOTES, 'UTF-8'); ?>">
-                    <img src="<?= htmlspecialchars($rsl3->thumbnail, ENT_QUOTES, 'UTF-8'); ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl3->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl3->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl3->pid; ?>">
+                    <img src="<?= $rsl3->thumbnail; ?>" alt=""></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl3->pid; ?>"><?= $rsl3->title; ?></a></li>
               </ul>
           <?php
             }
-          } else {
-              echo "<p>No lectures available for this category3.</p>";
           }
           ?>
         </div>
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
-          <?php
+        <?php
           if (isset($rsArr4) && !empty($rsArr4)) {
             foreach ($rsArr4 as $rsl4) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl4->pid, ENT_QUOTES, 'UTF-8'); ?>">
-                    <img src="<?= htmlspecialchars($rsl4->thumbnail, ENT_QUOTES, 'UTF-8'); ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl4->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl4->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl4->pid; ?>">
+                    <img src="<?= $rsl4->thumbnail; ?>" alt=""></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl4->pid; ?>"><?= $rsl4->title; ?></a></li>
               </ul>
           <?php
             }
-          } else {
-              echo "<p>No lectures available for this category3-1.</p>";
           }
           ?>
         </div>
