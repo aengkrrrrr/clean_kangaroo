@@ -15,25 +15,25 @@ while ($rs = $result->fetch_object()) {
 
 //강좌소개 sql 쿼리
 
-$lec_sql1 = "SELECT * FROM products where cate = 'A0001A0002' & 'A0001A0003'";
+$lec_sql1 = "SELECT * FROM products WHERE cate LIKE 'A0001%'";
 $result1 = $mysqli->query($lec_sql1);
 while ($rsl1 = $result1->fetch_object()) {
   $rsArr1[] = $rsl1;
 }
 
-$lec_sql2 = "SELECT * FROM products where cate = 'B0001B0002'";
+$lec_sql2 = "SELECT * FROM products where cate LIKE 'B0001%'";
 $result2 = $mysqli->query($lec_sql2);
 while ($rsl2 = $result2->fetch_object()) {
   $rsArr2[] = $rsl2;
 }
 
-$lec_sql3 = "SELECT * FROM products where cate = 'C0001C0002'";
+$lec_sql3 = "SELECT * FROM products where cate LIKE 'C0001%'";
 $result3 = $mysqli->query($lec_sql3);
 while ($rsl3 = $result3->fetch_object()) {
   $rsArr3[] = $rsl3;
 }
 
-$lec_sql4 = "SELECT * FROM products where cate = 'D0001D0002'";
+$lec_sql4 = "SELECT * FROM products where cate LIKE 'D0001%'";
 $result4 = $mysqli->query($lec_sql4);
 while ($rsl4 = $result4->fetch_object()) {
   $rsArr4[] = $rsl4;
@@ -106,8 +106,8 @@ $memberrs = $memberresult->fetch_object();
     <h2>강좌소개</h2>
     <div class="lec df">
       <div class="lec_cate active"><a href="#tab1">웹/편집/인테리어</a></div>
-      <div class="lec_cate"><a href="#tab2">CG/VFX</a></div>
-      <div class="lec_cate"><a href="#tab3">모션그래픽</a></div>
+      <div class="lec_cate"><a href="#tab2">웹 개발</a></div>
+      <div class="lec_cate"><a href="#tab3">CG/모션그래픽</a></div>
       <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
     </div>
     <div class="lec_wrapper df">
@@ -118,9 +118,9 @@ $memberrs = $memberresult->fetch_object();
             foreach ($rsArr1 as $rsl1) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl1->pid; ?>">
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= $rsl1->pid; ?>">
                     <img src="<?= $rsl1->thumbnail; ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
               </ul>
           <?php
             }
@@ -137,9 +137,9 @@ $memberrs = $memberresult->fetch_object();
             foreach ($rsArr2 as $rsl2) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= htmlspecialchars($rsl2->pid, ENT_QUOTES, 'UTF-8'); ?>">
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl2->pid, ENT_QUOTES, 'UTF-8'); ?>">
                     <img src="<?= htmlspecialchars($rsl2->thumbnail, ENT_QUOTES, 'UTF-8'); ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= htmlspecialchars($rsl2->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl2->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl2->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl2->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
               </ul>
           <?php
             }
@@ -156,9 +156,9 @@ $memberrs = $memberresult->fetch_object();
             foreach ($rsArr3 as $rsl3) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= htmlspecialchars($rsl3->pid, ENT_QUOTES, 'UTF-8'); ?>">
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl3->pid, ENT_QUOTES, 'UTF-8'); ?>">
                     <img src="<?= htmlspecialchars($rsl3->thumbnail, ENT_QUOTES, 'UTF-8'); ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= htmlspecialchars($rsl3->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl3->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl3->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl3->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
               </ul>
           <?php
             }
@@ -175,9 +175,9 @@ $memberrs = $memberresult->fetch_object();
             foreach ($rsArr4 as $rsl4) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= htmlspecialchars($rsl4->pid, ENT_QUOTES, 'UTF-8'); ?>">
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl4->pid, ENT_QUOTES, 'UTF-8'); ?>">
                     <img src="<?= htmlspecialchars($rsl4->thumbnail, ENT_QUOTES, 'UTF-8'); ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= htmlspecialchars($rsl4->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl4->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
+                <li><a href="/clean_kangaroo/user/u_lecture_view.php?pid=<?= htmlspecialchars($rsl4->pid, ENT_QUOTES, 'UTF-8'); ?>"><?= htmlspecialchars($rsl4->title, ENT_QUOTES, 'UTF-8'); ?></a></li>
               </ul>
           <?php
             }
