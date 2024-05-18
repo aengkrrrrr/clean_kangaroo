@@ -5,8 +5,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
-
-
 // 필터
 $pcode = $_GET['code'] ?? '';
 $step2sql = "SELECT * from product_category where step=2 and pcode='{$pcode}'";
@@ -18,15 +16,7 @@ while ($step2rs = $step2result->fetch_object()) {
 
 
 //필터 카테고리 조회
-$c_where = '';
 
-if($cate != ''){
-  if($cate == $step2sql){
-    $c_where .= " and cate LIKE '%{$cate}%'";
-  }
-}else{
-  $c_where .= "";
-}
 
 
 // 검색창
@@ -53,18 +43,12 @@ $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
 }
+
+
 ?>
   <main class="usergrid">
     <div class="user_sublecture_title">
-      <h2 class="h2">
-        <?php
-          if (isset($cate1Arr) && !empty($cate1Arr)) {
-            echo $cate1Arr[0]->name;
-          } else {
-            echo '카테고리명';
-          }
-        ?>
-      </h2>
+      <h2 class="h2"><?= $cate1->name ?></h2>
     </div>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df user_lecture_search">
       <input class="form-control search" type="text" id="search_keyword" name="search_keyword" placeholder="강의명으로 검색">

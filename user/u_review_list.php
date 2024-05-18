@@ -6,10 +6,17 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 $search_where = "";
 $search_keyword = $_GET['search_keyword'] ?? '';
+$name = "";
+$name = $_GET['name'] ?? '';
+$content = "";
+$content = $_GET['content'] ?? '';
 
 if($search_keyword){
   $search_where .= " and (content LIKE '%{$search_keyword}%')";
+}else {
+  $search_where = "";
 }
+
 
 $paginationTarget = 'review_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
@@ -74,11 +81,11 @@ $rr = $reply_result->fetch_object();
             <div class="select_wrap">
               <select class="form-select" id="coupon_status" class="form-select" name="status">
                 <option value="" selected>전체보기</option>
-                <option value="0">제목</option>
-                <option value="1">내용</option>
+                <option value="title">제목</option>
+                <option value="content">내용</option>
               </select>
             </div>
-            <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="검색할 내용을 입력하세요.">
+            <input class="form-control" type="text" list="datalistOptions" id="search_keyword" name="search_keyword" placeholder="검색할 내용을 입력하세요.">
             <button class="primary_btn">검색</button>
           </div>
         </form>
@@ -125,28 +132,28 @@ $rr = $reply_result->fetch_object();
     <ul class="pagination">
       <?php
       if($pageNumber > 1){
-        echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
+        echo "<li class=\"page-item\"><a href=\"u_review_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
         //이전
         if($block_num > 1){
           $prev = 1 + ($block_num - 2) * $block_ct;
-          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
+          echo "<li class=\"page-item\"><a href=\"u_review_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
         }
       }
 
         for($i=$block_start;$i<=$block_end;$i++){
           if($i == $pageNumber){
-            echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            echo "<li class=\"page-item active\"><a href=\"u_review_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
           }else{
-            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+            echo "<li class=\"page-item\"><a href=\"u_review_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
           }            
         }  
 
         if($pageNumber < $total_page){
           if($total_block > $block_num){
             $next = $block_num * $block_ct + 1;
-            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+            echo "<li class=\"page-item\"><a href=\"u_review_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
           }
-          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
+          echo "<li class=\"page-item\"><a href=\"u_review_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
         }        
       ?>
     </ul>
