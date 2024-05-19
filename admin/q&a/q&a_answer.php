@@ -7,7 +7,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 //테이블조회
 $idx = $_GET['idx'];
-$sql = "SELECT * FROM qna_board WHERE idx={$idx}";
+$sql = "select b.*, m.username
+from qna_board b 
+join members m 
+on b.userid=m.userid where idx={$idx}";
+//$sql = "SELECT * FROM qna_board WHERE idx={$idx}";
 $result = $mysqli->query($sql);
 $row = $result->fetch_object();
 
@@ -29,11 +33,11 @@ while($reply_row = mysqli_fetch_object($reply_result)){
       <div class="user_write">
           <div class="profile df aic pb-5">
             <img src="../../images/favicon.png" alt="프로필 이미지" class="user_profile_img">
-            <h5 class="body3b"><?=$row->name?></h5>
+            <h5 class="body3b"><?=$row->username?></h5>
           </div>
           <div class="title df aic pb-5">
             <h4 class="h4"><?=$row->title?></h4>
-            <span class="body3b"><?=$row->date?>-MM-DD</span>
+            <span class="body3b"><?=$row->date?></span>
           </div>
           <div class="content">
             <p class="body2"><?=$row->content?></p>
