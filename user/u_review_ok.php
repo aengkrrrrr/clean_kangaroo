@@ -4,19 +4,18 @@ $css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-
-$name = $_POST['name'];
+$pid = $_POST['pid'];
+$userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
-$star = intval($_POST['star']);
+// $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (name,title,content,date,star) VALUES (
-    '{$name}', 
+  $sql = "INSERT INTO review_board (pid,userid,title,content) VALUES (
+    {$pid},
+    '{$userid}', 
     '{$title}', 
-    '{$content}', 
-    now(),
-    '{$star}'
+    '{$content}'
     )";
 
     if($mysqli->query($sql) === TRUE){
@@ -26,7 +25,7 @@ $star = intval($_POST['star']);
         </script>";
     } else{
       echo "<script>
-      alert('리뷰쓰기 실패');
+      alert('리뷰쓰기 실패');S
       history.back();
       </script>";
   }

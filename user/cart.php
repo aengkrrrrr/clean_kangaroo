@@ -109,7 +109,7 @@ if(isset($_SESSION['UID'])){
         </div>
         <div class="cart_sale df">
           <span class="body3">할인 금액 :</span>
-          <span class="body3 discount">20000 </span><em>원</em>
+          <span class="body3 discount">0 </span><em>원</em>
         </div>
         <div class="cart_total df">
           <strong class="body2b">총 결제 금액 :</strong>
