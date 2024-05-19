@@ -53,7 +53,7 @@ if (isset($_SESSION['UID'])){
                 <a href="u_review_up.php" class="primary_btn">작성하기</a>
               </td>
               <td>
-                <a href="u_review_edit.php?idx=" class="secondary_btn edit">수정</a>
+                <a href="u_review_edit.php?idx=<?= $pay->idx; ?>" class="secondary_btn edit">수정</a>
                 <button class="delete_btn del">삭제</button>
               </td>
             </tr>
