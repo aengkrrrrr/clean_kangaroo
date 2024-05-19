@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 // 공지사항 
-$sql = "SELECT * from notice_board order by idx desc limit 0,3"; //3개만보이게
+$sql = "SELECT * from notice_board order by idx desc limit 0,9"; //3개만보이게
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
@@ -187,22 +187,30 @@ $memberrs = $memberresult->fetch_object();
   <section class="main_notice">
     <h2>공지사항</h2>
     <div class="notice_wrap">
+    <?php
+      for($i=0; $i<=6;$i += 3){
+        ?>  
       <ul class="notice df fdc">
-        <?php
-        if (isset($rsArr)) {
-          foreach ($rsArr as $ra) {
+      <?php
+          if (isset($rsArr)) {
+            $newArr = array_slice($rsArr, $i, 3);
+            foreach ($newArr as $ra) {
         ?>
-            <li class="notice_table df aic">
-              <a href="" class="notice_tit"><?= $ra->title; ?></a>
-              <a href="" class="notice_ct"><?= $ra->contents; ?></a>
-              <a href=""><span class="material-symbols-outlined"> east</span></a>
-            </li>
+          <li class="notice_table df aic">
+            <a href="" class="notice_tit"><?= $ra->title; ?></a>
+            <a href="" class="notice_ct"><?= $ra->contents; ?></a>
+            <a href=""><span class="material-symbols-outlined"> east</span></a>
+          </li>
         <?php
+            }
           }
-        }
         ?>
       </ul>
-      
+      <?php           
+          }
+        ?>
+      </ul>
+
     </div>
     <div class="controls">
       <span class="prev"></span>
