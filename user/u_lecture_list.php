@@ -6,18 +6,16 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
 // 필터
-$pcode = $_GET['code'] ?? '';
+$pcode = $_GET['pcode'] ?? 'A0001';
+$name = $_GET['name'] ?? '웹디자인/편집';
+
+$code = $_GET['code'] ?? '';
+
 $step2sql = "SELECT * from product_category where step=2 and pcode='{$pcode}'";
 $step2result = $mysqli->query($step2sql);
 while ($step2rs = $step2result->fetch_object()) {
   $cate2Arr[] = $step2rs;
 }
-
-
-
-//필터 카테고리 조회
-
-
 
 // 검색창
 $search_where = "";
@@ -25,8 +23,11 @@ $search_keyword = $_GET['search_keyword'] ?? '';
 
 if($search_keyword){
   $search_where .= " and (title LIKE '%{$search_keyword}%')";
-} else {
-  $search_where = "";
+}
+
+// 필터 카테고리 조회
+if($code){
+  $search_where .= " and cate LIKE '%{$code}%'";
 }
 
 $paginationTarget = 'products';
@@ -48,7 +49,7 @@ while ($rs = $result->fetch_object()) {
 ?>
   <main class="usergrid">
     <div class="user_sublecture_title">
-      <h2 class="h2"><?= $cate1->name ?></h2>
+      <h2 class="h2"><?= $name ?></h2>
     </div>
     <form action="<?php echo $_SERVER['PHP_SELF']; ?>" class="search_wrap df user_lecture_search">
       <input class="form-control search" type="text" id="search_keyword" name="search_keyword" placeholder="강의명으로 검색">
@@ -69,8 +70,8 @@ while ($rs = $result->fetch_object()) {
                 foreach($cate2Arr as $cate2){
             ?>
               <div class="form-check">
-                <input class="form-check-input" type="checkbox" value="<?= $cate2->pcode?>" id="flexCheckDefault" name="pcode">
-                <label class="form-check-label" for="flexCheckDefault"><?= $cate2->name?></label>
+                <input class="form-check-input" type="checkbox" value="<?= $cate2->code?>" id="<?= $cate2->code?>" name="code">
+                <label class="form-check-label" for="<?= $cate2->code?>"><?= $cate2->name?></label>
               </div>
               <?php
                     }
