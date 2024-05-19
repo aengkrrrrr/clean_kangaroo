@@ -14,12 +14,13 @@ if(isset($_SESSION['UID'])){
           WHERE ct.userid = '{$userid}'
   
           ORDER BY ct.cartid DESC";
-  // echo $sqlct;
-  
-  $result = $mysqli-> query($sqlct);
-  while($rs = $result->fetch_object()){
-    $rscct[]=$rs;
-  }
+//  echo $sqlct;
+
+    $rscct = array();
+      $result = $mysqli-> query($sqlct);
+      while($rs = $result->fetch_object()){
+        $rscct[]=$rs;
+      }
 
 
   //coupon 조회
