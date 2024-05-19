@@ -260,19 +260,25 @@ $memberrs = $memberresult->fetch_object();
       <li>
         <a href="">
           <img src="../images/user_main_eventbanner1.png" alt="">
-          <p class="body2b">인디자인 강의 신청 이벤트</p>
+          <p class="body2b">특가 이벤트</p>
         </a>
       </li>
       <li>
         <a href="">
-          <img src="../images/user_main_eventbanner1.png" alt="">
-          <p class="body2b">인디자인 강의 신청 이벤트</p>
+          <img src="../images/user_main_eventbanner2.png" alt="">
+          <p class="body2b">이 달의 쿠폰들 받아가세요!</p>
         </a>
       </li>
       <li>
         <a href="">
-          <img src="../images/user_main_eventbanner1.png" alt="">
-          <p class="body2b">인디자인 강의 신청 이벤트</p>
+          <img src="../images/user_main_eventbanner3.png" alt="">
+          <p class="body2b">생일 축하 이벤트</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="../images/user_main_eventbanner4.png" alt="">
+          <p class="body2b">적립금 이벤트</p>
         </a>
       </li>
     </ul>

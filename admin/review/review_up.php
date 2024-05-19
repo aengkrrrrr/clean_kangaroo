@@ -7,6 +7,14 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_chec
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
+
+// 회원 이름 불러오기
+$userid = $_SESSION['UID'];
+$username = $_SESSION['UNAME'];
+$msql = "SELECT * FROM members where userid='{$userid}'";
+$result2 = $mysqli->query($msql);
+$rsm = $result2->fetch_object();
+
 // 수강평 조회
 $idx = $_GET['idx']; 
 $sql = "SELECT * FROM review_board WHERE idx = {$idx}";
@@ -26,7 +34,7 @@ $reply_content = $reply_row->content ?? "";
     <div class="profile df aic pb-5">
       <div class="username d-flex">
         <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
-        <h5 class="body3b"><?= $rs->name; ?></h5>
+        <h5 class="body3b"><?= $rs->userid; ?></h5>
       </div>
       <div class="rating" data-rate="3">
         <i class="fas fa-star"></i>

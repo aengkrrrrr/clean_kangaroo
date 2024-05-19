@@ -34,9 +34,11 @@ while ($rs = $result->fetch_object()) {
 }
 
 // 회원 이름 불러오기
-$membersql = "SELECT * FROM members";
-$memberresult = $mysqli->query($membersql);
-$memberrs = $memberresult->fetch_object();
+$userid = $_SESSION['UID'];
+$username = $_SESSION['UNAME'];
+$msql = "SELECT * FROM members where userid='{$userid}'";
+$result2 = $mysqli->query($msql);
+$rsm = $result2->fetch_object();
 
 
 // 수강평 답글 조회
@@ -59,7 +61,7 @@ $rr = $reply_result->fetch_object();
         <div class="df user_review_img">
           <img src="../images/user_profile1.png" alt="">
           <p>
-            <span class="body2b"><?= $memberrs->username ?></span><br>
+            <span class="body2b"><?= $username ?></span><br>
             <span class="body1">3d애니메이터</span>
           </p>
         </div>
@@ -103,7 +105,7 @@ $rr = $reply_result->fetch_object();
               <div class="user_intreview_title df">
                 <img src="../images/user_profile1.png" alt="">
                 <p class="body4b">비주얼 디자인 포트폴리오</p>
-                <span class="body4b"><?= $memberrs->username ?></span><br>
+                <span class="body4b"><?= $username ?></span><br>
                 <div class="body4b rating" data-rate="<?= $item->star; ?>">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>

@@ -5,7 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 
-// 필터
+// 타이틀 필터
 $pcode = $_GET['pcode'] ?? 'A0001';
 $name = $_GET['name'] ?? '웹디자인/편집';
 

@@ -5,9 +5,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 // 회원 아이디 불러오기
-$membersql = "SELECT * FROM members";
-$memberresult = $mysqli->query($membersql);
-$memberrs = $memberresult->fetch_object();
+$userid = $_SESSION['UID'];
+$username = $_SESSION['UNAME'];
+$msql = "SELECT * FROM members where userid='{$userid}'";
+$result2 = $mysqli->query($msql);
+$rsm = $result2->fetch_object();
 ?>
 <main class="usergrid">
   <div class="user_review_writett">
@@ -15,9 +17,9 @@ $memberrs = $memberresult->fetch_object();
   </div>
   <section class="user_review_writecn">
     <form action="u_review_ok.php" enctype="multipart/form-data" method="POST">
-    <input type="hidden" name="idx">
+    <input type="hidden" name="username" value="<?=username;?>">
       <p class="review_userid">
-        <span class="body2">NAME : <?= $memberrs->username ?></span>
+        <span class="body2">NAME : <?= username; ?></span>
       </p>
       <div class="user_review_titlewrap df user_review_form">
         <div class="form-floating">
