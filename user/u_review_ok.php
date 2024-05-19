@@ -4,7 +4,7 @@ $css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-$pid = $_GET['pid'];
+$pid = $_POST['pid'];
 $userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
