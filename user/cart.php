@@ -14,12 +14,13 @@ if(isset($_SESSION['UID'])){
           WHERE ct.userid = '{$userid}'
   
           ORDER BY ct.cartid DESC";
-  // echo $sqlct;
-  
-  $result = $mysqli-> query($sqlct);
-  while($rs = $result->fetch_object()){
-    $rscct[]=$rs;
-  }
+//  echo $sqlct;
+
+    $rscct = array();
+      $result = $mysqli-> query($sqlct);
+      while($rs = $result->fetch_object()){
+        $rscct[]=$rs;
+      }
 
 
   //coupon 조회
@@ -39,21 +40,22 @@ if(isset($_SESSION['UID'])){
 <main class="usergrid">
   <div class="my_cart">
     <h2 class="h2">장바구니</h2>
-    <div class="select df aic">
-      <div class="form-floating all_check">
-        <input class="form-check-input" type="checkbox" value="" id="all_check">
-        <label class="form-check-label" for="all_check">전체선택</label>
-      </div>
-      <div class="num df">
-        <span class="select_num">0</span><span>개</span>
-        <span class="total_num">총 0</span><span>개</span>
-      </div>
-      <button class="delete_btn select_del">선택 삭제</button>
-    </div>
     <?php
-      if (isset($rscct)) {
+      if (count($rscct) > 0) {
         foreach ($rscct as $item) {
-    ?>
+          ?>
+      <div class="select df aic">
+        <div class="form-floating all_check">
+          <input class="form-check-input" type="checkbox" value="" id="all_check">
+          <label class="form-check-label" for="all_check">전체선택</label>
+        </div>
+        <div class="num df">
+          <span class="select_num">0</span><span>개</span>
+          <span class="total_num">총 0</span><span>개</span>
+        </div>
+        <button class="delete_btn select_del">선택 삭제</button>
+      </div>
+      
       <div class="cart_ct df">
         <input class="form-check-input" type="checkbox" data-pid="<?= $item->pid ?>" value="<?= $item->cartid ?>" name="cart" id="cart">
         <img src="<?=$item->thumbnail;?>" alt="">
