@@ -21,7 +21,20 @@ if (isset($_SESSION['UID'])){
   }
 }
 
+//구매한 강좌 리뷰 유무 조회
+if (isset($_SESSION['UID'])){
+  $userid = $_SESSION['UID'];
 
+  $rvsql = "SELECT rv.*,pm.* FROM payment pm
+          JOIN review_board rv
+          WHERE pm.userid = '{$userid}'
+          ORDER BY pm.pid DESC";
+  
+  $rvresult = $mysqli-> query($rvsql);
+  while($rv = $rvresult->fetch_object()){
+    $rvarr[]=$rv;
+  }
+}
 
 
 ?>
@@ -49,13 +62,31 @@ if (isset($_SESSION['UID'])){
             <tr class="df aic">
               <td><?=$pay->regdate?></td>
               <td class="review_tit"><?=$pay->title?></td>
+     
               <td>
-                <a href="u_review_up.php" class="primary_btn">작성하기</a>
+              <?php
+              if (isset($rvarr)) {
+                foreach ($payarr as $pay) {
+                  if($pay->status  == 0) {
+                  ?>
+                  <td>
+                    <a href="u_review_up.php" class="primary_btn">작성하기</a>
+                  </td>
+                  <?php
+                  } else {
+                    ?>
+                    <a href="u_review_edit.php?idx=<?= $pay->idx;?>" class="secondary_btn edit">수정</a>
+                    <button class="delete_btn del">삭제</button>
+                <?php
+                  }
+                 ?>
               </td>
-              <td>
-                <a href="u_review_edit.php?idx=<?= $pay->idx; ?>" class="secondary_btn edit">수정</a>
-                <button class="delete_btn del">삭제</button>
-              </td>
+            
+                 
+                <?php
+                 }
+                }
+               ?>
             </tr>
             <?php
                 }

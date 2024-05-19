@@ -5,7 +5,7 @@ $css2 ='<link rel="stylesheet" href="css/mypage.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-$idx = $_POST['idx'];
+// $idx = $_POST['idx'];
 $userid = $_SESSION['UID'];
 
 $sql = "SELECT * FROM qna_board where userid='{$userid}'";
@@ -38,7 +38,7 @@ while($qna = $result->fetch_object()){
                 foreach ($qarr as $qrs) {
               ?>
             <tr class="df aic">
-              <input type="hidden" name="<?= $qrs->idx;?>">
+              <input type="hidden" name="idx" value="<?= $qrs->idx;?>">
               <td>
                 <?php
                 if($qrs->status === '0'){
