@@ -45,59 +45,61 @@ if (isset($_SESSION['UID'])){
     <div class="my_review">
       <h2 class="body1b">내 수강평</h3>
       <div class="mypage_ct df">
-        <form action="">
-          <table class="review_table">
-            <thead>
-              <tr class="df aic">
-                <th scope="col">구매날짜</th>
-                <th scope="col">강의명</th>
-                <th scope="col">수강평</th>
-              </tr>
-            </thead>
-            <tbody>
-            <?php
-              if (isset($payarr)) {
-                foreach ($payarr as $pay) {
-            ?>
+        <table class="review_table">
+          <thead>
             <tr class="df aic">
-              <td><?=$pay->regdate?></td>
-              <td class="review_tit"><?=$pay->title?></td>
-     
-              <td>
-              <?php
-              if (isset($rvarr)) {
-                foreach ($payarr as $pay) {
-                  if($pay->status  == 0) {
-                  ?>
-                  <td>
-                    <a href="u_review_up.php" class="primary_btn">작성하기</a>
-                  </td>
-                  <?php
-                  } else {
-                    ?>
-                    <a href="u_review_edit.php?idx=<?= $pay->idx;?>" class="secondary_btn edit">수정</a>
-                    <button class="delete_btn del">삭제</button>
-                <?php
-                  }
-                 ?>
-              </td>
-            
-                 
-                <?php
-                 }
-                }
-               ?>
+              <th scope="col">구매날짜</th>
+              <th scope="col">강의명</th>
+              <th scope="col">수강평</th>
             </tr>
+          </thead>
+          <tbody>
+          <?php
+            if (isset($payarr)) {
+              foreach ($payarr as $pay) {
+          ?>
+          <tr class="df aic">
+            <td><?=$pay->regdate?></td>
+            <td class="review_tit"><?=$pay->title?></td>
+
+
             <?php
-                }
+              $pid = $pay->pid;
+              //review_board에 유저가 수강한 강의가 있는지 확인
+              $countSql = "SELECT count(*) AS cnt FROM review_board WHERE userid='{$userid}' and pid={$pid}";
+              $countResult = $mysqli->query($countSql);
+              $countrow = $countResult->fetch_object();
+              if($countrow->cnt == 0){        
+                //수강평이 없다면
+              ?>
+                <td>
+                  <!-- 강의 번호pid에 리뷰를 작성하겠다 -->
+                  <a href="u_review_up.php?pid=<?=$pay->pid?>" class="primary_btn">작성하기</a>
+                  
+                </td>
+              <?php
+              } else {
+                //수강평이 있다면, 수강평 정보 조회 -  수정, 삭제 링크에 활용
+                $reviewSql = "SELECT * FROM review_board WHERE userid='{$userid}' and pid={$pid}";
+                $reviewResult = $mysqli->query($reviewSql);
+                $rvrow = $reviewResult->fetch_object();  
+              ?>
+              <td>
+                <a href="u_review_edit.php?idx=<?=$rvrow->idx?>" class="secondary_btn edit">수정</a>
+                <a href="u_review_delete.php?idx=<?=$rvrow->idx?>" class="secondary_btn del">삭제</a>
+              </td>
+              <?php
               }
             ?>
-            </tbody>
-          </table>
-          
-        </form>
-        
+          </tr>
+          <?php
+              }
+            }
+          ?>
+          </tbody>
+        </table>        
       </div>
+
       
 
     </div>

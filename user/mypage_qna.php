@@ -22,7 +22,7 @@ while($qna = $result->fetch_object()){
     <div class="my_qna">
       <h2 class="body1b">내 질문</h3>
       <div class="mypage_ct df">
-        <form action="u_qna_del.php" method="POST">
+        <form action="u_qna_del.php" method="GET">
          
           <table class="qna_table">
             <thead>

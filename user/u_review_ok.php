@@ -4,15 +4,15 @@ $css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
-$idx = $_POST['idx'];
+$pid = $_GET['pid'];
 $userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
 // $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (idx,userid,title,content) VALUES (
-    {$idx},
+  $sql = "INSERT INTO review_board (pid,userid,title,content) VALUES (
+    {$pid},
     '{$userid}', 
     '{$title}', 
     '{$content}'
@@ -25,7 +25,7 @@ $content = $_POST['content'];
         </script>";
     } else{
       echo "<script>
-      alert('리뷰쓰기 실패');
+      alert('리뷰쓰기 실패');S
       history.back();
       </script>";
   }

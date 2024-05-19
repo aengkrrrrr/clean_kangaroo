@@ -4,6 +4,7 @@ $css1 =' <link rel="stylesheet" href="./css/u_review.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
+$pid = $_GET['pid'];
 // 회원 아이디 불러오기
 $membersql = "SELECT * FROM members";
 $memberresult = $mysqli->query($membersql);
@@ -15,10 +16,7 @@ $memberrs = $memberresult->fetch_object();
   </div>
   <section class="user_review_writecn">
     <form action="u_review_ok.php" enctype="multipart/form-data" method="POST">
-    <input type="hidden" name="idx">
-      <p class="review_userid">
-        <span class="body2">NAME : <?= $memberrs->username ?></span>
-      </p>
+    <input type="hidden" name="pid" value="<?=$pid;?>">
       <div class="user_review_titlewrap df user_review_form">
         <div class="form-floating">
           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="title"></textarea>
