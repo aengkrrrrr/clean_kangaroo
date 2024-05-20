@@ -274,21 +274,39 @@
     border-radius: 8px;
     background: var(--C-white, #fff);
   }
-  .user_review_img img {
-    width: 114px;
-    height: 114px;
-  }
   .user_profile .user_review_img {
     margin-bottom: 38px;
     padding-bottom: 38px;
     align-items: center;
-    gap:45px;
     border-bottom: 1px solid #000;
+  }
+  .user_profile .user_review_img img {
+    width: 114px;
+    height: 114px;
+  }
+  .user_profile .user_review_img p {
+    width: 200px;
+    margin-left: 20px;
+  }
+  .user_profile .user_review_img p span {
+    display:inline-block;
+    width: 11rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   .main_review_txt {
     flex-direction: column;
     align-items: center;
     gap:50px;
+  }
+  .user_profile > p {
+    word-break: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
   }
   .user_profile button {
     display: block;

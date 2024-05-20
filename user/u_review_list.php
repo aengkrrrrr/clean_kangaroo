@@ -52,10 +52,10 @@ while ($rs = $resultrb->fetch_object()) {
           <img src="../images/user_profile1.png" alt="">
           <p>
             <span class="body2b"><?= $rview->userid?></span><br>
-            <span class="body1"><?=$rview->title?></span>
+            <span class="body4"><?=$rview->title?></span>
           </p>
         </div>
-        <p class="body3"><?= $rview->content; ?></p>
+        <p class="body3 review_con"><?= $rview->content; ?></p>
       </li>
       <?php
           }
