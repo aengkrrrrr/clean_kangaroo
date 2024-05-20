@@ -5,6 +5,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 $pid = $_POST['pid'];
+$rid = $_POST['rid'];
 $userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
@@ -12,8 +13,9 @@ $date = $_POST['date'];
 $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (pid,userid,title,content,date,star) VALUES (
+  $sql = "INSERT INTO review_board (pid,rid,userid,title,content,date,star) VALUES (
     {$pid},
+    {$rid},
     '{$userid}', 
     '{$title}', 
     '{$content}',
