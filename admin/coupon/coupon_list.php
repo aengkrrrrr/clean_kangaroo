@@ -100,34 +100,34 @@ while ($rs = $result->fetch_object()) {
     <!--공통 pagination-->
     <div class="nav_wrap df aic">
       <nav aria-label="">
-      <ul class="pagination">
-        <?php
-        if($pageNumber > 1){
-          echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
-          //이전
-          if($block_num > 1){
-            $prev = 1 + ($block_num - 2) * $block_ct;
-            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
-          }
-        }
-
-          for($i=$block_start;$i<=$block_end;$i++){
-            if($i == $pageNumber){
-              echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
-            }else{
-              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
-            }            
-          }  
-
-          if($pageNumber < $total_page){
-            if($total_block > $block_num){
-              $next = $block_num * $block_ct + 1;
-              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+        <ul class="pagination">
+          <?php
+          if($pageNumber > 1){
+            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=1\" class=\"page-link\" >처음</a></li>";
+            //이전
+            if($block_num > 1){
+              $prev = 1 + ($block_num - 2) * $block_ct;
+              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$prev\" class=\"page-link\">이전</a></li>";
             }
-            echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
-          }        
-        ?>
-      </ul>
+          }
+
+            for($i=$block_start;$i<=$block_end;$i++){
+              if($i == $pageNumber){
+                echo "<li class=\"page-item active\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              }else{
+                echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$i\" class=\"page-link\">$i</a></li>";
+              }            
+            }  
+
+            if($pageNumber < $total_page){
+              if($total_block > $block_num){
+                $next = $block_num * $block_ct + 1;
+                echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+              }
+              echo "<li class=\"page-item\"><a href=\"coupon_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
+            }        
+          ?>
+        </ul>
       </nav>
     <!------------- 공통 pagination-->
       <a href="coupon_up.php" class="primary_btn">쿠폰 등록</a>
