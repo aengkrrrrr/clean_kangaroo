@@ -107,10 +107,20 @@
 .review_table tbody tr td,
 .qna_table tbody tr td  {
     padding: 30px 0;
-
+}
+.review_table tbody .rv_btn_wrap,
+.qna_table tbody .rv_btn_wrap {
+    gap: 10px;
+}
+.review_table tbody .rv_btn_wrap .edit,
+.qna_table tbody .rv_btn_wrap .edit,
+.review_table tbody .rv_btn_wrap .del,
+.qna_table tbody .rv_btn_wrap .del{
+    padding: 8px;
+    line-height: 1.4;
 }
 .review_tit {
-    width: 170px;
+    width: 190px;
     display: inline-block;
     overflow: hidden;
     white-space: nowrap;
@@ -141,7 +151,6 @@
 .qna_table tbody tr .del  {
     width: 60px;
     height: 40px;
-    padding: 0;
 }
 .nav_wrap .review,
 .nav_wrap .qna  {

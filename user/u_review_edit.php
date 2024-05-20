@@ -23,9 +23,6 @@ $memberrs = $memberresult->fetch_object();
   <section class="user_review_writecn">
     <form action="u_review_edit_ok.php" enctype="multipart/form-data" method="POST">
     <input type="hidden" name="idx" value="<?= $rs->idx; ?>">
-      <p class="review_userid">
-        <span class="body2">NAME : <?= $memberrs->username ?></span>
-      </p>
       <div class="user_review_titlewrap df user_review_form">
         <div class="form-floating">
           <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="title"><?= $rs->title; ?></textarea>
@@ -53,7 +50,7 @@ $memberrs = $memberresult->fetch_object();
         <label for="floatingTextarea2">내용</label>
       </div>
       <p class="df">
-        <a href="u_review_list.php" class="basic_btn rvbackbtn">취소</a>
+        <a href="mypage_review.php" class="basic_btn rvbackbtn">취소</a>
         <button class="primary_btn">수정</button>
       </p>
     </form>

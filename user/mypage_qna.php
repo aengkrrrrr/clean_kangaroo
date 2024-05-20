@@ -49,7 +49,7 @@ while($qna = $result->fetch_object()){
                 ?>
               </td>
               <td><?=$qrs->title?></td>
-              <td>
+              <td class="rv_btn_wrap df">
                 <a href="u_qna_edit.php?idx=<?= $qrs->idx; ?>" class="secondary_btn edit">수정</a>
                 <button class="delete_btn del">삭제</button>
               </td>

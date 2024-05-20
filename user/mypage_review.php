@@ -84,9 +84,9 @@ if (isset($_SESSION['UID'])){
                 $reviewResult = $mysqli->query($reviewSql);
                 $rvrow = $reviewResult->fetch_object();  
               ?>
-              <td>
+              <td class="rv_btn_wrap df">
                 <a href="u_review_edit.php?idx=<?=$rvrow->idx?>" class="secondary_btn edit">수정</a>
-                <a href="u_review_delete.php?idx=<?=$rvrow->idx?>" class="secondary_btn del">삭제</a>
+                <a href="u_review_delete.php?idx=<?=$rvrow->idx?>" class="delete_btn del">삭제</a>
               </td>
               <?php
               }

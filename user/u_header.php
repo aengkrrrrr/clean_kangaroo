@@ -128,6 +128,10 @@ if (isset($_SESSION['UID'])){
         </ol>
       </div>
     </div>
+    <?php
+    if(isset($crow->cnt) > 0){
+      ?>
+    
     <div class="min_cart_wrap">
       <?php
         if (isset($rscct)) {
@@ -145,5 +149,12 @@ if (isset($_SESSION['UID'])){
       }
       ?>
     </div>
+    <?php
+    } else {
+      ?>
+      <div class="hidden"></div>
+    <?php
+    }
+    ?>
   </header>
   <!------- 사용자 헤더 -->
