@@ -111,9 +111,25 @@ while ($rs = $resultrb->fetch_object()) {
           <div class="user_intreview_cbox">
             <p><?= $rview->content; ?></p>
           </div>
+          <?php
+          $rid = $rview->rid;
+          $reply_sql = "SELECT * FROM review_reply WHERE b_idx={$rid}";
+          $reply_result = $mysqli -> query($reply_sql);
+          while ($rp = $reply_result->fetch_object()) {
+            $rpArr[] = $rp;
+          }
+
+          if (isset($rpArr)) {
+            foreach ($rpArr as $rply) {
+
+          ?>
           <div class="admina user_intreview_cbox">
-            <p></p>
+            <p><?=$rply->content?></p>
           </div>
+          <?php
+            }
+          }
+          ?>
         </li>
       </ul>
       <?php
