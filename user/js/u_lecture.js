@@ -1,25 +1,11 @@
-$("#checkAlls").click(function() {
-  if($("#checkAlls").is(":checked")) $("input[name=pcode]").prop("checked", true);
-  else $("input[name=pcode]").prop("checked", false);
-});
+$(".select_all").change(function() {
+  let $this = $(this);
+  let parentform = $this.closest('form');
 
-$("input[name=pcode]").click(function() {
-  var total = $("input[name=pcode]").length;
-  var checked = $("input[name=pcode]:checked").length;
-  
-  if(total != checked) $("#checkAlls").prop("checked", false);
-  else $("#checkAlls").prop("checked", true); 
-});
 
-$("#checkAll").click(function() {
-  if($("#checkAll").is(":checked")) $("input[name=code2]").prop("checked", true);
-  else $("input[name=code2]").prop("checked", false);
-});
-
-$("input[name=code2]").click(function() {
-  var total = $("input[name=code2]").length;
-  var checked = $("input[name=code2]:checked").length;
-  
-  if(total != checked) $("#checkAll").prop("checked", false);
-  else $("#checkAll").prop("checked", true); 
+  if( $this.is(":checked")) {    
+    parentform.find('.select_lecture input').prop("checked", true);
+  }  else {
+    parentform.find('.select_lecture input').prop("checked", false)
+  };
 });
