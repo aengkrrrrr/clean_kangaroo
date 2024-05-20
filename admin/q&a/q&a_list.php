@@ -17,7 +17,11 @@ $paginationTarget = 'qna_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 //큐앤에이 조회
-$sql = "SELECT * FROM qna_board where 1=1";
+$sql = "select b.*, m.username
+from qna_board b 
+join members m 
+on b.userid=m.userid where 1=1";
+//$sql = "SELECT * FROM qna_board where 1=1";
 $sql .= $search_where;
 $order = " order by date desc";
 $sql .= $order;
@@ -72,7 +76,7 @@ while ($rs = $result->fetch_object()) {
           <td><a href="/clean_kangaroo/admin/q&a/q&a_answer.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
           <td><?=$ra->date;?></td>
           <td><?=$ra->hit;?></td>
-          <td><?=$ra->name;?></td>
+          <td><?=$ra->username;?></td>
         </tr>
         <?php
             }
