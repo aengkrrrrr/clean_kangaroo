@@ -42,18 +42,16 @@ while ($rsl4 = $result4->fetch_object()) {
 
 // 리뷰
 
-$rsql = "SELECT * FROM review_board where 1=1";
-$order = " order by name desc";
+$sqlrb = "SELECT p.*,rb.* FROM review_board rb
+JOIN products p ON p.pid = rb.pid
+WHERE rb.userid = '{$userid}'
+ORDER BY rb.idx DESC";
 
-$result = $mysqli->query($rsql);
-while ($rrs = $result->fetch_object()) {
-  $rrsArr[] = $rrs;
+$resultrb = $mysqli->query($sqlrb);
+while ($rs = $resultrb->fetch_object()) {
+  $rbArr[] = $rs;
 }
 
-///// 회원 이름 불러오기
-$membersql = "SELECT * FROM members";
-$memberresult = $mysqli->query($membersql);
-$memberrs = $memberresult->fetch_object();
 
 // 이벤트
 
@@ -224,24 +222,24 @@ $memberrs = $memberresult->fetch_object();
     <div class="usergrid">
       <h2>student review</h2>
       <ul class="df main_review_list">
-        <?php
-        if (isset($rrsArr)) {
-          foreach ($rrsArr as $item) {
-        ?>
-            <li class="user_profile">
-              <div class="df user_review_img">
-                <img src="../images/user_profile1.png" alt="">
-                <p>
-                  <span class="body2b"><?= $memberrs->username ?></span><br>
-                  <span class="body1">3d애니메이터</span>
-                </p>
-              </div>
-              <p class="body3"><?= $item->content; ?></p>
-            </li>
-        <?php
+      <?php
+      if (isset($rbArr)) {
+      foreach ($rbArr as $rview) {
+    ?>
+      <li class="user_profile">
+        <div class="df user_review_img">
+          <img src="../images/user_profile1.png" alt="">
+          <p>
+            <span class="body2b"><?= $rview->userid?></span><br>
+            <span class="body1"><?=$rview->title?></span>
+          </p>
+        </div>
+        <p class="body3"><?= $rview->content; ?></p>
+      </li>
+      <?php
           }
         }
-        ?>
+      ?>
       </ul>
       <a href="u_review_list.php" class="primary_btn">후기 더 보러가기</a>
     </div>
