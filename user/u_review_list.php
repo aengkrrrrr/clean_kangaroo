@@ -84,13 +84,13 @@ while ($rs = $resultrb->fetch_object()) {
         </form>
       </div>
     </div>
-    <section class="user_intreview ">
+    <ul class="user_intreview ">
     <?php
       if (isset($rbArr)) {
       foreach ($rbArr as $rview) {
     ?>
-      <ul class="intreview_box">
-        <li>
+      <li class="intreview_box">
+        <div>
           <div class="user_intreview_tbox df">
             <div class="df">
               <div class="user_intreview_title df">
@@ -112,9 +112,11 @@ while ($rs = $resultrb->fetch_object()) {
             <p><?= $rview->content; ?></p>
           </div>
           <?php
-          $rid = $rview->rid;
-          $reply_sql = "SELECT * FROM review_reply WHERE b_idx={$rid}";
+          $idx = $rview->idx;
+          $reply_sql = "SELECT * FROM review_reply WHERE b_idx={$idx}";
           $reply_result = $mysqli -> query($reply_sql);
+          
+          $rpArr= [];
           while ($rp = $reply_result->fetch_object()) {
             $rpArr[] = $rp;
           }
@@ -130,13 +132,13 @@ while ($rs = $resultrb->fetch_object()) {
             }
           }
           ?>
-        </li>
-      </ul>
+        </div>
+      </li>
       <?php
           }
         }
       ?>
-    </section>
+    </ul>
     <nav aria-label="">
     <ul class="pagination">
       <?php

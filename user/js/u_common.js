@@ -27,6 +27,8 @@ searchBtn.addEventListener('click',function(e){
 	}
 });
 // document.addEventListener('click',function(e){
+// 	console.log(e.currentTarget);
+// 	console.log(searchBtn);
 // 	if(e.target !== searchBtn) {
 // 		search.animate(
 // 			[

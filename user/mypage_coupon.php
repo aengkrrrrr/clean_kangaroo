@@ -50,7 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
             <span class="body3">최소사용금액 : </span>
             <span class="body3"><?=$cp->coupon_price?>원</span>
           </div>
-          <span class="body3">할인액 : <?=$cp->coupon_ratio?></span>
+          <span class="body3">할인액 : <?=$cp->coupon_ratio?>%</span>
         </div>
       </div>
         <?php
