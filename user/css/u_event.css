@@ -28,6 +28,8 @@
   border-radius: 50px;
   background: var(--C-disable, #BDBDBD);
   transition: 0.2s;
+  pointer-events: none;
+	cursor: default;
 }
 .event_btn:hover{
   background: var(--C-hover);

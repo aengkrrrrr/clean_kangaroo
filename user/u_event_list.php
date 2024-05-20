@@ -18,7 +18,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       </div>
       <div class="user_event_item">
         <img src="../images/user_sub_eventimg2.png" alt="">
-        <a href="event_view.php" class="event_btn body1b">이벤트 신청하기</a>
+        <a href="event_view.php" class="event_none_btn body1b" >이벤트 종료</a>
       </div>
       <div class="user_event_item">
         <img src="../images/user_sub_eventimg3.png" alt="">
@@ -34,7 +34,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       </div>
       <div class="user_event_item">
         <img src="../images/user_sub_eventimg2.png" alt="">
-        <a href="event_view.php" class="event_btn body1b">이벤트 신청하기</a>
+        <a href="event_view.php" class="event_none_btn body1b" >이벤트 종료</a>
       </div>
       <div class="user_event_item">
         <img src="../images/user_sub_eventimg3.png" alt="">
@@ -50,7 +50,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
       </div>
       <div class="user_event_item">
         <img src="../images/user_sub_eventimg2.png" alt="">
-        <a href="event_view.php" class="event_none_btn body1b" >이벤트 신청하기</a>
+        <a href="event_view.php" class="event_none_btn body1b" >이벤트 종료</a>
       </div>
     </section>
     <nav aria-label="" class="event_pager">
