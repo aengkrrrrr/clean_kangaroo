@@ -25,7 +25,7 @@ $memberrs = $memberresult->fetch_object();
     <input type="hidden" name="idx" value="<?= $rs->idx; ?>">
       <div class="user_review_titlewrap df user_review_form">
         <div class="form-floating">
-          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="title"><?= $rs->title; ?></textarea>
+          <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea" name="review_tit"><?= $rs->review_tit; ?></textarea>
           <label for="floatingTextarea">제목</label>
         </div>
         <div class="make_star df">

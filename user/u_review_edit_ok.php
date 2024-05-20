@@ -5,12 +5,12 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
 $idx = $_POST['idx'];
 
-$title = $_POST['title'];
+$review_tit = $_POST['review_tit'];
 $content = $_POST['content'];
 // $star = intval($_POST['star']);
 
 $sql = "UPDATE review_board SET 
-  title='{$title}',
+  review_tit='{$review_tit}',
   content='{$content}'
 
   WHERE idx = {$idx}";

@@ -66,7 +66,7 @@ if (isset($_SESSION['UID'])){
             <?php
               $pid = $pay->pid;
               //review_board에 유저가 수강한 강의가 있는지 확인
-              $countSql = "SELECT count(*) AS cnt FROM review_board WHERE userid='{$userid}' and pid={$pid}";
+              $countSql = "SELECT count(*) AS cnt FROM review_board WHERE userid='{$userid}' and pid='{$pid}'";
               $countResult = $mysqli->query($countSql);
               $countrow = $countResult->fetch_object();
               if($countrow->cnt == 0){        
@@ -80,12 +80,12 @@ if (isset($_SESSION['UID'])){
               <?php
               } else {
                 //수강평이 있다면, 수강평 정보 조회 -  수정, 삭제 링크에 활용
-                $reviewSql = "SELECT * FROM review_board WHERE userid='{$userid}' and pid={$pid}";
+                $reviewSql = "SELECT * FROM review_board WHERE userid='{$userid}' and pid='{$pid}'";
                 $reviewResult = $mysqli->query($reviewSql);
                 $rvrow = $reviewResult->fetch_object();  
               ?>
               <td class="rv_btn_wrap df">
-                <a href="u_review_edit.php?idx=<?=$rvrow->idx?>" class="secondary_btn edit">수정</a>
+                 <a href="u_review_edit.php?idx=<?=$rvrow->idx?>" class="secondary_btn edit">수정</a>
                 <a href="u_review_delete.php?idx=<?=$rvrow->idx?>" class="delete_btn del">삭제</a>
               </td>
               <?php
