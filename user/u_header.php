@@ -79,7 +79,7 @@ if (isset($_SESSION['UID'])){
           <li><a href="u_review_list.php" class="body3b">수강평</a></li>
           <li><a href="u_qna_list.php" class="body3b">Q&A</a></li>
           <li><a href="u_notice_list.php" class="body3b">공지사항</a></li>
-          <li><a href="event_list.php" class="body3b">이벤트</a></li>
+          <li><a href="u_event_list.php" class="body3b">이벤트</a></li>
         </ul>
       </nav>
       <div class="util_wrap df aic">
