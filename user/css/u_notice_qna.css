@@ -3,12 +3,16 @@
     }
 
     .wrapper .h3 {
+      font-family: 'SUIT';
+      text-transform: uppercase;
       text-align: center;
       padding : 54px 0;
+      margin: 0 auto;
     }
-.h3.view{
-  padding : 54px 0 0;
-}
+    .h3.view{
+      padding : 54px 0 0;
+    }
+
     .upper_wrapper {
       display: flex;
       justify-content: space-between;
