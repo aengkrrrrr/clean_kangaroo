@@ -45,7 +45,7 @@ $reply_content = $reply_row->content ?? "";
       </div>
     </div>
       <div class="title df aic pb-5">
-        <h4 class="h4"><?= $rs->title; ?></h4>
+        <h4 class="h4"><?= $rs->review_tit; ?></h4>
         <span class="body3b"><?= $rs->date; ?></span>
       </div>
       <div class="content">

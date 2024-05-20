@@ -72,7 +72,7 @@ $memberrs = $memberresult->fetch_object();
             </div>
           </div>
           <div class="title df aic pb-5">
-            <h4 class="h4"><?= $item->title; ?></h4>
+            <h4 class="h4"><?= $item->review_tit; ?></h4>
             <span class="body3b"><?= $item->date; ?></span>
           </div>
           <div class="content">
