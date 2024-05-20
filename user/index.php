@@ -253,7 +253,7 @@ $memberrs = $memberresult->fetch_object();
     <div class="user_e_title">
       <h2>EVENT</h2>
       <p class="body2b">딥러닝캥거루에서 진행하는 다양한 이벤트를 확인하고 참여해보세요!</p>
-      <a href="event_list.php" class="user_e_link">더 보기</a>
+      <a href="u_event_list.php" class="user_e_link">더 보기</a>
       <span class="slider_next"></span>
     </div>
     <ul class="user_e_slide">
