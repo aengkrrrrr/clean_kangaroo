@@ -23,7 +23,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
 $sqlrb = "SELECT p.*,rb.* FROM review_board rb
 JOIN products p ON p.pid = rb.pid
-WHERE rb.userid = '{$userid}'
+
 ORDER BY rb.idx DESC";
 
 $resultrb = $mysqli->query($sqlrb);
