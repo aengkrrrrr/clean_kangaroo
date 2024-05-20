@@ -5,7 +5,6 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 $pid = $_GET['pid'];
-$rid = $_GET['rid'];
 // 회원 아이디 불러오기
 $userid = $_SESSION['UID'];
 $username = $_SESSION['UNAME'];

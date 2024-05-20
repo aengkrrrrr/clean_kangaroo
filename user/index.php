@@ -42,9 +42,9 @@ while ($rsl4 = $result4->fetch_object()) {
 
 // 리뷰
 
+
 $sqlrb = "SELECT p.*,rb.* FROM review_board rb
 JOIN products p ON p.pid = rb.pid
-WHERE rb.userid = '{$userid}'
 ORDER BY rb.idx DESC";
 
 $resultrb = $mysqli->query($sqlrb);

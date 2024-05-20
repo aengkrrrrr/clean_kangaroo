@@ -15,7 +15,8 @@ try {
     $date = date("Y-m-d");
 
     // Payment 테이블에 삽입
-    $sql = "INSERT INTO payment (pid, userid, total, date) VALUES ('{$pidstr}', '{$userid}', {$total},'{$date}')";
+    $sql = "INSERT INTO payment (pid, userid, total, regdate) VALUES ('{$pidstr}', '{$userid}', {$total},'{$date}')";
+    echo $sql;
     if (!$mysqli->query($sql)) {
         throw new Exception("Payment 삽입 실패: " . $mysqli->error);
     }

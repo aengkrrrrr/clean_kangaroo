@@ -21,16 +21,15 @@ if($search_keyword){
 $paginationTarget = 'review_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
+
 $sqlrb = "SELECT p.*,rb.* FROM review_board rb
 JOIN products p ON p.pid = rb.pid
-WHERE rb.userid = '{$userid}'
 ORDER BY rb.idx DESC";
 
 $resultrb = $mysqli->query($sqlrb);
 while ($rs = $resultrb->fetch_object()) {
   $rbArr[] = $rs;
 }
-
 
 // 수강평 답글 조회
 // $reply_sql = "SELECT * FROM review_reply";

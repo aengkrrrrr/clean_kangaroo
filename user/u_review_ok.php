@@ -5,23 +5,21 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
 $pid = $_POST['pid'];
-$rid = $_POST['rid'];
 $userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
-$date = $_POST['date'];
-$star = intval($_POST['star']);
+// $date = $_POST['date'];
+// $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (pid,rid,userid,title,content,date,star) VALUES (
-    {$pid},
-    {$rid},
+  $sql = "INSERT INTO review_board (pid,userid,review_tit,content) VALUES (
+    '{$pid}',
     '{$userid}', 
     '{$title}', 
-    '{$content}',
-    now(),
-    '{$star}'
+    '{$content}'
     )";
+
+    echo $sql;
 
     if($mysqli->query($sql) === TRUE){
         echo "<script>
