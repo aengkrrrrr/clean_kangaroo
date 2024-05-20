@@ -8,14 +8,16 @@ $pid = $_POST['pid'];
 $userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
+$date = $_POST['date'];
 // $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (pid,userid,title,content) VALUES (
+  $sql = "INSERT INTO review_board (pid,userid,title,content,date) VALUES (
     {$pid},
     '{$userid}', 
     '{$title}', 
-    '{$content}'
+    '{$content}',
+    now()
     )";
 
     if($mysqli->query($sql) === TRUE){
