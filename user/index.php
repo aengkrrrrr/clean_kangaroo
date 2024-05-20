@@ -197,7 +197,7 @@ $memberrs = $memberresult->fetch_object();
             foreach ($newArr as $ra) {
         ?>
           <li class="notice_table df aic">
-            <a href="" class="notice_tit"><?= $ra->title; ?></a>
+            <a href="u_notice" class="notice_tit"><?= $ra->title; ?></a>
             <a href="" class="notice_ct"><?= $ra->contents; ?></a>
             <a href=""><span class="material-symbols-outlined"> east</span></a>
           </li>

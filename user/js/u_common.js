@@ -26,6 +26,18 @@ searchBtn.addEventListener('click',function(e){
 		);
 	}
 });
+// document.addEventListener('click',function(e){
+// 	if(e.target !== searchBtn) {
+// 		search.animate(
+// 			[
+// 				{ height: '310px'},
+// 				{ height: '0px'},
+// 			],
+// 			{duration:700, fill: "forwards",easing: "cubic-bezier(0.25, 1, 0.5, 1)"},
+// 		);
+// 	}
+// })
+
 //////////// 공통 header 검색창
 
 
@@ -49,7 +61,10 @@ let cart = document.querySelector('.util_wrap .cart');
 let min_cart = document.querySelector('.min_cart_wrap');
 
 cart.addEventListener('mouseenter',function(){
-	min_cart.style.display='block';
+	if($('.cart_quantity').text() !== '0'){
+		min_cart.style.display='block';
+		
+	}
 })
 min_cart.addEventListener('mouseleave',function(){
 	min_cart.style.display='none';

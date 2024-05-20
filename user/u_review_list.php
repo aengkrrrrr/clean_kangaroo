@@ -21,30 +21,21 @@ if($search_keyword){
 $paginationTarget = 'review_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
-$sql = "SELECT * FROM review_board where 1=1";
-$sql .= $search_where;
-$order = " order by content desc";
-$sql .= $order;
-$limit = " LIMIT $startLimit, $endLimit";
-$sql .= $limit;
+$sqlrb = "SELECT p.*,rb.* FROM review_board rb
+JOIN products p ON p.pid = rb.pid
+WHERE rb.userid = '{$userid}'
+ORDER BY rb.idx DESC";
 
-$result = $mysqli->query($sql);
-while ($rs = $result->fetch_object()) {
-  $rsArr[] = $rs;
+$resultrb = $mysqli->query($sqlrb);
+while ($rs = $resultrb->fetch_object()) {
+  $rbArr[] = $rs;
 }
-
-// 회원 이름 불러오기
-$userid = $_SESSION['UID'];
-$username = $_SESSION['UNAME'];
-$msql = "SELECT * FROM members where userid='{$userid}'";
-$result2 = $mysqli->query($msql);
-$rsm = $result2->fetch_object();
 
 
 // 수강평 답글 조회
-$reply_sql = "SELECT * FROM review_reply";
-$reply_result = $mysqli -> query($reply_sql);
-$rr = $reply_result->fetch_object();
+// $reply_sql = "SELECT * FROM review_reply";
+// $reply_result = $mysqli -> query($reply_sql);
+// $rr = $reply_result->fetch_object();
 ?>
 <main class="usergrid">
   <div class="user_subreview_title">
@@ -54,18 +45,18 @@ $rr = $reply_result->fetch_object();
 
     <ul class="df user_review_list">
     <?php
-      if (isset($rsArr)) {
-      foreach ($rsArr as $item) {
+      if (isset($rbArr)) {
+      foreach ($rbArr as $rview) {
     ?>
       <li class="user_profile">
         <div class="df user_review_img">
           <img src="../images/user_profile1.png" alt="">
           <p>
-            <span class="body2b"><?= $username ?></span><br>
-            <span class="body1">3d애니메이터</span>
+            <span class="body2b"><?= $rview->userid?></span><br>
+            <span class="body1"><?=$rview->title?></span>
           </p>
         </div>
-        <p class="body3"><?= $item->content; ?></p>
+        <p class="body3"><?= $rview->content; ?></p>
       </li>
       <?php
           }
@@ -95,8 +86,8 @@ $rr = $reply_result->fetch_object();
     </div>
     <section class="user_intreview ">
     <?php
-      if (isset($rsArr)) {
-      foreach ($rsArr as $item) {
+      if (isset($rbArr)) {
+      foreach ($rbArr as $rview) {
     ?>
       <ul class="intreview_box">
         <li>
@@ -104,9 +95,9 @@ $rr = $reply_result->fetch_object();
             <div class="df">
               <div class="user_intreview_title df">
                 <img src="../images/user_profile1.png" alt="">
-                <p class="body4b">비주얼 디자인 포트폴리오</p>
-                <span class="body4b"><?= $username ?></span><br>
-                <div class="body4b rating" data-rate="<?= $item->star; ?>">
+                <p class="body4b"><?=$rview->title?></p>
+                <span class="body4b"><?= $rview->userid ?></span><br>
+                <div class="body4b rating" data-rate="<?= $rview->star; ?>">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
@@ -114,15 +105,31 @@ $rr = $reply_result->fetch_object();
                   <i class="fas fa-star"></i>	
                 </div>
               </div>
-              <p class="body4b"><?= $item->date; ?></p>
+              <p class="body4b"><?= $rview->date; ?></p>
             </div>
           </div>
           <div class="user_intreview_cbox">
-            <p><?= $item->content; ?></p>
+            <p><?= $rview->content; ?></p>
           </div>
+          <?php
+          $rid = $rview->rid;
+          $reply_sql = "SELECT * FROM review_reply WHERE b_idx={$rid}";
+          $reply_result = $mysqli -> query($reply_sql);
+          while ($rp = $reply_result->fetch_object()) {
+            $rpArr[] = $rp;
+          }
+
+          if (isset($rpArr)) {
+            foreach ($rpArr as $rply) {
+
+          ?>
           <div class="admina user_intreview_cbox">
-            <p><?= $rr->content; ?></p>
+            <p><?=$rply->content?></p>
           </div>
+          <?php
+            }
+          }
+          ?>
         </li>
       </ul>
       <?php
