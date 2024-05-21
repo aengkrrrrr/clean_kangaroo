@@ -41,20 +41,15 @@ while ($rsl4 = $result4->fetch_object()) {
 
 // 리뷰
 
-$rsql = "SELECT * FROM review_board where 1=1";
-$order = " order by name desc";
 
-$result = $mysqli->query($rsql);
-while ($rrs = $result->fetch_object()) {
-  $rrsArr[] = $rrs;
+$sqlrb = "SELECT p.*,rb.* FROM review_board rb
+JOIN products p ON p.pid = rb.pid
+ORDER BY rb.idx DESC";
+
+$resultrb = $mysqli->query($sqlrb);
+while ($rs = $resultrb->fetch_object()) {
+  $rbArr[] = $rs;
 }
-
-///// 회원 이름 불러오기
-$membersql = "SELECT * FROM members";
-$memberresult = $mysqli->query($membersql);
-$memberrs = $memberresult->fetch_object();
-
-// 이벤트
 
 
 ?>
@@ -223,24 +218,24 @@ $memberrs = $memberresult->fetch_object();
     <div class="usergrid">
       <h2>student review</h2>
       <ul class="df main_review_list">
-        <?php
-        if (isset($rrsArr)) {
-          foreach ($rrsArr as $item) {
-        ?>
-            <li class="user_profile">
-              <div class="df user_review_img">
-                <img src="/clean_kangaroo//images/user_profile1.png" alt="">
-                <p>
-                  <span class="body2b"><?= $memberrs->username ?></span><br>
-                  <span class="body1">3d애니메이터</span>
-                </p>
-              </div>
-              <p class="body3"><?= $item->content; ?></p>
-            </li>
-        <?php
+      <?php
+      if (isset($rbArr)) {
+      foreach ($rbArr as $rview) {
+    ?>
+      <li class="user_profile">
+        <div class="df user_review_img">
+          <img src="/clean_kangaroo/images/user_profile1.png" alt="">
+          <p>
+            <span class="body2b"><?= $rview->userid?></span><br>
+            <span class="body4"><?=$rview->title?></span>
+          </p>
+        </div>
+        <p class="body3"><?= $rview->content; ?></p>
+      </li>
+      <?php
           }
         }
-        ?>
+      ?>
       </ul>
       <a href="u_review_list.php" class="primary_btn">후기 더 보러가기</a>
     </div>
@@ -252,26 +247,32 @@ $memberrs = $memberresult->fetch_object();
     <div class="user_e_title">
       <h2>EVENT</h2>
       <p class="body2b">딥러닝캥거루에서 진행하는 다양한 이벤트를 확인하고 참여해보세요!</p>
-      <a href="event_list.php" class="user_e_link">더 보기</a>
+      <a href="u_event_list.php" class="user_e_link">더 보기</a>
       <span class="slider_next"></span>
     </div>
     <ul class="user_e_slide">
       <li>
         <a href="">
-          <img src="/clean_kangaroo//images/user_main_eventbanner1.png" alt="">
-          <p class="body2b">인디자인 강의 신청 이벤트</p>
+          <img src="/clean_kangaroo/images/user_main_eventbanner1.png" alt="">
+          <p class="body2b">특가 이벤트</p>
         </a>
       </li>
       <li>
         <a href="">
-          <img src="/clean_kangaroo//images/user_main_eventbanner1.png" alt="">
-          <p class="body2b">인디자인 강의 신청 이벤트</p>
+          <img src="/clean_kangaroo/images/user_main_eventbanner2.png" alt="">
+          <p class="body2b">이 달의 쿠폰들 받아가세요!</p>
         </a>
       </li>
       <li>
         <a href="">
-          <img src="/clean_kangaroo//images/user_main_eventbanner1.png" alt="">
-          <p class="body2b">인디자인 강의 신청 이벤트</p>
+          <img src="/clean_kangaroo/images/user_main_eventbanner3.png" alt="">
+          <p class="body2b">생일 축하 이벤트</p>
+        </a>
+      </li>
+      <li>
+        <a href="">
+          <img src="/clean_kangaroo/images/user_main_eventbanner4.png" alt="">
+          <p class="body2b">적립금 이벤트</p>
         </a>
       </li>
     </ul>
