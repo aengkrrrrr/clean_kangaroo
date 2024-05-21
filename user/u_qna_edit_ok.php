@@ -10,7 +10,7 @@ title='{$title}',
 content='{$content}',
 date=now()
 WHERE idx={$idx}";
-echo $UpdateSql;
+
 $mysqli->query($UpdateSql);
 if ($mysqli->query($UpdateSql) === true) {
   echo "<script>
