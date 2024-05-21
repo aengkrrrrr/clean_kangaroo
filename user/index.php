@@ -1,6 +1,7 @@
 <?php
 $title = '홈';
 $css1 = ' <link rel="stylesheet" href="/clean_kangaroo/user/css/u_main.css">';
+$css2 = ' <link rel="stylesheet" href="/clean_kangaroo/css/login.css">';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
 
@@ -53,11 +54,61 @@ while ($rs = $resultrb->fetch_object()) {
 }
 
 
-// 이벤트
+
 
 
 ?>
 <main>
+<div class="popup">
+    <div class="pophd">
+      <img src="/clean_kangaroo/images/pooup_logo.png" alt="팝업창 로고" class="pop_up_img">
+      <strong class="body2b">LMS 포트폴리오 사이트(3차 - 사용자페이지)</strong>
+      <strong class="body2b">본 사이트는 구직용 포트폴리오 웹사이트이며,<br>실제로 운영되는 사이트가 아닙니다.</strong>
+    </div>
+    <hr>
+    <div class="popct01">
+      <p>팀 깨끗한 아기 캥거루 :  추송림(팀장), 박선진, 이다영</p>
+      <p><strong>제작기간:</strong> 2024. 04. 8 ~ 2024. 5. 25</p>
+      <p><strong>개발환경:</strong> html5, css3, javascript, php, mySQL</p>
+      <div class="link df aic">
+        <p>
+          <strong>기획서:</strong>
+          <a href="https://www.figma.com/file/y3L7Q49u1w3kv0DhYzyMOd/%EA%B9%A8%EB%81%97%ED%95%9C-%EC%95%84%EA%B8%B0-%EC%BA%A5%EA%B1%B0%EB%A3%A8%F0%9F%A6%98?type=design&node-id=551%3A2952&mode=design&t=JiGypB1sCgJigjAu-1"
+            target="_blank">피그마
+          </a>
+        </p>
+        <p>
+          <strong>코드:</strong>
+          <a href="https://github.com/aengkrrrrr/clean_kangaroo.git" class="git" target="_blank">
+            깃허브</a>
+        </p>
+      </div>
+    </div>
+    <hr>
+    <div class="popct02">
+      <strong>업무분장</strong>
+      <p><strong>기획:</strong> 팀원 전체</p>
+      <p><strong>디자인:</strong> 추송림(50%) 이다영(50%)</p>
+        <div class="workset_area02">
+          <strong>- 구현 완료 페이지 -</strong>
+          <p>추송림: 로그인,회원가입,마이페이지,강좌 상세페이지,장바구니</p>
+          <p>박선진: 공지사항, 큐앤에이</p>
+          <p>이다영: 강좌 리스트, 이벤트, 수강평</p>
+          <p>메인페이지 팀원 전체작업</p>
+        </div>
+    </div>
+    <hr>
+    <div class="popft">
+      <a href="#">관리자 페이지가기</a>
+    </div>
+    <div class="popup_check">
+      <label class="form-check-label" for="flexCheckChecked">
+        오늘 하루 안 보기
+      </label>
+      <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked">
+    </div>
+    <button class="popup_btn"><img src="/clean_kangaroo/images/popup_kang_btn.png" alt="">close</button>
+  </div>
   <!-- 메인배너 - 다영 -->
   <section class="main_banner">
     <ul class="user_banner">
@@ -285,7 +336,7 @@ while ($rs = $resultrb->fetch_object()) {
 
 </main>
 
-
+<script src="/clean_kangaroo/js/cookie.js"></script>
 <?php
 
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/footer.php';
