@@ -71,7 +71,7 @@ if (isset($_SESSION['UID'])){
               foreach($cate1Arr as $cate1){
 
           ?>
-            <li><a href="/user/u_lecture_list.php?pcode=<?= $cate1->code ?>&name=<?= $cate1->name ?>" class="body3b"><?= $cate1->name ?></a></li>
+            <li><a href="/clean_kangaroo/user/u_lecture_list.php?pcode=<?= $cate1->code ?>&name=<?= $cate1->name ?>" class="body3b"><?= $cate1->name ?></a></li>
           <?php
               }
             }
