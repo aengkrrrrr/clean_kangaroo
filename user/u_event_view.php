@@ -24,7 +24,7 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/u_header.php';
           <img src="../images/user_event_bannerimg.png" alt="">
         </div>
       </div>
-      <p class="event_list_btn df"><a href="event_list.php" class="primary_btn">목록</a></p>
+      <p class="event_list_btn df"><a href="u_event_list.php" class="primary_btn">목록</a></p>
     </section>
   </main>
   <?php
