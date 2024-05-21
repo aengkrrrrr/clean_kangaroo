@@ -9,11 +9,11 @@ include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/header.php';
 
 
 // 회원 이름 불러오기
-$userid = $_SESSION['UID'];
-$username = $_SESSION['UNAME'];
-$msql = "SELECT * FROM members where userid='{$userid}'";
-$result2 = $mysqli->query($msql);
-$rsm = $result2->fetch_object();
+// $userid = $_SESSION['UID'];
+// $username = $_SESSION['UNAME'];
+// $msql = "SELECT * FROM members where userid='{$userid}'";
+// $result2 = $mysqli->query($msql);
+// $rsm = $result2->fetch_object();
 
 // 수강평 조회
 $idx = $_GET['idx']; 

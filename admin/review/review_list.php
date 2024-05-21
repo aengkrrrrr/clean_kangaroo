@@ -17,22 +17,15 @@ if($search_keyword){
 $paginationTarget = 'review_board';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/pagination.php';
 
-$sql = "SELECT * FROM review_board where 1=1";
-$sql .= $search_where;
-$order = " order by content desc";
-$sql .= $order;
-$limit = " LIMIT $startLimit, $endLimit";
-$sql .= $limit;
+$sqlrb = "SELECT p.*,rb.* FROM review_board rb
+JOIN products p ON p.pid = rb.pid
+ORDER BY rb.idx DESC";
 
-$result = $mysqli->query($sql);
-while ($rs = $result->fetch_object()) {
-  $rsArr[] = $rs;
+$resultrb = $mysqli->query($sqlrb);
+while ($rs = $resultrb->fetch_object()) {
+  $rbArr[] = $rs;
 }
 
-// 회원 이름 불러오기
-$membersql = "SELECT * FROM members";
-$memberresult = $mysqli->query($membersql);
-$memberrs = $memberresult->fetch_object();
 
 ?>
 
@@ -51,8 +44,8 @@ $memberrs = $memberresult->fetch_object();
       </form>
     </div>
     <?php
-        if (isset($rsArr)) {
-        foreach ($rsArr as $item) {
+        if (isset($rbArr)) {
+        foreach ($rbArr as $item) {
       ?>
     <form class="review_wrap">
 
@@ -61,15 +54,15 @@ $memberrs = $memberresult->fetch_object();
           <div class="profile df aic pb-5">
             <div class="username d-flex">
               <img src="/clean_kangaroo/images/favicon.png" alt="프로필 이미지" class="user_profile_img">
-              <h5 class="body3b"><?= $memberrs->username ?></h5>
+              <h5 class="body3b"><?= $item->userid; ?></h5>
             </div>
-            <div class="rating" data-rate="3">
+            <!-- <div class="rating" data-rate="3">
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
               <i class="fas fa-star"></i>
-            </div>
+            </div> -->
           </div>
           <div class="title df aic pb-5">
             <h4 class="h4"><?= $item->review_tit; ?></h4>
