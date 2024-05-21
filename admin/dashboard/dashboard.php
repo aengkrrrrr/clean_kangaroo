@@ -158,27 +158,20 @@ foreach($saleArr as $price){
 
 //매출 라인차트
 new Chart(lineChart, {
-type: 'line',
-data: {
-  labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
-  datasets: [
-            {
-      label: '2024',
-      data: [saleData],
-      borderWidth: 1,
-       borderColor: 'pink',
-       backgroundColor: 'pink'
+  type:'line',
+  data:{
+    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    datasets:[
+      {
+        label:"2023",
+        data:[10,8,6,5,12,8,16,17,6,7,6,10]
       },
-  ]
-},
-options: {
-  scales: {
-    y: {
-      stacked:true
-    }
-  },
-  maintainAspectRatio:false
-}
+      {
+        label:"2024",
+        data:[5,12,8,10,5,8,10,12,8,12,8,16]
+      }       
+    ]
+  }
 });
 
 
