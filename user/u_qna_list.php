@@ -39,9 +39,6 @@ $username = $_SESSION['UNAME'];
 $msql = "SELECT * FROM members where userid='{$userid}'";
 $result2 = $mysqli->query($msql);
 $rsm = $result2->fetch_object();
-
-
-
 ?>
 
 <main class="u_body">
