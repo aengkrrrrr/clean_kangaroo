@@ -19,7 +19,6 @@ $content = $_POST['content'];
     '{$content}'
     )";
 
-    echo $sql;
 
     if($mysqli->query($sql) === TRUE){
         echo "<script>
