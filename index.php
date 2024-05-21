@@ -14,25 +14,26 @@ while ($rs = $result->fetch_object()) {
 
 
 //강좌소개 sql 쿼리
-$lec_sql1 = "SELECT * FROM products where cate = 'A0001'";
+
+$lec_sql1 = "SELECT * FROM products WHERE cate LIKE 'A0001%'";
 $result1 = $mysqli->query($lec_sql1);
-while ($rsl1 = $result->fetch_object()) {
+while ($rsl1 = $result1->fetch_object()) {
   $rsArr1[] = $rsl1;
 }
 
-$lec_sql2 = "SELECT * FROM products where cate = 'B0001'";
+$lec_sql2 = "SELECT * FROM products where cate LIKE 'B0001%'";
 $result2 = $mysqli->query($lec_sql2);
 while ($rsl2 = $result2->fetch_object()) {
   $rsArr2[] = $rsl2;
 }
 
-$lec_sql3 = "SELECT * FROM products where cate = 'C0001'";
+$lec_sql3 = "SELECT * FROM products where cate LIKE 'C0001%'";
 $result3 = $mysqli->query($lec_sql3);
 while ($rsl3 = $result3->fetch_object()) {
   $rsArr3[] = $rsl3;
 }
 
-$lec_sql4 = "SELECT * FROM products where cate = 'D0001'";
+$lec_sql4 = "SELECT * FROM products where cate LIKE 'D0001%'";
 $result4 = $mysqli->query($lec_sql4);
 while ($rsl4 = $result4->fetch_object()) {
   $rsArr4[] = $rsl4;
@@ -104,22 +105,22 @@ $memberrs = $memberresult->fetch_object();
   <section class="main_lecture">
     <h2>강좌소개</h2>
     <div class="lec df">
-      <div class="lec_cate active"><a href="tab1">웹/편집/인테리어</a></div>
-      <div class="lec_cate"><a href="tab2">CG/VFX</a></div>
-      <div class="lec_cate"><a href="tab3">모션그래픽</a></div>
-      <div class="lec_cate"><a href="tab4">게임/웹툰</a></div>
+      <div class="lec_cate active"><a href="#tab1">웹/편집/인테리어</a></div>
+      <div class="lec_cate"><a href="#tab2">웹 개발</a></div>
+      <div class="lec_cate"><a href="#tab3">CG/모션그래픽</a></div>
+      <div class="lec_cate"><a href="#tab4">게임/웹툰</a></div>
     </div>
     <div class="lec_wrapper df">
       <div class="con active" id="tab1">
         <div class="lec_container">
           <?php
-          if (isset($rsArr1)) {
+          if (isset($rsArr1) && !empty($rsArr1)) {
             foreach ($rsArr1 as $rsl1) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl1->pid; ?>">
+                <li><a href="u_lecture_view.php?pid=<?= $rsl1->pid; ?>">
                     <img src="<?= $rsl1->thumbnail; ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl1->pid; ?>"><?= $rsl1->title; ?></a></li>
               </ul>
           <?php
             }
@@ -130,13 +131,13 @@ $memberrs = $memberresult->fetch_object();
       <div class="con" id="tab2">
         <div class="lec_container">
           <?php
-          if (isset($rsArr2)) {
+          if (isset($rsArr2) && !empty($rsArr2)) {
             foreach ($rsArr2 as $rsl2) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl2->pid; ?>">
+                <li><a href="u_lecture_view.php?pid=<?= $rsl2->pid; ?>">
                     <img src="<?= $rsl2->thumbnail; ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl2->pid; ?>"><?= $rsl2->title; ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl2->pid; ?>"><?= $rsl2->title; ?></a></li>
               </ul>
           <?php
             }
@@ -147,13 +148,13 @@ $memberrs = $memberresult->fetch_object();
       <div class="con" id="tab3">
         <div class="lec_container">
           <?php
-          if (isset($rsArr3)) {
+          if (isset($rsArr3) && !empty($rsArr3)) {
             foreach ($rsArr3 as $rsl3) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl3->pid; ?>">
+                <li><a href="u_lecture_view.php?pid=<?= $rsl3->pid; ?>">
                     <img src="<?= $rsl3->thumbnail; ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl3->pid; ?>"><?= $rsl3->title; ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl3->pid; ?>"><?= $rsl3->title; ?></a></li>
               </ul>
           <?php
             }
@@ -164,13 +165,13 @@ $memberrs = $memberresult->fetch_object();
       <div class="con" id="tab4">
         <div class="lec_container">
           <?php
-          if (isset($rsArr4)) {
+          if (isset($rsArr4) && !empty($rsArr4)) {
             foreach ($rsArr4 as $rsl4) {
           ?>
               <ul>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl4->pid; ?>">
+                <li><a href="u_lecture_view.php?pid=<?= $rsl4->pid; ?>">
                     <img src="<?= $rsl4->thumbnail; ?>" alt=""></a></li>
-                <li><a href="/clean_kangaroo/user/u_lecture_list.php?pid=<?= $rsl4->pid; ?>"><?= $rsl4->title; ?></a></li>
+                <li><a href="u_lecture_view.php?pid=<?= $rsl4->pid; ?>"><?= $rsl4->title; ?></a></li>
               </ul>
           <?php
             }
@@ -186,28 +187,28 @@ $memberrs = $memberresult->fetch_object();
   <section class="main_notice">
     <h2>공지사항</h2>
     <div class="notice_wrap">
-    <?php
-      for($i=0; $i<=6;$i += 3){
-        ?>  
-      <ul class="notice df fdc">
       <?php
+      for ($i = 0; $i <= 6; $i += 3) {
+      ?>
+        <ul class="notice df fdc">
+          <?php
           if (isset($rsArr)) {
             $newArr = array_slice($rsArr, $i, 3);
             foreach ($newArr as $ra) {
-        ?>
-          <li class="notice_table df aic">
-            <a href="" class="notice_tit"><?= $ra->title; ?></a>
-            <a href="" class="notice_ct"><?= $ra->contents; ?></a>
-            <a href=""><span class="material-symbols-outlined"> east</span></a>
-          </li>
-        <?php
+          ?>
+              <li class="notice_table df aic">
+                <a href="" class="notice_tit"><?= $ra->title; ?></a>
+                <a href="" class="notice_ct"><?= $ra->contents; ?></a>
+                <a href=""><span class="material-symbols-outlined"> east</span></a>
+              </li>
+          <?php
             }
           }
-        ?>
-      </ul>
-      <?php           
-          }
-        ?>
+          ?>
+        </ul>
+      <?php
+      }
+      ?>
       </ul>
 
     </div>
