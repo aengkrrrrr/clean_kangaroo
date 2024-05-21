@@ -3,11 +3,11 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/login/admin_check.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 
-$mysqli->autocommit(FALSE);//커밋이 안되도록 지정
-try{
+$mysqli->autocommit(FALSE); //커밋이 안되도록 지정
+try {
   $cate1 = $_POST['cate1'] ?? '';
   $cate2 = $_POST['cate2'] ?? '';
-  $cate = $cate1 . $cate2 ;
+  $cate = $cate1 . $cate2;
   $price = $_POST['price'];
 
   $title  = $_POST['title'];
@@ -69,20 +69,19 @@ try{
     '{$thumbnail}',
     '{$url}'
   )";
-  echo $sql;
   $result = $mysqli->query($sql);
 
 
   if ($result) { //상품 등록 하면
 
 
-    $mysqli->commit();//디비에 커밋한다
+    $mysqli->commit(); //디비에 커밋한다
 
     echo "<script>
     alert('강의 등록 완료');
    location.href = '/clean_kangaroo/admin/lecture/lecture_list.php';
      </script>";
-    }
+  }
 } catch (Exception $e) {
 
   $mysqli->rollback();
