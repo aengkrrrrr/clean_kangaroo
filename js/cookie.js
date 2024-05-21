@@ -37,10 +37,12 @@ function setCookie(name, val, day){
         visited = true;
       }
     }
-    if(visited) {
-      popup.classList.add('hide');
-    } else {
-      popup.classList.remove('hide');
+
+    console.log(visited);
+    if(!visited) {
+      popup.style.display='block';
+    }  else {
+      popup.style.display='none';
     }
   }
   checkCookie('DeepKangaroo');
