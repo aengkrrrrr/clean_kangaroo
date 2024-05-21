@@ -54,9 +54,6 @@ while ($rs = $resultrb->fetch_object()) {
 }
 
 
-
-
-
 ?>
 <main>
 <div class="popup">
