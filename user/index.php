@@ -70,8 +70,7 @@ while ($rs = $resultrb->fetch_object()) {
       <div class="link df aic">
         <p>
           <strong>기획서:</strong>
-          <a href="https://www.figma.com/file/y3L7Q49u1w3kv0DhYzyMOd/%EA%B9%A8%EB%81%97%ED%95%9C-%EC%95%84%EA%B8%B0-%EC%BA%A5%EA%B1%B0%EB%A3%A8%F0%9F%A6%98?type=design&node-id=551%3A2952&mode=design&t=JiGypB1sCgJigjAu-1"
-            target="_blank">피그마
+          <a href="https://www.figma.com/file/y3L7Q49u1w3kv0DhYzyMOd/%EA%B9%A8%EB%81%97%ED%95%9C-%EC%95%84%EA%B8%B0-%EC%BA%A5%EA%B1%B0%EB%A3%A8%F0%9F%A6%98?type=design&node-id=551%3A2952&mode=design&t=JiGypB1sCgJigjAu-1" target="_blank">피그마
           </a>
         </p>
         <p>
@@ -86,13 +85,13 @@ while ($rs = $resultrb->fetch_object()) {
       <strong>업무분장</strong>
       <p><strong>기획:</strong> 팀원 전체</p>
       <p><strong>디자인:</strong> 추송림(50%) 이다영(50%)</p>
-        <div class="workset_area02">
-          <strong>- 구현 완료 페이지 -</strong>
-          <p>추송림: 로그인,회원가입,마이페이지,강좌 상세페이지,장바구니</p>
-          <p>박선진: 공지사항, 큐앤에이</p>
-          <p>이다영: 강좌 리스트, 이벤트, 수강평</p>
-          <p>메인페이지 팀원 전체작업</p>
-        </div>
+      <div class="workset_area02">
+        <strong>- 구현 완료 페이지 -</strong>
+        <p>추송림: 로그인,회원가입,마이페이지,강좌 상세페이지,장바구니</p>
+        <p>박선진: 공지사항, 큐앤에이</p>
+        <p>이다영: 강좌 리스트, 이벤트, 수강평</p>
+        <p>메인페이지 팀원 전체작업</p>
+      </div>
     </div>
     <hr>
     <div class="popft">
@@ -176,7 +175,7 @@ while ($rs = $resultrb->fetch_object()) {
       </div>
       <div class="con" id="tab2">
         <div class="lec_container">
-        <?php
+          <?php
           if (isset($rsArr2) && !empty($rsArr2)) {
             foreach ($rsArr2 as $rsl2) {
           ?>
@@ -193,7 +192,7 @@ while ($rs = $resultrb->fetch_object()) {
       </div>
       <div class="con" id="tab3">
         <div class="lec_container">
-        <?php
+          <?php
           if (isset($rsArr3) && !empty($rsArr3)) {
             foreach ($rsArr3 as $rsl3) {
           ?>
@@ -210,7 +209,7 @@ while ($rs = $resultrb->fetch_object()) {
       </div>
       <div class="con" id="tab4">
         <div class="lec_container">
-        <?php
+          <?php
           if (isset($rsArr4) && !empty($rsArr4)) {
             foreach ($rsArr4 as $rsl4) {
           ?>
@@ -233,28 +232,28 @@ while ($rs = $resultrb->fetch_object()) {
   <section class="main_notice">
     <h2>공지사항</h2>
     <div class="notice_wrap">
-    <?php
-      for($i=0; $i<=6;$i += 3){
-        ?>  
-      <ul class="notice df fdc">
       <?php
+      for ($i = 0; $i <= 6; $i += 3) {
+      ?>
+        <ul class="notice df fdc">
+          <?php
           if (isset($rsArr)) {
             $newArr = array_slice($rsArr, $i, 3);
             foreach ($newArr as $ra) {
-        ?>
-          <li class="notice_table df aic">
-            <a href="u_notice" class="notice_tit"><?= $ra->title; ?></a>
-            <a href="" class="notice_ct"><?= $ra->contents; ?></a>
-            <a href=""><span class="material-symbols-outlined"> east</span></a>
-          </li>
-        <?php
+          ?>
+              <li class="notice_table df aic">
+                <a href="u_notice" class="notice_tit"><?= $ra->title; ?></a>
+                <a href="" class="notice_ct"><?= $ra->contents; ?></a>
+                <a href=""><span class="material-symbols-outlined"> east</span></a>
+              </li>
+          <?php
             }
           }
-        ?>
-      </ul>
-      <?php           
-          }
-        ?>
+          ?>
+        </ul>
+      <?php
+      }
+      ?>
       </ul>
 
     </div>
@@ -270,24 +269,24 @@ while ($rs = $resultrb->fetch_object()) {
     <div class="usergrid">
       <h2>student review</h2>
       <ul class="df main_review_list">
-      <?php
-      if (isset($rbArr)) {
-      foreach ($rbArr as $rview) {
-    ?>
-      <li class="user_profile">
-        <div class="df user_review_img">
-          <img src="../images/user_profile1.png" alt="">
-          <p>
-            <span class="body2b"><?= $rview->userid?></span><br>
-            <span class="body4"><?=$rview->title?></span>
-          </p>
-        </div>
-        <p class="body3"><?= $rview->content; ?></p>
-      </li>
-      <?php
+        <?php
+        if (isset($rbArr)) {
+          foreach ($rbArr as $rview) {
+        ?>
+            <li class="user_profile">
+              <div class="df user_review_img">
+                <img src="../images/user_profile1.png" alt="">
+                <p>
+                  <span class="body2b"><?= $rview->userid ?></span><br>
+                  <span class="body4"><?= $rview->title ?></span>
+                </p>
+              </div>
+              <p class="body3"><?= $rview->content; ?></p>
+            </li>
+        <?php
           }
         }
-      ?>
+        ?>
       </ul>
       <a href="u_review_list.php" class="primary_btn">후기 더 보러가기</a>
     </div>
