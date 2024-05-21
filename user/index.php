@@ -56,7 +56,7 @@ while ($rs = $resultrb->fetch_object()) {
 
 ?>
 <main>
-<div class="popup">
+  <div class="popup">
     <div class="pophd">
       <img src="/clean_kangaroo/images/pooup_logo.png" alt="팝업창 로고" class="pop_up_img">
       <strong class="body2b">LMS 포트폴리오 사이트(3차 - 사용자페이지)</strong>

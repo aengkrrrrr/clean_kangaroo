@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- 생성 시간: 24-05-21 03:46
+-- 생성 시간: 24-05-21 06:15
 -- 서버 버전: 10.4.32-MariaDB
 -- PHP 버전: 8.2.12
 
@@ -157,8 +157,7 @@ INSERT INTO `members` (`mid`, `userid`, `email`, `username`, `passwd`, `regdate`
 (67, 'user30', 'test30@naver.com', '진우', 'd9f0a1b2c3d4e5f6a7b8c9d0e1a2b3c4d5e6f7a8b9c0d1e2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0a1b2c3d4e5f6a7b8c9d0e1a2b3c4d5e6f7a8b9c0d1', '2024-05-29 10:25:38', 1),
 (68, 'user_young', 'user_young@gmail.com', '이다영', '33275a8aa48ea918bd53a9181aa975f15ab0d0645398f5918a006d08675c1cb27d5c645dbd084eee56e675e25ba4019f2ecea37ca9e2995b49fcb12c096a032e', '2024-05-21 09:53:16', 0),
 (69, 'user_chu', 'user_chu@gmail.com', '추송림', '33275a8aa48ea918bd53a9181aa975f15ab0d0645398f5918a006d08675c1cb27d5c645dbd084eee56e675e25ba4019f2ecea37ca9e2995b49fcb12c096a032e', '2024-05-21 09:58:48', 0),
-(70, 'user_jin', 'user_jin@gmail.com', '박선진', '33275a8aa48ea918bd53a9181aa975f15ab0d0645398f5918a006d08675c1cb27d5c645dbd084eee56e675e25ba4019f2ecea37ca9e2995b49fcb12c096a032e', '2024-05-21 10:06:19', 0),
-(71, 'dlkang', 'dlkang@mail.com', '깨끗한 아기 캥거루', '33275a8aa48ea918bd53a9181aa975f15ab0d0645398f5918a006d08675c1cb27d5c645dbd084eee56e675e25ba4019f2ecea37ca9e2995b49fcb12c096a032e', '2024-05-21 10:46:18', 0);
+(70, 'user_jin', 'user_jin@gmail.com', '박선진', '33275a8aa48ea918bd53a9181aa975f15ab0d0645398f5918a006d08675c1cb27d5c645dbd084eee56e675e25ba4019f2ecea37ca9e2995b49fcb12c096a032e', '2024-05-21 10:06:19', 0);
 
 -- --------------------------------------------------------
 
@@ -438,7 +437,7 @@ INSERT INTO `qna_board` (`idx`, `status`, `userid`, `title`, `content`, `date`, 
 (73, 1, 'user25', '웹 디자인 강의', '웹 디자인 강의도 있나요?', '2024-05-13', 16),
 (76, 1, 'user28', '강의 노트', '강의 노트는 어디서 볼 수 있나요?', '2024-05-14', 14),
 (77, 1, 'user29', '오프라인 수업 여부', '오프라인 수업도 진행되나요?', '2024-05-15', 23),
-(94, 1, 'abab', '게임기획강의 문의', '게임기획에 대한 강의 증설가능한지요?', '2024-05-20', 4),
+(94, 0, 'abab', '게임기획강의 문의', '게임기획에 대한 강의 증설가능한지요?', '2024-05-20', 8),
 (97, 1, 'chu', '송림 질문', '질문입니당\r\n', '2024-05-20', 3);
 
 -- --------------------------------------------------------
@@ -470,7 +469,6 @@ INSERT INTO `qna_reply` (`idx`, `b_idx`, `content`, `date`) VALUES
 (71, NULL, '문의하세요', '2024-05-19'),
 (73, NULL, '네 웹디자인 강의를 제공하고있습니다.', '2024-05-19'),
 (76, NULL, '강의페이지를 확인하시면됩니다', '2024-05-19'),
-(94, NULL, '네', '2024-05-21'),
 (97, NULL, '네 하세요', '2024-05-20');
 
 -- --------------------------------------------------------
@@ -511,16 +509,6 @@ CREATE TABLE `review_reply` (
   `b_idx` int(11) NOT NULL,
   `content` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- 테이블의 덤프 데이터 `review_reply`
---
-
-INSERT INTO `review_reply` (`idx`, `b_idx`, `content`) VALUES
-(17, 60, '앞으로 더 좋은 강의로 찾아뵙겠습니다 ^^ 감사합니다~'),
-(18, 65, '공부를 더 열심히 하세요^^'),
-(19, 66, '감사합니다'),
-(20, 64, '감사합니당');
 
 -- --------------------------------------------------------
 
