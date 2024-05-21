@@ -8,18 +8,18 @@ $pid = $_POST['pid'];
 $userid = $_SESSION['UID'];
 $title = $_POST['title'];
 $content = $_POST['content'];
-// $date = $_POST['date'];
+
 // $star = intval($_POST['star']);
 
 
-  $sql = "INSERT INTO review_board (pid,userid,review_tit,content) VALUES (
+  $sql = "INSERT INTO review_board (pid,userid,review_tit,content,date) VALUES (
     '{$pid}',
     '{$userid}', 
     '{$title}', 
-    '{$content}'
+    '{$content}',
+    now()
     )";
 
-    echo $sql;
 
     if($mysqli->query($sql) === TRUE){
         echo "<script>
@@ -28,7 +28,7 @@ $content = $_POST['content'];
         </script>";
     } else{
       echo "<script>
-      alert('리뷰쓰기 실패');S
+      alert('리뷰쓰기 실패');
       history.back();
       </script>";
   }

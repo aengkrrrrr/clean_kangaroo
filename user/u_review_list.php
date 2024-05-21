@@ -96,13 +96,13 @@ while ($rs = $resultrb->fetch_object()) {
                 <img src="../images/user_profile1.png" alt="">
                 <p class="body4b"><?=$rview->title?></p>
                 <span class="body4b"><?= $rview->userid ?></span><br>
-                <div class="body4b rating" data-rate="<?= $rview->star; ?>">
+                <!-- <div class="body4b rating" data-rate="<?= $rview->star; ?>">
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>
                   <i class="fas fa-star"></i>	
-                </div>
+                </div> -->
               </div>
               <p class="body4b"><?= $rview->date; ?></p>
             </div>
