@@ -3,6 +3,8 @@ session_start();
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/admin/dbcon.php';
 include_once $_SERVER['DOCUMENT_ROOT'] . '/clean_kangaroo/user/user_check.php';
 
+header('Content-Type: application/json');  
+
 $pid = $_POST['pid'];
 $userid = $_SESSION['UID'];
 
@@ -32,8 +34,5 @@ if($result){
         echo json_encode($data);
     }
 }       
-
-
-
 
 ?>

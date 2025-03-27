@@ -97,7 +97,7 @@ $crow = $cresult->fetch_array();
           if ($pageNumber < $total_page) {
             if ($total_block > $block_num) {
               $next = $block_num * $block_ct + 1;
-              echo "<li class=\"page-item\"><a href=\"u_notice_list.php?pageNumber=$next\" class=\"page-item\">다음</a></li>";
+              echo "<li class=\"page-item\"><a href=\"u_notice_list.php?pageNumber=$next\" class=\"page-link\">다음</a></li>";
             }
             echo "<li class=\"page-item\"><a href=\"u_notice_list.php?pageNumber=$total_page\" class=\"page-link\">마지막</a></li>";
           }

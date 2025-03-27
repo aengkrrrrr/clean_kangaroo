@@ -62,11 +62,18 @@ $(window).scroll(function(){
 let cart = document.querySelector('.util_wrap .cart');
 let min_cart = document.querySelector('.min_cart_wrap');
 
+// cart.addEventListener('mouseenter',function(){
+// 	if($('.cart_quantity').text() !== '0'){
+// 		min_cart.style.display='block';
+// 	}
+// })
+
 cart.addEventListener('mouseenter',function(){
-	if($('.cart_quantity').text() !== '0'){
-		min_cart.style.display='block';
-		
-	}
+	if ($.trim($('.cart_quantity').text()) === '0' || $.trim($('.cart_quantity').text()) === '') {
+        min_cart.style.display = 'none';  // 내용이 없거나 0일 경우 min_cart를 숨긴다.
+    } else {
+        min_cart.style.display = 'block'; // 내용이 있으면 min_cart를 표시
+    }
 })
 min_cart.addEventListener('mouseleave',function(){
 	min_cart.style.display='none';

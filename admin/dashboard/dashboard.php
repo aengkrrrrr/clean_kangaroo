@@ -28,7 +28,7 @@ foreach($arr as $item){
 }
 
 //공지사항 출력
-$sql = "SELECT * FROM notice_board LIMIT 4";
+$sql = "SELECT * FROM notice_board ORDER BY date DESC LIMIT 4 ";
 $result = $mysqli->query($sql);
 while ($rs = $result->fetch_object()) {
   $rsArr[] = $rs;
@@ -54,7 +54,7 @@ foreach($saleArr as $price){
   <div class="dash_top_ct df">
         <div class="sale_wrap">
           <div class="dash_title df aic">
-            <h5 class="h5">매출현황</h5>
+            <h5 class="h5">매출현황(만원)</h5>
             
           </div>
           <div class="sale_ct">
@@ -83,19 +83,19 @@ foreach($saleArr as $price){
       <div class="board_ct">
         <table class="table">
           <tbody>
-          <?php
-          if(isset($rsArr)){
-            foreach($rsArr as $ra){
-          ?>
-        <tr>
-          <td colspan="5"><a href=""><?=$ra->title;?></a></td>
-          <td><?=$ra->date;?></td>
-          <td><?=$ra->hit;?></td>
-        </tr>
-        <?php
-            }
-          }
-        ?>
+              <?php
+              if(isset($rsArr)){
+                foreach($rsArr as $ra){
+              ?>
+            <tr>
+              <td colspan="5"><a href="../notice/notice_view.php?idx=<?=$ra->idx?>"><?=$ra->title;?></a></td>
+              <td><?=$ra->date;?></td>
+              <td><?=$ra->hit;?></td>
+            </tr>
+            <?php
+                }
+              }
+            ?>
           </tbody>
         </table>
       </div>

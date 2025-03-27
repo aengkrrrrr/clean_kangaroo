@@ -10,6 +10,8 @@ $pid = $_GET['pid'];
 $sql = "SELECT * FROM products WHERE pid = {$pid}";
 $result = $mysqli->query($sql);
 $row = mysqli_fetch_object($result);
+
+$product = json_encode($row);
 ?>
 <main>
   <!-- 강좌보기 - 송림 -->
@@ -253,26 +255,59 @@ $('.add_cart_btn').on('click', function(){
         userid: userid
     }
     console.log(data);
-  $.ajax({
-    url:'cart_insert.php',
-    async:false,
-    type: 'POST',
-    data:data,
-    dataType:'json',
-    error:function(){},
-    success:function(data){
-      console.log(data);                    
-      if(data.result == '중복'){
-          alert('이미 장바구니에 담았습니다.');                                            
-      } else if(data.result=='ok'){
-          alert('장바구니에 상품을 담았습니다.'); 
-          location.reload();   
-      } else{
-          alert('담기 실패!'); 
-      }
-    }
-  });
+    
+  // $.ajax({
+  //   url:'cart_insert.php',
+  //   async:false,
+  //   type: 'POST',
+  //   data:data,
+  //   dataType:'json',
+  //   error:function(){},
+  //   success:function(data){
+  //     console.log(data);                    
+  //     if(data.result == '중복'){
+  //         alert('이미 장바구니에 담았습니다.');                                            
+  //     } else if(data.result=='ok'){
+  //         alert('장바구니에 상품을 담았습니다.'); 
+  //         location.reload();   
+  //     } else{
+  //         alert('담기 실패!'); 
+  //     }
+  //   }
+  // });
+
+  // fetch로 AJAX 대체
+    fetch('cart_insert.php', {
+      method: 'POST',
+      headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: new URLSearchParams(data)
+    })
+    .then(response => response.text())  // 응답을 텍스트로 받음
+    .then(text => {
+        console.log(text);  // 서버에서 반환된 응답을 확인
+        try {
+            const data = JSON.parse(text);  // 수동으로 JSON 파싱 시도
+            console.log(data);  // 파싱된 데이터를 확인
+            if (data.result === '중복') {
+                alert('이미 장바구니에 담았습니다.');
+            } else if (data.result === 'ok') {
+                alert('장바구니에 상품을 담았습니다.');
+                location.reload();
+            } else {
+                alert('담기 실패!');
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+
 });
+
 </script>
 
 <?php

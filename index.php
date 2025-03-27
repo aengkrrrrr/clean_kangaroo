@@ -74,7 +74,7 @@ while ($rs = $resultrb->fetch_object()) {
         <li>
           <div class="countdown">
             <span class="card_title mb-4">
-              <span data-date="6/28/2024"></span>
+              <span data-date="6/28/2025"></span>
             </span>
             <div class="timer">
               <span id="days" class="value text-warning h4">00</span>
